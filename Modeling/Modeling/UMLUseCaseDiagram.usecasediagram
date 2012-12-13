@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="57a392a5-2ef7-4916-a07d-9b955b6b923b" name="UMLUseCaseDiagram" linkedPackageId="0ef14d26-867e-4f7a-a950-ea8d9f04a373" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
-  <profileInstances>
-    <packageHasProfileInstances Id="e8f5b861-4a06-4bea-9db5-8f76a81727f3">
-      <profileInstance Id="61ad7110-8629-4fb8-93ed-00cdf6fc45ca" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="74af5f40-a734-4874-bbc9-ed98be3e2c0d">
-      <profileInstance Id="d55e2950-f7ac-4c89-8989-a81074af8cfd" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <useCaseModelRootHasTypes>
       <actor Id="ae6d9f8b-8b9f-4b7b-babd-66bd019e4d83" name="Utilizador" isAbstract="false" isLeaf="false">
@@ -201,65 +187,65 @@
     <useCaseModelRootHasTypes>
       <useCase Id="66bf4ccc-ec98-4fc9-bb86-0d57e6e2a247" name="Criar Projeto" isAbstract="false" isLeaf="false">
         <elementDefinition Id="0c43cc19-8ef4-4771-8148-fd0f24eae962" />
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="46052ef3-1448-4856-aa15-ae683cc6ea00" name="Agrupar tarefas" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="cbe2e710-0c82-47fb-882f-41d3a15e49e2" />
         <additions>
-          <include Id="c98c42cd-0f2e-4d7c-bb20-f8182d98b3cc">
-            <useCaseMoniker Id="66bf4ccc-ec98-4fc9-bb86-0d57e6e2a247" LastKnownName="Criar Projeto" />
-            <elementDefinition Id="f48329e9-b152-4645-9cd8-0055b08766d8" />
+          <include Id="0d5e540f-11b0-4053-9ad5-27b41c597da1">
+            <useCaseMoniker Id="46052ef3-1448-4856-aa15-ae683cc6ea00" LastKnownName="Agrupar tarefas" />
+            <elementDefinition Id="67100383-bb4a-44f2-9bee-aa3f0db7ee94" />
           </include>
         </additions>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
+      <useCase Id="46052ef3-1448-4856-aa15-ae683cc6ea00" name="Agrupar tarefas" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cbe2e710-0c82-47fb-882f-41d3a15e49e2" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
       <useCase Id="ec07c436-aae3-4d7e-904c-8ce308f1fd3b" name="Criar tarefa" isAbstract="false" isLeaf="false">
         <elementDefinition Id="ef2977a3-2a8c-478b-8c20-54f5ccc7c834" />
-        <extendedCases>
-          <extend Id="f019a9a6-85f4-4d22-879f-00d2ffa2ee3d">
-            <useCaseMoniker Id="754455ad-1935-4467-9117-0f7766d71f43" LastKnownName="Organizar tarefa" />
-            <elementDefinition Id="b37ab591-047d-4ff6-8de2-961de7ef10af" />
-          </extend>
-        </extendedCases>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="754455ad-1935-4467-9117-0f7766d71f43" name="Organizar tarefa" isAbstract="false" isLeaf="false">
         <elementDefinition Id="3bc0ee91-cb42-40c2-8770-c33d2db66964" />
+        <extendedCases>
+          <extend Id="7a28faab-8938-415f-9ac9-d0ff864b1d0a">
+            <useCaseMoniker Id="ec07c436-aae3-4d7e-904c-8ce308f1fd3b" LastKnownName="Criar tarefa" />
+            <elementDefinition Id="de3c4452-17d4-49d3-8ddd-25a3ab3cccb1" />
+          </extend>
+        </extendedCases>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="9c85fed4-3075-4390-acbf-3ecd38222a22" name="Listar tarefa" isAbstract="false" isLeaf="false">
         <elementDefinition Id="bcb3a44f-16d8-4aa4-9f20-14baff561f13" />
-        <extendedCases>
-          <extend Id="3f559bf7-6d74-4d27-a457-47faee92a1b2">
-            <useCaseMoniker Id="4d92f1c1-9bb2-4772-9c74-2ea93042b60c" LastKnownName="Filtrar tarefa" />
-            <elementDefinition Id="32d47e6e-7cf1-4f38-9ed2-212f0a9b4907" />
-          </extend>
-        </extendedCases>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="4d92f1c1-9bb2-4772-9c74-2ea93042b60c" name="Filtrar tarefa" isAbstract="false" isLeaf="false">
         <elementDefinition Id="3ba1df2b-ddea-4c04-82c0-820b0c576329" />
-      </useCase>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <useCase Id="b8c6e9af-a3aa-4595-8676-716075044212" name="Visualizar projeto" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="52e8243d-d285-4648-b54f-e13c7fcebecf" />
         <extendedCases>
-          <extend Id="820fc623-9d79-4765-b914-c1295bcc5918">
-            <useCaseMoniker Id="c1954206-d9d8-4379-93f3-cc0d4fff582f" LastKnownName="Visualizar ações pendentes" />
-            <elementDefinition Id="07acd527-4be6-4115-b916-0cd96d94054f" />
+          <extend Id="d0733d0f-1cc8-495b-b714-2e2d74e5441f">
+            <useCaseMoniker Id="9c85fed4-3075-4390-acbf-3ecd38222a22" LastKnownName="Listar tarefa" />
+            <elementDefinition Id="7ca95b38-a649-49d5-8293-1c448ea186b1" />
           </extend>
         </extendedCases>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="c1954206-d9d8-4379-93f3-cc0d4fff582f" name="Visualizar ações pendentes" isAbstract="false" isLeaf="false">
+      <useCase Id="b8c6e9af-a3aa-4595-8676-716075044212" name="Visualizar projeto" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="52e8243d-d285-4648-b54f-e13c7fcebecf" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c1954206-d9d8-4379-93f3-cc0d4fff582f" name="Visualizar ações dependentes" isAbstract="false" isLeaf="false">
         <elementDefinition Id="5da0ae82-bd72-47b2-83dd-21b03f77d490" />
+        <extendedCases>
+          <extend Id="92ec74db-48cc-4d40-9900-0ef740afe1b5">
+            <useCaseMoniker Id="b8c6e9af-a3aa-4595-8676-716075044212" LastKnownName="Visualizar projeto" />
+            <elementDefinition Id="481e236e-b5e9-45e9-9209-d4b24c8c5f0b" />
+          </extend>
+        </extendedCases>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
@@ -300,5 +286,19 @@
   </packagedElements>
   <package Id="0ef14d26-867e-4f7a-a950-ea8d9f04a373" name="Modeling">
     <elementDefinition Id="cc547958-9d40-47d8-a9b3-91055f27cb87" />
+    <profileInstances>
+      <packageHasProfileInstances Id="e8f5b861-4a06-4bea-9db5-8f76a81727f3">
+        <profileInstance Id="61ad7110-8629-4fb8-93ed-00cdf6fc45ca" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="74af5f40-a734-4874-bbc9-ed98be3e2c0d">
+        <profileInstance Id="d55e2950-f7ac-4c89-8989-a81074af8cfd" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </useCaseModelRoot>
