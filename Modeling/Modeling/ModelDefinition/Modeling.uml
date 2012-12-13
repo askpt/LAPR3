@@ -1,0 +1,626 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="cc547958-9d40-47d8-a9b3-91055f27cb87"
+  name="Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="d21460cf-af24-4fa8-a79a-2e08f6b6fab1"
+        name="Utilizador"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="cb6df1bc-15e0-4f8a-800a-08f7fc3f81d8"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Criar Projeto"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="0c43cc19-8ef4-4771-8148-fd0f24eae962"
+              LastKnownName="Criar Projeto"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="65e269d5-4a80-4bf3-ad4c-1fea49e80b19"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7199d888-0883-455b-8321-f8d2dc7b83c3"
+                  name="Criar Projeto"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="90776abb-8c41-4ff0-80b1-781cba09e2ac"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Criar tarefa"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ef2977a3-2a8c-478b-8c20-54f5ccc7c834"
+              LastKnownName="Criar tarefa"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="766f2e0c-0385-47e9-82c1-fb763385c813"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e45017b8-9a98-4378-a40c-422dccc5a1e7"
+                  name="Criar tarefa"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9930b60e-2700-4d18-afaa-e60966f24200"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Listar tarefa"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="bcb3a44f-16d8-4aa4-9f20-14baff561f13"
+              LastKnownName="Listar tarefa"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4b7d2430-242b-4f74-867c-fad318a643a3"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8a2b573c-7989-4daf-9474-f3fa2f0940dc"
+                  name="Listar tarefa"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="715483a8-fece-4e17-bd94-9c15cb213e82"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Visualizar projeto"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="52e8243d-d285-4648-b54f-e13c7fcebecf"
+              LastKnownName="Visualizar projeto"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3b41f5d4-cb36-4cfe-89f6-94ca262c94c8"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="da7b45d0-1b21-4f84-986c-66d9424028ed"
+                  name="Visualizar projeto"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="cd668303-3e08-4cb2-9f12-0dad3708bd36"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Integrar listas tarefas"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="86b7dce9-efa8-4830-8c70-6415814391e7"
+              LastKnownName="Integrar listas tarefas"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d013ba52-15f3-43b5-ad85-2cf2ae92f6c3"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a7ac5316-2fb4-4595-8a4b-e3da467def5f"
+                  name="Integrar listas tarefas"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="cf490253-01ad-4790-98c8-68e69ae71319"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Importar ficheiro"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ed02d8e1-4835-4b8d-a57f-05a96f94da33"
+              LastKnownName="Importar ficheiro"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8c399765-f19f-448b-8f12-75d01d73cb6b"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f5cfec10-f072-4c68-b47e-273d7254050e"
+                  name="Importar ficheiro"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7508ebb4-4758-42ac-bc83-a149d9aeb349"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Exportar ficheiro"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b1b62832-3ef1-4b20-ab3b-ba663afe970f"
+              LastKnownName="Exportar ficheiro"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8b06868f-ffbc-431a-8e8e-6e5d4732461e"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ff2c9d6b-b92e-4501-9cf9-6bc47d769c9c"
+                  name="Exportar ficheiro"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1924fda1-dcdb-454a-91cf-d48da3d55920"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Inserir Informação"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6529338a-8547-496a-8f35-9063c43b7d3f"
+              LastKnownName="Inserir Informação"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a031d039-68a5-4a91-a443-17aee2cd6897"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7b55970c-2a95-4065-be6a-e8ee5f51aa60"
+                  name="Inserir Informação"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="954374db-f192-4fe3-8bf5-74c87ea67a23"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Modificar Informação"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8a7cc378-32bf-416d-bdde-961cea86c80e"
+              LastKnownName="Modificar Informação"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9f08d505-365f-4155-aa0d-a39e53a21721"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="138c6861-f132-4d09-a6fe-830b9ade6520"
+                  name="Modificar Informação"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="fe0cbe39-89a5-41fc-8441-0d4b4a74bcfd"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Eliminar Informação"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e0290b89-f36e-4baa-a0bc-4b9ebd3ed69c"
+              LastKnownName="Eliminar Informação"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ee1e7e5e-df7e-4632-9445-5d853df06a00"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="557d74b7-aab1-4f54-a7aa-cf967e16fe96"
+                  name="Eliminar Informação"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="eeab0e98-b643-42c1-9a61-f61b840935dc"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Listar Informação"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="dec04e12-343f-40a7-9db1-ce4b7005dda1"
+              LastKnownName="Listar Informação"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4d9729f7-7fa8-4585-80d2-dae4c0979fcf"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8958cba0-bd74-4e71-b0fb-c34ef6e779e5"
+                  name="Listar Informação"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0c43cc19-8ef4-4771-8148-fd0f24eae962"
+        name="Criar Projeto"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cbe2e710-0c82-47fb-882f-41d3a15e49e2"
+        name="Agrupar tarefas"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="f48329e9-b152-4645-9cd8-0055b08766d8">
+            <useCaseMoniker
+              Id="0c43cc19-8ef4-4771-8148-fd0f24eae962"
+              LastKnownName="Criar Projeto"
+              LastKnownLocation="Modeling.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ef2977a3-2a8c-478b-8c20-54f5ccc7c834"
+        name="Criar tarefa"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="b37ab591-047d-4ff6-8de2-961de7ef10af">
+            <useCaseMoniker
+              Id="3bc0ee91-cb42-40c2-8770-c33d2db66964"
+              LastKnownName="Organizar tarefa"
+              LastKnownLocation="Modeling.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3bc0ee91-cb42-40c2-8770-c33d2db66964"
+        name="Organizar tarefa"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bcb3a44f-16d8-4aa4-9f20-14baff561f13"
+        name="Listar tarefa"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="32d47e6e-7cf1-4f38-9ed2-212f0a9b4907">
+            <useCaseMoniker
+              Id="3ba1df2b-ddea-4c04-82c0-820b0c576329"
+              LastKnownName="Filtrar tarefa"
+              LastKnownLocation="Modeling.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3ba1df2b-ddea-4c04-82c0-820b0c576329"
+        name="Filtrar tarefa"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="52e8243d-d285-4648-b54f-e13c7fcebecf"
+        name="Visualizar projeto"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="07acd527-4be6-4115-b916-0cd96d94054f">
+            <useCaseMoniker
+              Id="5da0ae82-bd72-47b2-83dd-21b03f77d490"
+              LastKnownName="Visualizar ações pendentes"
+              LastKnownLocation="Modeling.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5da0ae82-bd72-47b2-83dd-21b03f77d490"
+        name="Visualizar ações pendentes"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="86b7dce9-efa8-4830-8c70-6415814391e7"
+        name="Integrar listas tarefas"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ed02d8e1-4835-4b8d-a57f-05a96f94da33"
+        name="Importar ficheiro"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b1b62832-3ef1-4b20-ab3b-ba663afe970f"
+        name="Exportar ficheiro"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6529338a-8547-496a-8f35-9063c43b7d3f"
+        name="Inserir Informação"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8a7cc378-32bf-416d-bdde-961cea86c80e"
+        name="Modificar Informação"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e0290b89-f36e-4baa-a0bc-4b9ebd3ed69c"
+        name="Eliminar Informação"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="dec04e12-343f-40a7-9db1-ce4b7005dda1"
+        name="Listar Informação"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
