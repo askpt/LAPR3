@@ -462,20 +462,13 @@
         Id="0c43cc19-8ef4-4771-8148-fd0f24eae962"
         name="Criar Projeto"
         isAbstract="false"
-        isLeaf="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="cbe2e710-0c82-47fb-882f-41d3a15e49e2"
-        name="Agrupar tarefas"
-        isAbstract="false"
         isLeaf="false">
         <additions>
           <include
-            Id="f48329e9-b152-4645-9cd8-0055b08766d8">
+            Id="67100383-bb4a-44f2-9bee-aa3f0db7ee94">
             <useCaseMoniker
-              Id="0c43cc19-8ef4-4771-8148-fd0f24eae962"
-              LastKnownName="Criar Projeto"
+              Id="cbe2e710-0c82-47fb-882f-41d3a15e49e2"
+              LastKnownName="Agrupar tarefas"
               LastKnownLocation="Modeling.uml" />
           </include>
         </additions>
@@ -483,64 +476,54 @@
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
+        Id="cbe2e710-0c82-47fb-882f-41d3a15e49e2"
+        name="Agrupar tarefas"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
         Id="ef2977a3-2a8c-478b-8c20-54f5ccc7c834"
         name="Criar tarefa"
         isAbstract="false"
-        isLeaf="false">
-        <extendedCases>
-          <extend
-            Id="b37ab591-047d-4ff6-8de2-961de7ef10af">
-            <useCaseMoniker
-              Id="3bc0ee91-cb42-40c2-8770-c33d2db66964"
-              LastKnownName="Organizar tarefa"
-              LastKnownLocation="Modeling.uml" />
-          </extend>
-        </extendedCases>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
         Id="3bc0ee91-cb42-40c2-8770-c33d2db66964"
         name="Organizar tarefa"
         isAbstract="false"
-        isLeaf="false" />
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="de3c4452-17d4-49d3-8ddd-25a3ab3cccb1">
+            <useCaseMoniker
+              Id="ef2977a3-2a8c-478b-8c20-54f5ccc7c834"
+              LastKnownName="Criar tarefa"
+              LastKnownLocation="Modeling.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
         Id="bcb3a44f-16d8-4aa4-9f20-14baff561f13"
         name="Listar tarefa"
         isAbstract="false"
-        isLeaf="false">
-        <extendedCases>
-          <extend
-            Id="32d47e6e-7cf1-4f38-9ed2-212f0a9b4907">
-            <useCaseMoniker
-              Id="3ba1df2b-ddea-4c04-82c0-820b0c576329"
-              LastKnownName="Filtrar tarefa"
-              LastKnownLocation="Modeling.uml" />
-          </extend>
-        </extendedCases>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
         Id="3ba1df2b-ddea-4c04-82c0-820b0c576329"
         name="Filtrar tarefa"
         isAbstract="false"
-        isLeaf="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="52e8243d-d285-4648-b54f-e13c7fcebecf"
-        name="Visualizar projeto"
-        isAbstract="false"
         isLeaf="false">
         <extendedCases>
           <extend
-            Id="07acd527-4be6-4115-b916-0cd96d94054f">
+            Id="7ca95b38-a649-49d5-8293-1c448ea186b1">
             <useCaseMoniker
-              Id="5da0ae82-bd72-47b2-83dd-21b03f77d490"
-              LastKnownName="Visualizar ações pendentes"
+              Id="bcb3a44f-16d8-4aa4-9f20-14baff561f13"
+              LastKnownName="Listar tarefa"
               LastKnownLocation="Modeling.uml" />
           </extend>
         </extendedCases>
@@ -548,10 +531,27 @@
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
-        Id="5da0ae82-bd72-47b2-83dd-21b03f77d490"
-        name="Visualizar ações pendentes"
+        Id="52e8243d-d285-4648-b54f-e13c7fcebecf"
+        name="Visualizar projeto"
         isAbstract="false"
         isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5da0ae82-bd72-47b2-83dd-21b03f77d490"
+        name="Visualizar ações dependentes"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="481e236e-b5e9-45e9-9209-d4b24c8c5f0b">
+            <useCaseMoniker
+              Id="52e8243d-d285-4648-b54f-e13c7fcebecf"
+              LastKnownName="Visualizar projeto"
+              LastKnownLocation="Modeling.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
