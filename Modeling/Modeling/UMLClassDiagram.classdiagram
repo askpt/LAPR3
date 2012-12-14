@@ -1,23 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="77e20286-0c58-49fd-9c1b-628fa80da708" name="UMLClassDiagram" linkedPackageId="d7bd9943-b8f6-4530-be31-735f2cc4a502" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="f000fe0c-9c3c-4f75-bbb4-d1de2972761d">
-      <profileInstance Id="24d9afc2-782e-42fd-9e16-ec7e61eb345b" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="aec90844-1e27-44a4-9ecd-da44a30f0eea">
-      <profileInstance Id="3f1223f7-7f7d-4289-a918-2d99bf32d567" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="d4bd2063-0c31-4ea7-848c-114f64c272dc" name="Tarefa" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="c281d4aa-64ed-44f2-946f-bdaf75775812" />
+        <targetEnds>
+          <association Id="64f93ed7-940b-49d6-b26e-ba238a828a4d" isDerived="false" sourceEndRoleName="Tarefa" targetEndRoleName="Informacao" isLeaf="false" isAbstract="false">
+            <classMoniker Id="f7351355-9a2a-41f1-ab17-f608f0266142" LastKnownName="Informacao" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="76533242-fefa-44bf-809e-59190628c554" name="Tarefa" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="6ba85c1a-5127-4845-a72a-ba59d1ce140b" name="Lower" value="0">
+                      <elementDefinition Id="ef38c768-b7c7-43c4-8766-595cab9348c9" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="f1e3f009-9ae6-45a5-b8be-b6023c2eee31" name="Upper" value="1">
+                      <elementDefinition Id="afd7e26c-135c-48df-9511-cf71992c14a1" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="23550a11-bfab-47da-aafe-1ee62361d1a2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c7d9f8a8-56eb-4b95-8273-3c10f8e5c031" name="Informacao" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="81f5d7af-53e6-4770-8f3f-cf5486fd0eaa" name="Lower" value="1">
+                      <elementDefinition Id="4c8b341d-ac1b-4e2e-812b-39079005c2bf" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="14eb2ee6-e907-402e-aebf-56de99a2f089" name="Upper" value="N">
+                      <elementDefinition Id="db17ed58-97f0-4b9e-990e-08d71c0e5a92" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="1f3bac6a-adc9-4d12-99ae-be41bbc523a0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b5441753-46ce-4c54-9057-615a0d301b98" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="fec49d9c-735d-4d0f-8267-2547c5d893ae" name="cod_tarefa" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="8ef867f5-d6cb-4ffc-bf6d-127b4a92912b" />
@@ -100,13 +124,23 @@
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="3ea59664-e5c1-456a-bcbf-4ab778929bb9" name="Projeto" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="fc48dd42-980b-4864-a453-9126d9c4b0d6" name="Lower" value="0">
+                      <elementDefinition Id="62aa58df-ec40-459e-a25a-bd1fcfceb367" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="04595a56-00af-4e4c-a1a3-69f9216885f4" name="Upper" value="1">
+                      <elementDefinition Id="475ab6d0-e61e-4a0c-8caf-bc7fc05de435" />
+                    </literalString>
+                  </upperValueInternal>
                   <elementDefinition Id="e9a32913-0c83-40f7-a8ad-c30d1d0d0993" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd Id="f25de0d5-37b3-4b41-8a98-0a74945a522c" name="Tarefa" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <lowerValueInternal>
-                    <literalString Id="372b972d-9c3d-452d-8f5a-ed41a59f2c94" name="Lower" value="N">
+                    <literalString Id="372b972d-9c3d-452d-8f5a-ed41a59f2c94" name="Lower" value="1">
                       <elementDefinition Id="b606fb5f-9f6e-4338-b6c5-e681b205287e" />
                     </literalString>
                   </lowerValueInternal>
@@ -162,8 +196,41 @@
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f7351355-9a2a-41f1-ab17-f608f0266142" name="Informacao" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d9d465dc-2b76-4089-90f3-e0a781e857f0" />
+        <ownedAttributesInternal>
+          <property Id="b716544a-79ef-4fd3-a3ce-175f8edb228c" name="cod_informacao" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c55d396d-ecc6-484d-a36d-cebf49e60382" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="56bf4c4e-dd34-4ff8-97e4-9cd19fd4c290" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="4e8bcc38-d65f-45a1-ace6-06a26fec60e4" name="descricao" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f4997e7b-866a-45e1-9a4d-517cbcb19dac" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="db7ce673-86a1-42e4-a775-edd7134dc00d" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="d7bd9943-b8f6-4530-be31-735f2cc4a502" name="Modeling">
     <elementDefinition Id="cc547958-9d40-47d8-a9b3-91055f27cb87" />
+    <profileInstances>
+      <packageHasProfileInstances Id="f000fe0c-9c3c-4f75-bbb4-d1de2972761d">
+        <profileInstance Id="24d9afc2-782e-42fd-9e16-ec7e61eb345b" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="aec90844-1e27-44a4-9ecd-da44a30f0eea">
+        <profileInstance Id="3f1223f7-7f7d-4289-a918-2d99bf32d567" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>
