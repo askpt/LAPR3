@@ -229,7 +229,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="ed02d8e1-4835-4b8d-a57f-05a96f94da33"
-              LastKnownName="Importar ficheiro"
+              LastKnownName="Importar tarefa"
               LastKnownLocation="Modeling.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -268,7 +268,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="b1b62832-3ef1-4b20-ab3b-ba663afe970f"
-              LastKnownName="Exportar ficheiro"
+              LastKnownName="Exportar tarefa"
               LastKnownLocation="Modeling.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -454,6 +454,84 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="7e38bb6f-a8e8-4de1-ad5e-15a0c456b7c7"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Visualizar ações dependentes"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="5da0ae82-bd72-47b2-83dd-21b03f77d490"
+              LastKnownName="Visualizar ações dependentes"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e066b64a-1eae-4e72-befa-e6736f590dcd"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="98c42078-6909-45be-9452-ba5817258ba5"
+                  name="Visualizar ações dependentes"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="75c1fcd2-cb35-41ae-8283-e9398f8a924c"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Visualizar ações delegadas"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="edc82c37-540d-459a-83ba-cd0830d07638"
+              LastKnownName="Visualizar ações delegadas"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="643c0ba7-74a2-4fb3-a253-e323038658f6"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="358d48ef-3840-4bb0-80cd-b3828570d564"
+                  name="Visualizar ações delegadas"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </actor>
     </packageHasNamedElement>
@@ -493,17 +571,7 @@
         Id="3bc0ee91-cb42-40c2-8770-c33d2db66964"
         name="Organizar tarefa"
         isAbstract="false"
-        isLeaf="false">
-        <extendedCases>
-          <extend
-            Id="de3c4452-17d4-49d3-8ddd-25a3ab3cccb1">
-            <useCaseMoniker
-              Id="ef2977a3-2a8c-478b-8c20-54f5ccc7c834"
-              LastKnownName="Criar tarefa"
-              LastKnownLocation="Modeling.uml" />
-          </extend>
-        </extendedCases>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -517,17 +585,7 @@
         Id="3ba1df2b-ddea-4c04-82c0-820b0c576329"
         name="Filtrar tarefa"
         isAbstract="false"
-        isLeaf="false">
-        <extendedCases>
-          <extend
-            Id="7ca95b38-a649-49d5-8293-1c448ea186b1">
-            <useCaseMoniker
-              Id="bcb3a44f-16d8-4aa4-9f20-14baff561f13"
-              LastKnownName="Listar tarefa"
-              LastKnownLocation="Modeling.uml" />
-          </extend>
-        </extendedCases>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -563,14 +621,14 @@
     <packageHasNamedElement>
       <useCase
         Id="ed02d8e1-4835-4b8d-a57f-05a96f94da33"
-        name="Importar ficheiro"
+        name="Importar tarefa"
         isAbstract="false"
         isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
         Id="b1b62832-3ef1-4b20-ab3b-ba663afe970f"
-        name="Exportar ficheiro"
+        name="Exportar tarefa"
         isAbstract="false"
         isLeaf="false" />
     </packageHasNamedElement>
@@ -1089,6 +1147,23 @@
           </property>
         </ownedAttributesInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="edc82c37-540d-459a-83ba-cd0830d07638"
+        name="Visualizar ações delegadas"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="e3b174d1-0d59-4c83-90a1-b7fd76a8b87d">
+            <useCaseMoniker
+              Id="52e8243d-d285-4648-b54f-e13c7fcebecf"
+              LastKnownName="Visualizar projeto"
+              LastKnownLocation="Modeling.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
