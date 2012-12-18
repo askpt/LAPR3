@@ -193,6 +193,12 @@
               <referencedTypeMoniker Id="29d61c9e-e116-4f9d-af2e-bc07ffe0b954" LastKnownName="data" />
             </type_NamedElement>
           </property>
+          <property Id="7b4a4489-76bc-48c4-bb74-78b8ee88cb43" name="Lista_tarefas" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0a70d728-fbee-4159-a84b-b50490114792" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="453b2b3b-f213-48dd-bbd4-d08a7f0e1ba0" LastKnownName="lista" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -215,6 +221,11 @@
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="453b2b3b-f213-48dd-bbd4-d08a7f0e1ba0" name="lista" isAbstract="false" isLeaf="false" cachedFullName="lista">
+        <elementDefinition Id="19e8b65e-4491-485e-9a0f-96fee77c6824" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="d7bd9943-b8f6-4530-be31-735f2cc4a502" name="Modeling">
     <elementDefinition Id="cc547958-9d40-47d8-a9b3-91055f27cb87" />
