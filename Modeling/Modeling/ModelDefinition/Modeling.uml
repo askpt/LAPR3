@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
   dslVersion="1.0.0.0"
   Id="cc547958-9d40-47d8-a9b3-91055f27cb87"
   name="Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -522,6 +522,84 @@
                 <memberEnd
                   Id="358d48ef-3840-4bb0-80cd-b3828570d564"
                   name="Visualizar ações delegadas"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f0b7bcd9-d7e4-4fbc-b269-a4c73f14a594"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Alterar Tarefa"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d45c8618-4b69-499c-8764-df434bfbd24c"
+              LastKnownName="Alterar Tarefa"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c1f3fba5-d0ae-4b02-82a3-9f8c5efcc98f"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="690743fb-bf18-4171-a6f3-b6c1e8260418"
+                  name="Alterar Tarefa"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="01c5ea2c-4690-4207-9de5-2d5fedc4a544"
+            isDerived="false"
+            sourceEndRoleName="Utilizador"
+            targetEndRoleName="Integrar listas de tarefas"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="148efecb-0f6a-4150-b911-8ba0fa03ceec"
+              LastKnownName="Integrar listas de tarefas"
+              LastKnownLocation="Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="531798c2-7428-4e71-8810-fd6a777d26db"
+                  name="Utilizador"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ca21d0d7-b9bc-41c1-acbc-0bf76060872f"
+                  name="Integrar listas de tarefas"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -1098,6 +1176,24 @@
                 LastKnownLocation="Modeling.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="0a70d728-fbee-4159-a84b-b50490114792"
+            name="Lista_tarefas"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="19e8b65e-4491-485e-9a0f-96fee77c6824"
+                LastKnownName="lista"
+                LastKnownLocation="Modeling.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
@@ -1164,6 +1260,252 @@
           </extend>
         </extendedCases>
       </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d45c8618-4b69-499c-8764-df434bfbd24c"
+        name="Alterar Tarefa"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="148efecb-0f6a-4150-b911-8ba0fa03ceec"
+        name="Integrar listas de tarefas"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="19e8b65e-4491-485e-9a0f-96fee77c6824"
+        name="lista" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="943d0a6b-a7ab-4507-a908-e7e0c8abcff8"
+        name="Activity1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="ae5032c3-0ea8-4d2c-89b2-7b232d3470a2"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0abc1f6e-c8cc-4ae9-93c9-c0b0f6c07a7d"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="3d5f58ea-1668-45d8-b761-56f78b73d1ad"
+                  LastKnownName="Inserir valores projeto"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <objectNode
+            Id="fd2575a0-6e39-4681-9b47-db4fe1c568b1"
+            name="Projeto"
+            isLeaf="false"
+            ordering="Unordered"
+            isControlType="false">
+            <upperBound>
+              <literalInteger
+                Id="81c049ec-fa17-4808-bf72-52dea06419ad"
+                name="2147483647"
+                value="2147483647" />
+            </upperBound>
+          </objectNode>
+          <opaqueAction
+            Id="3d5f58ea-1668-45d8-b761-56f78b73d1ad"
+            name="Inserir valores projeto"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="3b32a67e-aff1-4240-989e-d04b5860bd01"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="c4c78667-7757-4166-aff2-e60d907a032b"
+                  LastKnownName="Join1"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <objectNode
+            Id="1d676845-0b60-41a5-b8a3-7acec2aacdb8"
+            name="Tarefa"
+            isLeaf="false"
+            ordering="Unordered"
+            isControlType="false">
+            <upperBound>
+              <literalInteger
+                Id="2a0480c1-e425-42cb-be23-92470515deda"
+                name="2147483647"
+                value="2147483647" />
+            </upperBound>
+          </objectNode>
+          <decisionNode
+            Id="a7f8662a-b621-4c3c-a4d5-e4907fbd7647"
+            name="Usar tarefa existente"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b643d960-91b7-46c5-ac62-7a870528a823"
+                guard="Não usar a tarefa existente"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="2095e3f9-db5d-49ec-8683-b8c00c30d294"
+                  LastKnownName="Procurar informação"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="f7659e69-818f-4373-b8af-3f6751099f88"
+                guard="Usar a tarefa existente"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="7c7c43ca-759f-4f22-ab9f-2105f04bca40"
+                  LastKnownName="Busca tarefa"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <objectNode
+            Id="3e561488-4883-4f2d-af7d-c3948505ce05"
+            name="Informação"
+            isLeaf="false"
+            ordering="Unordered"
+            isControlType="false">
+            <upperBound>
+              <literalInteger
+                Id="6efeb76a-883f-4a17-8d19-b9b0fed1f54e"
+                name="2147483647"
+                value="2147483647" />
+            </upperBound>
+          </objectNode>
+          <opaqueAction
+            Id="2095e3f9-db5d-49ec-8683-b8c00c30d294"
+            name="Procurar informação"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="928af6f1-bc97-49f1-b58e-e409ae44457e"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="53a8e4c3-8565-41c6-ac3a-c4f78cdc2c20"
+                  LastKnownName="Criar tarefa"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="7c7c43ca-759f-4f22-ab9f-2105f04bca40"
+            name="Busca tarefa"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="08fcbaa9-d5a3-4dd3-82cd-a5a4df26a431"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="eaf27889-7d70-4ec4-8f10-c908aa7179d1"
+                  LastKnownName="Adicionar tarefa"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="53a8e4c3-8565-41c6-ac3a-c4f78cdc2c20"
+            name="Criar tarefa"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="59d56086-08a9-4698-88f0-3f6c3300a90a"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="eaf27889-7d70-4ec4-8f10-c908aa7179d1"
+                  LastKnownName="Adicionar tarefa"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="eaf27889-7d70-4ec4-8f10-c908aa7179d1"
+            name="Adicionar tarefa"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b22229c5-489d-4681-881d-7d2d1855a412"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="dc09cca1-fb9a-4e27-91da-222ec40f468a"
+                  LastKnownName="Organizar tarefa"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="dc09cca1-fb9a-4e27-91da-222ec40f468a"
+            name="Organizar tarefa"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5bdf28c1-59b8-4bd0-8c77-d9865b5345df"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="3586a03d-8aec-4051-af40-595ab145beec"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="3586a03d-8aec-4051-af40-595ab145beec"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="2fe66714-ff50-47e7-8bfd-cfb0def0ffc7"
+                guard="Não adicionar mais tarefas"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="9e1bbb6f-fb33-4c4d-befd-b9e2bd54cd5e"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="5b0a5b93-070b-4007-9007-34ee6792c325"
+                guard="Adicionar mais tarefas"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="c4c78667-7757-4166-aff2-e60d907a032b"
+                  LastKnownName="Join1"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <activityFinalNode
+            Id="9e1bbb6f-fb33-4c4d-befd-b9e2bd54cd5e"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <joinNode
+            Id="c4c78667-7757-4166-aff2-e60d907a032b"
+            name="Join1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9b3a9a85-6639-4938-891d-591647b03758"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="a7f8662a-b621-4c3c-a4d5-e4907fbd7647"
+                  LastKnownName="Usar tarefa existente"
+                  LastKnownLocation="Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+        </nodes>
+      </activity>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

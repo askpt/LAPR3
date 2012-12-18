@@ -197,6 +197,38 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="75c1fcd2-cb35-41ae-8283-e9398f8a924c" />
           </association>
+          <association Id="253a6a08-8e27-4bbe-99b5-1788d62954d8" isDerived="false" sourceEndRoleName="Utilizador" targetEndRoleName="Alterar Tarefa" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1838d27e-4df1-4c93-a271-510b9db23741" LastKnownName="Alterar Tarefa" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d3fa898b-9e00-4934-8064-f4d6c1ed6b0f" name="Utilizador" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c1f3fba5-d0ae-4b02-82a3-9f8c5efcc98f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="51f71d2a-e4b0-4d1e-abe6-d540ea7174e9" name="Alterar Tarefa" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="690743fb-bf18-4171-a6f3-b6c1e8260418" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f0b7bcd9-d7e4-4fbc-b269-a4c73f14a594" />
+          </association>
+          <association Id="43eedac4-be63-486c-8569-6db18164f2f8" isDerived="false" sourceEndRoleName="Utilizador" targetEndRoleName="Integrar listas de tarefas" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="b47c7796-f654-4adf-b682-ace725d27100" LastKnownName="Integrar listas de tarefas" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6201dbb8-2d85-47ec-9e2c-d214d7c6b712" name="Utilizador" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="531798c2-7428-4e71-8810-fd6a777d26db" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1c0c91ae-5589-4670-b501-24856fbe651d" name="Integrar listas de tarefas" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ca21d0d7-b9bc-41c1-acbc-0bf76060872f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="01c5ea2c-4690-4207-9de5-2d5fedc4a544" />
+          </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
@@ -281,6 +313,16 @@
             <elementDefinition Id="e3b174d1-0d59-4c83-90a1-b7fd76a8b87d" />
           </extend>
         </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1838d27e-4df1-4c93-a271-510b9db23741" name="Alterar Tarefa" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d45c8618-4b69-499c-8764-df434bfbd24c" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b47c7796-f654-4adf-b682-ace725d27100" name="Integrar listas de tarefas" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="148efecb-0f6a-4150-b911-8ba0fa03ceec" />
       </useCase>
     </useCaseModelRootHasTypes>
   </packagedElements>
