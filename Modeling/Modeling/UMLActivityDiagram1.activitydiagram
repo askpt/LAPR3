@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="f54905b3-3309-4383-a277-581c52e05996" name="Activity1" linkedPackageId="9d52b1dd-a396-4ef2-a133-210243fec319" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="ce3a01b7-7ea0-4eec-9743-18ff081c991e">
-      <profileInstance Id="886271f7-d3d3-4f0e-8b93-07bd6abb76cd" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="e62c95ef-e5fd-4f5a-96c5-c505f43e9089">
-      <profileInstance Id="a781b212-a59e-462f-b5cc-85ed7cf5f71b" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="f54905b3-3309-4383-a277-581c52e05996" name="Activity1" linkedPackageId="9d52b1dd-a396-4ef2-a133-210243fec319" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
   <packagedElements>
     <activityRootModelHasActivity>
       <activity Id="5ff657cd-5941-448a-bebf-54066c1291d2" name="Activity1" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
@@ -23,7 +9,7 @@
             <elementDefinition Id="ae5032c3-0ea8-4d2c-89b2-7b232d3470a2" />
             <flowNodeTargets>
               <controlFlow Id="f72d7da3-f488-44f9-beae-fbe875930b56" isLeaf="false">
-                <opaqueActionMoniker Id="7000d480-1e93-42c2-8d3b-021c58e47a07" LastKnownName="Inserir valores projeto" />
+                <opaqueActionMoniker Id="7000d480-1e93-42c2-8d3b-021c58e47a07" LastKnownName="Inserir atributos específicos do projeto" />
                 <elementDefinition Id="0abc1f6e-c8cc-4ae9-93c9-c0b0f6c07a7d" />
               </controlFlow>
             </flowNodeTargets>
@@ -36,7 +22,7 @@
               </literalInteger>
             </upperBound>
           </objectNode>
-          <opaqueAction Id="7000d480-1e93-42c2-8d3b-021c58e47a07" name="Inserir valores projeto" isLeaf="false">
+          <opaqueAction Id="7000d480-1e93-42c2-8d3b-021c58e47a07" name="Inserir atributos específicos do projeto" isLeaf="false">
             <elementDefinition Id="3d5f58ea-1668-45d8-b761-56f78b73d1ad" />
             <flowNodeTargets>
               <controlFlow Id="82c32332-a739-454b-b7db-01e8c7b5d192" isLeaf="false">
@@ -61,7 +47,7 @@
                 <elementDefinition Id="b643d960-91b7-46c5-ac62-7a870528a823" />
               </controlFlow>
               <controlFlow Id="026f4d13-8539-4449-9f74-f5f7535b6e8c" guard="Usar a tarefa existente" isLeaf="false">
-                <opaqueActionMoniker Id="e056c816-5c43-4215-8048-2e8ca0a8a03c" LastKnownName="Busca tarefa" />
+                <opaqueActionMoniker Id="e056c816-5c43-4215-8048-2e8ca0a8a03c" LastKnownName="Obtem tarefa" />
                 <elementDefinition Id="f7659e69-818f-4373-b8af-3f6751099f88" />
               </controlFlow>
             </flowNodeTargets>
@@ -83,11 +69,11 @@
               </controlFlow>
             </flowNodeTargets>
           </opaqueAction>
-          <opaqueAction Id="e056c816-5c43-4215-8048-2e8ca0a8a03c" name="Busca tarefa" isLeaf="false">
+          <opaqueAction Id="e056c816-5c43-4215-8048-2e8ca0a8a03c" name="Obtem tarefa" isLeaf="false">
             <elementDefinition Id="7c7c43ca-759f-4f22-ab9f-2105f04bca40" />
             <flowNodeTargets>
               <controlFlow Id="b9e37647-da13-49f6-a97e-b5a52ed94e5e" isLeaf="false">
-                <opaqueActionMoniker Id="1f7fac58-733d-4ee0-925a-98dc1295632e" LastKnownName="Adicionar tarefa" />
+                <opaqueActionMoniker Id="1f7fac58-733d-4ee0-925a-98dc1295632e" LastKnownName="Associar tarefa ao projeto" />
                 <elementDefinition Id="08fcbaa9-d5a3-4dd3-82cd-a5a4df26a431" />
               </controlFlow>
             </flowNodeTargets>
@@ -96,21 +82,21 @@
             <elementDefinition Id="53a8e4c3-8565-41c6-ac3a-c4f78cdc2c20" />
             <flowNodeTargets>
               <controlFlow Id="c03cdd2f-656f-44eb-b85e-fcee9d105d38" isLeaf="false">
-                <opaqueActionMoniker Id="1f7fac58-733d-4ee0-925a-98dc1295632e" LastKnownName="Adicionar tarefa" />
+                <opaqueActionMoniker Id="1f7fac58-733d-4ee0-925a-98dc1295632e" LastKnownName="Associar tarefa ao projeto" />
                 <elementDefinition Id="59d56086-08a9-4698-88f0-3f6c3300a90a" />
               </controlFlow>
             </flowNodeTargets>
           </opaqueAction>
-          <opaqueAction Id="1f7fac58-733d-4ee0-925a-98dc1295632e" name="Adicionar tarefa" isLeaf="false">
+          <opaqueAction Id="1f7fac58-733d-4ee0-925a-98dc1295632e" name="Associar tarefa ao projeto" isLeaf="false">
             <elementDefinition Id="eaf27889-7d70-4ec4-8f10-c908aa7179d1" />
             <flowNodeTargets>
               <controlFlow Id="d3a6606c-3f85-4406-98ad-fd6fb1239e89" isLeaf="false">
-                <opaqueActionMoniker Id="3474a9d4-ec05-425c-a223-c58a2219466e" LastKnownName="Organizar tarefa" />
+                <opaqueActionMoniker Id="3474a9d4-ec05-425c-a223-c58a2219466e" LastKnownName="Organizar lista de tarefas" />
                 <elementDefinition Id="b22229c5-489d-4681-881d-7d2d1855a412" />
               </controlFlow>
             </flowNodeTargets>
           </opaqueAction>
-          <opaqueAction Id="3474a9d4-ec05-425c-a223-c58a2219466e" name="Organizar tarefa" isLeaf="false">
+          <opaqueAction Id="3474a9d4-ec05-425c-a223-c58a2219466e" name="Organizar lista de tarefas" isLeaf="false">
             <elementDefinition Id="dc09cca1-fb9a-4e27-91da-222ec40f468a" />
             <flowNodeTargets>
               <controlFlow Id="514dca81-e90c-4ce3-9468-c9b19b520cd3" isLeaf="false">
@@ -150,5 +136,19 @@
   </packagedElements>
   <package Id="9d52b1dd-a396-4ef2-a133-210243fec319" name="Modeling">
     <elementDefinition Id="cc547958-9d40-47d8-a9b3-91055f27cb87" />
+    <profileInstances>
+      <packageHasProfileInstances Id="ce3a01b7-7ea0-4eec-9743-18ff081c991e">
+        <profileInstance Id="886271f7-d3d3-4f0e-8b93-07bd6abb76cd" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="e62c95ef-e5fd-4f5a-96c5-c505f43e9089">
+        <profileInstance Id="a781b212-a59e-462f-b5cc-85ed7cf5f71b" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </activityRootModel>
