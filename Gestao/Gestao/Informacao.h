@@ -18,18 +18,18 @@ private:
 	string descricao;
 	Data dataInsercao;
 	static int ID;
-
+	
+	void setCodInformacao();
 
 public:
 	Informacao();
-	Informacao(int codInformacao, string descricao);
+	Informacao(string descricao);
 	Informacao(const Informacao &i);
 	~Informacao();
 
 	int getCodInformacao() const;
 	string getDescricao() const;
 
-	void setCodInformacao(int codInf);
 	void setDescricao(string desc);
 
 	virtual Informacao *clone() const;
