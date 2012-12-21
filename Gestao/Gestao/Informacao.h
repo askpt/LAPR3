@@ -24,7 +24,6 @@ public:
 	Informacao();
 	Informacao(int codInformacao, string descricao);
 	Informacao(const Informacao &i);
-
 	~Informacao();
 
 	int getCodInformacao() const;
@@ -105,7 +104,7 @@ void Informacao::setCodInformacao()
 
 
 /**
- * Metodo de atribuicao de um descricao da informacao.
+ * Metodo de atribuicao de uma descricao a informacao.
  * @param desc descricao da informacao.
  */
 void Informacao::setDescricao(string desc)
@@ -127,7 +126,7 @@ void Informacao::escreve(ostream &out)
 /**
  * Sobrecarga do operador stream out.
  * @param out object stream out.
- * @param i objecto informacao.
+ * @param i objecto Informacao.
  */
 ostream & operator << (ostream &out, const Informacao &i)
 {
