@@ -51,12 +51,13 @@ int binConvert(char *string)
 	}
 }*/
 
-int lerFicheiro(tarefa *tar)
+int lerFicheiro(tarefa **tar)
 {
-	tarefa *temp = tar;
+	tarefa *temp = *tar;
 	int tamanho = 0;
 	FILE *ficheiro;
 	char *strTemp, *str;
+	int i;
 
 	strTemp=(char *)malloc(sizeof(char)*150);
 
@@ -74,28 +75,27 @@ int lerFicheiro(tarefa *tar)
 		if(strTemp != NULL)
 		{
 			//printf("%s\n", strTemp);
-			temp = (tarefa *)realloc(tar, sizeof(tarefa)*(tamanho+2));
+			temp = (tarefa *)realloc(*tar, sizeof(tarefa)*(tamanho+2));
 			if(temp == NULL)
 			{
 				printf("Erro na alocacao de memoria");
 
 				return 0;
 			}
-			tar=temp;
+			*tar=temp;
 
 			str = strtok(strTemp, ",");
-			tar[tamanho].numeroAcao = atoi(str);
+			(*tar)[tamanho].numeroAcao = atoi(str);
 
 			str = strtok(NULL, ",");
-			strncpy(tar[tamanho].nomeAcao, str, 50);
+			strncpy((*tar)[tamanho].nomeAcao, str, 50);
 		
 			str = strtok(NULL, ",");
 
-			tar[tamanho].prioAcao = atoi(str);
+			(*tar)[tamanho].prioAcao = atoi(str);
 			str = strtok(NULL, ",");
-			tar[tamanho].contexto = binConvert(str);
+			(*tar)[tamanho].contexto = binConvert(str);
 
-			printf("%d - %s - %d - %X\n", tar[tamanho].numeroAcao, tar[tamanho].nomeAcao, tar[tamanho].prioAcao, tar[tamanho].contexto);
 			tamanho++;
 		}
 		
@@ -109,19 +109,12 @@ int main()
 {
 	tarefa *tar = (tarefa *)malloc(sizeof(tarefa));
 	int i;
-	int tamanho = lerFicheiro(tar);
-
-	printf("%d\n", sizeof(tarefa));
+	int tamanho = lerFicheiro(&tar);
 
 	for (i = 0; i < tamanho; ++i)
 	{
-		printf("%d\n", tar[i].numeroAcao);
+		printf("%d, %s, %d, %X\n", tar[i].numeroAcao, tar[i].nomeAcao, tar[i].prioAcao, 	tar[i].contexto);
 	}
-
-	/*for (i = 0; i < tamanho; ++i)
-	{
-		printf("%d, %s, %d, %X", tar[i].numeroAcao, tar[i].nomeAcao, tar[i].numeroAcao, tar[i].contexto);
-	}*/
 
 
 	return 0;
