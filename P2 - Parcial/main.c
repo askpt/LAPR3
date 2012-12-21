@@ -129,6 +129,7 @@ int main()
 	int i;
 	int tamanho = lerFicheiro(&tar);
 	int mCont = maiorContexto(tar, sizeof(tarefa), 0);
+	int nCont = numContexto(tar, sizeof(tarefa), 0);
 
 	for (i = 0; i < tamanho; ++i)
 	{
@@ -136,6 +137,7 @@ int main()
 	}
 
 	printf("Maior Contexto: %d\n", mCont);
+	printf("Numero de contextos: %d\n", nCont);
 
 	return 0;
 }
