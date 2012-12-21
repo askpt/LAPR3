@@ -128,11 +128,14 @@ int main()
 	tarefa *tar = (tarefa *)malloc(sizeof(tarefa));
 	int i;
 	int tamanho = lerFicheiro(&tar);
+	int mCont = maiorContexto(tar, sizeof(tarefa), 0);
 
 	for (i = 0; i < tamanho; ++i)
 	{
 		printf("%d, %s, %d, %X\n", tar[i].numeroAcao, tar[i].nomeAcao, tar[i].prioAcao, tar[i].contexto);
 	}
+
+	printf("Maior Contexto: %d\n", mCont);
 
 	return 0;
 }
