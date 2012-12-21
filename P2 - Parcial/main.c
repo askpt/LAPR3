@@ -12,9 +12,9 @@
 typedef struct
 {
 	int numeroAcao;
-	char nomeAcao[50];
 	int prioAcao;
 	int contexto;
+	char nomeAcao[50];
 }tarefa;
 
 
@@ -128,8 +128,17 @@ int main()
 	tarefa *tar = (tarefa *)malloc(sizeof(tarefa));
 	int i;
 	int tamanho = lerFicheiro(&tar);
+	int *contextos;
+	contextos = (int *)malloc(sizeof(int)*32);
 	int mCont = maiorContexto(tar, sizeof(tarefa), 0);
 	int nCont = numContexto(tar, sizeof(tarefa), 0);
+	int nPrio = numPrio(tar, sizeof(tarefa), tamanho, 3);
+
+	for (i = 0; i < 32; ++i)
+	{
+		contextos[i]=0;
+	}
+	mostraContexto(tar,sizeof(tarefa), 0, contextos);
 
 	for (i = 0; i < tamanho; ++i)
 	{
@@ -138,6 +147,13 @@ int main()
 
 	printf("Maior Contexto: %d\n", mCont);
 	printf("Numero de contextos: %d\n", nCont);
+	for (i = 0; contextos[i]; ++i)
+	{
+		printf("%d ", contextos[i]);
+	}
+	printf("\n");
+
+	printf("Numero de prioridades: %d\n", nPrio);
 
 	return 0;
 }
