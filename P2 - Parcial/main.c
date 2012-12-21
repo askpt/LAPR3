@@ -1,3 +1,9 @@
+/**
+*@author André Silva
+*@date 20/12/2012
+*@file main.c
+*Ficheiro onde será processados os metodos principais de importação e tratamento de dados.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,12 +17,20 @@ typedef struct
 	int contexto;
 }tarefa;
 
+
+/**
+*@param string apontador onde está guardado um array de carateres a ser convertido
+*@return retorna o valor que foi convertido para decimal
+*Função que converte determinada string que terá um número em binario e que o ira converter
+*em decimal e retornado.
+*/
 int binConvert(char *string)
 {
 	int pos = 0, valor = 0;
 
 	for (pos = 0; string[pos] != 0; ++pos)
 	{
+		///Caso o valor na posição da string seja '1', ele irá converter para decimal e somar ao valor de retorno
 		if(string[pos] == '1')
 			valor += (int)pow(2.0, (double)pos);
 	}
@@ -51,30 +65,34 @@ int binConvert(char *string)
 	}
 }*/
 
+/**
+*@param tar Apontador de apontador que passa por parametro o endereço de memoria do array
+*de structs onde serão guardados os valores do csv.
+*@return retorna o tamanho da estrutura definida
+*Função que retira os valores de uma linha de csv e que os irá guardar num array de estruturas do tipo tarefa
+*/
 int lerFicheiro(tarefa **tar)
 {
 	tarefa *temp = *tar;
 	int tamanho = 0;
 	FILE *ficheiro;
 	char *strTemp, *str;
-	int i;
 
 	strTemp=(char *)malloc(sizeof(char)*150);
-
 	ficheiro = fopen("FX.csv", "r");
+	///Caso ocorra algum erro na importação, dará um erro de Ficheiro vazio.
 	if(ficheiro == NULL)
 	{
 		printf("Ficheiro vazio");
 
 		return 0;
 	}
+	///Ciclo que irá percorrer todas as linhas do ficheiro
 	while(!feof(ficheiro))
 	{
-
 		fgets(strTemp, 150, ficheiro);
 		if(strTemp != NULL)
 		{
-			//printf("%s\n", strTemp);
 			temp = (tarefa *)realloc(*tar, sizeof(tarefa)*(tamanho+2));
 			if(temp == NULL)
 			{
@@ -83,28 +101,28 @@ int lerFicheiro(tarefa **tar)
 				return 0;
 			}
 			*tar=temp;
-
+			///usou-se o strtok para dividir cada linha pelos atributos da struct
 			str = strtok(strTemp, ",");
 			(*tar)[tamanho].numeroAcao = atoi(str);
-
 			str = strtok(NULL, ",");
-			strncpy((*tar)[tamanho].nomeAcao, str, 50);
-		
+			strncpy((*tar)[tamanho].nomeAcao, str, 50);		
 			str = strtok(NULL, ",");
-
 			(*tar)[tamanho].prioAcao = atoi(str);
 			str = strtok(NULL, ",");
 			(*tar)[tamanho].contexto = binConvert(str);
-
 			tamanho++;
 		}
 		
-	}
-	
+	}	
 	fclose(ficheiro);
+
 	return tamanho;
 }
 
+/**
+*@return retorna o valor do código do erro caso tenha. Se for 0, não houve nenhum erro.
+*Função principal do programa, onde faz tambem uma listagem dos valores guardados na estrutura.
+*/
 int main()
 {
 	tarefa *tar = (tarefa *)malloc(sizeof(tarefa));
@@ -113,9 +131,8 @@ int main()
 
 	for (i = 0; i < tamanho; ++i)
 	{
-		printf("%d, %s, %d, %X\n", tar[i].numeroAcao, tar[i].nomeAcao, tar[i].prioAcao, 	tar[i].contexto);
+		printf("%d, %s, %d, %X\n", tar[i].numeroAcao, tar[i].nomeAcao, tar[i].prioAcao, tar[i].contexto);
 	}
-
 
 	return 0;
 }
