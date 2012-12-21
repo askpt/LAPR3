@@ -16,6 +16,8 @@ private:
 	string descricao;
 	static int ID;
 
+	void setNivelImportancia();
+
 public:
 	Nivel();
 	Nivel(string descricao);
@@ -25,7 +27,6 @@ public:
 	int getNivelImportancia() const;
 	string getDescricao() const;
 
-	void setNivelImportancia();
 	void setDescricao(string desc);
 
 	virtual Nivel *clone() const;
