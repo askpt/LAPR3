@@ -41,4 +41,4 @@ void mostraContexto(tarefa *tar, int tamanhoEst, int posicao, int *contexto);
 *@return retorna o numero de prioridades
 *Funcao que ira retornar o numero de accoes com uma determinada prioridade
 */
-int numPrio(tarefa, *tar, int tamanhoEst, int tamanho, int prioridade);
+int numPrio(tarefa *tar, int tamanhoEst, int tamanho, int prioridade);
