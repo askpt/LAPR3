@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include "modulo.h"
+
 
 typedef struct
 {
@@ -18,6 +18,7 @@ typedef struct
 	char nomeAcao[50];
 }tarefa;
 
+#include "modulo.h"
 
 /**
 *@param string apontador onde esta guardado um array de carateres a ser convertido
