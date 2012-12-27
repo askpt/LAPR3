@@ -2,7 +2,7 @@
 *@author Andre Silva
 *@date 20/12/2012
 *@file main.c
-*Ficheiro onde sera processados os metodos principais de importacao e tratamento de dados.
+*Ficheiro onde serao processadas as funcoes principais de importacao e tratamento de dados.
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -94,8 +94,7 @@ int lerFicheiro(tarefa **tar)
 }
 
 /**
-*@param tar Apontador de apontador que passa por parametro o endereco de memoria do array
-*de structs onde serao guardados os valores do csv.
+*@param tar Apontador que passa por parametro o endereco de memoria do array
 *@param tamanho Tamanho da estrutura de dados de tarefa
 *Funcao que serve como interface para a funcao em Assembly que ira mostrar os contextos de uma determinada acao
 */
@@ -133,8 +132,7 @@ void mContextos(tarefa *tar, int tamanho)
 }
 
 /**
-*@param tar Apontador de apontador que passa por parametro o endereco de memoria do array
-*de structs onde serao guardados os valores do csv.
+*@param tar Apontador que passa por parametro o endereco de memoria do array
 *@param tamanho Tamanho da estrutura de dados de tarefa
 *Funcao que serve como interface para a funcao em Assembly que ira mostrar o maior contexto de uma determinada acao
 */
@@ -162,8 +160,7 @@ void mMaiorContextos(tarefa *tar, int tamanho)
 }
 
 /**
-*@param tar Apontador de apontador que passa por parametro o endereco de memoria do array
-*de structs onde serao guardados os valores do csv.
+*@param tar Apontador que passa por parametro o endereco de memoria do array
 *@param tamanho Tamanho da estrutura de dados de tarefa
 *Funcao que serve como interface para a funcao em Assembly que ira mostrar o numero de contextos
 *de uma determinada acao
@@ -192,8 +189,7 @@ void mNumContextos(tarefa *tar, int tamanho)
 }
 
 /**
-*@param tar Apontador de apontador que passa por parametro o endereco de memoria do array
-*de structs onde serao guardados os valores do csv.
+*@param tar Apontador que passa por parametro o endereco de memoria do array
 *@param tamanho Tamanho da estrutura de dados de tarefa
 *Funcao que serve como interface para a funcao em Assembly que ira mostrar o numero de acoes
 *com uma determinada prioridade
@@ -212,8 +208,7 @@ void mPrioridades(tarefa *tar, int tamanho)
 }
 
 /**
-*@param tar Apontador de apontador que passa por parametro o endereco de memoria do array
-*de structs onde serao guardados os valores do csv.
+*@param tar Apontador que passa por parametro o endereco de memoria do array
 *@param tamanho Tamanho da estrutura de dados de tarefa
 *Funcao que serve como interface para mostrar listagem de acoes
 */
@@ -233,8 +228,7 @@ void mListagem(tarefa *tar, int tamanho)
 }
 
 /**
-*@param tar Apontador de apontador que passa por parametro o endereco de memoria do array
-*de structs onde serao guardados os valores do csv.
+*@param tar Apontador que passa por parametro o endereco de memoria do array
 *@param tamanho Tamanho da estrutura de dados de tarefa
 *Funcao que funciona como menu da aplicacao
 */
