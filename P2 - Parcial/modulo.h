@@ -27,8 +27,7 @@ int numContexto(tarefa *tar, int tamanhoEst, int posicao);
 *@param tar Apontador que passa por parametro o endereco de memoria do array
 *@param tamanhoEst Tamanho do tipo de dados de tarefa
 *@param posicao Posicao na estrutura da acao que se quer consultar
-*@param contexto Apontador de um array de contextos onde ira fucar guardado
-*o numero do contexto
+*@param contexto Apontador de um array de contextos onde ira fucar guardado o numero do contexto
 *Funcao que ira armazenar num array os contextos de uma determinada acao
 */
 void mostraContexto(tarefa *tar, int tamanhoEst, int posicao, int *contexto);
