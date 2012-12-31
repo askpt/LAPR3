@@ -23,8 +23,7 @@ typedef struct
 /**
 *@param string apontador onde esta guardado um array de carateres a ser convertido
 *@return retorna o valor que foi convertido para decimal
-*Funcao que converte determinada string que tera um numero em binario e que o ira converter
-*em decimal e retornado.
+*Funcao que converte determinada string que tera um numero em binario e que o ira converter em decimal e retornado.
 */
 int binConvert(char *string)
 {
@@ -41,8 +40,7 @@ int binConvert(char *string)
 }
 
 /**
-*@param tar Apontador de apontador que passa por parametro o endereco de memoria do array
-*de structs onde serao guardados os valores do csv.
+*@param tar Apontador de apontador que passa por parametro o endereco de memoria do array de structs onde serao guardados os valores do csv.
 *@return retorna o tamanho da estrutura definida
 *Funcao que retira os valores de uma linha de csv e que os ira guardar num array de estruturas do tipo tarefa
 */
@@ -163,8 +161,7 @@ void mMaiorContextos(tarefa *tar, int tamanho)
 /**
 *@param tar Apontador que passa por parametro o endereco de memoria do array
 *@param tamanho Tamanho da estrutura de dados de tarefa
-*Funcao que serve como interface para a funcao em Assembly que ira mostrar o numero de contextos
-*de uma determinada acao
+*Funcao que serve como interface para a funcao em Assembly que ira mostrar o numero de contextos de uma determinada acao
 */
 void mNumContextos(tarefa *tar, int tamanho)
 {
@@ -192,8 +189,7 @@ void mNumContextos(tarefa *tar, int tamanho)
 /**
 *@param tar Apontador que passa por parametro o endereco de memoria do array
 *@param tamanho Tamanho da estrutura de dados de tarefa
-*Funcao que serve como interface para a funcao em Assembly que ira mostrar o numero de acoes
-*com uma determinada prioridade
+*Funcao que serve como interface para a funcao em Assembly que ira mostrar o numero de acoes com uma determinada prioridade
 */
 void mPrioridades(tarefa *tar, int tamanho)
 {
