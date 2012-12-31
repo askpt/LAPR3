@@ -277,8 +277,8 @@ int main()
 {
 	tarefa *tar = (tarefa *)malloc(sizeof(tarefa));
 	int tamanho = lerFicheiro(&tar);
-	
-	menu(tar, tamanho);
+	if(tamanho != 0)
+		menu(tar, tamanho);
 
 	return 0;
 }
