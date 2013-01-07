@@ -2,23 +2,22 @@
 #define Data_
 #include <ctime>
 
-
 class Data 
 { 	
-   private:
+private:
 	int ano;			// qualquer ano
 	int mes;			// 1-12
 	int dia;			// 1-31 dependente do mês
-	
+
 	static int diasPorMes[];  
 	int validaDia (int d) const;   // Confirma o valor do dia baseado no mes e ano 
 	int validaMes (int m) const; 
 	int validaAno (int a) const; 
 	bool anoBissexto (int a) const;   // Testa se ano é bissexto
 
-	
-  public:
-	
+
+public:
+
 	Data();
 	Data(int a, int m, int d);
 	Data(const Data &d);
@@ -81,55 +80,55 @@ void Data::dataHoje()
 // Outros métodos
 void Data::setAno (int a)
 {
-  ano = validaAno (a) ;
+	ano = validaAno (a) ;
 }
 
 void  Data::setMes (int m)
 {
-  mes = validaMes (m);  // valida o mes
+	mes = validaMes (m);  // valida o mes
 }
 
 void  Data::setDia (int d)
 {
-  dia = validaDia (d);	// valida o dia
+	dia = validaDia (d);	// valida o dia
 }
 
 void Data::setData (Data dt)
 {
-  setAno(dt.ano) ;  
-  setMes(dt.mes);
-  setDia(dt.dia);	 
+	setAno(dt.ano) ;  
+	setMes(dt.mes);
+	setDia(dt.dia);	 
 }
 
 int Data::getAno() const
 {
-  return ano;
+	return ano;
 }
 
 int Data::getMes() const
 {
-  return mes;
+	return mes;
 }
 
 int Data::getDia() const
 {
-  return dia;
+	return dia;
 }
 
 
 void Data::listar() const 
 {
-   cout << dia << " / " << mes << " / " << ano << endl ;			 
+	cout << dia << " / " << mes << " / " << ano << endl ;			 
 }
 
 // Confirma o valor do dia baseado no mes e ano.
 int Data::validaDia (int d) const
 {
 	if ( d > 0 && d <= diasPorMes[ mes ] ) 
-	  return d;
-	
+		return d;
+
 	if (mes == 2 && d == 29 && anoBissexto(ano))   // se Fevereiro: Verifica se ano bissexto
-	  return d;
+		return d;
 	cout<<"Dia " << d << " invalido. Colocado o dia 1.";
 	return 1;  // Deixa o objecto num estado consistente
 }
@@ -137,11 +136,11 @@ int Data::validaDia (int d) const
 int Data::validaMes (int m) const
 {
 	if ( m > 0 && m <= 12 )		// valida o mes
-	  return m;	
+		return m;	
 	else 
 	{
-	  cout<<"\nMês inválido -> mes=1";
-	  return  1;
+		cout<<"\nMês inválido -> mes=1";
+		return  1;
 	}
 }
 
@@ -149,17 +148,17 @@ int Data::validaAno (int a) const
 {
 	if (a < 0)
 	{
-	  cout<<"\nAno negativo - inválido -> ano=0";
-	  return 0;
+		cout<<"\nAno negativo - inválido -> ano=0";
+		return 0;
 	}
 	else
-	  return a;
+		return a;
 }
 
 // Testa se ano é bissexto
 bool Data::anoBissexto(int a) const
 {	
-   return (a % 400 == 0 || a % 4 == 0 && a % 100 != 0 ) ;
+	return (a % 400 == 0 || a % 4 == 0 && a % 100 != 0 ) ;
 }
 
 
