@@ -14,7 +14,7 @@ class Nivel
 private:
 	int nivelImportancia;
 	string descricao;
-	static int ID;
+	
 
 	void setNivelImportancia();
 
