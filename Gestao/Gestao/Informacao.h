@@ -17,7 +17,7 @@ private:
 	int codInformacao;
 	string descricao;
 	Data dataInsercao;
-	static int ID;
+
 	
 	void setCodInformacao();
 

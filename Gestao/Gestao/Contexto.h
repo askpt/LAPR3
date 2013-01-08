@@ -16,7 +16,7 @@ class Contexto
 private:
 	int codContexto;
 	string descricao;
-	static int ID;
+	
 
 	void setCodContexto();
 
