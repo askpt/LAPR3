@@ -5,7 +5,8 @@
 #include <occi.h>
 #include <list>
 using namespace oracle::occi;
-#include "cliente.h"
+#include "Utilizador.h"
+#include <sstream>
 class BDados
 {
 private:
@@ -15,7 +16,7 @@ private:
 public:
 	BDados(string user, string passwd, string db);
 	~ BDados();
-	list <Cliente> lerClientes(); // Método para ler uma lista de
+	bool login(string user, string pass);
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -27,18 +28,21 @@ BDados::~BDados()
 	env->terminateConnection (ligacao);
 	Environment::terminateEnvironment (env);
 }
-list <Cliente> BDados::lerClientes()
+
+bool BDados::login(string user, string pass)
 {
-	list <Cliente> ret;
-	instrucao = ligacao->createStatement("SELECT * FROM CLIENTES");
-	ResultSet *rset = instrucao->executeQuery ();
-	while (rset->next ())
+	stringstream out;
+	out << "SELECT * FROM UTILIZADOR WHERE LOGIN = '" << user << "'";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	ResultSet *rset = instrucao -> executeQuery();
+	rset->next();
+	Utilizador uti(rset->getInt(1), rset->getString(2), rset->getInt(3), rset->getString(4), rset->getString(5));
+	if(uti.getPass() == pass)
 	{
-		Cliente c(rset->getInt(1), rset->getString(2), rset->getNumber(3), rset->getString(4));
-		ret.push_back(c);
-	}
-	instrucao->closeResultSet (rset);
-	return ret;
+		return true;	
+	}else
+		return false;
 }
 
 #endif
