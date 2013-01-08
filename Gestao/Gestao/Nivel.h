@@ -78,7 +78,7 @@ Nivel::~Nivel()
  * Metodo para retornar o nivel de importancia.
  * @return nivel de importancia.
  */
-int Nivel::getNivelImportancia()
+int Nivel::getNivelImportancia() const
 {
 	return nivelImportancia;
 }
@@ -87,7 +87,7 @@ int Nivel::getNivelImportancia()
  * Metodo para retornar a descricao do nivel de importancia.
  * @return descricao do nivel de importancia.
  */
-string Nivel::getDescricao()
+string Nivel::getDescricao() const
 {	
 	return descricao;
 }
