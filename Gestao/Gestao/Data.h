@@ -9,7 +9,7 @@ private:
 	int mes;			// 1-12
 	int dia;			// 1-31 dependente do mês
 
-	static int diasPorMes[];  
+	
 	int validaDia (int d) const;   // Confirma o valor do dia baseado no mes e ano 
 	int validaMes (int m) const; 
 	int validaAno (int a) const; 
