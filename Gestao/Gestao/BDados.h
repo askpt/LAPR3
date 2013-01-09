@@ -6,7 +6,7 @@
 #include "Lista.h"
 using namespace oracle::occi;
 #include "Informacao.h"
-#include "Tarefa.h"
+#include "Utilizador.h"
 #include <sstream>
 class BDados
 {
@@ -44,9 +44,9 @@ Lista<Informacao> BDados::listaInformacao(int user)
 	ResultSet *rset = instrucao->executeQuery ();
 	while (rset->next ())
 	{
-		Informacao inf(rset->getInt(1), rset->getString(2), rset->getNumber(3), rset->getString(4));
+		/*Informacao inf(rset->getInt(1), rset->getString(2), rset->getNumber(3), rset->getString(4));
 
-		ret.push_back(c);
+		ret.push_back(c);*/
 
 	}
 	instrucao->closeResultSet (rset);
