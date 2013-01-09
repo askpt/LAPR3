@@ -36,7 +36,7 @@ public:
 	string getNome();
 	Data getDataCriacao() const;
 	Data getDataFim() const;
-	Lista<Tarefa> getListaTarefas;
+	Lista<Tarefa> getListaTarefas() const;
 
 	void setInformacao(string informacao);
 	void setNivelImportancia(int nivelImportancia);
@@ -127,6 +127,11 @@ string Projecto::getInformacao() const
 string Projecto::getNome() const
 {
 	return nome;
+}
+
+Lista<Tarefa> Projecto::getListaTarefas() const
+{
+	return listaTarefas;
 }
 
 /**
