@@ -3,9 +3,10 @@
 #include <iostream>
 #include <iomanip>
 #include <occi.h>
-#include <list>
+#include "Lista.h"
 using namespace oracle::occi;
-#include "Utilizador.h"
+#include "Informacao.h"
+#include "Tarefa.h"
 #include <sstream>
 class BDados
 {
@@ -16,6 +17,7 @@ private:
 public:
 	BDados(string user, string passwd, string db);
 	~ BDados();
+	Lista<Informacao> listaInformacao(int user);
 	int login(string user, string pass);
 	void inserirInfo(int codUser, string info);
 };
@@ -28,6 +30,28 @@ BDados::~BDados()
 {
 	env->terminateConnection (ligacao);
 	Environment::terminateEnvironment (env);
+}
+
+Lista<Informacao> BDados::listaInformacao(int user)
+{
+	Lista<Informacao> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM INFORMACAO WHERE COD_UTILIZADOR = " << user;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		Informacao inf(rset->getInt(1), rset->getString(2), rset->getNumber(3), rset->getString(4));
+
+		ret.push_back(c);
+
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
 }
 
 int BDados::login(string user, string pass)
