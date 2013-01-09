@@ -140,6 +140,7 @@ void Informacao::escreve(ostream &out)
 	cout << "Informacao: " << codInformacao << endl;
 	cout << "Descricao: " << descricao << endl;
 	cout << "Data de Insercao: " << dataInsercao.listar() << endl;
+	cout << "Codigo de Utilizado: " << codUtilizador << endl;
 } 
 
 /**
