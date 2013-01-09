@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
-#include <conio.h>
+//#include <conio.h>
 using namespace std;
 #include "bdados.h"
 
 int codUser = -1;
 
-void getPassword(string &get)
+/*void getPassword(string &get)
 {
 	get.erase();
 	char key;
@@ -36,7 +36,7 @@ void getPassword(string &get)
 		}
 	} while(key != '\r'); //quit if enter is pressed
 	cout << endl;
-}
+}*/
 
 void login()
 {
@@ -49,7 +49,8 @@ void login()
 		if(user != "sair"){
 			cout << "Pass?" << endl;
 			string pass;
-			getPassword(pass);
+			cin >> pass;
+			//getPassword(pass);
 			codUser = conexao -> login(user, pass);
 			delete(conexao);
 		}
