@@ -35,6 +35,7 @@ public:
 	void listar() const ; 
 
 	Data& operator=(const Data& d);
+	virtual Data* clone() const;
 };
 
 
@@ -163,9 +164,18 @@ bool Data::anoBissexto(int a) const
 	return (a % 400 == 0 || a % 4 == 0 && a % 100 != 0 ) ;
 }
 
-Data& Data::operator =(const Data&)
+Data& Data::operator =(const Data& d)
 {
-	return * this;
+	ano = d.ano;
+	dia = d.dia;
+	mes = d.mes;
+
+	return *this;
+}
+
+Data* Data::clone() const
+{
+	return new Data(*this);
 }
 
 #endif
