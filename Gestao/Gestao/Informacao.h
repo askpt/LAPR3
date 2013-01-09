@@ -31,7 +31,7 @@ public:
 	int getCodInformacao() const;
 	int getCodTarefa() const;
 	string getDescricao() const;
-	Data& getDataInsercao() const;
+	Data& getDataInsercao();
 	int getCodUtilizador() const;
 
 	void setCodUtilizador(const int cod);
@@ -40,7 +40,7 @@ public:
 	void setDataInsercao(const Data& data);
 	void setCodInformacao(const int cod);
 
-	virtual Informacao *clone() const;
+	virtual Informacao* clone() const;
 	void escreve(ostream &out) const;
 };
 
@@ -169,9 +169,9 @@ void Informacao::setDataInsercao(const Data& data)
  * Metodo para retornar o endereco da data de insercao.		
  * @return retorna o endereco de memoria da data de insercao
  */
-Data& Informacao::getDataInsercao()const
+Data& Informacao::getDataInsercao()
 {
-	return &dataInsercao;
+	return dataInsercao;
 }
 
 /**
@@ -195,6 +195,11 @@ ostream & operator << (ostream &out, const Informacao &i)
 {
 	i.escreve(out);
 	return out;
+}
+
+Informacao* Informacao::clone() const
+{
+	return new Informacao(*this);
 }
 
 #endif
