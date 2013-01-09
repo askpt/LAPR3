@@ -4,39 +4,81 @@
 #include <string>
 using namespace std;
 #include "bdados.h"
-#include "cliente.h"
 
-void teste()
+//BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+int codUser = -1;
+
+void login()
 {
-	string utilizador = "B2-7"; // substituir pelo correcto
-	string palavra = "queroarroz"; // substituir pela correcta
-	string bd = "193.136.62.27:1521/isepdb"; //ou em vez de ip, gandalf
-	try {
-		cout << "Exemplo de ligacao: a ligar ..."
-			<< endl;
-		BDados *exemplo = new BDados (utilizador, palavra, bd);
-		list <Cliente> l = exemplo->lerClientes();
-		cout << setw(5) << "COD." << " | "
-			<< setw(12) << "Nome" << " | "
-			<< setw(6) << "NIF" << " | "
-			<< setw(14) << "Morada" << " | " << endl;
-		for (list<Cliente>::iterator it = l.begin(); it != l.end(); it++)
-			cout << *it;
-		cout << endl;
-		delete (exemplo);
-		cout << "Exemplo de ligacao: terminado" << endl;
+	try 
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		cout << "Nome de Utilizador?\nPara sair escreva sair" << endl;
+		string user;
+		cin >> user;
+		if(user != "sair"){
+			cout << "Pass?" << endl;
+			string pass;
+			cin >> pass;
+			codUser = conexao -> login(user, pass);
+				delete(conexao);
+		}
 	}
-	catch (SQLException erro) {
+	catch (SQLException erro) 
+	{
 		cerr << "Erro: " << erro.getMessage () << endl;
 	}
-	cin.get();
+}
+
+void inserirInfo()
+{
+	string info;
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		cout << "Inserir descricao da informacao" << endl;
+		cin >> info;
+		conexao -> inserirInfo(codUser, info);
+			delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
 
 }
 
+void menu()
+{
+	int op = 1;
+	while(op != 0)
+	{	
+		cout << "1 - Inserir informacao" << endl;
+		cout << "0 - Sair" << endl;
+		cin >> op;
+
+	
+		switch(op)
+		{
+		case 1:
+			inserirInfo();
+			break;
+		default:
+			cout << "A sair..." << endl;
+			break;
+		}
+	}
+}
 
 int main ()
 {
-	teste();
+	login();
+	if(codUser != -1)
+	{
+		menu();
+	
+	}
+
 
 	return 0;
 }

@@ -33,6 +33,8 @@ public:
 	int getMes() const;
 	int getDia() const;
 	void listar() const ; 
+
+	Data& operator=(const Data& d);
 };
 
 
@@ -161,6 +163,10 @@ bool Data::anoBissexto(int a) const
 	return (a % 400 == 0 || a % 4 == 0 && a % 100 != 0 ) ;
 }
 
+Data& Data::operator =(const Data&)
+{
+	return * this;
+}
 
 #endif
 
