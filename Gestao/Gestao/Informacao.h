@@ -7,7 +7,9 @@
 
 #ifndef INFORMACAO_H
 #define INFORMACAO_H
-
+#include <iostream>
+#include <string>
+using namespace std;
 #include "Data.h"
 
 class Informacao
@@ -17,7 +19,7 @@ private:
 	int codInformacao;
 	string descricao;
 	Data dataInsercao;
-
+	int codUtilizador;
 	
 	void setCodInformacao();
 
@@ -30,14 +32,14 @@ public:
 	int getCodInformacao() const;
 	string getDescricao() const;
 
+	int getCodUtilizador() const;
+	void setCodUtilizador(int cod);
 	void setDescricao(string desc);
 
 	virtual Informacao *clone() const;
 	void escreve(ostream &out) const;
 };
 
-
-Informacao::ID=0;
 
 /**
  * Construtor vazio.
@@ -112,6 +114,23 @@ void Informacao::setDescricao(string desc)
 	descricao = desc;
 }
 
+/** 
+ * Metodo de atribuicao de um codigo de utilizador a informacao
+ * @param codUtilizador codigo de utilizador
+ */
+void Informacao::setCodUtilizador(int cod)
+{
+	codUtilizador=cod;
+}
+
+/**
+ * Metodo para retornar o codigo de utilizador
+ * @return retorna o codigo do utilizador de uma informacao
+ */
+int Informacao::getCodUtilizador()const
+{
+	return codUtilizador;
+}
 /**
  * Apresenta os dados da informacao.
  * @param out objecto stream out.
