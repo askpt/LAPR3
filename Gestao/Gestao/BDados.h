@@ -8,6 +8,8 @@ using namespace oracle::occi;
 #include "Informacao.h"
 #include "Utilizador.h"
 #include <sstream>
+#include <string>
+
 class BDados
 {
 private:
@@ -20,6 +22,7 @@ public:
 	Lista<Informacao> listaInformacao(int user);
 	int login(string user, string pass);
 	void inserirInfo(int codUser, string info);
+	Data convertData(string date);
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -30,6 +33,24 @@ BDados::~BDados()
 {
 	env->terminateConnection (ligacao);
 	Environment::terminateEnvironment (env);
+}
+
+Data BDados::convertData(string date)
+{
+	//DATE: AA.MM.DD
+	string diaS, mesS, anoS;
+	int dia = 1, mes = 1, ano = 1900;
+
+	anoS = date.substr(0,2);
+	mesS = date.substr(3,2);
+	diaS = date.substr(6,2);
+	stringstream(diaS) >> dia;
+	stringstream(mesS) >> mes;
+	stringstream(anoS) >> ano;
+	ano += 2000;
+	Data temp(ano, mes, dia);
+
+	return temp;
 }
 
 Lista<Informacao> BDados::listaInformacao(int user)
@@ -44,7 +65,8 @@ Lista<Informacao> BDados::listaInformacao(int user)
 	ResultSet *rset = instrucao->executeQuery ();
 	while (rset->next ())
 	{
-		Informacao inf(rset->getInt(1), rset->getInt(2), rset->getString(3), Data(), rset->getInt(5));
+		Data tmp = convertData(rset->getString(4));
+		Informacao inf(rset->getInt(1), rset->getInt(2), rset->getString(3), tmp, rset->getInt(5));
 		ret.insere(ret.comprimento() + 1, inf);
 	}
 	instrucao->closeResultSet (rset);
