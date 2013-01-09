@@ -20,6 +20,7 @@ private:
 	Data dataFim;
 	string informacao;
 	string nome;
+	Lista<Tarefa> listaTarefas;
 	
 
 public:
@@ -33,6 +34,9 @@ public:
 	int getNivelImportancia() const;
 	string getInformacao();
 	string getNome();
+	Data getDataCriacao() const;
+	Data getDataFim() const;
+	Lista<Tarefa> getListaTarefas;
 
 	void setInformacao(string informacao);
 	void setNivelImportancia(int nivelImportancia);
