@@ -192,7 +192,4 @@ ostream & operator << (ostream &out, const Projecto &p)
 	return out;
 }
 
-
-
-
 #endif
