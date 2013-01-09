@@ -137,6 +137,43 @@ int Informacao::getCodUtilizador() const
 {
 	return codUtilizador;
 }
+
+/**
+ * Metodo de atribuicao codigo de tarefa
+ * @param cod que e o novo codigo da tarefa para alterar
+ */
+void Informacao::setCodTarefa(const int cod)
+{
+	codTarefa=cod;
+}
+
+/**
+ * Metodo para retornar codigo de tarefa
+ * @return codigo de tarefa
+ */
+int Informacao::getCodTarefa() const
+{
+	return codTarefa;
+}
+
+/**
+ * Metodo para alterar data de insercao
+ * @param data data de insercao para alterar
+ */
+void Informacao::setDataInsercao(const Data& data)
+{
+	dataInsercao=data;
+}
+
+/**
+ * Metodo para retornar o endereco da data de insercao.		
+ * @return retorna o endereco de memoria da data de insercao
+ */
+Data& Informacao::getDataInsercao()const
+{
+	return &dataInsercao;
+}
+
 /**
  * Apresenta os dados da informacao.
  * @param out objecto stream out.
@@ -145,7 +182,7 @@ void Informacao::escreve(ostream &out)const
 {
 	out << "Informacao: " << codInformacao << endl;
 	out << "Descricao: " << descricao << endl;
-	out << "Data de Insercao: " << dataInsercao.listar() << endl;
+	out << "Data de Insercao: "; dataInsercao.listar();
 	out << "Codigo de Utilizador: " << codUtilizador << endl;
 } 
 
