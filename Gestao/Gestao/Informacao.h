@@ -21,7 +21,7 @@ private:
 	Data dataInsercao;
 	int codUtilizador;
 	
-	void setCodInformacao();
+	void setCodInformacao(int cod);
 
 public:
 	Informacao();
@@ -99,9 +99,9 @@ string Informacao::getDescricao()
 /**
  * Metodo de atribuicao do codigo da informacao.
  */
-void Informacao::setCodInformacao()
+void Informacao::setCodInformacao(int cod)
 {
-	codInformacao = ID++;
+	codInformacao = cod;
 }
 
 
@@ -135,7 +135,7 @@ int Informacao::getCodUtilizador()const
  * Apresenta os dados da informacao.
  * @param out objecto stream out.
  */
-void Informacao::escreve(ostream &out)
+void Informacao::escreve(ostream &out)const
 {
 	cout << "Informacao: " << codInformacao << endl;
 	cout << "Descricao: " << descricao << endl;
