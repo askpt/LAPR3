@@ -16,7 +16,8 @@ private:
 public:
 	BDados(string user, string passwd, string db);
 	~ BDados();
-	bool login(string user, string pass);
+	int login(string user, string pass);
+	void inserirInfo(int codUser, string info);
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -29,7 +30,7 @@ BDados::~BDados()
 	Environment::terminateEnvironment (env);
 }
 
-bool BDados::login(string user, string pass)
+int BDados::login(string user, string pass)
 {
 	stringstream out;
 	out << "SELECT * FROM UTILIZADOR WHERE LOGIN = '" << user << "'";
@@ -40,9 +41,20 @@ bool BDados::login(string user, string pass)
 	Utilizador uti(rset->getInt(1), rset->getString(2), rset->getInt(3), rset->getString(4), rset->getString(5));
 	if(uti.getPass() == pass)
 	{
-		return true;	
+		return uti.getCodUtilizador();	
 	}else
-		return false;
+		return -1;
+}
+
+void BDados::inserirInfo(int codUser, string info)
+{
+	stringstream out;
+	out << "BEGIN\nIINFORMACAO(NULL, '" << info << "', " << codUser << ");\nEND;";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
 }
 
 #endif
