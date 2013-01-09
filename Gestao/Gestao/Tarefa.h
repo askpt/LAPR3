@@ -7,7 +7,10 @@
 
 #ifndef TAREFA_H
 #define TAREFA_H
-
+#include "Data.h"
+#include <iostream>
+#include <string>
+using namespace std;
 class Tarefa
 {
 
@@ -30,6 +33,7 @@ private:
 public:
 	Tarefa();
 	Tarefa(int nivelImportancia, string informacao, Data dataEstimada, int duracao, int codDependente, int codUtilizador);
+	Tarefa(const Tarefa& t);
 	~Tarefa();
 
 	int getCodTarefa() const;
@@ -84,7 +88,23 @@ Tarefa::Tarefa(int nivelImportancia, string informacao, Data dataEstimada, int d
 	setDuracao(duracao);
 	setCodDependente(codDependente);
 }
-
+Tarefa::Tarefa(const Tarefa& t)
+{
+	codTarefa=t.getCodTarefa();
+	codProjecto=t.getCodProjecto();
+	codEstado=t.getCodEstado();
+	codUtilizador=t.getCodUtilizador();
+	nivelImportancia=t.getNivelImportancia();
+	duracao=t.getDuracao();
+	codDependente=t.getCodDependente();
+	dataCriacao=t.getDataCriacao();
+	dataFim=t.getDataFim();
+	dataEstimada=t.getDataEstimada();
+	informacao=t.getInformacao();
+	titulo=t.getTitulo();
+	tipo=t.getTipo();
+	listaContextos=t.getListaContextos();
+}
 /**
  * Metodo para retornar o codigo da tarefa.
  * @return codigo da tarefa.
@@ -217,16 +237,20 @@ void Tarefa::setCodUtilizador(int codUtilizador)
  */
 void Tarefa::escreve(ostream &out)
 {
-	cout << "Cod. Tarefa: " << codTarefa << endl;
-	cout << "Cod. Projecto: " << codProjecto << endl;
-	cout << "Cod. Tarefa dependente: " << codDependente << endl;
-	cout << "Nome: " << titulo << endl;
-	cout << "Tipo: " << tipo << endl;
-	cout << "Nivel de importancia: " << nivelImportancia << endl;
-	cout << "Data de criacao: " << dataCriacao.listar();
-	cout << "Informacao: " << informacao << endl;
-	cout << "Data estimada: " << dataEstimada.listar();
-	cout << "Data de fim: " << dataFim.listar();
+	out << "Cod. Tarefa: " << codTarefa << endl;
+	out << "Cod. Projecto: " << codProjecto << endl;
+	out << "Cod. Tarefa dependente: " << codDependente << endl;
+	out << "Cod. Utilizador : " << codUtilizador << endl;
+	out << "Estado: " << codEstado << endl;
+	out << "Nome: " << titulo << endl;
+	out << "Tipo: " << tipo << endl;
+	out << "Nivel de importancia: " << nivelImportancia << endl;
+	out << "Data de criacao: "; dataCriacao.listar();
+	out << "Informacao: " << informacao << endl;
+	out << "Duracao: " << duracao << endl;
+	out << "Data estimada: "; dataEstimada.listar();
+	out << "Data de fim: "; dataFim.listar();
+	out << listaContextos << endl;
 } 
 
 /**
