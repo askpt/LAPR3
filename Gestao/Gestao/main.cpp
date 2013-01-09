@@ -80,7 +80,21 @@ void inserirInfo()
 	{
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
+}
 
+void listarInfo()
+{
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Informacao> list = conexao ->listaInformacao(codUser);
+		cout << list;
+		delete(conexao);
+	} 
+	catch(SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
 }
 
 void menu()
@@ -89,6 +103,7 @@ void menu()
 	while(op != 0)
 	{	
 		cout << "1 - Inserir informacao" << endl;
+		cout << "2 - Listar informacao" << endl;
 		cout << "0 - Sair" << endl;
 		cin >> op;
 
@@ -97,6 +112,9 @@ void menu()
 		{
 		case 1:
 			inserirInfo();
+			break;
+		case 2:
+			listarInfo();
 			break;
 		default:
 			cout << "A sair..." << endl;

@@ -44,10 +44,8 @@ Lista<Informacao> BDados::listaInformacao(int user)
 	ResultSet *rset = instrucao->executeQuery ();
 	while (rset->next ())
 	{
-		/*Informacao inf(rset->getInt(1), rset->getString(2), rset->getNumber(3), rset->getString(4));
-
-		ret.push_back(c);*/
-
+		Informacao inf(rset->getInt(1), rset->getInt(2), rset->getString(3), Data(), rset->getInt(5));
+		ret.insere(ret.comprimento() + 1, inf);
 	}
 	instrucao->closeResultSet (rset);
 
