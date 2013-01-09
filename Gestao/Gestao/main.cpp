@@ -1,12 +1,42 @@
-/* Copyright (c) 2010,11 NFM-ACS-DEI/ISEP :-)*/
-/* occiexemplo.cpp */
 #include <iostream>
 #include <string>
+//#include <conio.h>
 using namespace std;
 #include "bdados.h"
 
-//BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 int codUser = -1;
+
+/*void getPassword(string &get)
+{
+	get.erase();
+	char key;
+
+	do
+	{
+		key = getch();
+
+		switch (key)
+		{
+		case '\b': //backspace pressed
+			if(get.length() > 0)
+			{
+				get.erase(get.length() - 1, 1);
+				//erase the last character in password
+				cout << '\b' << " " << '\b';
+			}
+
+			break;
+
+		default:
+			if(key > 31 && key < 127) 
+			{
+				get.push_back(key);
+				cout << "*";
+			}
+		}
+	} while(key != '\r'); //quit if enter is pressed
+	cout << endl;
+}*/
 
 void login()
 {
@@ -20,8 +50,13 @@ void login()
 			cout << "Pass?" << endl;
 			string pass;
 			cin >> pass;
+			//getPassword(pass);
 			codUser = conexao -> login(user, pass);
-				delete(conexao);
+			delete(conexao);
+		}
+		else
+		{
+			codUser = -2;
 		}
 	}
 	catch (SQLException erro) 
@@ -39,7 +74,7 @@ void inserirInfo()
 		cout << "Inserir descricao da informacao" << endl;
 		cin >> info;
 		conexao -> inserirInfo(codUser, info);
-			delete(conexao);
+		delete(conexao);
 	}
 	catch (SQLException erro)
 	{
@@ -57,7 +92,7 @@ void menu()
 		cout << "0 - Sair" << endl;
 		cin >> op;
 
-	
+
 		switch(op)
 		{
 		case 1:
@@ -72,11 +107,12 @@ void menu()
 
 int main ()
 {
-	login();
-	if(codUser != -1)
+	while(codUser == -1)
+		login();
+	if(codUser > 0)
 	{
 		menu();
-	
+
 	}
 
 
