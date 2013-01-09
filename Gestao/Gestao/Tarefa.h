@@ -45,7 +45,7 @@ public:
 	string getInformacao() const;
 	string getTitulo() const;
 	string getTipo() const;
-	Lista<Context> getListaContextos() const;
+	Lista<Contexto> getListaContextos() const;
 
 	void setNivelImportancia(int nivelImportancia);
 	void setInformacao(string informacao);
@@ -146,6 +146,15 @@ int Tarefa::getDuracao() const
 int Tarefa::getCodDependente() const
 {
 	return codDependente;
+}
+
+/**
+ * Metodo para retornar a lista de contextos referentes à tarefa.
+ * @return lista de contextos referentes à tarefa.
+ */
+Lista<Contexto> Tarefa::getListaContextos() const 
+{
+	return listaContextos;
 }
 
 /**
