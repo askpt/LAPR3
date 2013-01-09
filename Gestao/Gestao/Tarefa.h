@@ -85,15 +85,150 @@ Tarefa::Tarefa(int nivelImportancia, string informacao, Data dataEstimada, int d
 	setCodDependente(codDependente);
 }
 
+/**
+ * Metodo para retornar o codigo da tarefa.
+ * @return codigo da tarefa.
+ */
 int Tarefa::getCodTarefa() const
 {
-	
+	return codTarefa;
 }
-	
 
+/**
+ * Metodo para retornar o codigo do projecto.
+ * @return codigo do projecto.
+ */
+int Tarefa::getCodProjecto() const
+{
+	return codProjecto;
+}
 
+/**
+ * Metodo para retornar o codigo do estado.
+ * @return codigo do estado.
+ */
+int Tarefa::getCodEstado() const
+{
+	return codEstado;
+}
 
+/**
+ * Metodo para retornar o codigo do utilizador.
+ * @return codigo do utilizador.
+ */
+int Tarefa::getCodUtilizador() const
+{
+	return codUtilizador;
+}
 
+/**
+ * Metodo para retornar o nivel de importancia.
+ * @return nivel de importancia.
+ */
+int Tarefa::getNivelImportancia() const
+{
+	return nivelImportancia;
+}
 
+/**
+ * Metodo para retornar a duracao.
+ * @return duracao.
+ */
+int Tarefa::getDuracao() const
+{
+	return duracao;
+}
+
+/**
+ * Metodo para retornar o codigo da tarefa dependente.
+ * @return codigo da tarefa dependente.
+ */
+int Tarefa::getCodDependente() const
+{
+	return codDependente;
+}
+
+/**
+ * Metodo de atribuicao do nivel de importancia.
+ * @param nivelImportancia nivel de importancia.
+ */
+void Tarefa::setNivelImportancia(int nivelImportancia)
+{
+	this->nivelImportancia = nivelImportancia;
+}
+
+/**
+ * Metodo de atribuicao da informacao.
+ * @param informacao informacao.
+ */
+void Tarefa::setInformacao(string informacao)
+{
+	this->informacao = informacao;
+}
+
+/**
+ * Metodo de atribuicao da data estimada.
+ * @param estimada data estimada.
+ */
+void Tarefa::setDataEstimada(Data estimada)
+{
+	this->dataEstimada = dataEstimada;
+}
+
+/**
+ * Metodo de atribuicao da duracao.
+ * @param duracao duracao.
+ */
+void Tarefa::setDuracao(int duracao)
+{
+	this->duracao = duracao;
+}
+
+/**
+ * Metodo de atribuicao do codigo da tarefa dependente.
+ * @param codDependente codigo da tarefa dependente
+ */
+void Tarefa::setCodDependente(int codDependente)
+{
+	this->codDependente = codDependente;
+}
+
+/**
+ * Metodo de atribuicao do codigo de utilizador.
+ * @param codUtilizador codigo do utilizador.
+ */
+void Tarefa::setCodUtilizador(int codUtilizador)
+{
+	this->codUtilizador = codUtilizador;
+}
+
+/**
+ * Apresenta os dados do projecto.
+ * @param out objecto stream out.
+ */
+void Tarefa::escreve(ostream &out)
+{
+	cout << "Cod. Tarefa: " << codTarefa << endl;
+	cout << "Cod. Projecto: " << codProjecto << endl;
+	cout << "Cod. Tarefa dependente: " << codDependente << endl;
+	cout << "Nome: " << titulo << endl;
+	cout << "Tipo: " << tipo << endl;
+	cout << "Nivel de importancia: " << nivelImportancia << endl;
+	cout << "Data de criacao: " << dataCriacao.listar();
+	cout << "Informacao: " << informacao << endl;
+	cout << "Data estimada: " << dataEstimada.listar();
+	cout << "Data de fim: " << dataFim.listar();
+} 
+
+/**
+ * Sobrecarga do operador stream out.
+ * @param out object stream out.
+ * @param t objecto Tarefa.
+ */
+ostream & operator << (ostream &out, const Tarefa &t)
+{
+	t.escreve(out);
+	return out;
+}
 
 #endif
