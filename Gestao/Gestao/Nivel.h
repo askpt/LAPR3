@@ -115,8 +115,8 @@ void Nivel::setDescricao(string desc)
  */
 void Informacao::escreve(ostream &out)
 {
-	cout << "Nivel de importancia: " << nivelImportancia << endl;
-	cout << "Descricao: " << descricao << endl;
+	out << "Nivel de importancia: " << nivelImportancia << endl;
+	out << "Descricao: " << descricao << endl;
 } 
 
 /**

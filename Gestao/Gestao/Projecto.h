@@ -1,5 +1,6 @@
 /**
 *@author Joao Machado
+*@author Tiago Pacheco
 *@author Vitor Hugo
 *@date 08/01/2013 
 *@file Projecto.h 
@@ -7,7 +8,7 @@
 
 #ifndef PROJECTO_H
 #define PROJECTO_H
-
+#include "Data.h"
 class Projecto
 {
 
@@ -26,6 +27,7 @@ private:
 public:
 	Projecto();
 	Projecto(int nivelImportancia, string informacao, string nome, int codUtilizador);
+	Projecto(const Projecto& p);
 	~Projecto();
 
 	int getCodProjecto() const;
@@ -71,6 +73,26 @@ Projecto::Projecto(int nivelImportancia, string informacao, string nome, int cod
 	setCodUtilizador(codUtilizador);
 }
 
+/**
+ * Construtor copia.
+ * @param endereco de memoria do objeto a copiar
+ */
+Projecto::Projecto(const Projecto& p)
+{
+	codProjecto=p.getCodProjecto();
+	nivelImportancia=p.getNivelImportancia();
+	dataCriacao=p.getDataCriacao();
+	dataFim=p.getDataFim();
+	informacao=p.getInformacao();
+	nome=p.getNome();
+	codEstado=p.getCodEstado();
+	codUtilizador=p.getCodUtilizador();
+	listaTarefas=p.getListaTarefas();
+}
+
+/*
+ * Destrutor
+ */
 Projecto::~Projecto()
 {
 }
@@ -129,6 +151,9 @@ string Projecto::getNome() const
 	return nome;
 }
 
+/**
+ * Metodo que retorna o endereco da lista de tarefas
+ */
 Lista<Tarefa> Projecto::getListaTarefas() const
 {
 	return listaTarefas;
@@ -176,14 +201,14 @@ void Projecto::setCodUtilizador(int codUtilizador)
  */
 void Projecto::escreve(ostream &out)
 {
-	cout << "Cod. Projecto: " << codProjecto << endl;
-	cout << "Nome: " << nome << endl;
-	cout << "Nivel de importancia: " << nivelImportancia << endl;
-	cout << "Data de criacao: " << dataCriacao.listar();
-	cout << "Cod. Estado: " << codEstado << endl;
-	cout << "Cod. Utilizador: " << codUtilizador << endl;
-	cout << "Informacao: " << informacao << endl;
-	cout << "Data de fim: " << dataFim.listar();
+	out << "Cod. Projecto: " << codProjecto << endl;
+	out << "Nome: " << nome << endl;
+	out << "Nivel de importancia: " << nivelImportancia << endl;
+	out << "Data de criacao: " << dataCriacao.listar();
+	out << "Cod. Estado: " << codEstado << endl;
+	out << "Cod. Utilizador: " << codUtilizador << endl;
+	out << "Informacao: " << informacao << endl;
+	out << "Data de fim: " << dataFim.listar();
 } 
 
 /**
