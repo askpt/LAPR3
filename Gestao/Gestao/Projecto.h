@@ -270,4 +270,9 @@ ostream &operator << (ostream &out, const Projecto& p)
 	return out;
 }
 
+Projecto* Projecto::clone() const
+{
+	return new Projecto(*this);
+}
+
 #endif
