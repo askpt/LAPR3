@@ -9,6 +9,7 @@
 #ifndef PROJECTO_H
 #define PROJECTO_H
 #include "Data.h"
+
 class Projecto
 {
 
@@ -36,14 +37,16 @@ public:
 	int getNivelImportancia() const;
 	string getInformacao();
 	string getNome();
-	Data getDataCriacao() const;
-	Data getDataFim() const;
+	Data& getDataCriacao();
+	Data& getDataFim();
 	Lista<Tarefa> getListaTarefas() const;
 
-	void setInformacao(string informacao);
-	void setNivelImportancia(int nivelImportancia);
-	void setNome(string nome);
-	void setCodUtilizador(int codUtilizador);
+	void setInformacao(const string informacao);
+	void setNivelImportancia(const int nivelImportancia);
+	void setNome(const string nome);
+	void setCodUtilizador(const int codUtilizador);
+	void setDataCriacao(const Data& dataCriacao);
+	void setDataFim(const Data& dataFim);
 
 	virtual Projecto *clone() const;
 	void escreve(ostream &out) const;
@@ -152,6 +155,24 @@ string Projecto::getNome() const
 }
 
 /**
+ * Metodo para retornar a data de criacao.
+ * @return data de criacao.
+ */
+Data& Projecto::getDataCriacao()
+{
+	return dataCriacao;
+}
+
+/**
+ * Metodo para retornar a data fim.
+ * @return data fim.
+ */
+Data& Projecto::getDataFim()
+{
+	return dataFim;
+}
+
+/**
  * Metodo que retorna o endereco da lista de tarefas
  */
 Lista<Tarefa> Projecto::getListaTarefas() const
@@ -163,7 +184,7 @@ Lista<Tarefa> Projecto::getListaTarefas() const
  * Metodo de atribuicao da informacao.
  * @param informacao informacao.
  */
-void Projecto::setInformacao(string informacao)
+void Projecto::setInformacao(const string informacao)
 {
 	this->informacao = informacao;
 }
@@ -172,7 +193,7 @@ void Projecto::setInformacao(string informacao)
  * Metodo de atribuicao do nivel de importancia.
  * @param nivelImportancia nivel de importancia.
  */
-void Projecto::setNivelImportancia(int nivelImportancia)
+void Projecto::setNivelImportancia(const int nivelImportancia)
 {
 	this->nivelImportancia = nivelImportancia;
 }
@@ -181,7 +202,7 @@ void Projecto::setNivelImportancia(int nivelImportancia)
  * Metodo de atribuicao do nome.
  * @param nome nome.
  */
-void Projecto::setNome(string nome)
+void Projecto::setNome(const string nome)
 {
 	this->nome = nome;
 }
@@ -190,9 +211,27 @@ void Projecto::setNome(string nome)
  * Metodo de atribuicao do codigo de utilizador.
  * @param codUtilizador codigo do utilizador.
  */
-void Projecto::setCodUtilizador(int codUtilizador)
+void Projecto::setCodUtilizador(const int codUtilizador)
 {
 	this->codUtilizador = codUtilizador;
+}
+
+/**
+ * Metodo de atribuicao de data de criacao.
+ * @param dataCriacao data de criacao.
+ */
+void Projecto::setDataCriacao(const Data& dataCriacao)
+{
+	this->dataCriacao = dataCriacao;
+}
+
+/**
+ * Metodo de atribuicao de data fim.
+ * @param dataFim data fim.
+ */
+void Projecto::setDataFim(const Data& dataFim)
+{
+	this->dataFim = dataFim;
 }
 
 /**

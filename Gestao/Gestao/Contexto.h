@@ -29,7 +29,7 @@ public:
 	int getCodContexto() const;
 	string getDescricao() const;
 
-	void setDescricao(string desc);
+	void setDescricao(const string desc);
 
 	virtual Contexto *clone() const;
 	void escreve(ostream &out) const;
@@ -105,7 +105,7 @@ void Contexto::setCodContexto()
  * Metodo de atribuicao de um contexto
  * @param desc contexto.
  */
-void Contexto::setDescricao(string desc)
+void Contexto::setDescricao(const string desc)
 {
 	descricao = desc;
 }
