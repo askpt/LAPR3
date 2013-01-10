@@ -45,11 +45,11 @@ void login()
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 		cout << "Nome de Utilizador?\nPara sair escreva sair" << endl;
 		string user;
-		cin >> user;
+		getline(cin, user);
 		if(user != "sair"){
 			cout << "Pass?" << endl;
 			string pass;
-			cin >> pass;
+			getline(cin, pass);
 			//getPassword(pass);
 			codUser = conexao -> login(user, pass);
 			delete(conexao);
@@ -72,7 +72,9 @@ void inserirInfo()
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 		cout << "Inserir descricao da informacao" << endl;
-		cin >> info;
+		fflush(stdin);
+		getline(cin, info);
+		fflush(stdin);
 		conexao -> inserirInfo(codUser, info);
 		delete(conexao);
 	}
@@ -106,8 +108,6 @@ void menu()
 		cout << "2 - Listar informacao" << endl;
 		cout << "0 - Sair" << endl;
 		cin >> op;
-
-
 		switch(op)
 		{
 		case 1:
