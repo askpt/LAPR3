@@ -3,6 +3,9 @@
 //#include <conio.h>
 using namespace std;
 #include "bdados.h"
+#include "Projecto.h"
+#include "Data.h"
+
 
 int codUser = -1;
 
@@ -98,28 +101,1003 @@ void listarInfo()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+void menuDependencias()
+{
+				
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "**********************************************************" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "******     Dependencias                            *******" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Criar dependencias                          *\n";
+				cout << "*        0 - Menu anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+				case 2:
+					sair=true;
+					break;
+				case 3:
+					sair=true;
+					break;
+
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+}
+
+void menuDuracaoTarefa()
+{
+				
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "**********************************************************" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "******     Duracao da tarefa                       *******" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Calcular estimativa                         *\n";
+				cout << "*        0 - Menu anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+				case 2:
+					sair=true;
+					break;
+
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+}
+
+void menuHistoricoTarefas()
+{
+				
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "**********************************************************" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "******     Consultar historico de tarefas          *******" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Visualizar historico                        *\n";
+				cout << "*        2 - Alterar nivel de visualizacao               *\n";
+				cout << "*        0 - Menu anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+				case 2:
+					sair=true;
+					break;
+				case 3:
+					sair=true;
+					break;
+
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+}
+
+void menuEditarContextos()
+{
+				
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "**********************************************************" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "******     Editar Contextos                        *******" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Adicionar Contexto                          *\n";
+				cout << "*        2 - Alterar Contexto                            *\n";
+				cout << "*        3 - Remover Contexto                            *\n";
+				cout << "*        0 - Menu anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+				case 2:
+					sair=true;
+					break;
+				case 3:
+					sair=true;
+					break;
+
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+}
+
+void menuContextoTarefas()
+{
+				
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "**********************************************************" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "******     Contexto de tarefas                     *******" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Consultar lista de tarefas                  *\n";
+				cout << "*        2 - Editar contextos                            *\n";
+				cout << "*        0 - Menu anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+				case 2:
+					menuEditarContextos();
+					sair=true;
+					break;
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+}
+
+void menuReferencias()
+{
+				
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "***********************************************************" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "******             Referencias                     *******" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Criar referencias                           *\n";
+				cout << "*        2 - Anexar documento                            *\n";
+				cout << "*        0 - Menu anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+				case 2:
+					sair=true;
+					break;
+
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+}
+
+void menuDeferirTarefa()
+{
+			
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "**********************************************************" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "******     Definir tarefa                          *******" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Definir datas                               *\n";
+				cout << "*        2 - Criar lembrete                              *\n";
+				cout << "*        3 - Associar a calendario                       *\n";
+				cout << "*        0 - Menu anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+				case 2:
+					sair=true;
+					break;
+				case 3:
+					sair=true;
+					break;
+
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+}
+
+void menuPartilhar()
+{
+		
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "***********************************************************" << endl;
+				cout << "******                                              *******" << endl;
+				cout << "******     Partilhar na cloud                       *******" << endl;
+				cout << "******                                              *******" << endl;
+				cout << "***********************************************************" << endl;
+				cout << "*     Menu:                                               *\n" ;
+				cout << "*        1 - Definir grau visibilidade                    *\n";
+				cout << "*        2 - Encriptar                                    *\n";
+				cout << "*        0 - Menu anterior                                *\n" ;
+				cout << "*---------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                    *\n";
+				cout << "*                                                         *" << endl;
+				cout << "*                                                         *" << endl;
+				cout << "***********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+				case 2:
+					sair=true;
+					break;
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+}
+void menuTarefasDelegadas()
+{
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "***********************************************************" << endl;
+				cout << "******                                              *******" << endl;
+				cout << "******         Tarefas Delegadas                    *******" << endl;
+				cout << "******                                              *******" << endl;
+				cout << "***********************************************************" << endl;
+				cout << "*     Menu:                                               *\n" ;
+				cout << "*        1 - Ver tarefas delegadas                        *\n";
+				cout << "*        2 - Delegar tarefa                               *\n";
+				cout << "*        3 - Alterar delegacao                            *\n";
+				cout << "*        4 - Remover delegacao                            *\n";
+				cout << "*        5 - Partilhar na cloud                           *\n";
+				cout << "*        0 - Menu anterior                                *\n" ;
+				cout << "*---------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                    *\n";
+				cout << "*                                                         *" << endl;
+				cout << "*                                                         *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+				case 2:
+					sair=true;
+					break;
+				case 3:
+					sair=true;
+					break;
+				case 4:
+					sair=true;
+					break;
+				case 5:
+					menuPartilhar();
+					sair=true;
+					break;
+					
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+}
+
+void menuMarcarTarefa()
+{
+	
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "**********************************************************" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "******     Marcar tarefas para 'algum dia'         *******" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Adicionar data para relembrar               *\n";
+				cout << "*        0 - Menu anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+			
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+		}
+void menuPrioridadeTarefa()
+{
+	
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "**********************************************************" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "******         Prioridades de tarefas              *******" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Atribuir prioridade                         *\n";
+				cout << "*        0 - Menu anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+			
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+		}
+void menuInformacao()
+{
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "**************************************************************" << endl;
+				cout << "******                                                 *******" << endl;
+				cout << "******          Menu Informacao                        *******" << endl;
+				cout << "******                                                 *******" << endl;
+				cout << "**************************************************************" << endl;
+				cout << "*     Menu:                                                  *\n" ;
+				cout << "*        1 - Inserir Informacao                              *\n";
+				cout << "*        2 - Listar Informacao                               *\n" ;
+				cout << "*        0 - Menu Anterior                                   *\n" ;
+				cout << "*------------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                       *\n";
+				cout << "*                                                            *" << endl;
+				cout << "*                                                            *" << endl;
+				cout << "**************************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					inserirInfo();
+					sair=true;
+					break;
+				case 2:
+					listarInfo();
+					sair=true;
+					break;
+				case 0:
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		
+			}
+		}
+void menuCriterioOrdenacao()
+{
+		
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "**********************************************************" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "******         Criterio de ordenacao               *******" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Ordenar por prioridade                      *\n";
+				cout << "*        2 - Ordenar por estimativa de tempo             *\n";
+				cout << "*        1 - Ordenar por contexto                        *\n";
+				cout << "*        0 - Menu anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+			
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+}
+void menuListarTarefas()
+{
+	
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "**********************************************************" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "******          Listar Tarefas                     *******" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Ver todas as tarefas                        *\n";
+				cout << "*        2 - Ver tarefas realizadas                      *\n" ;
+				cout << "*        3 - Ver tarefas por realizar                    *\n" ;
+				cout << "*        4 - Marcar tarefa como realizada                *\n" ;
+				cout << "*        5 - Associar duracao                            *\n" ;
+				cout << "*        6 - Alterar criterio ordenacao                  *\n" ;
+				cout << "*        7 - Alterrar nivel de informacao                *\n" ;
+				cout << "*        0 - Menu anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+				case 2:
+					
+					sair=true;
+					break;
+				case 6: 
+					menuCriterioOrdenacao();
+					sair=true;
+					break;
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+		}
+void menuTarefas()
+{
+	bool sair=false;
+	int op=1;
+	while (!sair){
+				cout << endl;
+				cout << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*******                                            *******" << endl;
+				cout << "*******         Menu Tarefas                       *******" << endl;
+				cout << "*******                                            *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Criar Tarefa                                *\n";
+				cout << "*        2 - Alterar Tarefa                              *\n" ;
+				cout << "*        3 - Converter tarefa para projecto              *\n" ;
+				cout << "*        4 - Listar tarefas                              *\n" ;
+				cout << "*        5 - Eliminar Tarefa                             *\n" ;
+				cout << "*        6 - Marcar tarefa como 'algum dia'              *\n" ;
+				cout << "*        7 - Tarefas Delegadas                           *\n" ;
+				cout << "*        8 - Deferir tarefa                              *\n" ;
+				cout << "*        9 - Prioridades de tarefas                      *\n" ;
+				cout << "*        10 - Referencias                                *\n" ;
+				cout << "*        11 - Contexto de tarefas                        *\n" ;
+				cout << "*        12 - Consultar historico de tarefas             *\n" ;
+				cout << "*        13 - Duracao de tarefas                         *\n" ;
+				cout << "*        14 - Dependencias                               *\n" ;
+				cout << "*        15 - Importar tarefas                           *\n" ;
+				cout << "*        16 - Exportar tarefas                           *\n" ;
+				cout << "*        17 - Adicionar notas                            *\n" ;
+				cout << "*        0 - Menu Anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+				case 2:
+				
+					sair=true;
+					break;
+				case 3:
+					sair=true;
+					break;
+
+				case 4:
+					menuListarTarefas();
+					sair=true;
+					break;
+				case 5:
+					sair=true;
+					break;
+				case 6:
+					menuMarcarTarefa();
+					sair=true;
+					break;
+				case 7:
+					menuTarefasDelegadas();
+					sair=true;
+					break;
+				case 8:
+					menuDeferirTarefa();
+					sair=true;
+					break;
+				case 9:
+					menuPrioridadeTarefa();
+					sair=true;
+					false;
+				case 10:
+					menuReferencias();
+					sair=true;
+					break;
+				case 11:
+					menuContextoTarefas();
+					sair=true;
+					break;
+				case 12:
+					menuHistoricoTarefas();
+					sair=true;
+					break;
+				case 13:
+					menuDuracaoTarefa();
+					sair=true;
+					break;
+				case 14:
+					menuDependencias();
+					sair=true;
+					break;
+				case 15:
+					sair=true;
+					break;
+				case 16:
+					sair=true;
+					break;
+				case 17:
+					sair=true;
+					break;
+				case 0:
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+			break;}
+}
+void menuDependenciasProjecto()
+{
+				
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "**********************************************************" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "******     Dependencias                            *******" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Visualizar dependencias de um projeto       *\n";
+				cout << "*        2 - Visualizar dependencias entre projetos      *\n";
+				cout << "*        3 - Associar a calendario                       *\n";
+				cout << "*        0 - Menu anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					
+					sair=true;
+					break;
+				case 2:
+					sair=true;
+					break;
+				case 3:
+					sair=true;
+					break;
+
+				case 0:
+					
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+						
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				
+		break;
+			}
+}
+void menuProjetos()
+{
+
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "**********************************************************" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "******          Menu Projectos                     *******" << endl;
+				cout << "******                                             *******" << endl;
+				cout << "**********************************************************" << endl;
+				cout << "*     Menu:                                              *\n" ;
+				cout << "*        1 - Criar Projecto                              *\n";
+				cout << "*        2 - Converter para tarefa                       *\n" ;
+				cout << "*        3 - Prioridades de tarefas                      *\n" ;
+				cout << "*        4 - Dependencias                                *\n" ;
+				cout << "*        0 - Menu anterior                               *\n" ;
+				cout << "*--------------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                   *\n";
+				cout << "*                                                        *" << endl;
+				cout << "*                                                        *" << endl;
+				cout << "**********************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					sair=true;
+					break;
+				case 2:
+					sair=true;
+					break;
+				case 3:
+					menuPrioridadeTarefa();
+					sair=true;
+					break;
+				case 4:
+					menuDependenciasProjecto();
+					sair=true;
+					break;
+				case 0:
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+			break;
+}}
+void menuSincronizar()
+{
+	
+	int op;
+	bool sair=false;
+	
+
+	while (!sair){
+				cout << "*******************************************************" << endl;
+				cout << "******                                          *******" << endl;
+				cout << "******          Menu Sincronizar                *******" << endl;
+				cout << "******                                          *******" << endl;
+				cout << "*******************************************************" << endl;
+				cout << "*     Menu:                                           *\n" ;
+				cout << "*        1 - Sincronizar com servidor                 *\n";
+				cout << "*        2 - Integrar com outra lista de tarefas      *\n" ;
+				cout << "*        0 - Menu anterior                            *\n" ;
+				cout << "*-----------------------------------------------------*" << endl;
+				cout << "*     Escolha a opcao:                                *\n";
+				cout << "*                                                     *" << endl;
+				cout << "*                                                     *" << endl;
+				cout << "*******************************************************" << endl;
+				cin >> op;
+				switch(op){
+				case 1:
+					sair=true;
+					break;
+				case 2:
+					sair=true;
+					break;
+				case 0:
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				default:
+					cout << "A sair..." << endl;
+					sair=true;
+					break;
+				}
+				break;
+			}
+		}
 
 void menu()
-{
+{   
+	bool sair=false;
 	int op = 1;
-	while(op != 0)
+	while(!sair)
 	{	
-		cout << "1 - Inserir informacao" << endl;
-		cout << "2 - Listar informacao" << endl;
-		cout << "0 - Sair" << endl;
+		cout << endl;
+		cout << endl;
+		cout << "**************************************************************" << endl;
+		cout << "******                                                 *******" << endl;
+		cout << "******          GESTAO PESSOAL                         *******" << endl;
+		cout << "******                                                 *******" << endl;
+		cout << "**************************************************************" << endl;
+		cout << "*     Menu:                                                  *\n" ;
+		cout << "*        1 - Informacao                                      *\n";
+		cout << "*        2 - Tarefas                                         *\n" ;
+		cout << "*        3 - Projectos                                       *\n" ;
+		cout << "*        4 - Sincronizar                                     *\n";
+		cout << "*        0 - Sair                                            *\n" ;
+		cout << "*------------------------------------------------------------*" << endl;
+		cout << "*     Escolha a opcao:                                       *\n";
+		cout << "*                                                            *" << endl;
+		cout << "*                                                            *" << endl;
+		cout << "**************************************************************" << endl;
+		
+		
 		cin >> op;
+
 		switch(op)
 		{
 		case 1:
-			inserirInfo();
-			break;
+			
+		menuInformacao();
+		
+		break;
 		case 2:
-			listarInfo();
+			
+			menuTarefas();
+			
 			break;
-		default:
-			cout << "A sair..." << endl;
+		case 3:
+			menuProjetos();
+			
 			break;
+		case 4:
+			menuSincronizar();
+			break;
+		case 0:
+			sair=true;
+			break;
+		
+		
 		}
+		
 	}
 }
 
@@ -129,6 +1107,7 @@ int main ()
 		login();
 	if(codUser > 0)
 	{
+	
 		menu();
 
 	}

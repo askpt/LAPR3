@@ -25,6 +25,8 @@ private:
 	int nivelImportancia;
 	int duracao;
 	int codDependente;
+	int nContextos;
+	int delegado;
 	Data dataCriacao;
 	Data dataFim;
 	Data dataEstimada;
@@ -36,7 +38,7 @@ private:
 
 public:
 	Tarefa();
-	Tarefa(int nivelImportancia, string informacao, Data dataEstimada, int duracao, int codDependente, int codUtilizador);
+	Tarefa(int codTarefa, int codProjecto, int codEstado, int nivelImportancia, Data dataCriacao, Data dataFim, string informacao, Data dataEstimada, int duracao, string tipo, string titulo, int codDependente, int codUtilizador, int nContexto, int delegado);
 	Tarefa(const Tarefa& t);
 	~Tarefa();
 
@@ -47,9 +49,11 @@ public:
 	int getNivelImportancia() const;
 	int getDuracao() const;
 	int getCodDependente() const;
-	Data& getDataCriacao();
-	Data& getDataFim();
-	Data& getDataEstimada();
+	int getNContextos() const;
+	int getDelegado() const;
+	Data getDataCriacao();
+	Data getDataFim();
+	Data getDataEstimada();
 	string getInformacao() const;
 	string getTitulo() const;
 	string getTipo() const;
@@ -58,14 +62,21 @@ public:
 
 	void setNivelImportancia(const int nivelImportancia);
 	void setInformacao(const string informacao);
-	void setDataEstimada(const Data& dataEstimada);
-	void setDataCriacao(const Data& dataCriacao);
-	void setDataFim(const Data& dataFim);
+	void setDataEstimada(const Data dataEstimada);
+	void setDataCriacao(const Data dataCriacao);
+	void setDataFim(const Data dataFim);
 	void setDuracao(const int duracao);
 	void setCodDependente(const int codDependente);
 	void setCodUtilizador(const int codUtilizador);
-	void setListaContextos(const Lista<Contexto>& listaContextos);
-	void setListaInformacoes(const Lista<Informacao>& listaInformacoes);
+	void setCodProjecto(const int codProjecto);
+	void setCodTarefa(const int codTarefa);
+	void setCodEstado(const int codEstado);
+	void setTipo(const string tipo);
+	void setTitulo(const string titulo);
+	void setNContextos(const int nContextos);
+	void setDelegado(const int delegado);
+	void setListaContextos(const Lista<Contexto> listaContextos);
+	void setListaInformacoes(const Lista<Informacao> listaInformacoes);
 
 	virtual Tarefa *clone() const;
 	void escreve(ostream &out) const;
@@ -77,7 +88,7 @@ public:
  */
 Tarefa::Tarefa()
 {
-	Tarefa(0,"",Data(),0,0,0);
+	Tarefa(0,0,0,0,Data(),Data(),"",Data(),0,"","",0,0,0,0);
 }
 
 /**
@@ -89,13 +100,23 @@ Tarefa::Tarefa()
  * @param codDependente codigo da tarefa dependente.
  * @param codUtilizador codigo de utilizador.
  */
-Tarefa::Tarefa(int nivelImportancia, string informacao, Data dataEstimada, int duracao, int codDependente, int codUtilizador)
+Tarefa::Tarefa(int codTarefa, int codProjecto, int codEstado, int nivelImportancia, Data dataCriacao, Data dataFim, string informacao, Data dataEstimada, int duracao, string tipo, string titulo, int codDependente, int codUtilizador, int nContextos, int delegado)
 {
+	setCodTarefa(codTarefa);
+	setCodProjecto(codProjecto);
+	setCodEstado(codEstado);
+	setDataCriacao(dataCriacao);
+	setDataFim(dataFim);
 	setNivelImportancia(nivelImportancia);
 	setInformacao(informacao);
-	setDataEstimada(Data dataEstimada);
+	setDataEstimada(dataEstimada);
 	setDuracao(duracao);
+	setTipo(tipo);
+	setTitulo(titulo);
 	setCodDependente(codDependente);
+	setCodUtilizador(codUtilizador);
+	setNContextos(nContextos);
+	setDelegado(delegado);
 }
 
 /**
@@ -104,20 +125,30 @@ Tarefa::Tarefa(int nivelImportancia, string informacao, Data dataEstimada, int d
  */
 Tarefa::Tarefa(const Tarefa& t)
 {
-	codTarefa=t.getCodTarefa();
-	codProjecto=t.getCodProjecto();
-	codEstado=t.getCodEstado();
-	codUtilizador=t.getCodUtilizador();
-	nivelImportancia=t.getNivelImportancia();
-	duracao=t.getDuracao();
-	codDependente=t.getCodDependente();
-	dataCriacao=t.getDataCriacao();
-	dataFim=t.getDataFim();
-	dataEstimada=t.getDataEstimada();
-	informacao=t.getInformacao();
-	titulo=t.getTitulo();
-	tipo=t.getTipo();
-	listaContextos=t.getListaContextos();
+	codTarefa = t.getCodTarefa();
+	codProjecto = t.getCodProjecto();
+	codEstado = t.getCodEstado();
+	codUtilizador = t.getCodUtilizador();
+	nivelImportancia = t.getNivelImportancia();
+	duracao = t.getDuracao();
+	codDependente = t.getCodDependente();
+	dataCriacao = t.dataCriacao;
+	dataFim = t.dataFim;
+	dataEstimada = t.dataEstimada;
+	informacao = t.getInformacao();
+	titulo = t.getTitulo();
+	tipo = t.getTipo();
+	nContextos = t.getNContextos();
+	delegado = t.getDelegado();
+	listaContextos = t.listaContextos;
+	listaInformacoes = t.listaInformacoes;
+}
+
+/**
+* Destrutor.
+*/
+Tarefa::~Tarefa()
+{
 }
 
 /**
@@ -178,7 +209,7 @@ int Tarefa::getDuracao() const
  * Metodo para retornar a data de criacao.
  * @return data de criacao.
  */
-Data& Tarefa::getDataCriacao()
+Data Tarefa::getDataCriacao()
 {
 	return dataCriacao;
 }
@@ -187,7 +218,7 @@ Data& Tarefa::getDataCriacao()
  * Metodo para retornar a data estimada.
  * @return data estimada
  */
-Data& Tarefa::getDataEstimada() 
+Data Tarefa::getDataEstimada() 
 {
 	return dataEstimada;
 }
@@ -196,7 +227,7 @@ Data& Tarefa::getDataEstimada()
  * Metodo para retornar a data fim.
  * @return data fim
  */
-Data& Tarefa::getDataFim() 
+Data Tarefa::getDataFim() 
 {
 	return dataFim;
 }
@@ -209,6 +240,52 @@ int Tarefa::getCodDependente() const
 {
 	return codDependente;
 }
+
+/**
+* Metodo para retornar a informacao.
+* @return informacao.
+*/
+string Tarefa::getInformacao() const
+{
+	return informacao;
+}
+
+/**
+* Metodo para retornar o titulo.
+* @return titulo.
+*/
+string Tarefa::getTitulo() const
+{
+	return titulo;
+}
+
+/**
+* Metodo para retornar o tipo.
+* @return tipo.
+*/
+string Tarefa::getTipo() const
+{
+	return tipo;
+}
+
+/**
+* Metodo para retornar o numero de contextos.
+* @return numero de contextos.
+*/
+int Tarefa::getNContextos() const
+{
+	return nContextos;
+}
+
+/**
+* Metodo para retornar o delegado.
+* @return delegado.
+*/
+int Tarefa::getDelegado() const
+{
+	return delegado;
+}
+
 
 /**
  * Metodo para retornar a lista de contextos referentes à tarefa.
@@ -250,7 +327,7 @@ void Tarefa::setInformacao(const string informacao)
  * Metodo de atribuicao da data estimada.
  * @param estimada data estimada.
  */
-void Tarefa::setDataEstimada(const Data& dataEstimada)
+void Tarefa::setDataEstimada(const Data dataEstimada)
 {
 	this->dataEstimada = dataEstimada;
 }
@@ -259,7 +336,7 @@ void Tarefa::setDataEstimada(const Data& dataEstimada)
  * Metodo de atribuicao da data de criacao.
  * @param estimada data de criacao.
  */
-void Tarefa::setDataCriacao(const Data& dataCriacao)
+void Tarefa::setDataCriacao(const Data dataCriacao)
 {
 	this->dataCriacao = dataCriacao;
 }
@@ -268,7 +345,7 @@ void Tarefa::setDataCriacao(const Data& dataCriacao)
  * Metodo de atribuicao da data fim.
  * @param estimada data fim.
  */
-void Tarefa::setDataFim(const Data& dataFim)
+void Tarefa::setDataFim(const Data dataFim)
 {
 	this->dataFim = dataFim;
 }
@@ -301,6 +378,69 @@ void Tarefa::setCodUtilizador(const int codUtilizador)
 }
 
 /**
+ * Metodo de atribuicao do codigo da tarefa.
+ * @param codUtilizador codigo da tarefa.
+ */
+void Tarefa::setCodTarefa(const int codTarefa)
+{
+	this->codTarefa = codTarefa;
+}
+
+/**
+ * Metodo de atribuicao do codigo do projecto.
+ * @param codUtilizador codigo do projecto.
+ */
+void Tarefa::setCodProjecto(const int codProjecto)
+{
+	this->codProjecto = codProjecto;
+}
+
+/**
+ * Metodo de atribuicao do codigo de estado.
+ * @param codUtilizador codigo de estado.
+ */
+void Tarefa::setCodEstado(const int codEstado)
+{
+	this->codEstado = codEstado;
+}
+
+/**
+ * Metodo de atribuicao do titulo.
+ * @param titulo titulo.
+ */
+void Tarefa::setTitulo(const string titulo)
+{
+	this->titulo = titulo;
+}
+
+/**
+ * Metodo de atribuicao do tipo.
+ * @param tipo tipo.
+ */
+void Tarefa::setTipo(const string tipo)
+{
+	this->tipo = tipo;
+}
+
+/**
+ * Metodo de atribuicao de numero de contextos.
+ * @param nContextos numero de contextos.
+ */
+void Tarefa::setNContextos(const int nContextos)
+{
+	this->nContextos = nContextos;
+}
+
+/**
+ * Metodo de atribuicao do delegado.
+ * @param delegado delegado.
+ */
+void Tarefa::setDelegado(const int delegado)
+{
+	this->delegado = delegado;
+}
+
+/**
  * Metodo de atribuicao da lista de contextos.
  * @param listaContextos lista de contextos.
  */
@@ -322,7 +462,7 @@ void Tarefa::setListaInformacoes(const Lista<Informacao> listaInformacoes)
  * Apresenta os dados do projecto.
  * @param out objecto stream out.
  */
-void Tarefa::escreve(ostream &out)
+void Tarefa::escreve(ostream &out) const
 {
 	out << "Cod. Tarefa: " << codTarefa << endl;
 	out << "Cod. Projecto: " << codProjecto << endl;
@@ -349,6 +489,11 @@ ostream & operator << (ostream &out, const Tarefa &t)
 {
 	t.escreve(out);
 	return out;
+}
+
+Tarefa* Tarefa::clone() const
+{
+	return new Tarefa(*this);
 }
 
 #endif

@@ -29,7 +29,7 @@ private:
 
 public:
 	Projecto();
-	Projecto(int nivelImportancia, string informacao, string nome, int codUtilizador);
+	Projecto(int codprojecto, int codestado, int codutilizador, int nivelimportancia, Data datacriacao, Data datafim, string informacao, string nome, Lista<Tarefa> listaTarefas);  
 	Projecto(const Projecto& p);
 	~Projecto();
 
@@ -37,10 +37,10 @@ public:
 	int getCodEstado() const;
 	int getCodUtilizador() const;
 	int getNivelImportancia() const;
-	string getInformacao();
-	string getNome();
-	Data& getDataCriacao();
-	Data& getDataFim();
+	string getInformacao()const;
+	string getNome()const;
+	Data getDataCriacao();
+	Data getDataFim();
 	Lista<Tarefa> getListaTarefas() const;
 
 	void setInformacao(const string informacao);
@@ -51,17 +51,11 @@ public:
 	void setDataFim(const Data& dataFim);
 
 	virtual Projecto *clone() const;
-	void escreve(ostream &out) const;
+	void escreve(ostream &out)const;
 
 };
 
-/**
- * Construtor vazio.
- */
-Projecto::Projecto()
-{
-	Projecto(0,"","",0);
-}
+
 
 /**
 * Construtor completo.
@@ -70,14 +64,27 @@ Projecto::Projecto()
 * @param nome nome
 * @param codUtilizador codigo do utilizador
 */
-Projecto::Projecto(int nivelImportancia, string informacao, string nome, int codUtilizador)
+Projecto::Projecto(int codprojecto, int codestado, int codutilizador, int nivelimportancia, Data datacriacao, Data datafim, string info, string n, Lista<Tarefa> listatarefa)
 {
-	setNivelImportancia(nivelImportancia);
-	setInformacao(informacao);
-	setNome(nome);
-	setCodUtilizador(codUtilizador);
+	codProjecto=codprojecto;
+	codUtilizador=codutilizador;
+	nivelImportancia=nivelimportancia;
+	dataCriacao=datacriacao;
+	dataFim=datafim;
+	informacao=info;
+	nome=n;
+	listaTarefas=listatarefa;
+
 }
 
+/**
+ * Construtor vazio.
+ */
+Projecto::Projecto()
+{
+	
+	Projecto(0,0,0,0, Data(), Data(), "","",Lista<Tarefa>());
+}
 /**
  * Construtor copia.
  * @param endereco de memoria do objeto a copiar
@@ -86,8 +93,8 @@ Projecto::Projecto(const Projecto& p)
 {
 	codProjecto=p.getCodProjecto();
 	nivelImportancia=p.getNivelImportancia();
-	dataCriacao=p.getDataCriacao();
-	dataFim=p.getDataFim();
+	dataCriacao=p.dataCriacao;
+	dataFim=p.dataFim;
 	informacao=p.getInformacao();
 	nome=p.getNome();
 	codEstado=p.getCodEstado();
@@ -160,7 +167,7 @@ string Projecto::getNome() const
  * Metodo para retornar a data de criacao.
  * @return data de criacao.
  */
-Data& Projecto::getDataCriacao()
+Data Projecto::getDataCriacao()
 {
 	return dataCriacao;
 }
@@ -169,7 +176,7 @@ Data& Projecto::getDataCriacao()
  * Metodo para retornar a data fim.
  * @return data fim.
  */
-Data& Projecto::getDataFim()
+Data Projecto::getDataFim()
 {
 	return dataFim;
 }
@@ -240,16 +247,16 @@ void Projecto::setDataFim(const Data& dataFim)
  * Apresenta os dados do projecto.
  * @param out objecto stream out.
  */
-void Projecto::escreve(ostream &out)
+void Projecto::escreve(ostream &out)const
 {
 	out << "Cod. Projecto: " << codProjecto << endl;
 	out << "Nome: " << nome << endl;
 	out << "Nivel de importancia: " << nivelImportancia << endl;
-	out << "Data de criacao: " << dataCriacao.listar();
+	out << "Data de criacao: " << dataCriacao;
 	out << "Cod. Estado: " << codEstado << endl;
 	out << "Cod. Utilizador: " << codUtilizador << endl;
 	out << "Informacao: " << informacao << endl;
-	out << "Data de fim: " << dataFim.listar();
+	out << "Data de fim: " << dataFim;
 } 
 
 /**
@@ -257,7 +264,7 @@ void Projecto::escreve(ostream &out)
  * @param out object stream out.
  * @param p objecto Projecto.
  */
-ostream & operator << (ostream &out, const Projecto &p)
+ostream &operator << (ostream &out, const Projecto& p)
 {
 	p.escreve(out);
 	return out;
