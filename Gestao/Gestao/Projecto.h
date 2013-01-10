@@ -9,6 +9,8 @@
 #ifndef PROJECTO_H
 #define PROJECTO_H
 #include "Data.h"
+#include "Lista.h"
+#include "Tarefa.h"
 
 class Projecto
 {
