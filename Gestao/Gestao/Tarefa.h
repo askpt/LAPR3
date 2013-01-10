@@ -7,10 +7,12 @@
 
 #ifndef TAREFA_H
 #define TAREFA_H
-#include "Data.h"
 #include <iostream>
 #include <string>
 using namespace std;
+#include "Data.h"
+#include "Contexto.h"
+#include "Informacao.h"
 
 class Tarefa
 {
@@ -30,6 +32,7 @@ private:
 	string titulo;
 	string tipo;
 	Lista<Contexto> listaContextos;
+	Lista<Informacao> listaInformacoes;
 
 public:
 	Tarefa();
@@ -50,7 +53,8 @@ public:
 	string getInformacao() const;
 	string getTitulo() const;
 	string getTipo() const;
-	Lista<Contexto> getListaContextos() const;
+	Lista<Contexto> getListaContextos();
+	Lista<Informacao> getListaInformacoes();
 
 	void setNivelImportancia(const int nivelImportancia);
 	void setInformacao(const string informacao);
@@ -60,6 +64,8 @@ public:
 	void setDuracao(const int duracao);
 	void setCodDependente(const int codDependente);
 	void setCodUtilizador(const int codUtilizador);
+	void setListaContextos(const Lista<Contexto>& listaContextos);
+	void setListaInformacoes(const Lista<Informacao>& listaInformacoes);
 
 	virtual Tarefa *clone() const;
 	void escreve(ostream &out) const;
@@ -208,16 +214,25 @@ int Tarefa::getCodDependente() const
  * Metodo para retornar a lista de contextos referentes à tarefa.
  * @return lista de contextos referentes à tarefa.
  */
-Lista<Contexto> Tarefa::getListaContextos() const 
+Lista<Contexto> Tarefa::getListaContextos() 
 {
 	return listaContextos;
+}
+
+/**
+ * Metodo para retornar a lista de informacoes referentes à tarefa.
+ * @return lista de informacoes referentes à tarefa.
+ */
+Lista<Informacao> Tarefa::getListaInformacoes()
+{
+	return listaInformacoes;
 }
 
 /**
  * Metodo de atribuicao do nivel de importancia.
  * @param nivelImportancia nivel de importancia.
  */
-void Tarefa::setNivelImportancia(int nivelImportancia)
+void Tarefa::setNivelImportancia(const int nivelImportancia)
 {
 	this->nivelImportancia = nivelImportancia;
 }
@@ -226,7 +241,7 @@ void Tarefa::setNivelImportancia(int nivelImportancia)
  * Metodo de atribuicao da informacao.
  * @param informacao informacao.
  */
-void Tarefa::setInformacao(string informacao)
+void Tarefa::setInformacao(const string informacao)
 {
 	this->informacao = informacao;
 }
@@ -262,7 +277,7 @@ void Tarefa::setDataFim(const Data& dataFim)
  * Metodo de atribuicao da duracao.
  * @param duracao duracao.
  */
-void Tarefa::setDuracao(int duracao)
+void Tarefa::setDuracao(const int duracao)
 {
 	this->duracao = duracao;
 }
@@ -271,7 +286,7 @@ void Tarefa::setDuracao(int duracao)
  * Metodo de atribuicao do codigo da tarefa dependente.
  * @param codDependente codigo da tarefa dependente
  */
-void Tarefa::setCodDependente(int codDependente)
+void Tarefa::setCodDependente(const int codDependente)
 {
 	this->codDependente = codDependente;
 }
@@ -280,9 +295,27 @@ void Tarefa::setCodDependente(int codDependente)
  * Metodo de atribuicao do codigo de utilizador.
  * @param codUtilizador codigo do utilizador.
  */
-void Tarefa::setCodUtilizador(int codUtilizador)
+void Tarefa::setCodUtilizador(const int codUtilizador)
 {
 	this->codUtilizador = codUtilizador;
+}
+
+/**
+ * Metodo de atribuicao da lista de contextos.
+ * @param listaContextos lista de contextos.
+ */
+void Tarefa::setListaContextos(const Lista<Contexto> listaContextos)
+{
+	this->listaContextos = listaContextos;
+}
+
+/**
+ * Metodo de atribuicao da lista de informacoes.
+ * @param listaContextos lista de informacoes.
+ */
+void Tarefa::setListaInformacoes(const Lista<Informacao> listaInformacoes)
+{
+	this->listaInformacoes = listaInformacoes;
 }
 
 /**
