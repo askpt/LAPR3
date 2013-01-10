@@ -1,6 +1,7 @@
 #ifndef Data_
 #define Data_
 #include <ctime>
+#include <sstream>
 
 class Data 
 { 	
@@ -14,7 +15,7 @@ private:
 	int validaMes (int m) const; 
 	int validaAno (int a) const; 
 	bool anoBissexto (int a) const;   // Testa se ano é bissexto
-	string toSQL() const;
+
 
 
 public:
@@ -34,6 +35,7 @@ public:
 	int getMes() const;
 	int getDia() const;
 	void listar() const ; 
+	string toSQL() const;
 
 	Data& operator=(const Data& d);
 	virtual Data* clone() const;
