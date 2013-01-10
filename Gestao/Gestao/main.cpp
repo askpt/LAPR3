@@ -9,6 +9,56 @@ using namespace std;
 
 int codUser = -1;
 
+void listarTarefas()
+{
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Tarefa> list = conexao ->listarTarefasTodas(codUser);
+		cout << list;
+		delete(conexao);
+	} 
+	catch(SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
+void inserirTarefa()
+{
+	int nivelImportancia;
+	int duracao;
+	string informacao;
+	string titulo;
+	string tipo;
+	string sDataEstimada;
+	Data dataEstimada;
+
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		cout << "Inserir nivel de importancia da tarefa" << endl;
+		cin >> nivelImportancia;
+		cout << "Inserir informacao" << endl;
+		cin >> informacao;
+		cout << "Insira a data estimada (AA.MM.DD)" << endl;
+		cin >> sDataEstimada;
+		dataEstimada = conexao->convertData(sDataEstimada);
+		cout << "Insira a duracao" << endl;
+		cin >> duracao;
+		cout << "Insira o tipo" << endl;
+		cin >> tipo;
+		cout << "Insira o titulo" << endl;
+		cin >> titulo;
+		conexao -> inserirTarefa(nivelImportancia, informacao, dataEstimada, duracao, tipo, titulo, NULL, codUser, NULL);
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
 /*void getPassword(string &get)
 {
 	get.erase();
@@ -760,7 +810,7 @@ void menuListarTarefas()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					listarTarefas();
 					sair=true;
 					break;
 				case 2:
@@ -825,7 +875,7 @@ void menuTarefas()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					inserirTarefa();
 					sair=true;
 					break;
 				case 2:
