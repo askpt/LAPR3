@@ -18,25 +18,24 @@ private:
 	string descricao;
 	
 
-	void setCodContexto();
-
 public:
 	Contexto();
-	Contexto(string descricao);
+	Contexto(int cod, string descricao);
 	Contexto(const Contexto &c);
 	~Contexto();
 
 	int getCodContexto() const;
 	string getDescricao() const;
 
+
+
+	void setCodContexto(const int cod);
 	void setDescricao(const string desc);
 
 	virtual Contexto *clone() const;
 	void escreve(ostream &out) const;
 
 };
-
-Contexto::ID=0;
 
 /**
  * Construtor vazio.
@@ -50,9 +49,9 @@ Contexto::Contexto()
  * Construtor completo.
  * @param descricao contexto da tarefa.
  */
-Contexto::Contexto(string descricao)
+Contexto::Contexto(int cod, string descricao)
 {
-	setCodContexto();
+	setCodContexto(cod);
 	setDescricao(descricao);
 }
 
@@ -62,7 +61,7 @@ Contexto::Contexto(string descricao)
  */
 Contexto::Contexto(const Contexto &c)
 {
-	codContexto = c.codInformacao;
+	codContexto = c.codContexto;
 	descricao = c.descricao;
 }
 
@@ -78,7 +77,7 @@ Contexto::~Contexto()
  * Metodo para retornar o codigo do contexto.
  * @return codigo do contexto.
  */
-int Contexto::getCodContexto()
+int Contexto::getCodContexto() const
 {
 	return codContexto;	
 }
@@ -87,7 +86,7 @@ int Contexto::getCodContexto()
  * Metodo para retornar o contexto da tarefa.
  * @return contexto da tarefa.
  */
-string Contexto::getDescricao()
+string Contexto::getDescricao() const
 {	
 	return descricao;
 }
@@ -95,9 +94,9 @@ string Contexto::getDescricao()
 /**
  * Metodo de atribuicao do codigo do contexto.
  */
-void Contexto::setCodContexto()
+void Contexto::setCodContexto(const int cod)
 {
-	codContexto = ID++;
+	codContexto = cod;
 }
 
 
@@ -114,7 +113,7 @@ void Contexto::setDescricao(const string desc)
  * Apresenta os dados do contexto.
  * @param out objecto stream out.
  */
-void Contexto::escreve(ostream &out)
+void Contexto::escreve(ostream &out) const
 {
 	cout << "Contexto: " << codContexto << endl;
 	cout << "Descricao: " << descricao << endl;
@@ -129,6 +128,12 @@ ostream & operator << (ostream &out, const Contexto &c)
 {
 	c.escreve(out);
 	return out;
+}
+
+Contexto* Contexto::clone() const
+{
+	return new Contexto(*this);
+
 }
 
 #endif
