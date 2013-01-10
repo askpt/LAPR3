@@ -27,7 +27,7 @@ public:
 	int getNivelImportancia() const;
 	string getDescricao() const;
 
-	void setDescricao(string desc);
+	void setDescricao(const string desc);
 
 	virtual Nivel *clone() const;
 	void escreve(ostream &out) const;
@@ -104,7 +104,7 @@ void Nivel::setNivelImportancia()
  * Metodo de atribuicao de uma descricao ao nivel de importancia.
  * @param desc descricao do nivel de importancia.
  */
-void Nivel::setDescricao(string desc)
+void Nivel::setDescricao(const string desc)
 {
 	descricao = desc;
 }

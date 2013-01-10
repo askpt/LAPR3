@@ -11,6 +11,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
 class Tarefa
 {
 
@@ -43,20 +44,22 @@ public:
 	int getNivelImportancia() const;
 	int getDuracao() const;
 	int getCodDependente() const;
-	Data getDataCriacao() const;
-	Data getDataFim() const;
-	Data getDataEstimada() const;
+	Data& getDataCriacao();
+	Data& getDataFim();
+	Data& getDataEstimada();
 	string getInformacao() const;
 	string getTitulo() const;
 	string getTipo() const;
 	Lista<Contexto> getListaContextos() const;
 
-	void setNivelImportancia(int nivelImportancia);
-	void setInformacao(string informacao);
-	void setDataEstimada(Data dataEstimada);
-	void setDuracao(int duracao);
-	void setCodDependente(int codDependente);
-	void setCodUtilizador(int codUtilizador);
+	void setNivelImportancia(const int nivelImportancia);
+	void setInformacao(const string informacao);
+	void setDataEstimada(const Data& dataEstimada);
+	void setDataCriacao(const Data& dataCriacao);
+	void setDataFim(const Data& dataFim);
+	void setDuracao(const int duracao);
+	void setCodDependente(const int codDependente);
+	void setCodUtilizador(const int codUtilizador);
 
 	virtual Tarefa *clone() const;
 	void escreve(ostream &out) const;
@@ -88,6 +91,11 @@ Tarefa::Tarefa(int nivelImportancia, string informacao, Data dataEstimada, int d
 	setDuracao(duracao);
 	setCodDependente(codDependente);
 }
+
+/**
+ * Construtor copia.
+ * @param t objecto tarefa a ser copiado
+ */
 Tarefa::Tarefa(const Tarefa& t)
 {
 	codTarefa=t.getCodTarefa();
@@ -105,6 +113,7 @@ Tarefa::Tarefa(const Tarefa& t)
 	tipo=t.getTipo();
 	listaContextos=t.getListaContextos();
 }
+
 /**
  * Metodo para retornar o codigo da tarefa.
  * @return codigo da tarefa.
@@ -160,6 +169,33 @@ int Tarefa::getDuracao() const
 }
 
 /**
+ * Metodo para retornar a data de criacao.
+ * @return data de criacao.
+ */
+Data& Tarefa::getDataCriacao()
+{
+	return dataCriacao;
+}
+
+/**
+ * Metodo para retornar a data estimada.
+ * @return data estimada
+ */
+Data& Tarefa::getDataEstimada() 
+{
+	return dataEstimada;
+}
+
+/**
+ * Metodo para retornar a data fim.
+ * @return data fim
+ */
+Data& Tarefa::getDataFim() 
+{
+	return dataFim;
+}
+
+/**
  * Metodo para retornar o codigo da tarefa dependente.
  * @return codigo da tarefa dependente.
  */
@@ -199,9 +235,27 @@ void Tarefa::setInformacao(string informacao)
  * Metodo de atribuicao da data estimada.
  * @param estimada data estimada.
  */
-void Tarefa::setDataEstimada(Data estimada)
+void Tarefa::setDataEstimada(const Data& dataEstimada)
 {
 	this->dataEstimada = dataEstimada;
+}
+
+/**
+ * Metodo de atribuicao da data de criacao.
+ * @param estimada data de criacao.
+ */
+void Tarefa::setDataCriacao(const Data& dataCriacao)
+{
+	this->dataCriacao = dataCriacao;
+}
+
+/**
+ * Metodo de atribuicao da data fim.
+ * @param estimada data fim.
+ */
+void Tarefa::setDataFim(const Data& dataFim)
+{
+	this->dataFim = dataFim;
 }
 
 /**
