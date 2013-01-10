@@ -6,6 +6,7 @@
 #include "Lista.h"
 using namespace oracle::occi;
 #include "Informacao.h"
+#include "Tarefa.h"
 #include "Utilizador.h"
 #include <sstream>
 #include <string>
@@ -20,9 +21,15 @@ public:
 	BDados(string user, string passwd, string db);
 	~ BDados();
 	Lista<Informacao> listaInformacao(int user);
+	Lista<Tarefa> listarTarefasTodas(int codUser);
 	int login(string user, string pass);
 	void inserirInfo(int codUser, string info);
 	Data convertData(string date);
+	void inserirTarefa(int nivelImportancia, string informacao, Data dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador, int delegado);
+	bool associarInformacao(int codTarefa, int codInformacao);
+	bool podeAssociarInfo(int codTarefa);
+    void inserirData(string data, string tabela, string campo);
+
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -74,6 +81,33 @@ Lista<Informacao> BDados::listaInformacao(int user)
 	return ret;
 }
 
+Lista<Tarefa> BDados::listarTarefasTodas(int codUser)
+{
+	Lista<Tarefa> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM TAREFA WHERE COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery();
+	while (rset->next ())
+	{
+		Data dcria, dfim, dest;
+		if(!rset->isNull(5))
+			dcria = convertData(rset->getString(5));
+		if(!rset->isNull(6))
+			dfim = convertData(rset->getString(6));
+		if(!rset->isNull(8))
+			dest = convertData(rset ->getString(8));
+		Tarefa tar(rset->getInt(1), rset->getInt(2), rset->getInt(3), rset->getInt(4), dcria, dfim, rset->getString(7),dest, rset->getInt(9), rset->getString(10),rset->getString(11), rset->getInt(12), rset->getInt(13), rset->getInt(14), rset->getInt(15));
+		ret.insere(ret.comprimento() + 1, tar);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+
 int BDados::login(string user, string pass)
 {
 	stringstream out;
@@ -99,6 +133,50 @@ void BDados::inserirInfo(int codUser, string info)
 	instrucao->executeUpdate();
 	ligacao->commit();
 	ligacao->terminateStatement(instrucao);
+}
+
+void BDados::inserirTarefa(int nivelImportancia, string informacao, Data dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador, int delegado)
+{
+	stringstream out;
+	string aux = dataEstimada.toSQL(); 
+	out << "BEGIN\nITAREFA(" << nivelImportancia << ",'" << informacao << "', '" << aux << "'," << duracao << ",'" << tipo << "', '" << titulo << "', " << tarefaDependente << ", " << codUtilizador << "," << delegado << ");\nEND;";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+}
+
+bool BDados::associarInformacao(int codTarefa, int codInformacao)
+{
+	stringstream out;
+	if(podeAssociarInfo(codTarefa))
+	{
+		out << "UPDATE Informacao SET cod_tarefa=" << codTarefa << "WHERE cod_informacao=" << codInformacao << ";";
+		string comando = out.str();
+		instrucao = ligacao->createStatement(comando);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		ligacao->terminateStatement(instrucao);
+
+		return true;
+	}else
+		return false;
+}
+
+bool BDados::podeAssociarInfo(int codTarefa)
+{
+	stringstream out;
+	int aux = NULL;
+	out << "select cod_tarefa into " << aux << " from informacao where cod_tarefa=" << codTarefa << ";";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+	if(aux == NULL)
+		return true;
+	return false;
 }
 
 #endif

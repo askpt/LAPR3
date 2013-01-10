@@ -14,6 +14,7 @@ private:
 	int validaMes (int m) const; 
 	int validaAno (int a) const; 
 	bool anoBissexto (int a) const;   // Testa se ano é bissexto
+	string toSQL() const;
 
 
 public:
@@ -36,6 +37,7 @@ public:
 
 	Data& operator=(const Data& d);
 	virtual Data* clone() const;
+	void escreve(ostream &out) const;
 };
 
 
@@ -177,6 +179,30 @@ Data* Data::clone() const
 {
 	return new Data(*this);
 }
+/**
+ *sobrecarga de operadores de stream out
+ *@param out objecto de stream out
+ */
+void Data::escreve(ostream &out) const
+{
+	out << "(DD/MM/AA) "<<  dia << "/" << mes << "/" << ano<< endl;
+}
+
+ostream & operator << (ostream &out, const Data &d)
+{
+	d.escreve(out);
+	return out;
+}
+
+
+string Data::toSQL() const
+{
+	stringstream out;
+	out << 2000-ano << "." << mes << "." << dia;
+	string data = out.str();
+	return data;
+}
+
 
 #endif
 
