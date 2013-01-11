@@ -9,6 +9,45 @@ using namespace std;
 
 int codUser = -1;
 
+
+/**
+ * associa informação a uma tarefa, com base nos código de informção e tarefa
+ * pedidos ao utilizador
+ */
+void associarInfo(){
+    // variáveis para guardar código de tarefa e código de informação
+    int codTar = 0;
+    int codInf = 0;
+    // início de try-catch para verificar conexão à base de dados
+    try
+	{
+        // conexão à base de dados
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+        // pede ao utilizador qual a tarefa que pretende associar
+        cout << "Indique qual a tarefa que pretende associar:" << endl;
+        // lista as tarefas (com base na variável global)
+        Lista<Tarefa> list = conexao ->listarTarefasTodas(codUser);
+		cout << list;
+        // guarda código tarefa na variável respectiva
+        cin >> codTar;
+        // pede ao utilizador qual a informação que pretende associar
+        cout << "Indique qual a informação que prentende associar" << endl;
+        // lista informação com base na variável global
+        Lista<Informacao> listInf = conexao ->listaInformacao(codUser);
+        cout << listInf;
+        cin >> codInf;
+        // associa informação
+        conexao->associarInformacao(codInf, codTar);
+        // termina ligação
+        delete(conexao);
+	} // end try
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	} // end catch
+} // end associarInfo
+
+
 void inserirInfo()
 {
 	string info;
@@ -18,7 +57,6 @@ void inserirInfo()
 		cout << "Inserir descricao da informacao" << endl;
 		fflush(stdin);
 		getline(cin, info);
-		fflush(stdin);
 		conexao -> inserirInfo(codUser, info);
 		delete(conexao);
 	}
@@ -729,6 +767,7 @@ void menuInformacao()
 				cout << "*     Menu:                                                  *\n" ;
 				cout << "*        1 - Inserir Informacao                              *\n";
 				cout << "*        2 - Listar Informacao                               *\n" ;
+                cout << "*        3 - Associar Informacao                             *\n" ;
 				cout << "*        0 - Menu Anterior                                   *\n" ;
 				cout << "*------------------------------------------------------------*" << endl;
 				cout << "*     Escolha a opcao:                                       *\n";
@@ -745,6 +784,10 @@ void menuInformacao()
 					listarInfo();
 					sair=true;
 					break;
+                case 3:
+                    associarInfo();
+                    sair = true;
+                    break;
 				case 0:
 					cout << "A sair..." << endl;
 					sair=true;
