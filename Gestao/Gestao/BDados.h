@@ -32,6 +32,7 @@ public:
 	int ultimaTarefa(int codUser);
 	Lista<Informacao> listaInfoSemTarefa(int codUser);
 	int ultimaInfo(int codUser);
+	void alterarTarefa(int codTare, int codestado, int nivelimportancia, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo);
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -244,6 +245,118 @@ Lista<Informacao> BDados::listaInfoSemTarefa(int codUser)
 	instrucao->closeResultSet (rset);
 
 	return ret;
+
+}
+void BDados::alterarTarefa(int codTarefa, int codestado, int nivelimportancia, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo)
+{
+	
+	string operacao;
+	if(codestado!=0)
+	{
+		stringstream out;
+		out << "UPDATE TAREFA SET COD_ESTADO = " << codestado << "WHERE COD_TAREFA = " << codTarefa;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		
+	}
+	if(nivelimportancia!=0)
+	{
+		stringstream out;
+		out << "UPDATE TAREFA SET NIVEL_IMPORTANCIA = " << nivelimportancia << "WHERE COD_TAREFA = " << codTarefa;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		out.flush();
+	}
+	if(duracao!=0)
+	{
+		stringstream out;
+		out << "UPDATE TAREFA SET DURACAO = " << duracao << "WHERE COD_TAREFA = " << codTarefa;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		out.flush();
+	}
+	if(coddependente!=0)
+	{
+		stringstream out;
+		out << "UPDATE TAREFA SET DEPENDENTE = " << coddependente << "WHERE COD_TAREFA = " << codTarefa;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		out.flush();
+	}
+	if(delegado!=0)
+	{
+		stringstream out;
+		out << "UPDATE TAREFA SET DELEGADO = " << delegado << "WHERE COD_TAREFA = " << codTarefa;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		out.flush();
+	}
+	if(datafim!="")
+	{
+		stringstream out;
+		
+		out << "UPDATE TAREFA SET DATA_FIM ='" << datafim << "'WHERE COD_TAREFA = " << codTarefa;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		out.flush();
+	}
+	if(dataestimada!="")
+	{
+		stringstream out;
+		
+		out << "UPDATE TAREFA SET ESTIMATIVA ='" << dataestimada << "'WHERE COD_TAREFA = " << codTarefa;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+	    instrucao->executeUpdate();
+	    ligacao->commit();
+		out.flush();
+	}
+	if(info!="")
+	{
+		stringstream out;
+				
+		out << "UPDATE TAREFA SET INFORMACAO ='" << info << "'WHERE COD_TAREFA = " << codTarefa;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+	    instrucao->executeUpdate();
+	    ligacao->commit();
+		out.flush();
+	}
+	if(titulo!="")
+	{
+		stringstream out;
+		out << "UPDATE TAREFA SET TITULO ='" << titulo << "'WHERE COD_TAREFA = " << codTarefa;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+	    instrucao->executeUpdate();
+	    ligacao->commit();
+		out.flush();
+	}
+	if(tipo!="")
+	{
+		stringstream out;
+				
+		out << "UPDATE TAREFA SET TIPO ='" << tipo << "'WHERE COD_TAREFA = " << codTarefa;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+	    instrucao->executeUpdate();
+	    ligacao->commit();
+		out.flush();
+	}
+
+	ligacao->terminateStatement(instrucao);
 
 }
 
