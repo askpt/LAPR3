@@ -9,6 +9,25 @@ using namespace std;
 
 int codUser = -1;
 
+void inserirInfo()
+{
+	string info;
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		cout << "Inserir descricao da informacao" << endl;
+		fflush(stdin);
+		getline(cin, info);
+		fflush(stdin);
+		conexao -> inserirInfo(codUser, info);
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
 void listarTarefas()
 {
 	try
@@ -31,26 +50,49 @@ void inserirTarefa()
 	string informacao;
 	string titulo;
 	string tipo;
-	string sDataEstimada;
-	Data dataEstimada;
+	string dataEstimada;
 
 	try
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		
+		int codTarefa, codInfo;
+		char opcao = 's';
+		
 		cout << "Inserir nivel de importancia da tarefa" << endl;
 		cin >> nivelImportancia;
 		cout << "Inserir informacao" << endl;
-		cin >> informacao;
+		fflush(stdin);
+		getline(cin, informacao);
 		cout << "Insira a data estimada (AA.MM.DD)" << endl;
-		cin >> sDataEstimada;
-		dataEstimada = conexao->convertData(sDataEstimada);
+		fflush(stdin);
+		getline(cin, dataEstimada);
 		cout << "Insira a duracao" << endl;
 		cin >> duracao;
 		cout << "Insira o tipo" << endl;
-		cin >> tipo;
+		fflush(stdin);
+		getline(cin, tipo);
 		cout << "Insira o titulo" << endl;
-		cin >> titulo;
-		conexao -> inserirTarefa(nivelImportancia, informacao, dataEstimada, duracao, tipo, titulo, NULL, codUser, NULL);
+		fflush(stdin);
+		getline(cin, titulo);
+		conexao -> inserirTarefa(nivelImportancia, informacao, dataEstimada, duracao, tipo, titulo, NULL, codUser);
+		codTarefa = conexao->ultimaTarefa(codUser);
+		while(opcao == 's' || opcao == 'S')
+		{
+			Lista<Informacao> list = conexao->listaInfoSemTarefa(codUser);
+			cout << list;
+			cout << "Quer associar alguma informacao listada?" << endl;
+			cout << "Para criar nova informacao insira -1" << endl;
+			cin >> codInfo;
+			if(codInfo == -1)
+			{
+				inserirInfo();
+				codInfo = conexao->ultimaInfo(codUser);
+			}	
+			conexao->associarInformacao(codTarefa, codInfo);
+			cout << "Deseja inserir mais informacao? (S/N)" << endl;
+			cin >> opcao;
+		}
 		delete(conexao);
 	}
 	catch (SQLException erro)
@@ -115,25 +157,6 @@ void login()
 	catch (SQLException erro) 
 	{
 		cerr << "Erro: " << erro.getMessage () << endl;
-	}
-}
-
-void inserirInfo()
-{
-	string info;
-	try
-	{
-		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
-		cout << "Inserir descricao da informacao" << endl;
-		fflush(stdin);
-		getline(cin, info);
-		fflush(stdin);
-		conexao -> inserirInfo(codUser, info);
-		delete(conexao);
-	}
-	catch (SQLException erro)
-	{
-		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
 
@@ -800,7 +823,7 @@ void menuListarTarefas()
 				cout << "*        4 - Marcar tarefa como realizada                *\n" ;
 				cout << "*        5 - Associar duracao                            *\n" ;
 				cout << "*        6 - Alterar criterio ordenacao                  *\n" ;
-				cout << "*        7 - Alterrar nivel de informacao                *\n" ;
+				cout << "*        7 - Alterar nivel de informacao                *\n" ;
 				cout << "*        0 - Menu anterior                               *\n" ;
 				cout << "*--------------------------------------------------------*" << endl;
 				cout << "*     Escolha a opcao:                                   *\n";
