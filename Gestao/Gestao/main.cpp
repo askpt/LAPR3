@@ -65,7 +65,112 @@ void inserirInfo()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+void alteraTarefa()
+{
+	int codTar;
+	int codestado=0, nivelimportancia=0, duracao=0, coddependente=0, delegado=0;
+	string datafim="", dataestimada="",informacao="",titulo="",tipo="";
 
+	char resposta='n';
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Tarefa> list = conexao ->listarTarefasTodas(codUser);
+	
+		
+		cout << list;
+		cout << "**********************************************************************" << endl;
+		cout << "Codigo da Tarefa a alterar?" << endl;
+		
+		cin >> codTar;
+		cout << "Pretende alterar o estado da tarefa? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Estado?" << endl;
+			cin >> codestado;
+		}
+		cout << "Pretende alterar o nivel de importancia? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Nivel de importancia?" << endl;
+			cin >> nivelimportancia;
+		}
+		cout << "Pretende alterar a duracao? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Duracao?" << endl;
+			cin >> duracao;
+		}
+			cout << "Pretende alterar a dependencia? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Dependencia?" << endl;
+			cin >> coddependente;
+		}
+		cout << "Pretende alterar o estado delegado? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Nova delegacao?" << endl;
+			cin >> delegado;
+		}
+		cout << "Pretende alterar a data de fim de tarefa? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Data de fim de tarefa?" << endl;
+			fflush(stdin);
+			getline(cin, datafim);
+			
+		}
+		cout << "Pretende alterar a data estimada? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Data estimada?" << endl;
+				fflush(stdin);
+			getline(cin, dataestimada);
+		
+		}
+		cout << "Pretende alterar a informacao? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Informacao?" << endl;
+				fflush(stdin);
+			getline(cin, informacao);
+			
+		}
+		cout << "Pretende alterar o titulo? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Titulo?" << endl;
+				fflush(stdin);
+			getline(cin, titulo);
+		}
+		cout << "Pretende alterar o tipo da tarefa? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Tipo?" << endl;
+				fflush(stdin);
+			getline(cin, tipo);
+		}
+		conexao->alterarTarefa(codTar, codestado, nivelimportancia,duracao,coddependente,delegado,datafim,dataestimada,informacao,titulo,tipo);
+		
+		
+		delete(conexao);
+	} 
+	catch(SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
 void listarTarefas()
 {
 	try
@@ -212,6 +317,8 @@ void listarInfo()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+
 void menuDependencias()
 {
 				
@@ -945,7 +1052,7 @@ void menuTarefas()
 					sair=true;
 					break;
 				case 2:
-				
+				    alteraTarefa();
 					sair=true;
 					break;
 				case 3:
