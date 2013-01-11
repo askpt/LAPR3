@@ -13,6 +13,7 @@ using namespace std;
 #include "Data.h"
 #include "Contexto.h"
 #include "Informacao.h"
+#include "Lista.h"
 
 class Tarefa
 {
