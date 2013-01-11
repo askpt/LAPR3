@@ -25,11 +25,13 @@ public:
 	int login(string user, string pass);
 	void inserirInfo(int codUser, string info);
 	Data convertData(string date);
-	void inserirTarefa(int nivelImportancia, string informacao, Data dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador, int delegado);
+	void inserirTarefa(int nivelImportancia, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador);
 	bool associarInformacao(int codTarefa, int codInformacao);
-	bool podeAssociarInfo(int codTarefa);
+	bool podeAssociarInfo(int codInformacao);
     void inserirData(string data, string tabela, string campo);
-
+	int ultimaTarefa(int codUser);
+	Lista<Informacao> listaInfoSemTarefa(int codUser);
+	int ultimaInfo(int codUser);
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -119,9 +121,14 @@ int BDados::login(string user, string pass)
 	Utilizador uti(rset->getInt(1), rset->getString(2), rset->getInt(3), rset->getString(4), rset->getString(5));
 	if(uti.getPass() == pass)
 	{
+		instrucao->closeResultSet(rset);
 		return uti.getCodUtilizador();	
-	}else
+	}
+	else
+	{
+		instrucao->closeResultSet(rset);
 		return -1;
+	}
 }
 
 void BDados::inserirInfo(int codUser, string info)
@@ -135,11 +142,10 @@ void BDados::inserirInfo(int codUser, string info)
 	ligacao->terminateStatement(instrucao);
 }
 
-void BDados::inserirTarefa(int nivelImportancia, string informacao, Data dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador, int delegado)
+void BDados::inserirTarefa(int nivelImportancia, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador)
 {
 	stringstream out;
-	string aux = dataEstimada.toSQL(); 
-	out << "BEGIN\nITAREFA(" << nivelImportancia << ",'" << informacao << "', '" << aux << "'," << duracao << ",'" << tipo << "', '" << titulo << "', " << tarefaDependente << ", " << codUtilizador << "," << delegado << ");\nEND;";
+	out << "BEGIN\nITAREFA(" << nivelImportancia << ",'" << informacao << "', '" << dataEstimada << "'," << duracao << ",'" << tipo << "', '" << titulo << "', " << tarefaDependente << ", " << codUtilizador << ");\nEND;";
 	string comando = out.str();
 	instrucao = ligacao->createStatement(comando);
 	instrucao->executeUpdate();
@@ -150,9 +156,9 @@ void BDados::inserirTarefa(int nivelImportancia, string informacao, Data dataEst
 bool BDados::associarInformacao(int codTarefa, int codInformacao)
 {
 	stringstream out;
-	if(podeAssociarInfo(codTarefa))
+	if(podeAssociarInfo(codInformacao))
 	{
-		out << "UPDATE Informacao SET cod_tarefa=" << codTarefa << "WHERE cod_informacao=" << codInformacao << ";";
+		out << "UPDATE Informacao SET cod_tarefa=" << codTarefa << " WHERE cod_informacao=" << codInformacao;
 		string comando = out.str();
 		instrucao = ligacao->createStatement(comando);
 		instrucao->executeUpdate();
@@ -164,19 +170,81 @@ bool BDados::associarInformacao(int codTarefa, int codInformacao)
 		return false;
 }
 
-bool BDados::podeAssociarInfo(int codTarefa)
+bool BDados::podeAssociarInfo(int codInformacao)
 {
 	stringstream out;
 	int aux = NULL;
-	out << "select cod_tarefa into " << aux << " from informacao where cod_tarefa=" << codTarefa << ";";
+	bool ret;
+
+	out << "select * from informacao where cod_informacao=" << codInformacao;
 	string comando = out.str();
 	instrucao = ligacao->createStatement(comando);
-	instrucao->executeUpdate();
-	ligacao->commit();
-	ligacao->terminateStatement(instrucao);
-	if(aux == NULL)
-		return true;
-	return false;
+	ResultSet *rset = instrucao->executeQuery ();
+	rset->next();
+	if(rset->isNull(2))
+		ret = true;
+	else
+		ret = false;
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+
+int BDados::ultimaTarefa(int codUser)
+{
+	int ret = -1;
+	stringstream out;
+	string comando;
+
+	out << "SELECT COD_TAREFA FROM TAREFA WHERE COD_UTILIZADOR =" << codUser << "ORDER BY COD_TAREFA DESC";
+	comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	ResultSet *rset = instrucao -> executeQuery();
+	rset->next();
+	ret = rset->getInt(1);
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+
+int BDados::ultimaInfo(int codUser)
+{
+	int ret = -1;
+	stringstream out;
+	string comando;
+
+	out << "SELECT COD_INFORMACAO FROM INFORMACAO WHERE COD_UTILIZADOR =" << codUser << "ORDER BY COD_INFORMACAO DESC";
+	comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	ResultSet *rset = instrucao -> executeQuery();
+	rset->next();
+	ret = rset->getInt(1);
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+
+Lista<Informacao> BDados::listaInfoSemTarefa(int codUser)
+{
+	Lista<Informacao> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM INFORMACAO WHERE COD_TAREFA IS NULL AND COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		Data tmp = convertData(rset->getString(4));
+		Informacao inf(rset->getInt(1), rset->getInt(2), rset->getString(3), tmp, rset->getInt(5));
+		if(rset->isNull(2))
+			ret.insere(ret.comprimento() + 1, inf);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
+
 }
 
 #endif
