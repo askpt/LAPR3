@@ -27,6 +27,7 @@ public:
 	Data convertData(string date);
 	void inserirTarefa(int nivelImportancia, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador);
 	bool associarInformacao(int codTarefa, int codInformacao);
+	void inserirInfoCompleta(int codUser, string info, int codTarefa);
 	bool podeAssociarInfo(int codInformacao);
     void inserirData(string data, string tabela, string campo);
 	int ultimaTarefa(int codUser);
@@ -136,6 +137,17 @@ void BDados::inserirInfo(int codUser, string info)
 {
 	stringstream out;
 	out << "BEGIN\nIINFORMACAO(NULL, '" << info << "', " << codUser << ");\nEND;";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+}
+
+void BDados::inserirInfoCompleta(int codUser, string info, int codTarefa)
+{
+	stringstream out;
+	out << "BEGIN\nIINFORMACAO("<< codTarefa << ", '" << info << "', " << codUser << ");\nEND;";
 	string comando = out.str();
 	instrucao = ligacao->createStatement(comando);
 	instrucao->executeUpdate();
