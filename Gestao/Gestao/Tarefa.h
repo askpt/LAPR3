@@ -469,6 +469,7 @@ void Tarefa::escreve(ostream &out) const
 	out << "Cod. Tarefa dependente: " << codDependente << endl;
 	out << "Cod. Utilizador : " << codUtilizador << endl;
 	out << "Estado: " << codEstado << endl;
+	out << "Numero de contextos: " << nContextos << endl;
 	out << "Nome: " << titulo << endl;
 	out << "Tipo: " << tipo << endl;
 	out << "Nivel de importancia: " << nivelImportancia << endl;
