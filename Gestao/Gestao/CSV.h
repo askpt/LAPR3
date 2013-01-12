@@ -33,17 +33,17 @@ public:
 	int  importarProjectos(string nomeFicheiro, int codUser);
 	int  importarTarefas(string nomeFicheiro, int codUser);
 	int  importarTarefaContexto(string nomeFicheiro, int codUser);
-	int  importarTipo(string nomeFicheiro, int codUser);
+	int  importarTipos(string nomeFicheiro, int codUser);
 	int  importarUtilizador(string nomeFicheiro, int codUser);
 
 	int  exportarInformacoes(string nomeFicheiro, int codUser); // done
 	int  exportarContextos(string nomeFicheiro, int codUser); // done
 	int  exportarEstados(string nomeFicheiro, int codUser);
 	int  exportarNiveis(string nomeFicheiro, int codUser); // done
-	int  exportarProjectos(string nomeFicheiro, int codUser);
+	int  exportarProjectos(string nomeFicheiro, int codUser); // done
 	int  exportarTarefas(string nomeFicheiro, int codUser); // done
 	int  exportarTarefaContexto(string nomeFicheiro, int codUser);
-	int  exportarTipo(string nomeFicheiro, int codUser);
+	int  exportarTipos(string nomeFicheiro, int codUser);
 	int  exportarUtilizador(string nomeFicheiro, int codUser); // done
 };
 
@@ -565,4 +565,50 @@ int CSV::exportarProjectos(string nomeFicheiro, int codUser)
 
 	return 0;
 }
+
+int CSV::exportarTipos(string nomeFicheiro, int codUser)
+{
+
+	string linha;
+	string desc;
+	string _nomeFicheiro;
+	stringstream out;
+	int codigo;
+	Lista<int> codigos;
+	Lista<string> descricoes;
+	Lista<int> *apCodigos = &codigos;
+	Lista<string> *apDescricoes = &descricoes;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				conexao ->listaTipos(apCodigos, apDescricoes);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+		for(int i = 1; i< codigos.comprimento()+1; i++)
+		{
+			
+			codigos.encontra(i, codigo);	
+			descricoes.encontra(i, desc);
+
+			ficheiro << codigo << "," << desc << "\n";
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
+
 #endif
