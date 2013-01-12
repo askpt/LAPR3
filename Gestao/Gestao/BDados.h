@@ -28,6 +28,7 @@ public:
 	Lista<Nivel> listarNiveis();
 	Lista<Utilizador> listarUtilizadores();
 	Lista<Projecto> listarProjectos(int codUser);
+	void listaTipos(Lista<int> *codigos, Lista<string> *descricoes);
 	int login(string user, string pass);
 	void inserirInfo(int codUser, string info);
 	void inserirInfoCompleta(int codUser, string info, int codTarefa);
@@ -71,6 +72,24 @@ Data BDados::convertData(string date)
 	Data temp(ano, mes, dia);
 
 	return temp;
+}
+
+void BDados::listaTipos(Lista<int> *codigos, Lista<string> *descricoes)
+{
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM TIPO";
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		codigos->insere(codigos->comprimento()+1, rset->getInt(1));
+		descricoes->insere(descricoes->comprimento()+1, rset->getString(2));
+	}
+	instrucao->closeResultSet (rset);
+
 }
 
 Lista<Projecto> BDados::listarProjectos(int codUser)
