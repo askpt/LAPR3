@@ -1,23 +1,21 @@
 /**
-*@author Joao Machado
-*@author Vitor Hugo
-*@date 21/12/2012 
-*@file Contexto.h 
-*Classe responsavel por guardar os contextos referentes as tarefas.*/ 
+ * @author Joao Machado
+ * @author Vitor Hugo
+ * @date 21/12/2012 
+ * @file Contexto.h 
+ * Classe responsavel por guardar os contextos referentes as tarefas
+ */ 
 
 #ifndef CONTEXTO_H
 #define CONTEXTO_H
-
 #include <string>
+
 
 class Contexto
 {
-
 private:
 	int codContexto;
-	string descricao;
-	
-
+	string descricao;	
 public:
 	Contexto();
 	Contexto(int cod, string descricao);
@@ -34,20 +32,22 @@ public:
 
 	virtual Contexto *clone() const;
 	void escreve(ostream &out) const;
-
 };
 
+
 /**
- * Construtor vazio.
+ * Construtor vazio
  */
 Contexto::Contexto()
 {
 	
 }   
 
+
 /**
  * Construtor completo.
- * @param descricao contexto da tarefa.
+ * @param 	cod 		codigo do contexto
+ * @param 	descricao 	contexto da tarefa
  */
 Contexto::Contexto(int cod, string descricao)
 {
@@ -55,9 +55,10 @@ Contexto::Contexto(int cod, string descricao)
 	setDescricao(descricao);
 }
 
+
 /**
  * Construtor copia.
- * @param c objecto Contexto a ser copiado.
+ * @param 	c 	objecto Contexto a ser copiado
  */
 Contexto::Contexto(const Contexto &c)
 {
@@ -65,17 +66,18 @@ Contexto::Contexto(const Contexto &c)
 	descricao = c.descricao;
 }
 
+
 /**
  * Destrutor.
  */
 Contexto::~Contexto()
 {
-
 }
 
+
 /**
- * Metodo para retornar o codigo do contexto.
- * @return codigo do contexto.
+ * Metodo para retornar o codigo do contexto
+ * @return 	devolve o codigo do contexto
  */
 int Contexto::getCodContexto() const
 {
@@ -83,16 +85,18 @@ int Contexto::getCodContexto() const
 }
 
 /**
- * Metodo para retornar o contexto da tarefa.
- * @return contexto da tarefa.
+ * Metodo para retornar a descricao do contexto da tarefa.
+ * @return 	contexto da tarefa.
  */
 string Contexto::getDescricao() const
 {	
 	return descricao;
 }
 
+
 /**
- * Metodo de atribuicao do codigo do contexto.
+ * Metodo de atribuicao do codigo do contexto
+ * @param 	cod 	codigo do contexto
  */
 void Contexto::setCodContexto(const int cod)
 {
@@ -101,17 +105,18 @@ void Contexto::setCodContexto(const int cod)
 
 
 /**
- * Metodo de atribuicao de um contexto
- * @param desc contexto.
+ * Metodo de atribuicao da descricao de um contexto
+ * @param 	desc 	descricao textual do contexto
  */
 void Contexto::setDescricao(const string desc)
 {
 	descricao = desc;
 }
 
+
 /**
- * Apresenta os dados do contexto.
- * @param out objecto stream out.
+ * escreve os dados do contexto
+ * @param 	out 	objecto de stream out
  */
 void Contexto::escreve(ostream &out) const
 {
@@ -119,10 +124,12 @@ void Contexto::escreve(ostream &out) const
 	cout << "Descricao: " << descricao << endl;
 } 
 
+
 /**
- * Sobrecarga do operador stream out.
- * @param out object stream out.
- * @param c objecto Contexto.
+ * Sobrecarga do operador stream out
+ * @param 	out 	objecto stream out
+ * @param 	c 		objecto Contexto
+ * @return 	devolve objecto de stream out
  */
 ostream & operator << (ostream &out, const Contexto &c)
 {
@@ -130,6 +137,11 @@ ostream & operator << (ostream &out, const Contexto &c)
 	return out;
 }
 
+
+/**
+ * copia um objecto do tipo Contexto
+ * @return 	devolve apontador para objecto do tipo Contexto
+ */
 Contexto* Contexto::clone() const
 {
 	return new Contexto(*this);
