@@ -318,6 +318,61 @@ void listarInfo()
 	}
 }
 
+void inserirProjeto()
+{
+	int nivelImportancia;
+	string dataFim;
+	string informacao;
+	string nome;
+	int codEstado;
+
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		
+		int codProjeto, codTarefa;
+		char opcao = 's';
+		
+		cout << "Inserir nivel de importancia do projeto" << endl;
+		cin >> nivelImportancia;
+		cout << "Inserir informacao" << endl;
+		fflush(stdin);
+		getline(cin, informacao);
+		cout << "Insira a data de fim (AA.MM.DD)" << endl;
+		fflush(stdin);
+		getline(cin, dataFim);
+		cout << "Insira o estado" << endl;
+		cin >> codEstado;
+		cout << "Insira o nome" << endl;
+		fflush(stdin);
+		getline(cin, nome);
+		conexao -> inserirProjeto(codUser, nivelImportancia, dataFim, informacao, nome, codEstado);
+		codProjeto = conexao->ultimoProjeto(codUser);
+		
+		while(opcao == 's' || opcao == 'S')
+		{
+			Lista<Tarefa> list = conexao->listaTarefaSemProjecto(codUser);
+			cout << list;
+			cout << "Quer associar alguma tarefa listada?" << endl;
+			cout << "Para criar nova tarefa insira -1" << endl;
+			cin >> codTarefa;
+			
+			if(codTarefa == -1)
+			{
+				inserirTarefa();
+				codTarefa = conexao->ultimaTarefa(codUser);
+			}
+			conexao->associarTarefa(codTarefa, codProjeto);
+			cout << "Deseja inserir mais tarefas? (S/N)" << endl;
+			cin >> opcao;
+		}
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
 
 void menuDependencias()
 {
@@ -1200,6 +1255,7 @@ void menuProjetos()
 				cin >> op;
 				switch(op){
 				case 1:
+					inserirProjeto();
 					sair=true;
 					break;
 				case 2:
