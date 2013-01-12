@@ -33,6 +33,11 @@ public:
 	Lista<Informacao> listaInfoSemTarefa(int codUser);
 	int ultimaInfo(int codUser);
 	void alterarTarefa(int codTare, int codestado, int nivelimportancia, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo);
+	void inserirProjeto(int codUser, int nivelImportancia, string dataFim, string informacao, string nome, int codEstado);
+	int ultimoProjeto(int codUser);
+	Lista<Tarefa> listaTarefaSemProjecto(int codUser);
+	bool associarTarefa(int codTarefa, int codProjeto);
+	bool podeAssociarTare(int codTarefa);
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -174,7 +179,6 @@ bool BDados::associarInformacao(int codTarefa, int codInformacao)
 bool BDados::podeAssociarInfo(int codInformacao)
 {
 	stringstream out;
-	int aux = NULL;
 	bool ret;
 
 	out << "select * from informacao where cod_informacao=" << codInformacao;
@@ -245,8 +249,8 @@ Lista<Informacao> BDados::listaInfoSemTarefa(int codUser)
 	instrucao->closeResultSet (rset);
 
 	return ret;
-
 }
+
 void BDados::alterarTarefa(int codTarefa, int codestado, int nivelimportancia, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo)
 {
 	
@@ -355,9 +359,108 @@ void BDados::alterarTarefa(int codTarefa, int codestado, int nivelimportancia, i
 	    ligacao->commit();
 		out.flush();
 	}
-
 	ligacao->terminateStatement(instrucao);
+}
 
+void BDados::inserirProjeto(int codUser, int nivelImportancia, string dataFim, string informacao, string nome, int codEstado)
+{
+	stringstream out;
+	out << "BEGIN\nIPROJECTO("<< nivelImportancia <<",'" << informacao << "', '" << nome << "'," <<codUser << ");\nEND;";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+}
+
+int BDados::ultimoProjeto(int codUser)
+{
+	int ret = -1;
+	stringstream out;
+	string comando;
+
+	out << "SELECT COD_PROJECTO FROM PROJECTO WHERE COD_UTILIZADOR =" << codUser << "ORDER BY COD_PROJECTO DESC";
+	comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	ResultSet *rset = instrucao -> executeQuery();
+	rset->next();
+	ret = rset->getInt(1);
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+
+Lista<Tarefa> BDados::listaTarefaSemProjecto(int codUser)
+{
+	Lista<Tarefa> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM TAREFA WHERE COD_PROJECTO IS NULL AND COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		Data tmpCria = convertData(rset->getString(5));
+		Data tmpFim;
+		if(!rset->isNull(6))
+			tmpFim = convertData(rset->getString(6));
+		else{
+			Data tmp(1900, 1, 1);
+			tmpFim = tmp;
+		}
+		Data tmpEst;
+		if(!rset->isNull(8))
+			tmpEst = convertData(rset->getString(8));
+		else
+		{
+			Data tmp(1900, 1, 1);
+			tmpEst = tmp;
+		}		
+		Tarefa tar(rset->getInt(1), rset->getInt(2), rset->getInt(3), rset->getInt(4), tmpCria, tmpFim, rset->getString(7), tmpEst, rset->getInt(9), rset->getString(10), rset->getString(11), rset->getInt(12), rset->getInt(13), rset->getInt(14), rset->getInt(15));
+		if(rset->isNull(2))
+			ret.insere(ret.comprimento() + 1, tar);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+
+bool BDados::associarTarefa(int codTarefa, int codProjeto)
+{
+	stringstream out;
+	if(podeAssociarTare(codTarefa))
+	{
+		out << "UPDATE TAREFA SET COD_PROJECTO=" << codProjeto << " WHERE COD_TAREFA=" << codTarefa;
+		string comando = out.str();
+		instrucao = ligacao->createStatement(comando);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		ligacao->terminateStatement(instrucao);
+
+		return true;
+	}else
+		return false;
+}
+
+bool BDados::podeAssociarTare(int codTarefa)
+{
+	stringstream out;
+	bool ret;
+
+	out << "select * from tarefa where cod_tarefa=" << codTarefa;
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	ResultSet *rset = instrucao->executeQuery ();
+	rset->next();
+	if(rset->isNull(2))
+		ret = true;
+	else
+		ret = false;
+	instrucao->closeResultSet (rset);
+
+	return ret;
 }
 
 #endif
