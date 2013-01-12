@@ -2,12 +2,15 @@
 #include <string>
 //#include <conio.h>
 using namespace std;
+
+int codUser = -1;
+
 #include "bdados.h"
 #include "Projecto.h"
 #include "Data.h"
+#include "csvassembly.h"
 
 
-int codUser = -1;
 
 
 /**
@@ -1387,8 +1390,8 @@ int main ()
 	if(codUser > 0)
 	{
 	
-		menu();
-
+		//menu();
+		exportAssemb();
 	}
 
 
