@@ -10,14 +10,16 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+
 using namespace std;
 #include "Tarefa.h"
 #include "Projecto.h"
 #include "Utilizador.h"
 #include "Informacao.h"
 #include "Contexto.h"
-#include "Nivel.h"
+//#include "Nivel.h"
 #include "Bdados.h"
+#include "Lista.h"
 
 class CSV
 {
@@ -34,15 +36,15 @@ public:
 	int  importarTipo(string nomeFicheiro, int codUser);
 	int  importarUtilizador(string nomeFicheiro, int codUser);
 
-	int  exportarInformacoes(string nomeFicheiro);
-	int  exportarContextos(string nomeFicheiro);
-	int  exportarEstados(string nomeFicheiro);
-	int  exportarNiveis(string nomeFicheiro);
-	int  exportarProjectos(string nomeFicheiro);
-	int  exportarTarefas(string nomeFicheiro);
-	int  exportarTarefaContexto(string nomeFicheiro);
-	int  exportarTipo(string nomeFicheiro);
-	int  exportarUtilizador(string nomeFicheiro);
+	int  exportarInformacoes(string nomeFicheiro, int codUser);
+	int  exportarContextos(string nomeFicheiro, int codUser);
+	int  exportarEstados(string nomeFicheiro, int codUser);
+	int  exportarNiveis(string nomeFicheiro, int codUser);
+	int  exportarProjectos(string nomeFicheiro, int codUser);
+	int  exportarTarefas(string nomeFicheiro, int codUser);
+	int  exportarTarefaContexto(string nomeFicheiro, int codUser);
+	int  exportarTipo(string nomeFicheiro, int codUser);
+	int  exportarUtilizador(string nomeFicheiro, int codUser);
 };
 
 int CSV::importarInformacoes(string nomeFicheiro, int codUser)
@@ -136,9 +138,9 @@ int CSV::importarTarefas(string nomeFicheiro, int codUser)
 	int codDependente;
 	int nContextos;
 	int delegado;
-	Data dataCriacao;
-	Data dataFim;
-	Data dataEstimada;
+	string dataCriacao;
+	string dataFim;
+	string dataEstimada;
 	string informacao;
 	string titulo;
 	string tipo;
@@ -281,7 +283,7 @@ int CSV::importarTarefas(string nomeFicheiro, int codUser)
 			try
 			{
 				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
-				conexao -> inserirInfoCompleta(codUser, desc, codTarefa);
+				conexao -> inserirTarefaCompleta(codTarefa, codProjecto, codEstado, nivelImportancia, dataCriacao, dataFim, informacao, dataEstimada, duracao, tipo, titulo, codDependente, codUtilizador, nContextos, delegado);
 				delete(conexao);
 			} 
 			catch(SQLException erro)
@@ -294,5 +296,33 @@ int CSV::importarTarefas(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+int CSV::exportarTarefas(string nomeFicheiro, int codUser)
+{
+	
+	string linha;
+	string desc;
+	Lista<Tarefa> tarefas;
+	Tarefa auxTarefa;
+	Tarefa *apTarefa = &auxTarefa;
+	string _nomeFicheiro;
+	stringstream out;
+	cout << "ola" << endl;
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		for(int i = 1; i< tarefas.comprimento(); i++)
+		{
+			tarefas.encontra(i, auxTarefa);
+			cout << apTarefa->getCodTarefa() << "," << apTarefa->getCodProjecto() << "," << apTarefa->getCodEstado() << "," << apTarefa->getCodUtilizador() << "," << apTarefa->getNivelImportancia() << "," << apTarefa->getDuracao() << "," << apTarefa->getCodDependente() << "," << apTarefa->getNContextos() << "," << apTarefa->getDelegado() << "," << apTarefa->getDataCriacao().toSQL() << "," << apTarefa->getDataFim().toSQL() << "," << apTarefa->getDataEstimada().toSQL()	<< "," << apTarefa->getInformacao() << "," << apTarefa->getTitulo()<< "," << apTarefa->getTitulo() << "\n";
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
 
 #endif
