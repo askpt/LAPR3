@@ -17,7 +17,7 @@ using namespace std;
 #include "Utilizador.h"
 #include "Informacao.h"
 #include "Contexto.h"
-//#include "Nivel.h"
+#include "Nivel.h"
 #include "Bdados.h"
 #include "Lista.h"
 
@@ -327,12 +327,10 @@ int CSV::exportarTarefas(string nomeFicheiro, int codUser)
 				cerr << "Erro: " << erro.getMessage() << endl;
 			}
 
-		for(int i = 1; i< tarefas.comprimento(); i++)
+		for(int i = 1; i< tarefas.comprimento()+1; i++)
 		{
 			
 			tarefas.encontra(i, auxTarefa);	
-
-			cout << apTarefa->getDataEstimada();
 
 			if(apTarefa->getDataFim().getAno() != 1900)
 				dataFim = apTarefa->getDataFim().toSQL();
@@ -380,7 +378,7 @@ int CSV::exportarInformacoes(string nomeFicheiro, int codUser)
 				cerr << "Erro: " << erro.getMessage() << endl;
 			}
 
-		for(int i = 1; i< informacoes.comprimento(); i++)
+		for(int i = 1; i< informacoes.comprimento()+1; i++)
 		{
 			
 			informacoes.encontra(i, auxInfo);	
@@ -422,7 +420,7 @@ int CSV::exportarContextos(string nomeFicheiro, int codUser)
 				cerr << "Erro: " << erro.getMessage() << endl;
 			}
 
-		for(int i = 1; i< contextos.comprimento(); i++)
+		for(int i = 1; i< contextos.comprimento()+1; i++)
 		{
 			
 			contextos.encontra(i, auxCon);	
@@ -464,7 +462,7 @@ int CSV::exportarNiveis(string nomeFicheiro, int codUser)
 				cerr << "Erro: " << erro.getMessage() << endl;
 			}
 
-		for(int i = 1; i< niveis.comprimento(); i++)
+		for(int i = 1; i< niveis.comprimento()+1; i++)
 		{
 			
 			niveis.encontra(i, auxNiv);	
@@ -477,4 +475,45 @@ int CSV::exportarNiveis(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+int CSV::exportarUtilizador(string nomeFicheiro, int codUser)
+{
+
+	string linha;
+	string desc;
+	string _nomeFicheiro;
+	stringstream out;
+	Utilizador auxUti;
+	Utilizador *apUti = &auxUti;
+	Lista<Utilizador> utilizadores;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				utilizadores = conexao ->listarUtilizadores();
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+		for(int i = 1; i< utilizadores.comprimento()+1; i++)
+		{
+			
+			utilizadores.encontra(i, auxUti);	
+
+			ficheiro << apUti->getCodUtilizador() << "," << apUti->getNome()  << "," << apUti->getTelefone()  << "," << apUti->getLogin()  << "," << apUti->getPass() << "\n";
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
 #endif
