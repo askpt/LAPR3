@@ -1,3 +1,10 @@
+/**
+ * Classe que contem todos os metodos de interaccao com a base de dados
+ * @author 	Andre Silva
+ * @date 	07/01/2013
+ * @file	BDados.h
+ */
+
 #ifndef BDados_
 #define BDados_
 #include <iostream>
@@ -36,17 +43,37 @@ public:
 	int ultimaInfo(int codUser);
 	void alterarTarefa(int codTare, int codestado, int nivelimportancia, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo);
 };
+
+
+/**
+ * construtor de um objecto do tipo BDados que permite a ligacao a base de dados
+ * @param	user 	string correspondente ao nome de utilizador
+ * @param	passwd 	string correspondente à palavra-passe do utilizador
+ * @param	db 		endereço da base de dados
+ */
 BDados::BDados(string user, string passwd, string db)
 {
 	env = Environment::createEnvironment (Environment::DEFAULT);
 	ligacao = env->createConnection (user, passwd, db);
 }
+
+
+/**
+ * destrutor do objecto BDados
+ */
 BDados::~BDados()
 {
 	env->terminateConnection (ligacao);
 	Environment::terminateEnvironment (env);
 }
 
+
+/**
+ * converte uma data presente numa string (no formato AA.MM.DD) para um objecto
+ * do tipo Data
+ * @param	data 	string com data no formato AA.MM.DD
+ * @return 	temp	objecto do tipo Data
+ */
 Data BDados::convertData(string date)
 {
 	//DATE: AA.MM.DD
@@ -65,6 +92,12 @@ Data BDados::convertData(string date)
 	return temp;
 }
 
+
+/**
+ * lista toda a informação de um dado utilizador
+ * @param 	user 				codigo do utilizador
+ * @return 	Lista<Informacao> 	objecto do tipo Lista com todos os registos da tabela Informacao
+ */
 Lista<Informacao> BDados::listaInformacao(int user)
 {
 	Lista<Informacao> ret;
@@ -86,6 +119,12 @@ Lista<Informacao> BDados::listaInformacao(int user)
 	return ret;
 }
 
+
+/**
+ * lista todas as tarefas do utilizador
+ * @param 	codUser			codigo do utilizador
+ * @return 	Lista<Tarefa> 	objecto do tipo Lista com todos os registos da tabela Informacao
+ */
 Lista<Tarefa> BDados::listarTarefasTodas(int codUser)
 {
 	Lista<Tarefa> ret;
@@ -113,6 +152,14 @@ Lista<Tarefa> BDados::listarTarefasTodas(int codUser)
 	return ret;
 }
 
+
+/**
+ * metodo que faz a autenticacao do utilizador na aplicacao
+ * @param 	user 	nome da conta do utilizador na aplicacao
+ * @param 	pass 	palavra-passe do utilizador
+ * @return	codigo do utilizador caso acesso seja autenticado,
+ * 			ou -1 caso caso a autenticao falhe
+ */
 int BDados::login(string user, string pass)
 {
 	stringstream out;
@@ -134,6 +181,12 @@ int BDados::login(string user, string pass)
 	}
 }
 
+
+/**
+ * insere informacao na base de dados
+ * @param 	codUser 	codigo do utilizador
+ * @param 	info 		informacao na forma de texto
+ */
 void BDados::inserirInfo(int codUser, string info)
 {
 	stringstream out;
@@ -145,6 +198,13 @@ void BDados::inserirInfo(int codUser, string info)
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * insere dados na tabela Informacao
+ * @param 	codUser 	codigo de utilizador
+ * @param 	info 		descricao, em texto, da informacao
+ * @param 	codTarefa 	codigo da tarefa associada a esta informacao
+ */
 void BDados::inserirInfoCompleta(int codUser, string info, int codTarefa)
 {
 	stringstream out;
@@ -156,6 +216,19 @@ void BDados::inserirInfoCompleta(int codUser, string info, int codTarefa)
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * insere tarefa na base de dados
+ * @param 	nivelImportancia	inteiro que corresponde ao nivel de importancia da tarefa
+ 								(0: mais importante; 9: menos importante)
+ * @param 	Informacao 			texto com informacao que vai ser usada para criar tarefa
+ * @param 	dataEstimada 		texto com data estimada de duracao da tarefa
+ * @param 	duracao 			inteiro com duracao da terefa (em minutos)
+ * @param 	tipo 				texto que indica qual o tipo da tarefa
+ * @param 	titulo 				texto com titulo a atribuir a tarefa
+ * @param 	tarefaDependente 	inteiro que indica se existe dependencia na tarefa a ser criada
+ * @param 	codUtilizador 		codigo do utilizador assoicado a tarefa a ser criada
+ */
 void BDados::inserirTarefa(int nivelImportancia, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador)
 {
 	stringstream out;
@@ -167,6 +240,25 @@ void BDados::inserirTarefa(int nivelImportancia, string informacao, string dataE
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * insere dados para todos os campos da tabela tarefa
+ * @param 	codTarefa 			codigo da tarefa
+ * @param 	codProjecto 		codigo do projecto ao qual pertence a tarefa
+ * @param 	codEstado 			codigo de estado da tarefa
+ * @param 	nivelImportancia 	nivel de importancia da tarefa
+ * @param 	dataCriacao 		data de criacao da tarefa
+ * @param 	dataFim 			data de fim da tarefa
+ * @param 	informacao 			informacao sobre a tarefa
+ * @param 	dataEstimada 		data estimada de fim da tarefa
+ * @param 	duracao 			duracao da tarefa, em minutos
+ * @param 	tipo 				tipo da tarefa
+ * @param 	titulo 				titulo da tarefa
+ * @param 	dependente 			codigo da tarefa da qual depende
+ * @param 	codUtilizador 		codigo do utilizador ao qual corresponde a tarefa
+ * @param 	nContexto 			contexto ao qual esta associada a tarefa
+ * @param 	delegado 			codigo do utilizador a quem a tarefa foi delegada
+ */
 void BDados::inserirTarefaCompleta(int codTarefa, int codProjecto, int codEstado, int nivelImportancia, string dataCriacao, string dataFim, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int dependente, int codUtilizador, int nContexto, int delegado)
 {
 	stringstream out;
@@ -178,6 +270,12 @@ void BDados::inserirTarefaCompleta(int codTarefa, int codProjecto, int codEstado
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * associa informacao presente no sistema a uma dada tarefa
+ * @param 	codTarefa 	codigo
+ * @return
+ */
 bool BDados::associarInformacao(int codTarefa, int codInformacao)
 {
 	stringstream out;
@@ -195,6 +293,12 @@ bool BDados::associarInformacao(int codTarefa, int codInformacao)
 		return false;
 }
 
+
+/**
+ * verifica se e possivel associar informacao a uma tarefa
+ * @param 	codInformacao 	codigo da informacao
+ * @return 	true se for possivel associar informacao, false no caso oposto
+ */
 bool BDados::podeAssociarInfo(int codInformacao)
 {
 	stringstream out;
@@ -215,6 +319,12 @@ bool BDados::podeAssociarInfo(int codInformacao)
 	return ret;
 }
 
+
+/**
+ * devolve o codigo da ultima tarefa da tabela de tarefas de um dado utilizador
+ * @param 	codUser 	codigo do utilizador
+ * @return 	devolve o codigo da ultima tarefa, caso nao exista nenhuma devolve -1
+ */
 int BDados::ultimaTarefa(int codUser)
 {
 	int ret = -1;
@@ -232,6 +342,12 @@ int BDados::ultimaTarefa(int codUser)
 	return ret;
 }
 
+
+/**
+ * devolve o codigo da ultima informacao da tabela de informacao de um dado utilizador
+ * @param 	codUser 	codigo do utilizador
+ * @return 	devolve o codigo da ultima informacao, caso nao exista devolve -1
+ */
 int BDados::ultimaInfo(int codUser)
 {
 	int ret = -1;
@@ -249,6 +365,13 @@ int BDados::ultimaInfo(int codUser)
 	return ret;
 }
 
+
+/**
+ * lista todos os registos de informacao que nao estejam associados a uma tarefa
+ * para um dado utilizador 
+ * @param 	codUser 	codigo do utilizador
+ * @return 	objecto do tipo lista com as informacoes sem tarefas associadas
+ */
 Lista<Informacao> BDados::listaInfoSemTarefa(int codUser)
 {
 	Lista<Informacao> ret;
@@ -271,9 +394,24 @@ Lista<Informacao> BDados::listaInfoSemTarefa(int codUser)
 	return ret;
 
 }
+
+
+/**
+ * altera os varios campos de um registo da tabela Tarefa
+ * @param 	codTarefa 			codigo da tarefa
+ * @param 	codestado 			codigo do estado da tarefa
+ * @param 	nivelimportancia 	nivel de importancia da tarefa
+ * @param 	durancao			duracao da tarefa, em minutos
+ * @param 	coddependente 		codigo da tarefa da qual a presente tarefa esta dependente
+ * @param 	delegado 			codigo de utilizador ao qual foi delegada a tarefa
+ * @param 	datafim 			data de fim da tarefa
+ * @param 	dataestimada 		data estimada de fim da tarefa
+ * @param 	info 				informacao sobre a tarefa
+ * @param 	titulo 				titulo da tarefa
+ * @param 	tipo 				tipo de tarefa
+ */
 void BDados::alterarTarefa(int codTarefa, int codestado, int nivelimportancia, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo)
 {
-	
 	string operacao;
 	if(codestado!=0)
 	{
@@ -379,9 +517,7 @@ void BDados::alterarTarefa(int codTarefa, int codestado, int nivelimportancia, i
 	    ligacao->commit();
 		out.flush();
 	}
-
 	ligacao->terminateStatement(instrucao);
-
 }
 
 #endif
