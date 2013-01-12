@@ -38,6 +38,7 @@ public:
 	Lista<Tarefa> listaTarefaSemProjecto(int codUser);
 	bool associarTarefa(int codTarefa, int codProjeto);
 	bool podeAssociarTare(int codTarefa);
+	Lista<int> listarCodContextos(int codTarefa);
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -459,6 +460,22 @@ bool BDados::podeAssociarTare(int codTarefa)
 	else
 		ret = false;
 	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+
+Lista<int> BDados::listarCodContextos(int codTarefa)
+{
+	Lista<int> ret;
+	stringstream out;
+	out << "select * from tarefa_contexto where cod_tarefa=" << codTarefa;
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	ResultSet *rset = instrucao->executeQuery ();
+	while(rset->next())
+	{
+		ret.insere(ret.comprimento() + 1, rset->getInt(2));
+	}
 
 	return ret;
 }
