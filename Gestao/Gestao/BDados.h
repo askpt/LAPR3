@@ -9,6 +9,7 @@ using namespace oracle::occi;
 #include "Tarefa.h"
 #include "Utilizador.h"
 #include "Nivel.h"
+#include "Projecto.h"
 #include <sstream>
 #include <string>
 
@@ -26,6 +27,7 @@ public:
 	Lista<Contexto> listarContextos();
 	Lista<Nivel> listarNiveis();
 	Lista<Utilizador> listarUtilizadores();
+	Lista<Projecto> listarProjectos(int codUser);
 	int login(string user, string pass);
 	void inserirInfo(int codUser, string info);
 	void inserirInfoCompleta(int codUser, string info, int codTarefa);
@@ -40,11 +42,13 @@ public:
 	int ultimaInfo(int codUser);
 	void alterarTarefa(int codTare, int codestado, int nivelimportancia, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo);
 };
+
 BDados::BDados(string user, string passwd, string db)
 {
 	env = Environment::createEnvironment (Environment::DEFAULT);
 	ligacao = env->createConnection (user, passwd, db);
 }
+
 BDados::~BDados()
 {
 	env->terminateConnection (ligacao);
@@ -67,6 +71,33 @@ Data BDados::convertData(string date)
 	Data temp(ano, mes, dia);
 
 	return temp;
+}
+
+Lista<Projecto> BDados::listarProjectos(int codUser)
+{
+	Lista<Projecto> ret;
+	Lista<Tarefa> tarefas;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM PROJECTO WHERE COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		Data dcria, dfim;
+		if(!rset->isNull(3))
+			dcria = convertData(rset->getString(3));
+		if(!rset->isNull(4))
+			dfim = convertData(rset->getString(4));
+
+		Projecto pro(rset->getInt(1), rset->getInt(7),rset->getInt(8), rset->getInt(2), dcria, dfim, rset->getString(5), rset->getString(6), tarefas );
+		ret.insere(ret.comprimento() + 1, pro);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
 }
 
 Lista<Utilizador> BDados::listarUtilizadores()
