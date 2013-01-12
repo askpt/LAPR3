@@ -29,10 +29,18 @@ public:
 	Lista<Utilizador> listarUtilizadores();
 	Lista<Projecto> listarProjectos(int codUser);
 	void listaTipos(Lista<int> *codigos, Lista<string> *descricoes);
+	void listaEstados(Lista<int> *codigos, Lista<string> *descricoes);
+	void listaTarefaContexto(Lista<int> *codigoTarefa, Lista<int> *codigoContexto);
 	int login(string user, string pass);
 	void inserirInfo(int codUser, string info);
 	void inserirInfoCompleta(int codUser, string info, int codTarefa);
 	Data convertData(string date);
+	void inserirProjetoCompleto(int codProjecto,int codEstado,int codUtilizador,int nivelImportancia, string dataCriacao, string dataFim, string informacao, string nome);
+	void inserirTarefaContexto(int codTarefa, int codContexto);
+	void inserirContexto(string desc);
+	void inserirEstado(string desc);
+	void inserirTipo(string descricao);
+	void inserirNivel(int nivelImportancia, string desc);
 	void inserirTarefa(int nivelImportancia, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador);
 	void inserirTarefaCompleta(int codTarefa, int codProjecto, int codEstado, int nivelImportancia, string dataCriacao, string dataFim, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int dependente, int codUtilizador, int nContexto, int delegado);
 	bool associarInformacao(int codTarefa, int codInformacao);
@@ -72,6 +80,42 @@ Data BDados::convertData(string date)
 	Data temp(ano, mes, dia);
 
 	return temp;
+}
+
+void BDados::listaTarefaContexto(Lista<int> *codigoTarefa, Lista<int> *codigoContexto)
+{
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM TAREFA_CONTEXTO";
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		codigoTarefa->insere(codigoTarefa->comprimento()+1, rset->getInt(1));
+		codigoContexto->insere(codigoContexto->comprimento()+1, rset->getInt(2));
+	}
+	instrucao->closeResultSet (rset);
+
+}
+
+void BDados::listaEstados(Lista<int> *codigos, Lista<string> *descricoes)
+{
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM ESTADO";
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		codigos->insere(codigos->comprimento()+1, rset->getInt(1));
+		descricoes->insere(descricoes->comprimento()+1, rset->getString(2));
+	}
+	instrucao->closeResultSet (rset);
+
 }
 
 void BDados::listaTipos(Lista<int> *codigos, Lista<string> *descricoes)
@@ -248,6 +292,72 @@ int BDados::login(string user, string pass)
 	}
 }
 
+void BDados::inserirProjetoCompleto(int codProjecto,int codEstado,int codUtilizador,int nivelImportancia, string dataCriacao, string dataFim, string informacao, string nome)
+{
+	stringstream out;
+	out << "INSERT INTO Projecto(cod_projecto, nivel_importancia, data_criacao, data_fim, informacao, nome, cod_estado, cod_utilizador) VALUES(seq_projecto.NEXTVAL," << nivelImportancia << ", '" << dataCriacao <<"', '"<< dataFim << "', '" << informacao << "', '" << nome << "', " << codEstado << ", " << codUtilizador << ")";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+}
+
+void BDados::inserirTarefaContexto(int codTarefa, int codContexto)
+{
+	stringstream out;
+	out << "BEGIN\nITAREFA_CONTEXTO(" << codTarefa << "," << codContexto << ");\nEND;";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+}
+
+void BDados::inserirContexto(string descricao)
+{
+	stringstream out;
+	out << "BEGIN\nICONTEXTO('" << descricao << "');\nEND;";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+}
+
+void BDados::inserirEstado(string descricao)
+{
+	stringstream out;
+	out << "BEGIN\nIESTADO('" << descricao << "');\nEND;";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+}
+
+void BDados::inserirNivel(int nivelImportancia, string desc)
+{
+	stringstream out;
+	out << "INSERT INTO Nivel(nivel_importancia, descricao) VALUES(" << nivelImportancia << ",'" << desc << "')";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+}
+
+void BDados::inserirTipo(string descricao)
+{
+	stringstream out;
+	out << "BEGIN\nITIPO('" << descricao << "');\nEND;";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+}
+
 void BDados::inserirInfo(int codUser, string info)
 {
 	stringstream out;
@@ -284,7 +394,7 @@ void BDados::inserirTarefa(int nivelImportancia, string informacao, string dataE
 void BDados::inserirTarefaCompleta(int codTarefa, int codProjecto, int codEstado, int nivelImportancia, string dataCriacao, string dataFim, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int dependente, int codUtilizador, int nContexto, int delegado)
 {
 	stringstream out;
-	out << "INSERT INTO TAREFA(cod_tarefa, cod_projecto, cod_estado, nivel_importancia,	data_criacao, data_fim, informacao, estimativa, duracao, tipo, titulo, dependente,	cod_utilizador, ncontexto, delegado) VALUES("<< codTarefa << ", " << codProjecto <<	", " << codEstado << ", " << nivelImportancia <<", '" << dataCriacao << "', '"<<dataFim << "', '"<< informacao << "', '" << dataEstimada << "', " << duracao <<	", '" << tipo << "', '" << titulo << "', " << dependente << ", " << codUtilizador <<", " << nContexto << ", " << delegado << ");";
+	out << "INSERT INTO TAREFA(cod_tarefa, cod_projecto, cod_estado, nivel_importancia,	data_criacao, data_fim, informacao, estimativa, duracao, tipo, titulo, dependente, cod_utilizador, ncontexto, delegado) VALUES( seq_tarefa.NEXTVAL, null, " << codEstado << ", " << nivelImportancia <<", '" << dataCriacao << "', '"<<dataFim << "', '"<< informacao << "', '" << dataEstimada << "', " << duracao <<	", '" << tipo << "', '" << titulo << "', " << dependente << ", " << codUtilizador <<", " << 0 << ", NULL)";
 	string comando = out.str();
 	instrucao = ligacao->createStatement(comando);
 	instrucao->executeUpdate();
