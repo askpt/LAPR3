@@ -27,7 +27,7 @@ public:
 	void inserirInfoCompleta(int codUser, string info, int codTarefa);
 	Data convertData(string date);
 	void inserirTarefa(int nivelImportancia, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador);
-	inserirTarefaCompleta(int codTarefa, int codProjecto, int codEstado, int nivelImportancia, string dataCriacao, string dataFim, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int dependente, int codUtilizador, int nContexto, int delegado);
+	void inserirTarefaCompleta(int codTarefa, int codProjecto, int codEstado, int nivelImportancia, string dataCriacao, string dataFim, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int dependente, int codUtilizador, int nContexto, int delegado);
 	bool associarInformacao(int codTarefa, int codInformacao);
 	bool podeAssociarInfo(int codInformacao);
     void inserirData(string data, string tabela, string campo);
@@ -170,14 +170,7 @@ void BDados::inserirTarefa(int nivelImportancia, string informacao, string dataE
 void BDados::inserirTarefaCompleta(int codTarefa, int codProjecto, int codEstado, int nivelImportancia, string dataCriacao, string dataFim, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int dependente, int codUtilizador, int nContexto, int delegado)
 {
 	stringstream out;
-	out << "INSERT INTO TAREFA(cod_tarefa, cod_projecto, cod_estado, nivel_importancia,
-	data_criacao, data_fim, informacao, estimativa, duracao, tipo, titulo, dependente,
-	cod_utilizador, ncontexto, delegado) VALUES("<< codTarefa << ", " << codProjecto <<
-	", " << codEstado << ", " << nivelImportancia <<", '" << dataCriacao << "', '"<<
-	dataFim << "', '"<< informacao << "', '" << dataEstimada << "', " << duracao <<
-	", '" << tipo << "', '" << titulo << "', " << dependente << ", " << codUtilizador <<
-	", " << nContexto << ", " << delegado << ");";
-
+	out << "INSERT INTO TAREFA(cod_tarefa, cod_projecto, cod_estado, nivel_importancia,	data_criacao, data_fim, informacao, estimativa, duracao, tipo, titulo, dependente,	cod_utilizador, ncontexto, delegado) VALUES("<< codTarefa << ", " << codProjecto <<	", " << codEstado << ", " << nivelImportancia <<", '" << dataCriacao << "', '"<<dataFim << "', '"<< informacao << "', '" << dataEstimada << "', " << duracao <<	", '" << tipo << "', '" << titulo << "', " << dependente << ", " << codUtilizador <<", " << nContexto << ", " << delegado << ");";
 	string comando = out.str();
 	instrucao = ligacao->createStatement(comando);
 	instrucao->executeUpdate();
