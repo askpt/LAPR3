@@ -301,12 +301,12 @@ int CSV::exportarTarefas(string nomeFicheiro, int codUser)
 	
 	string linha;
 	string desc;
-	Lista<Tarefa> tarefas;
-	Tarefa auxTarefa;
-	Tarefa *apTarefa = &auxTarefa;
 	string _nomeFicheiro;
 	stringstream out;
-	cout << "ola" << endl;
+	Tarefa auxTarefa;
+	Tarefa *apTarefa = &auxTarefa;
+	Lista<Tarefa> tarefas;
+
 
 	out << nomeFicheiro << ".csv";
 	_nomeFicheiro = out.str();
@@ -314,10 +314,65 @@ int CSV::exportarTarefas(string nomeFicheiro, int codUser)
 
 	if(ficheiro.is_open())
 	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				tarefas = conexao ->listarTarefasTodas(codUser);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
 		for(int i = 1; i< tarefas.comprimento(); i++)
 		{
-			tarefas.encontra(i, auxTarefa);
-			cout << apTarefa->getCodTarefa() << "," << apTarefa->getCodProjecto() << "," << apTarefa->getCodEstado() << "," << apTarefa->getCodUtilizador() << "," << apTarefa->getNivelImportancia() << "," << apTarefa->getDuracao() << "," << apTarefa->getCodDependente() << "," << apTarefa->getNContextos() << "," << apTarefa->getDelegado() << "," << apTarefa->getDataCriacao().toSQL() << "," << apTarefa->getDataFim().toSQL() << "," << apTarefa->getDataEstimada().toSQL()	<< "," << apTarefa->getInformacao() << "," << apTarefa->getTitulo()<< "," << apTarefa->getTitulo() << "\n";
+			
+			tarefas.encontra(i, auxTarefa);			
+
+			ficheiro << apTarefa->getCodTarefa() << "," << apTarefa->getCodProjecto() << "," << apTarefa->getCodEstado() << "," << apTarefa->getCodUtilizador() << "," << apTarefa->getNivelImportancia() << "," << apTarefa->getDuracao() << "," << apTarefa->getCodDependente() << "," << apTarefa->getNContextos() << "," << apTarefa->getDelegado() << "," << apTarefa->getDataCriacao().toSQL() << "," << apTarefa->getDataFim().toSQL() << "," << apTarefa->getDataEstimada().toSQL()	<< "," << apTarefa->getInformacao() << "," << apTarefa->getTitulo()<< "," << apTarefa->getTitulo() << "\n";
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
+
+int CSV::exportarInformacoes(string nomeFicheiro, int codUser)
+{
+	
+	string linha;
+	string desc;
+	string _nomeFicheiro;
+	stringstream out;
+	Informacao auxInfo;
+	Informacao *apInfo = &auxInfo;
+	Lista<Informacao> informacoes;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				informacoes = conexao ->listaInformacao(codUser);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+		for(int i = 1; i< informacoes.comprimento(); i++)
+		{
+			
+			informacoes.encontra(i, auxInfo);	
+
+			ficheiro << apInfo->getCodInformacao() << "," << apInfo->getCodTarefa() << "," << apInfo->getCodUtilizador() << "," << apInfo->getDescricao() << "," << apInfo->getDataInsercao().toSQL() << "\n";
 		}
 		ficheiro.close();
 	}
