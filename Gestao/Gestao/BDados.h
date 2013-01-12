@@ -8,6 +8,7 @@ using namespace oracle::occi;
 #include "Informacao.h"
 #include "Tarefa.h"
 #include "Utilizador.h"
+#include "Nivel.h"
 #include <sstream>
 #include <string>
 
@@ -22,6 +23,8 @@ public:
 	~ BDados();
 	Lista<Informacao> listaInformacao(int user);
 	Lista<Tarefa> listarTarefasTodas(int codUser);
+	Lista<Contexto> listarContextos();
+	Lista<Nivel> listarNiveis();
 	int login(string user, string pass);
 	void inserirInfo(int codUser, string info);
 	void inserirInfoCompleta(int codUser, string info, int codTarefa);
@@ -64,6 +67,46 @@ Data BDados::convertData(string date)
 
 	return temp;
 }
+
+Lista<Nivel> BDados::listarNiveis()
+{
+	Lista<Nivel> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM NIVEL ";
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		Nivel niv(rset->getInt(1), rset->getString(2));
+		ret.insere(ret.comprimento() + 1, niv);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+Lista<Contexto> BDados::listarContextos()
+{
+	Lista<Contexto> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM CONTEXTO ";
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		Contexto cont(rset->getInt(1), rset->getString(2));
+		ret.insere(ret.comprimento() + 1, cont);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+
 
 Lista<Informacao> BDados::listaInformacao(int user)
 {

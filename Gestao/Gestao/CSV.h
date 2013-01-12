@@ -306,6 +306,8 @@ int CSV::exportarTarefas(string nomeFicheiro, int codUser)
 	Tarefa auxTarefa;
 	Tarefa *apTarefa = &auxTarefa;
 	Lista<Tarefa> tarefas;
+	string dataEstimada;
+	string dataFim;
 
 
 	out << nomeFicheiro << ".csv";
@@ -328,9 +330,20 @@ int CSV::exportarTarefas(string nomeFicheiro, int codUser)
 		for(int i = 1; i< tarefas.comprimento(); i++)
 		{
 			
-			tarefas.encontra(i, auxTarefa);			
+			tarefas.encontra(i, auxTarefa);	
 
-			ficheiro << apTarefa->getCodTarefa() << "," << apTarefa->getCodProjecto() << "," << apTarefa->getCodEstado() << "," << apTarefa->getCodUtilizador() << "," << apTarefa->getNivelImportancia() << "," << apTarefa->getDuracao() << "," << apTarefa->getCodDependente() << "," << apTarefa->getNContextos() << "," << apTarefa->getDelegado() << "," << apTarefa->getDataCriacao().toSQL() << "," << apTarefa->getDataFim().toSQL() << "," << apTarefa->getDataEstimada().toSQL()	<< "," << apTarefa->getInformacao() << "," << apTarefa->getTitulo()<< "," << apTarefa->getTitulo() << "\n";
+			cout << apTarefa->getDataEstimada();
+
+			if(apTarefa->getDataFim().getAno() != 1900)
+				dataFim = apTarefa->getDataFim().toSQL();
+			else
+				dataFim = "---";
+			if(apTarefa->getDataEstimada().getAno() != 1900)
+				dataEstimada = apTarefa->getDataEstimada().toSQL();
+			else
+				dataEstimada = "---";
+
+			ficheiro << apTarefa->getCodTarefa() << "," << apTarefa->getCodProjecto() << "," << apTarefa->getCodEstado() << "," << apTarefa->getCodUtilizador() << "," << apTarefa->getNivelImportancia() << "," << apTarefa->getDuracao() << "," << apTarefa->getCodDependente() << "," << apTarefa->getNContextos() << "," << apTarefa->getDelegado() << "," << apTarefa->getDataCriacao().toSQL() << "," << dataFim << "," << dataEstimada << "," << apTarefa->getInformacao() << "," << apTarefa->getTitulo()<< "," << apTarefa->getTitulo() << "\n";	
 		}
 		ficheiro.close();
 	}
@@ -373,6 +386,90 @@ int CSV::exportarInformacoes(string nomeFicheiro, int codUser)
 			informacoes.encontra(i, auxInfo);	
 
 			ficheiro << apInfo->getCodInformacao() << "," << apInfo->getCodTarefa() << "," << apInfo->getCodUtilizador() << "," << apInfo->getDescricao() << "," << apInfo->getDataInsercao().toSQL() << "\n";
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
+
+int CSV::exportarContextos(string nomeFicheiro, int codUser)
+{
+	
+	string linha;
+	string desc;
+	string _nomeFicheiro;
+	stringstream out;
+	Contexto auxCon;
+	Contexto *apCon = &auxCon;
+	Lista<Contexto> contextos;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				contextos = conexao ->listarContextos();
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+		for(int i = 1; i< contextos.comprimento(); i++)
+		{
+			
+			contextos.encontra(i, auxCon);	
+
+			ficheiro << apCon->getCodContexto() << "," << apCon->getDescricao() << "\n";
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
+
+int CSV::exportarNiveis(string nomeFicheiro, int codUser)
+{
+	
+	string linha;
+	string desc;
+	string _nomeFicheiro;
+	stringstream out;
+	Nivel auxNiv;
+	Nivel *apNiv = &auxNiv;
+	Lista<Nivel> niveis;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				niveis = conexao ->listarNiveis();
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+		for(int i = 1; i< niveis.comprimento(); i++)
+		{
+			
+			niveis.encontra(i, auxNiv);	
+
+			ficheiro << apNiv->getNivelImportancia() << "," << apNiv->getDescricao() << "\n";
 		}
 		ficheiro.close();
 	}
