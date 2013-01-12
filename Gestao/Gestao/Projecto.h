@@ -68,6 +68,7 @@ Projecto::Projecto(int codprojecto, int codestado, int codutilizador, int niveli
 {
 	codProjecto=codprojecto;
 	codUtilizador=codutilizador;
+	codEstado = codestado;
 	nivelImportancia=nivelimportancia;
 	dataCriacao=datacriacao;
 	dataFim=datafim;

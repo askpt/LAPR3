@@ -36,15 +36,15 @@ public:
 	int  importarTipo(string nomeFicheiro, int codUser);
 	int  importarUtilizador(string nomeFicheiro, int codUser);
 
-	int  exportarInformacoes(string nomeFicheiro, int codUser);
-	int  exportarContextos(string nomeFicheiro, int codUser);
+	int  exportarInformacoes(string nomeFicheiro, int codUser); // done
+	int  exportarContextos(string nomeFicheiro, int codUser); // done
 	int  exportarEstados(string nomeFicheiro, int codUser);
-	int  exportarNiveis(string nomeFicheiro, int codUser);
+	int  exportarNiveis(string nomeFicheiro, int codUser); // done
 	int  exportarProjectos(string nomeFicheiro, int codUser);
-	int  exportarTarefas(string nomeFicheiro, int codUser);
+	int  exportarTarefas(string nomeFicheiro, int codUser); // done
 	int  exportarTarefaContexto(string nomeFicheiro, int codUser);
 	int  exportarTipo(string nomeFicheiro, int codUser);
-	int  exportarUtilizador(string nomeFicheiro, int codUser);
+	int  exportarUtilizador(string nomeFicheiro, int codUser); // done
 };
 
 int CSV::importarInformacoes(string nomeFicheiro, int codUser)
@@ -510,6 +510,55 @@ int CSV::exportarUtilizador(string nomeFicheiro, int codUser)
 			utilizadores.encontra(i, auxUti);	
 
 			ficheiro << apUti->getCodUtilizador() << "," << apUti->getNome()  << "," << apUti->getTelefone()  << "," << apUti->getLogin()  << "," << apUti->getPass() << "\n";
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
+
+int CSV::exportarProjectos(string nomeFicheiro, int codUser)
+{
+	
+	string linha;
+	string desc;
+	string _nomeFicheiro;
+	stringstream out;
+	Projecto auxProjecto;
+	Projecto *apProjecto = &auxProjecto;
+	Lista<Projecto> projectos;
+	string dataFim;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				projectos = conexao ->listarProjectos(codUser);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+			cout << projectos.comprimento();
+		for(int i = 1; i< projectos.comprimento()+1; i++)
+		{
+			
+			projectos.encontra(i, auxProjecto);	
+
+			if(apProjecto->getDataFim().getAno() != 1900)
+				dataFim = apProjecto->getDataFim().toSQL();
+			else
+				dataFim = "---";
+
+			ficheiro << apProjecto->getCodProjecto() << "," << apProjecto->getCodEstado() << "," << apProjecto->getCodUtilizador() << "," << apProjecto->getNivelImportancia() << "," << apProjecto->getDataCriacao().toSQL() << "," << dataFim << "," << apProjecto->getInformacao() << "," << apProjecto->getNome() << "\n";	
 		}
 		ficheiro.close();
 	}
