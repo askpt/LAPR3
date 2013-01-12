@@ -25,6 +25,7 @@ public:
 	Lista<Tarefa> listarTarefasTodas(int codUser);
 	Lista<Contexto> listarContextos();
 	Lista<Nivel> listarNiveis();
+	Lista<Utilizador> listarUtilizadores();
 	int login(string user, string pass);
 	void inserirInfo(int codUser, string info);
 	void inserirInfoCompleta(int codUser, string info, int codTarefa);
@@ -66,6 +67,26 @@ Data BDados::convertData(string date)
 	Data temp(ano, mes, dia);
 
 	return temp;
+}
+
+Lista<Utilizador> BDados::listarUtilizadores()
+{
+	Lista<Utilizador> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM UTILIZADOR ";
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		Utilizador uti(rset->getInt(1), rset->getString(2), rset->getInt(3), rset->getString(4), rset->getString(5));
+		ret.insere(ret.comprimento() + 1, uti);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
 }
 
 Lista<Nivel> BDados::listarNiveis()
