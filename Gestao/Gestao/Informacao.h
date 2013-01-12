@@ -1,9 +1,9 @@
 /**
-*@author Joao Machado
-*@author Vitor Hugo
-*@date 21/12/2012 
-*@file Informacao.h 
-*Classe responsavel por guardar toda a informacao que o utilizador desejar colocar no programa, que pode ser ou nao uma tarefa.*/ 
+ * @author Joao Machado
+ * @author Vitor Hugo
+ * @date 21/12/2012 
+ * @file Informacao.h 
+ * Classe responsavel por guardar toda a informacao que o utilizador desejar colocar no programa, que pode ser ou nao uma tarefa.*/ 
 
 #ifndef INFORMACAO_H
 #define INFORMACAO_H
@@ -14,7 +14,6 @@ using namespace std;
 
 class Informacao
 {
-
 private:
 	int codInformacao;
 	int codTarefa;
@@ -50,12 +49,16 @@ public:
  */
 Informacao::Informacao()
 {
-	
 }   
 
+
 /**
- * Construtor completo.
- * @param descricao descricao da informacao.
+ * Construtor completo
+ * @param 	codInformacao 	codigo da informacao
+ * @param 	codTarefa 		codigo da tarefa
+ * @param 	descricao 		descricao da informacao
+ * @param 	dataIns 		data em que a informacao foi inserida no sistema
+ * @param 	codUtilizador 	codigo do utilizador
  */
 Informacao::Informacao(int codInformacao, int codTarefa, string descricao, Data dataIns, int codUtilizador)
 {
@@ -66,9 +69,10 @@ Informacao::Informacao(int codInformacao, int codTarefa, string descricao, Data 
 	setCodUtilizador(codUtilizador);
 }
 
+
 /**
  * Construtor copia.
- * @param i objecto Informacao a ser copiado.
+ * @param 	i 		objecto Informacao a ser copiado
  */
 Informacao::Informacao(const Informacao &i)
 {
@@ -76,34 +80,38 @@ Informacao::Informacao(const Informacao &i)
 	descricao = i.descricao;
 }
 
+
 /**
- * Destrutor.
+ * Destrutor
  */
 Informacao::~Informacao()
 {
-
 }
 
+
 /**
- * Metodo para retornar o codigo da informacao.
- * @return codigo da informacao.
+ * retorna o codigo da informacao
+ * @return 	devolve o codigo da informacao
  */
 int Informacao::getCodInformacao() const
 {
 	return codInformacao;	
 }
 
+
 /**
  * Metodo para retornar a descricao da informacao.
- * @return descricao da informacao.
+ * @return 	retorna a descricao da informacao
  */
 string Informacao::getDescricao() const
 {	
 	return descricao;
 }
 
+
 /**
- * Metodo de atribuicao do codigo da informacao.
+ * Metodo de atribuicao do codigo da informacao
+ * @param 	cod 	codigo da informacao
  */
 void Informacao::setCodInformacao(const int cod)
 {
@@ -112,53 +120,58 @@ void Informacao::setCodInformacao(const int cod)
 
 
 /**
- * Metodo de atribuicao de uma descricao a informacao.
- * @param desc descricao da informacao.
+ * Metodo de atribuicao de uma descricao a informacao
+ * @param 	desc 	descricao da informacao
  */
 void Informacao::setDescricao(const string desc)
 {
 	descricao = desc;
 }
 
+
 /** 
  * Metodo de atribuicao de um codigo de utilizador a informacao
- * @param codUtilizador codigo de utilizador
+ * @param 	cod 	codigo de utilizador
  */
 void Informacao::setCodUtilizador(const int cod)
 {
 	codUtilizador=cod;
 }
 
+
 /**
- * Metodo para retornar o codigo de utilizador
- * @return retorna o codigo do utilizador de uma informacao
+ * retorna o codigo de utilizador
+ * @return 	devolve o codigo do utilizador de uma dada informacao
  */
 int Informacao::getCodUtilizador() const
 {
 	return codUtilizador;
 }
 
+
 /**
  * Metodo de atribuicao codigo de tarefa
- * @param cod que e o novo codigo da tarefa para alterar
+ * @param 	cod 	codigo da tarefa 
  */
 void Informacao::setCodTarefa(const int cod)
 {
 	codTarefa=cod;
 }
 
+
 /**
  * Metodo para retornar codigo de tarefa
- * @return codigo de tarefa
+ * @return 	devolve o codigo de tarefa
  */
 int Informacao::getCodTarefa() const
 {
 	return codTarefa;
 }
 
+
 /**
  * Metodo para alterar data de insercao
- * @param data data de insercao para alterar
+ * @param 	data 	data de insercao da informacao
  */
 void Informacao::setDataInsercao(const Data& data)
 {
@@ -166,17 +179,18 @@ void Informacao::setDataInsercao(const Data& data)
 }
 
 /**
- * Metodo para retornar o endereco da data de insercao.		
- * @return retorna o endereco de memoria da data de insercao
+ * Metodo para retornar a data de insercao	
+ * @return 	retorna a data de insercao
  */
 Data& Informacao::getDataInsercao()
 {
 	return dataInsercao;
 }
 
+
 /**
- * Apresenta os dados da informacao.
- * @param out objecto stream out.
+ * Apresenta os dados da informacao
+ * @param out 	objecto stream out
  */
 void Informacao::escreve(ostream &out)const
 {
@@ -186,10 +200,11 @@ void Informacao::escreve(ostream &out)const
 	out << "Codigo de Utilizador: " << codUtilizador << endl;
 } 
 
+
 /**
- * Sobrecarga do operador stream out.
- * @param out object stream out.
- * @param i objecto Informacao.
+ * Sobrecarga do operador stream out
+ * @param out	object stream out
+ * @param i 	objecto Informacao
  */
 ostream & operator << (ostream &out, const Informacao &i)
 {
@@ -197,6 +212,11 @@ ostream & operator << (ostream &out, const Informacao &i)
 	return out;
 }
 
+
+/**
+ * copia um objecto do tipo Informacao
+ * @return 	devolve apontador para novo objecto Informacao
+ */
 Informacao* Informacao::clone() const
 {
 	return new Informacao(*this);
