@@ -9,6 +9,90 @@ using namespace std;
 
 int codUser = -1;
 
+void removerDelegacao()
+{
+	try
+	{
+		int tarefa;
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		
+		cout << "Tarefa a remover delegacao?" << endl;
+		cin >> tarefa;
+		conexao->removerDelegacao(codUser, tarefa);
+		delete(conexao);
+		
+		
+		
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+void alterarDelegacao()
+{
+				try
+	{
+		int cod, tarefa;
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		
+		cout << "Tarefa a alterar delegacao?" << endl;
+		cin >> tarefa;
+		
+		cout << "Utilizador a delegar? " << endl;
+		cin >> cod;
+		conexao->delegarTarefa(codUser, tarefa, cod);
+		delete(conexao);
+		
+		
+		
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
+void delegarTarefa()
+{
+			try
+	{
+		int cod, tarefa;
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		
+		cout << "Tarefa para delegar?" << endl;
+		cin >> tarefa;
+		
+		cout << "Utilizador a delegar? " << endl;
+		cin >> cod;
+		conexao->delegarTarefa(codUser, tarefa, cod);
+		delete(conexao);
+		
+		
+		
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+void listarTarefasDelegadas()
+{
+			try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Tarefa> tarefas= conexao -> verTarefasDelegadas(codUser);
+		cout << "Tarefas delegadas:" << endl;
+		cout << tarefas;
+		
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
 void associaTarefaNivel()
 {
 			try
@@ -60,9 +144,9 @@ void ordenarTarefaEstimativa()
 		try
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
-		Lista<Tarefa> tarefas= conexao -> ordenarPrioridade(codUser);
+		Lista<Tarefa> taref= conexao -> ordenarTarefasEstimativa(codUser);
 		cout << "Tarefas ordenadas por estimativa de tempo:" << endl;
-		cout << tarefas;
+		cout << taref;
 		
 		
 		delete(conexao);
@@ -698,7 +782,7 @@ void menuContextoTarefas()
 				cout << "******                                             *******" << endl;
 				cout << "**********************************************************" << endl;
 				cout << "*     Menu:                                              *\n" ;
-				cout << "*        1 - Consultar lista de tarefas                  *\n";
+				cout << "*        1 - Consultar lista de Contextos                *\n";
 				cout << "*        2 - Editar contextos                            *\n";
 				cout << "*        0 - Menu anterior                               *\n" ;
 				cout << "*--------------------------------------------------------*" << endl;
@@ -905,16 +989,19 @@ void menuTarefasDelegadas()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					listarTarefasDelegadas();
 					sair=true;
 					break;
 				case 2:
+					delegarTarefa();
 					sair=true;
 					break;
 				case 3:
+					alterarDelegacao();
 					sair=true;
 					break;
 				case 4:
+					removerDelegacao();
 					sair=true;
 					break;
 				case 5:

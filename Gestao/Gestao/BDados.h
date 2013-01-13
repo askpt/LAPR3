@@ -43,6 +43,10 @@ public:
 	Lista<Tarefa> ordenarTarefasEstimativa(int codUser);
 	Lista<Tarefa> ordenarTarefasContexto(int codUser);
 	void associarTarefaNivel(int codUser, int codTarefa, int nivel);
+	Lista<Tarefa> verTarefasDelegadas(int codUser);
+	void delegarTarefa(int codUser, int codTarefa, int codUtil);
+	void alterarDelegacao(int codUser, int codTarefa, int codUtil);
+	void removerDelegacao(int codUser, int codTarefa);
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -552,7 +556,7 @@ Lista<Tarefa> BDados::ordenarTarefasEstimativa(int codUser)
 	stringstream out;
 	string operacao;
 
-	out << "SELECT * FROM TAREFA WHERE COD_UTILIZADOR = " << codUser << " AND ESTIMATIVA ORDER BY ESTIMATIVA";
+	out << "SELECT * FROM TAREFA WHERE COD_UTILIZADOR = " << codUser << " AND ESTIMATIVA IS NOT NULL ORDER BY ESTIMATIVA DESC";
 	operacao = out.str();
 	instrucao = ligacao->createStatement(operacao);
 	ResultSet *rset = instrucao->executeQuery ();
@@ -566,14 +570,21 @@ Lista<Tarefa> BDados::ordenarTarefasEstimativa(int codUser)
 		{
 			Data tmp(1900,1,1);
 			dataFim = tmp;
-		}
+		}	
 		Data estimativa;
-		if(!rset->isNull(8)){
+		if(!rset->isNull(8))
 			estimativa=convertData(rset->getString(8));
-			Tarefa taref(rset->getInt(1), rset->getInt(2), rset->getInt(3), rset->getInt(4), dataCria, dataFim, rset->getString(7), estimativa, rset->getInt(9), rset->getString(10), rset->getString(11), rset->getInt(12),rset->getInt(13), rset->getInt(14), rset->getInt(15));
-		
-			ret.insere(ret.comprimento() + 1, taref);
+		else
+		{
+			Data tmp(1900,1,1);
+			estimativa = tmp;
 		}
+	
+	    
+		Tarefa taref(rset->getInt(1), rset->getInt(2), rset->getInt(3), rset->getInt(4), dataCria, dataFim, rset->getString(7), estimativa, rset->getInt(9), rset->getString(10), rset->getString(11), rset->getInt(12),rset->getInt(13), rset->getInt(14), rset->getInt(15));
+		
+		if(taref.getDataEstimada().getAno()!=1900)
+			ret.insere(ret.comprimento() + 1, taref);
 	}
 	instrucao->closeResultSet (rset);
 
@@ -581,7 +592,7 @@ Lista<Tarefa> BDados::ordenarTarefasEstimativa(int codUser)
 }
 Lista<Tarefa> BDados::ordenarTarefasContexto(int codUser)
 {
-		Lista<Tarefa> ret;
+	Lista<Tarefa> ret;
 	stringstream out;
 	string operacao;
 
@@ -626,6 +637,79 @@ void BDados::associarTarefaNivel(int codUser, int codTarefa, int nivel)
 	instrucao->executeUpdate();
 	ligacao->commit();
     cout << "Processo realizado com sucesso!!!" << endl;
+	ligacao->terminateStatement(instrucao);
+}
+Lista<Tarefa> BDados::verTarefasDelegadas(int codUser)
+{
+	Lista<Tarefa> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM TAREFA WHERE COD_UTILIZADOR = " << codUser << "AND DELEGADO IS NOT NULL";
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		Data dataCria = convertData(rset->getString(5));
+		Data dataFim;
+		if(!rset->isNull(6))
+			dataFim=convertData(rset->getString(6));
+		else
+		{
+			Data tmp(1900,1,1);
+			dataFim = tmp;
+		}
+		Data estimativa;
+		if(!rset->isNull(8))
+			estimativa=convertData(rset->getString(8));
+		else
+		{
+			Data tmp(1900,1,1);
+			estimativa = tmp;
+		}
+		Tarefa taref(rset->getInt(1), rset->getInt(2), rset->getInt(3), rset->getInt(4), dataCria, dataFim, rset->getString(7), estimativa, rset->getInt(9), rset->getString(10), rset->getString(11), rset->getInt(12),rset->getInt(13), rset->getInt(14), rset->getInt(15));
+		
+		ret.insere(ret.comprimento() + 1, taref);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+void BDados::delegarTarefa(int codUser, int codTarefa, int codUtil)
+{
+	string operacao;
+	stringstream out;
+	out << "UPDATE TAREFA SET DELEGADO = " << codUtil << "WHERE COD_UTILIZADOR = " << codUser << " AND COD_TAREFA = "<< codTarefa;
+	operacao=out.str();
+	instrucao = ligacao->createStatement(operacao);
+	instrucao->executeUpdate();
+	ligacao->commit();
+    cout << "Tarefa delegada com sucesso!!!" << endl;
+	ligacao->terminateStatement(instrucao);
+}
+void BDados::alterarDelegacao(int codUser, int codTarefa, int codUtil)
+{
+	string operacao;
+	stringstream out;
+	out << "UPDATE TAREFA SET DELEGADO = " << codUtil << "WHERE COD_UTILIZADOR = " << codUser << " AND COD_TAREFA = "<< codTarefa;
+	operacao=out.str();
+	instrucao = ligacao->createStatement(operacao);
+	instrucao->executeUpdate();
+	ligacao->commit();
+    cout << "Delegacao alterada com sucesso!!!" << endl;
+	ligacao->terminateStatement(instrucao);
+}
+void BDados::removerDelegacao(int codUser, int codTarefa)
+{
+	string operacao;
+	stringstream out;
+	out << "UPDATE TAREFA SET DELEGADO = NULL WHERE COD_UTILIZADOR = " << codUser << " AND COD_TAREFA = "<< codTarefa;
+	operacao=out.str();
+	instrucao = ligacao->createStatement(operacao);
+	instrucao->executeUpdate();
+	ligacao->commit();
+    cout << "Delegacao removida com sucesso!!!" << endl;
 	ligacao->terminateStatement(instrucao);
 }
 
