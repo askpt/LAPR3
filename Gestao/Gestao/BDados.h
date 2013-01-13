@@ -50,6 +50,8 @@ public:
 	int ultimaTarefa(int codUser);
 	Lista<Informacao> listaInfoSemTarefa(int codUser);
 	int ultimaInfo(int codUser);
+	string getEstado(int codEstado);
+	string getUser(int codUser);
 	void alterarTarefa(int codTare, int codestado, int nivelimportancia, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo);
 };
 
@@ -81,6 +83,44 @@ Data BDados::convertData(string date)
 	Data temp(ano, mes, dia);
 
 	return temp;
+}
+
+string BDados::getEstado(int codEstado)
+{
+	stringstream out;
+	string operacao;
+	string estado;
+
+	out << "SELECT * FROM ESTADO WHERE COD_ESTADO = " << codEstado;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		estado = rset->getString(2);
+	}
+	instrucao->closeResultSet (rset);
+
+	return estado;
+}
+
+string BDados::getUser(int codUser)
+{
+	stringstream out;
+	string operacao;
+	string estado;
+
+	out << "SELECT * FROM UTILIZADOR WHERE COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		estado = rset->getString(2);
+	}
+	instrucao->closeResultSet (rset);
+
+	return estado;
 }
 
 void BDados::listaTarefaContexto(Lista<int> *codigoTarefa, Lista<int> *codigoContexto)
