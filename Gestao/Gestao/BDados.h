@@ -8,6 +8,7 @@ using namespace oracle::occi;
 #include "Informacao.h"
 #include "Tarefa.h"
 #include "Utilizador.h"
+#include "Projecto.h"
 #include <sstream>
 #include <string>
 
@@ -39,6 +40,7 @@ public:
 	bool associarTarefa(int codTarefa, int codProjeto);
 	bool podeAssociarTare(int codTarefa);
 	Lista<int> listarCodContextos(int codTarefa);
+	Lista<Projecto> listarProjetosTodos(int codUser);
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -478,6 +480,34 @@ Lista<int> BDados::listarCodContextos(int codTarefa)
 	}
 
 	return ret;
+}
+
+Lista<Projecto> BDados::listarProjetosTodos(int codUser)
+{
+
+	Lista<Projecto> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM PROJECTO WHERE COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery();
+	while (rset->next ())
+	{
+		Data dcria, dfim;
+		if(!rset->isNull(3))
+			dcria = convertData(rset->getString(3));
+		if(!rset->isNull(4))
+			dfim = convertData(rset->getString(4));
+		cout << rset->getInt(7);
+		Projecto pro(rset->getInt(1),rset->getInt(7),rset->getInt(8), rset->getInt(2), dcria, dfim, rset->getString(5), rset->getString(6));
+		ret.insere(ret.comprimento() + 1, pro);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
+
 }
 
 #endif

@@ -11,7 +11,11 @@ int codUser = -1;
 #include "csvassembly.h"
 
 
+/*
+Meter no menu:
+-> 	exportAssemb(); exportacao para Assembly
 
+*/
 
 /**
  * associa informação a uma tarefa, com base nos código de informção e tarefa
@@ -180,6 +184,21 @@ void listarTarefas()
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 		Lista<Tarefa> list = conexao ->listarTarefasTodas(codUser);
+		cout << list;
+		delete(conexao);
+	} 
+	catch(SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
+void listarProjetos()
+{
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Projecto> list = conexao ->listarProjetosTodos(codUser);
 		cout << list;
 		delete(conexao);
 	} 
@@ -1391,7 +1410,7 @@ int main ()
 	{
 	
 		//menu();
-		exportAssemb();
+		listarProjetos();
 	}
 
 
