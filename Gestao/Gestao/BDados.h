@@ -35,6 +35,7 @@ public:
 	void inserirInfo(int codUser, string info);
 	void inserirInfoCompleta(int codUser, string info, int codTarefa);
 	Data convertData(string date);
+	void inserirUtilizador(string nome, int telefone, string login, string pass);
 	void inserirProjetoCompleto(int codProjecto,int codEstado,int codUtilizador,int nivelImportancia, string dataCriacao, string dataFim, string informacao, string nome);
 	void inserirTarefaContexto(int codTarefa, int codContexto);
 	void inserirContexto(string desc);
@@ -290,6 +291,17 @@ int BDados::login(string user, string pass)
 		instrucao->closeResultSet(rset);
 		return -1;
 	}
+}
+
+void BDados::inserirUtilizador(string nome, int telefone, string login, string pass)
+{
+	stringstream out;
+	out << "BEGIN\nIUTILIZADOR('" << nome << "', " << telefone << ", '" << login << "', '" << pass << "' );\nEND;";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
 }
 
 void BDados::inserirProjetoCompleto(int codProjecto,int codEstado,int codUtilizador,int nivelImportancia, string dataCriacao, string dataFim, string informacao, string nome)
