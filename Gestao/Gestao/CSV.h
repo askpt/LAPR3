@@ -248,14 +248,20 @@ int CSV::importarTarefas(string nomeFicheiro, int codUser)
 			pos = linha.find(',',comeca);
 
 			string cFim(linha.substr(comeca,pos-comeca));
-			dataFim = cFim; // guarda dataFim
+			if (cFim == "---")
+				dataFim = "NULL";
+			else
+				dataFim = cFim; // guarda dataFim
 
 			pos++;
 			comeca = pos;
 			pos = linha.find(',',comeca);
 
 			string cEsti(linha.substr(comeca,pos-comeca));
-			dataEstimada = cEsti; // guarda dataEstimada
+			if (cEsti == "---")
+				dataEstimada = "NULL";
+			else
+				dataEstimada = cEsti; // guarda dataEstimada
 
 			pos++;
 			comeca = pos;
@@ -369,6 +375,9 @@ int CSV::importarProjectos(string nomeFicheiro, int codUser)
 			pos = linha.find(',',comeca);
 
 			string cFim(linha.substr(comeca,pos-comeca));
+			if (cFim == "---")
+				dataFim = "NULL";
+			else
 			dataFim = cFim; // guarda dataFim
 
 			pos++;
