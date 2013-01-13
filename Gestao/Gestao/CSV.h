@@ -30,11 +30,11 @@ public:
 	int  importarContextos(string nomeFicheiro, int codUser); // done
 	int  importarEstados(string nomeFicheiro, int codUser); // done
 	int  importarNiveis(string nomeFicheiro, int codUser); // done
-	int  importarProjectos(string nomeFicheiro, int codUser); 
+	int  importarProjectos(string nomeFicheiro, int codUser); // done
 	int  importarTarefas(string nomeFicheiro, int codUser); // done
 	int  importarTarefaContexto(string nomeFicheiro, int codUser); // done
 	int  importarTipos(string nomeFicheiro, int codUser); // done
-	int  importarUtilizador(string nomeFicheiro, int codUser);
+	int  importarUtilizadores(string nomeFicheiro, int codUser); // done
 
 	int  exportarInformacoes(string nomeFicheiro, int codUser); // done
 	int  exportarContextos(string nomeFicheiro, int codUser); // done
@@ -686,6 +686,87 @@ int CSV::importarTarefaContexto(string nomeFicheiro, int codUser)
 	}
 
 	
+	return 0;
+}
+
+int CSV::importarUtilizadores(string nomeFicheiro, int codUser)
+{
+	int codUtilizador;
+	int telefone;
+	string nome;
+	string login;
+	string pass;
+	string linha;
+	string _nomeFicheiro;
+	stringstream out;
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+
+	ifstream ficheiro(_nomeFicheiro); // abre o ficheiro
+
+	if(!ficheiro)
+	{
+		cout << _nomeFicheiro << "nao existe!" << endl;
+		return -1;
+	}
+
+	while(!ficheiro.eof()) // enquanto nao chega ao final do ficheiro
+	{
+		getline(ficheiro,linha,'\n'); // grava o conteudo da linha
+		if(linha.size() > 0)
+		{
+			int  comeca = 0;
+			int pos = linha.find(',',comeca);
+
+			string cUti(linha.substr(comeca,pos-comeca));
+			char* aux = &cUti[0];
+			codUtilizador = atoi(aux); // guarda codUtilizador
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string n(linha.substr(comeca,pos-comeca)); // guarda nome
+			nome = n;
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string cTel(linha.substr(comeca,pos-comeca));
+			aux = &cTel[0];
+			telefone = atoi(aux); // guarda telefone
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string lo(linha.substr(comeca,pos-comeca)); // guarda login
+			login = lo;
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string pa(linha.substr(comeca,pos-comeca)); // guarda pass
+			pass = pa;
+
+			pos++;
+
+			try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				conexao -> inserirUtilizador(nome,telefone,login,pass);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+		}
+	}
+
 	return 0;
 }
 
