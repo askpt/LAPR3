@@ -34,7 +34,7 @@ public:
 	Lista<Informacao> listaInfoSemTarefa(int codUser);
 	int ultimaInfo(int codUser);
 	void alterarTarefa(int codTare, int codestado, int nivelimportancia, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo);
-	void inserirProjeto(int codUser, int nivelImportancia, string dataFim, string informacao, string nome, int codEstado);
+	void inserirProjeto(int codUser, int nivelImportancia, string dataInicio, string dataFim, string informacao, string nome, int codEstado);
 	int ultimoProjeto(int codUser);
 	Lista<Tarefa> listaTarefaSemProjecto(int codUser);
 	bool associarTarefa(int codTarefa, int codProjeto);
@@ -42,7 +42,7 @@ public:
 	Lista<int> listarCodContextos(int codTarefa);
 	Lista<Projecto> listarProjetosTodos(int codUser);
 	void eliminarProjeto(int codUser, int codProjeto);
-	void alterarProjeto(int codPro, int codestado, int nivelimportancia,string datafim,string informacao,string titulo);
+	void alterarProjeto(int codPro, int codestado, int nivelimportancia, string dataInicio,string datafim,string informacao,string titulo);
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -367,10 +367,13 @@ void BDados::alterarTarefa(int codTarefa, int codestado, int nivelimportancia, i
 	ligacao->terminateStatement(instrucao);
 }
 
-void BDados::inserirProjeto(int codUser, int nivelImportancia, string dataFim, string informacao, string nome, int codEstado)
+void BDados::inserirProjeto(int codUser, int nivelImportancia, string dataInicio,string dataFim, string informacao, string nome, int codEstado)
 {
 	stringstream out;
-	out << "BEGIN\nIPROJECTO("<< nivelImportancia <<",'" << informacao << "', '" << nome << "'," <<codUser << ");\nEND;";
+	if(dataInicio != "")
+		out << "BEGIN\nIPROJECTO("<< nivelImportancia <<",'" << dataInicio << "', '" << informacao << "', '" << nome << "'," <<codUser << ");\nEND;";
+	else
+		out << "BEGIN\nIPROJECTO("<< nivelImportancia <<", null, '" << informacao << "', '" << nome << "'," <<codUser << ");\nEND;";
 	string comando = out.str();
 	instrucao = ligacao->createStatement(comando);
 	instrucao->executeUpdate();
@@ -531,7 +534,7 @@ void BDados:: eliminarProjeto(int codUser, int codProjeto)
 	ligacao->terminateStatement(instrucao);
 }
 
-void BDados::alterarProjeto(int codPro, int codestado, int nivelimportancia,string datafim,string informacao,string titulo)
+void BDados::alterarProjeto(int codPro, int codestado, int nivelimportancia,string dataInicio, string datafim,string informacao,string titulo)
 {
 		string operacao;
 	if(codestado!=0)
@@ -555,7 +558,16 @@ void BDados::alterarProjeto(int codPro, int codestado, int nivelimportancia,stri
 		ligacao->commit();
 		out.flush();
 	}
-	
+	if(dataInicio!="")
+	{
+		stringstream out;
+		out << "UPDATE PROJECTO SET DATA_INICIO = " << dataInicio << "WHERE COD_PROJECTO = " << codPro;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		out.flush();
+	}
 	if(datafim!="")
 	{
 		stringstream out;
