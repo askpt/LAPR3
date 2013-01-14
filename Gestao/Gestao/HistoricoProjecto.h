@@ -81,6 +81,7 @@ HistoricoProjecto::HistoricoProjecto()
  * @param 	codProjecto 		codigo do projecto
  * @param 	codEstado 			codigo de estado da tarefa
  * @param 	nivelImportancia 	nivel de importancia da tarefa
+ * @param	datainsercao 		data de insercao do projecto
  * @param 	dataInicio		    data de inicio de projeto
  * @param 	dataFim 			data de conclusao da tarefa
  * @param 	informacao 			informacao sobre a tarefa
@@ -108,7 +109,7 @@ HistoricoProjecto::HistoricoProjecto(int codhistorico, int codprojecto, int nive
 
 /**
  *Construtor copia
- * @param objeto hi do tipo HistoricoProjecto a ser copiado
+ * @param objeto hp do tipo HistoricoProjecto a ser copiado
  */
 HistoricoProjecto::HistoricoProjecto(const HistoricoProjecto& hp)
 {
@@ -132,7 +133,9 @@ HistoricoProjecto::HistoricoProjecto(const HistoricoProjecto& hp)
 HistoricoProjecto::~HistoricoProjecto()
 {
 }
+
 /**
+ * Obter o codido do historico
  * @return codigo do historico
  */
 int HistoricoProjecto::getCodHistorico()const
@@ -141,6 +144,7 @@ int HistoricoProjecto::getCodHistorico()const
 }
 
 /**
+ * Obter o codigo do projecto
  *@return codigo do projecto
  */
 
@@ -149,6 +153,7 @@ int HistoricoProjecto::getCodProjecto() const
  return codProjecto;
 }
 /**
+ * Obter o codigo do estado
  *@return codigo do estado
  */
 int HistoricoProjecto::getCodEstado() const
@@ -157,6 +162,7 @@ int HistoricoProjecto::getCodEstado() const
 }
 
 /**
+ * Obter o nivel de importancia
  *@return nivel de importancia
  */
 int HistoricoProjecto::getNivelImportancia() const
@@ -165,6 +171,7 @@ int HistoricoProjecto::getNivelImportancia() const
 }
 
 /**
+ * Obter a data de inicio de projecto
  *@return data de inicio de projecto
  */
 Data HistoricoProjecto::getDataInicio()
@@ -173,6 +180,7 @@ Data HistoricoProjecto::getDataInicio()
 }
 
 /**
+ * Obter a data de fim de projecto
  *@return data de fim projecto
  */
 Data HistoricoProjecto::getDataFim()
@@ -181,6 +189,7 @@ Data HistoricoProjecto::getDataFim()
 }
 
 /**
+ * Obter a data de insercao do projecto
  *@return data de insercao
  */
 Data HistoricoProjecto::getDataInsercao()
@@ -189,7 +198,8 @@ Data HistoricoProjecto::getDataInsercao()
 }
 
 /**
- *@return informacao
+ * Obter informacao do projecto
+ *@return informacao do projecto
  */
 string HistoricoProjecto::getInformacao() const
 {
@@ -197,7 +207,8 @@ string HistoricoProjecto::getInformacao() const
 }
 
 /**
- *@return info
+ * Obter o informacao da modificacao do projeto
+ *@return informacao da modificacao do projeto
  */
 string HistoricoProjecto::getInfo() const
 {
@@ -205,6 +216,7 @@ string HistoricoProjecto::getInfo() const
 }
 
 /**
+ * Obter o nome do projecto
  *@return nome do projeto
  */
 string HistoricoProjecto::getNome() const 
@@ -213,6 +225,7 @@ string HistoricoProjecto::getNome() const
 }
 
 /**
+ * Obter o codigo de utilizador
  *@return codigo de utilizador
  */
 int HistoricoProjecto::getCodUtilizador() const 
@@ -221,6 +234,7 @@ int HistoricoProjecto::getCodUtilizador() const
 }
 
 /**
+ * Obter o codigo do tipo de tarefa
  *@return codigo do tipo
  */
 int HistoricoProjecto::getCodTipo() const 
@@ -229,7 +243,8 @@ int HistoricoProjecto::getCodTipo() const
 }
 
 /**
- *@return codigo do estado
+ * Alterar o codigo do historico
+ * @param codhistorico codigo do historico
  */
  void HistoricoProjecto::setCodHistorico(const int codhistorico)
  {
@@ -369,7 +384,8 @@ ostream & operator << (ostream &out, const HistoricoProjecto &hp)
 }
 
 /**
- * Clone
+ * Método clone
+ * @return objeto clone do tipo HistoricoProjecto
  */
 HistoricoProjecto* HistoricoProjecto::clone() const
 {
