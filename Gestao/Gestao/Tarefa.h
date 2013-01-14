@@ -38,7 +38,7 @@ private:
 
 public:
 	Tarefa();
-	Tarefa(int codTarefa, int codProjecto, int codEstado, int nivelImportancia, Data dataCriacao, Data dataFim, string informacao, Data dataEstimada, int duracao, string tipo, string titulo, int codDependente, int codUtilizador, int nContexto, int delegado);
+	Tarefa(int codTarefa, int codProjecto, int codEstado, int nivelImportancia, Data dataCriacao, Data dataFim,string informacao, Data dataEstimada, int duracao, string tipo, string titulo, int codDependente, int codUtilizador, int nContexto, int delegado);
 	Tarefa(const Tarefa& t);
 	~Tarefa();
 
@@ -232,6 +232,7 @@ Data Tarefa::getDataFim()
 	return dataFim;
 }
 
+
 /**
  * Metodo para retornar o codigo da tarefa dependente.
  * @return codigo da tarefa dependente.
@@ -349,6 +350,7 @@ void Tarefa::setDataFim(const Data dataFim)
 {
 	this->dataFim = dataFim;
 }
+
 
 /**
  * Metodo de atribuicao da duracao.
@@ -474,7 +476,7 @@ void Tarefa::escreve(ostream &out) const
 	out << "Tipo: " << tipo << endl;
 	out << "Nivel de importancia: " << nivelImportancia << endl;
 	out << "Data de criacao: "; dataCriacao.listar();
-	out << "Informacao: " << informacao << endl;
+    out << "Informacao: " << informacao << endl;
 	out << "Duracao: " << duracao << endl;
 	out << "Data estimada: "; dataEstimada.listar();
 	out << "Data de fim: "; dataFim.listar();

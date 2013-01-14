@@ -47,6 +47,11 @@ public:
 	void delegarTarefa(int codUser, int codTarefa, int codUtil);
 	void alterarDelegacao(int codUser, int codTarefa, int codUtil);
 	void removerDelegacao(int codUser, int codTarefa);
+	Lista<Contexto> listaContextos();
+	void criarContexto(string descricao);
+	void alterarContexto(int codContexto, string descricao);
+	void eliminarContexto(int codContexto);
+	void associarTarefaContexto(int codContexto, int codTarefa);
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -492,7 +497,7 @@ void BDados::associarDuracao(int codUser, int codTarefa, int duracao)
 void BDados::eliminarTarefa(int codUser, int codTarefa)
 {
 	string operacao;
-	stringstream out, out2;
+	stringstream out, out2, out3;
 	
 	out << "UPDATE INFORMACAO SET COD_TAREFA = NULL WHERE COD_TAREFA = " << codTarefa << " AND COD_UTILIZADOR = " << codUser;
 	operacao = out.str();
@@ -501,10 +506,18 @@ void BDados::eliminarTarefa(int codUser, int codTarefa)
 	
 	ligacao->commit();
 	ligacao->terminateStatement(instrucao);
+
 	
-		
-	out2 << "DELETE FROM TAREFA WHERE COD_TAREFA = " << codTarefa << " AND COD_UTILIZADOR= " << codUser;
+	out2 << "DELETE FROM TAREFA_CONTEXTO WHERE COD_TAREFA = " << codTarefa;
 	operacao = out2.str();
+	instrucao = ligacao->createStatement(operacao);
+	instrucao->executeUpdate();
+	
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+		
+	out3 << "DELETE FROM TAREFA WHERE COD_TAREFA = " << codTarefa << " AND COD_UTILIZADOR= " << codUser;
+	operacao = out3.str();
 	instrucao = ligacao->createStatement(operacao);
 	instrucao->executeUpdate();
 	ligacao->commit();
@@ -710,6 +723,83 @@ void BDados::removerDelegacao(int codUser, int codTarefa)
 	instrucao->executeUpdate();
 	ligacao->commit();
     cout << "Delegacao removida com sucesso!!!" << endl;
+	ligacao->terminateStatement(instrucao);
+}
+Lista<Contexto> BDados::listaContextos()
+{
+	Lista<Contexto> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM CONTEXTO";
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		Contexto cont(rset->getInt(1), rset->getString(2));
+		ret.insere(ret.comprimento() + 1, cont);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+
+void BDados::criarContexto(string descricao)
+{
+	stringstream out;
+	out << "BEGIN\nICONTEXTO('" << descricao << "');\nEND;";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+}
+
+void BDados::alterarContexto(int codContexto, string descricao)
+{
+	string operacao;
+	stringstream out;
+	out << "UPDATE CONTEXTO SET DESCRICAO = '" << descricao << "' WHERE COD_CONTEXTO = "<< codContexto;
+	operacao=out.str();
+	instrucao = ligacao->createStatement(operacao);
+	instrucao->executeUpdate();
+	ligacao->commit();
+    cout << "Contexto alterado com sucesso!!!" << endl;
+	ligacao->terminateStatement(instrucao);
+}
+
+void BDados::eliminarContexto(int codContexto)
+{
+	string operacao;
+	stringstream out, out2;
+	
+	out << "DELETE FROM TAREFA_CONTEXTO WHERE COD_CONTEXTO = " << codContexto;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	instrucao->executeUpdate();
+	
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+	
+		
+	out2 << "DELETE FROM CONTEXTO WHERE COD_CONTEXTO = " << codContexto;
+	operacao = out2.str();
+	instrucao = ligacao->createStatement(operacao);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	cout << "Contexto eliminado com sucesso" << endl;
+	ligacao->terminateStatement(instrucao);
+}
+
+void BDados::associarTarefaContexto(int codContexto, int codTarefa)
+{
+	stringstream out;
+	out << "BEGIN\nITAREFA_CONTEXTO('" << codTarefa << "', " << codContexto << ");\nEND;";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
 	ligacao->terminateStatement(instrucao);
 }
 
