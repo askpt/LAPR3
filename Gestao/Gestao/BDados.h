@@ -42,6 +42,7 @@ public:
 	Lista<int> listarCodContextos(int codTarefa);
 	Lista<Projecto> listarProjetosTodos(int codUser);
 	void eliminarProjeto(int codUser, int codProjeto);
+	void alterarProjeto(int codPro, int codestado, int nivelimportancia,string datafim,string informacao,string titulo);
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -527,6 +528,69 @@ void BDados:: eliminarProjeto(int codUser, int codProjeto)
 	instrucao = ligacao->createStatement(operacao);
 	instrucao->executeUpdate();
 	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+}
+
+void BDados::alterarProjeto(int codPro, int codestado, int nivelimportancia,string datafim,string informacao,string titulo)
+{
+		string operacao;
+	if(codestado!=0)
+	{
+		stringstream out;
+		out << "UPDATE PROJECTO SET COD_ESTADO = " << codestado << "WHERE COD_PROJECTO = " << codPro;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+
+
+	}
+	if(nivelimportancia!=0)
+	{
+		stringstream out;
+		out << "UPDATE PROJECTO SET NIVEL_IMPORTANCIA = " << nivelimportancia << "WHERE COD_PROJECTO = " << codPro;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		out.flush();
+	}
+	
+	if(datafim!="")
+	{
+		stringstream out;
+
+
+		out << "UPDATE PROJECTO SET DATA_FIM ='" << datafim << "'WHERE COD_PROJECTO = " << codPro;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		out.flush();
+	}
+	if(informacao!="")
+	{
+		stringstream out;
+
+
+		out << "UPDATE PROJECTO SET INFORMACAO ='" << informacao << "'WHERE COD_PROJECTO = " << codPro;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+	    instrucao->executeUpdate();
+	    ligacao->commit();
+		out.flush();
+	}
+	if(titulo!="")
+	{
+		stringstream out;
+		out << "UPDATE PROJECTO SET NOME ='" << titulo << "'WHERE COD_PROJECTO = " << codPro;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+	    instrucao->executeUpdate();
+	    ligacao->commit();
+		out.flush();
+	}
+	
 	ligacao->terminateStatement(instrucao);
 }
 

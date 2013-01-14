@@ -10,6 +10,14 @@ int codUser = -1;
 #include "Data.h"
 #include "csvassembly.h"
 
+/*
+Meter no menu:
+-> 	exportAssemb(); exportacao para Assembly
+-> listarProjetos(); listar todos os projectos
+-> eliminaProjeto(); eliminar um projeto
+-> alteraProjeto(); alterar um projeto
+*/
+
 void eliminaProjeto()
 {
 	try
@@ -32,12 +40,75 @@ void eliminaProjeto()
 
 }
 
-/*
-Meter no menu:
--> 	exportAssemb(); exportacao para Assembly
--> listarProjetos(); listar todos os projectos
--> eliminaProjeto(); eliminar um projeto
-*/
+void alteraProjeto()
+{
+	int codPro;
+	int codestado=0, nivelimportancia=0;
+	string datafim="", informacao="",titulo="";
+
+
+	char resposta='n';
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Projecto> list = conexao ->listarProjetosTodos(codUser);
+
+		cout << list;
+		cout << "**********************************************************************" << endl;
+		cout << "Codigo do Projeto a alterar?" << endl;
+
+
+		cin >> codPro;
+		cout << "Pretende alterar o estado do Projeto? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Estado?" << endl;
+			cin >> codestado;
+		}
+		cout << "Pretende alterar o nivel de importancia? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Nivel de importancia?" << endl;
+			cin >> nivelimportancia;
+		}
+		cout << "Pretende alterar a data de fim de Projeto? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Data de fim de tarefa?" << endl;
+			fflush(stdin);
+			getline(cin, datafim);
+		}
+		cout << "Pretende alterar a informacao? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Informacao?" << endl;
+			fflush(stdin);
+			getline(cin, informacao);
+		}
+		cout << "Pretende alterar o titulo? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Titulo?" << endl;
+			fflush(stdin);
+			getline(cin, titulo);
+		}
+		conexao->alterarProjeto(codPro, codestado, nivelimportancia,datafim,informacao,titulo);
+
+		cout << "Alteracoes efetuadas com sucesso!" << endl;
+		delete(conexao);
+	} 
+	catch(SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+
+}
+
 
 /**
  * associa informação a uma tarefa, com base nos código de informção e tarefa
