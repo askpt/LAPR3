@@ -95,6 +95,9 @@ public:
 	string getUser(int codUser);
 	void alterarTarefa(int codTare, int codestado, int nivelimportancia, string dataInicio, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo);
 	Lista<Tarefa> listarLembrete(int codUser);
+	Lista<HistoricoInformacao> listarHistoricoInformacao(int codUser);
+	Lista<HistoricoTarefa> listarHistoricoTarefa(int codUser);
+	Lista<HistoricoProjecto> listarHistoricoProjecto(int codUser);
 };
 
 /**
@@ -1506,12 +1509,33 @@ void BDados::associarTarefaContexto(int codContexto, int codTarefa)
 	ligacao->commit();
 	ligacao->terminateStatement(instrucao);
 }
+Lista<HistoricoInformacao> BDados::listarHistoricoInformacao(int codUser)
+{
+	Lista<HistoricoInformacao> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM INFORMACAO_HISTORICO WHERE COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		Data dataInsercao = convertData(rset->getString(6));
+		HistoricoInformacao hi(rset->getInt(1), rset->getInt(2), rset->getInt(3), rset->getString(4), rset->getInt(5),dataInsercao, rset->getInt(7), rset->getString(8));		
+		ret.insere(ret.comprimento() + 1, hi);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
 
 Lista<Tarefa> BDados::listarLembrete(int codUser)
 {
 	Lista<Tarefa> ret;
 	stringstream out;
 	string operacao;
+
 
 	out << "SELECT * FROM TAREFA WHERE DATA_INICIO = to_date(sysdate, 'YY.MM.DD') AND COD_UTILIZADOR = " << codUser;
 	operacao = out.str();
@@ -1537,8 +1561,85 @@ Lista<Tarefa> BDados::listarLembrete(int codUser)
 			estimativa = tmp;
 		}
 		Tarefa taref(rset->getInt(1), rset->getInt(2), rset->getInt(3), rset->getInt(4), dataCria, dataFim, rset->getString(7), estimativa, rset->getInt(9), rset->getString(10), rset->getString(11), rset->getInt(12),rset->getInt(13), rset->getInt(14), rset->getInt(15));
-		
+
+
 		ret.insere(ret.comprimento() + 1, taref);
+	}
+	instrucao->closeResultSet (rset);
+
+
+	return ret;
+}
+
+Lista<HistoricoTarefa> BDados::listarHistoricoTarefa(int codUser)
+{
+	Lista<HistoricoTarefa> ret;
+	stringstream out;
+	string operacao;
+	Data dataInicio, dataFim, dataInsercao, estimativa;
+	out << "SELECT * FROM TAREFA_HISTORICO WHERE COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		if(!rset->isNull(6))
+			dataInicio=convertData(rset->getString(6));
+		else
+		{
+			Data tmp(1900,1,1);
+			dataInicio = tmp;
+		}
+			if(!rset->isNull(7))
+			dataFim=convertData(rset->getString(7));
+		else
+		{
+			Data tmp(1900,1,1);
+			dataFim = tmp;
+		}
+					if(!rset->isNull(9))
+			estimativa=convertData(rset->getString(9));
+		else
+		{
+			Data tmp(1900,1,1);
+			estimativa = tmp;
+		}
+		Data dataInsercao = convertData(rset->getString(17));
+		HistoricoTarefa ht(rset->getInt(1), rset->getInt(2), rset->getInt(3), rset->getInt(4), rset->getInt(5),dataInicio, dataFim, rset->getString(8), estimativa, rset->getInt(10), rset->getString(11), rset->getString(12), rset->getInt(13), rset->getInt(14), rset->getInt(15), rset->getInt(16), dataInsercao, rset->getInt(18), rset->getString(19) );		
+		ret.insere(ret.comprimento() + 1, ht);
+	}
+	instrucao->closeResultSet (rset);
+
+
+	return ret;
+}
+
+
+
+Lista<HistoricoProjecto> BDados::listarHistoricoProjecto(int codUser)
+{
+	Lista<HistoricoProjecto> ret;
+	stringstream out;
+	string operacao;
+	Data dataInicio, dataFim, dataInsercao;
+	out << "SELECT * FROM PROJECTO_HISTORICO WHERE COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		if(!rset->isNull(4))
+			dataInicio=convertData(rset->getString(4));
+		else
+		{
+			Data tmp(1900,1,1);
+			dataInicio = tmp;
+		}
+
+		dataInsercao=convertData(rset->getString(10));
+		
+		HistoricoProjecto hp(rset->getInt(1), rset->getInt(2), rset->getInt(3), dataInicio, dataFim, rset->getString(6), rset->getString(7), rset->getInt(8), rset->getInt(9), dataInsercao, rset->getInt(11) , rset->getString(12));		
+		ret.insere(ret.comprimento() + 1, hp);
 	}
 	instrucao->closeResultSet (rset);
 

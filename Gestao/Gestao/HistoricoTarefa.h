@@ -33,7 +33,6 @@ private:
  Data dataEstimada;
  string informacao;
  string info;
- string descricao;
  string tipo;
  string titulo;
 
@@ -60,7 +59,7 @@ public:
  Data getDataInsercao();
  string getInformacao() const;
  string getInfo() const;
- string getDescricao() const;
+
  string getTipo()const;
  string getTitulo()const;
 
@@ -120,7 +119,7 @@ HistoricoTarefa::HistoricoTarefa(int codhistorico, int codtarefa, int codproject
  setDataInsercao(datainsercao);
  setInformacao(informacao) ;
  setInfo(info) ;
- setDescricao(descricao) ;
+
  setTipo(tipo);
  setTitulo(titulo);
 }
@@ -148,7 +147,6 @@ HistoricoTarefa::HistoricoTarefa(const HistoricoTarefa& ht)
 	dataEstimada= ht.dataEstimada;
 	informacao= ht.informacao;
 	info= ht.info;
-	descricao= ht.descricao;
 	tipo= ht.tipo;
 	titulo= ht.titulo;
 }
@@ -322,10 +320,7 @@ string HistoricoTarefa::getInfo() const
  {
  	this->info = info;
  }
- void HistoricoTarefa::setDescricao(const string descricao) 
- {
- 	this->descricao = descricao;
- }
+ 
  void HistoricoTarefa::setTipo(const string tipo)
  {
  	this->tipo = tipo;
