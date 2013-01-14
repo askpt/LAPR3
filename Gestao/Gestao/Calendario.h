@@ -1,8 +1,9 @@
 /**
-*@author Vitor Hugo
-*@date 13/01/2013 
-*@file Calendario.h 
-*Classe responsavel por importacoes e exportacoes iCal.*/ 
+ * @author Vitor Hugo
+ * @date 13/01/2013 
+ * @file Calendario.h 
+ * Classe responsavel por importacoes e exportacoes iCal
+ */ 
 
 #ifndef CALENDARIO_H
 #define CALENDARIO_H
