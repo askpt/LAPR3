@@ -238,6 +238,11 @@ void BDados::listaTipos(Lista<int> *codigos, Lista<string> *descricoes)
 
 }
 
+/**
+ * lista todos os projectos do utilizador
+ * @param 	codUser			codigo do utilizador
+ * @return 	Lista<Projecto> 	objecto do tipo Lista com todos os registos da tabela projecto
+ */
 Lista<Projecto> BDados::listarProjectos(int codUser)
 {
 	Lista<Projecto> ret;
@@ -353,7 +358,7 @@ Lista<Informacao> BDados::listaInformacao(int user)
 /**
  * lista todas as tarefas do utilizador
  * @param 	codUser			codigo do utilizador
- * @return 	Lista<Tarefa> 	objecto do tipo Lista com todos os registos da tabela Informacao
+ * @return 	Lista<Tarefa> 	objecto do tipo Lista com todos os registos da tabela tarefa
  */
 Lista<Tarefa> BDados::listarTarefasTodas(int codUser)
 {
@@ -741,6 +746,21 @@ void BDados::alterarInformacao(int codinformacao, string descricao)
 		
 }
 
+/**
+ * Permite modificar os valores de uma tarefa
+ * @param codTarefa        codigo da tarefa
+ * @param codestado        codigo de estado
+ * @param nivelimportancia nivel de importancia da tarefa
+ * @param dataInicio       data de inicio da tarefa
+ * @param duracao          duracao da tarefa
+ * @param coddependente    codigo da tarefa dependente
+ * @param delegado         codigo do utilizador delegado
+ * @param datafim          data de fim da tarefa
+ * @param dataestimada     data estimada
+ * @param info             informacao da tarefa
+ * @param titulo           titulo da tarefa
+ * @param tipo             tipo da tarefa
+ */
 void BDados::alterarTarefa(int codTarefa, int codestado, int nivelimportancia, string dataInicio, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo)
 {
 	string operacao;
@@ -861,6 +881,16 @@ void BDados::alterarTarefa(int codTarefa, int codestado, int nivelimportancia, s
 	ligacao->terminateStatement(instrucao);
 }
 
+/**
+ * Permite inserir um projeto na base de dados
+ * @param codUser          codigo utilizador
+ * @param nivelImportancia nivel de importacia do projeto
+ * @param dataInicio       data de inicio do projeto
+ * @param dataFim          data de fim do projeto
+ * @param informacao       informacao do projeto
+ * @param nome             nome do projeto
+ * @param codEstado        codigo estado
+ */
 void BDados::inserirProjeto(int codUser, int nivelImportancia, string dataInicio,string dataFim, string informacao, string nome, int codEstado)
 {
 	stringstream out;
@@ -875,6 +905,11 @@ void BDados::inserirProjeto(int codUser, int nivelImportancia, string dataInicio
 	ligacao->terminateStatement(instrucao);
 }
 
+/**
+ * Permite obter o codigo do ultimo projeto inserido
+ * @param  codUser codigo utilizador
+ * @return         codigo do ultimo projeto inserido
+ */
 int BDados::ultimoProjeto(int codUser)
 {
 	int ret = -1;
@@ -929,6 +964,12 @@ Lista<Tarefa> BDados::listaTarefaSemProjecto(int codUser)
 	return ret;
 }
 
+/**
+ * Permite associar uma tarefa a um projeto
+ * @param  codTarefa  codigo da tarefa
+ * @param  codProjeto codigo do projeto
+ * @return            verdadeiro caso consiga associar uma tarefa
+ */
 bool BDados::associarTarefa(int codTarefa, int codProjeto)
 {
 	stringstream out;
@@ -946,6 +987,11 @@ bool BDados::associarTarefa(int codTarefa, int codProjeto)
 		return false;
 }
 
+/**
+ * Verifica se pode associar uma tarefa a um determinado projeto
+ * @param  codTarefa codigo da tarefa
+ * @return           verdadeiro a associacao seja possivel
+ */
 bool BDados::podeAssociarTare(int codTarefa)
 {
 	stringstream out;
@@ -1008,7 +1054,12 @@ Lista<Projecto> BDados::listarProjetosTodos(int codUser)
 	return ret;
 }
 
-void BDados:: eliminarProjeto(int codUser, int codProjeto)
+/**
+ * Permite eliminar um projeto da base de dados
+ * @param codUser    codigo utilizador
+ * @param codProjeto codigo projecto
+ */
+void BDados::eliminarProjeto(int codUser, int codProjeto)
 {
 	string operacao;
 	stringstream out, out2;
@@ -1028,6 +1079,16 @@ void BDados:: eliminarProjeto(int codUser, int codProjeto)
 	ligacao->terminateStatement(instrucao);
 }
 
+/**
+ * Permite alterar os atributos de um projeto na base de dados
+ * @param codPro           codigo projeto
+ * @param codestado        codigo estado
+ * @param nivelimportancia nivel importancia
+ * @param dataInicio       data de inicio do projecto
+ * @param datafim          data de fim do projecto
+ * @param informacao       informacao do projecto
+ * @param titulo           titulo do projecto
+ */
 void BDados::alterarProjeto(int codPro, int codestado, int nivelimportancia,string dataInicio, string datafim,string informacao,string titulo)
 {
 		string operacao;
@@ -1099,6 +1160,8 @@ void BDados::alterarProjeto(int codPro, int codestado, int nivelimportancia,stri
 	
 	ligacao->terminateStatement(instrucao);
 }
+
+
 Lista<Tarefa> BDados::listarTarefasRealizadas(int codUser)
 {
 	Lista<Tarefa> ret;
@@ -1174,6 +1237,12 @@ Lista<Tarefa> BDados::listarTarefasPorRealizar(int codUser)
 
 	return ret;
 }
+
+/**
+ * Altera o estado de uma tarefa para realizada
+ * @param codUser   codigo utilizador
+ * @param codTarefa codigo tarefa
+ */
 void BDados::realizarTarefa(int codUser, int codTarefa)
 {
 		string operacao;
@@ -1187,8 +1256,14 @@ void BDados::realizarTarefa(int codUser, int codTarefa)
 		cout << "Processo realizado com sucesso!!!" << endl;
 	
 	ligacao->terminateStatement(instrucao);
-
 }
+
+/**
+ * Associa uma duracao a uma tarefa
+ * @param codUser   codigo utilizador
+ * @param codTarefa codigo tarefa
+ * @param duracao   duracao
+ */
 void BDados::associarDuracao(int codUser, int codTarefa, int duracao)
 {
 	string operacao;
@@ -1201,6 +1276,12 @@ void BDados::associarDuracao(int codUser, int codTarefa, int duracao)
     cout << "Processo realizado com sucesso!!!" << endl;
 	ligacao->terminateStatement(instrucao);
 }
+
+/**
+ * Permite eliminar uma tarefa da base de dados
+ * @param codUser   codigo utilizador
+ * @param codTarefa codigo tarefa
+ */
 void BDados::eliminarTarefa(int codUser, int codTarefa)
 {
 	string operacao;
@@ -1230,9 +1311,8 @@ void BDados::eliminarTarefa(int codUser, int codTarefa)
 	ligacao->commit();
 	cout << "Tarefa eliminada com sucesso" << endl;
 	ligacao->terminateStatement(instrucao);
-	
-	
 }
+
 Lista<Tarefa> BDados::ordenarPrioridade(int codUser)
 {
 	Lista<Tarefa> ret;
@@ -1270,6 +1350,7 @@ Lista<Tarefa> BDados::ordenarPrioridade(int codUser)
 
 	return ret;
 }
+
 Lista<Tarefa> BDados::ordenarTarefasEstimativa(int codUser)
 {
 	Lista<Tarefa> ret;
@@ -1310,6 +1391,7 @@ Lista<Tarefa> BDados::ordenarTarefasEstimativa(int codUser)
 
 	return ret;
 }
+
 Lista<Tarefa> BDados::ordenarTarefasContexto(int codUser)
 {
 	Lista<Tarefa> ret;
@@ -1347,6 +1429,13 @@ Lista<Tarefa> BDados::ordenarTarefasContexto(int codUser)
 
 	return ret;
 }
+
+/**
+ * Permite associar uma tarefa com um nivel
+ * @param codUser   codigo utilizador
+ * @param codTarefa codigo tarefa
+ * @param nivel     codigo nivel
+ */
 void BDados::associarTarefaNivel(int codUser, int codTarefa, int nivel)
 {
 	string operacao;
@@ -1359,6 +1448,7 @@ void BDados::associarTarefaNivel(int codUser, int codTarefa, int nivel)
     cout << "Processo realizado com sucesso!!!" << endl;
 	ligacao->terminateStatement(instrucao);
 }
+
 Lista<Tarefa> BDados::verTarefasDelegadas(int codUser)
 {
 	Lista<Tarefa> ret;
@@ -1396,6 +1486,13 @@ Lista<Tarefa> BDados::verTarefasDelegadas(int codUser)
 
 	return ret;
 }
+
+/**
+ * Permite delegar uma tarefa a um utilizador
+ * @param codUser   codigo utilizador
+ * @param codTarefa codigo tarefa
+ * @param codUtil   codigo utilizador a sofrer a delegacao
+ */
 void BDados::delegarTarefa(int codUser, int codTarefa, int codUtil)
 {
 	string operacao;
@@ -1408,6 +1505,13 @@ void BDados::delegarTarefa(int codUser, int codTarefa, int codUtil)
     cout << "Tarefa delegada com sucesso!!!" << endl;
 	ligacao->terminateStatement(instrucao);
 }
+
+/**
+ * Permite alterar a delegacao de um utilizador
+ * @param codUser   codigo utilizador
+ * @param codTarefa codigo tarefa
+ * @param codUtil   codigo utilizador a sofrer a delegacao
+ */
 void BDados::alterarDelegacao(int codUser, int codTarefa, int codUtil)
 {
 	string operacao;
@@ -1420,6 +1524,12 @@ void BDados::alterarDelegacao(int codUser, int codTarefa, int codUtil)
     cout << "Delegacao alterada com sucesso!!!" << endl;
 	ligacao->terminateStatement(instrucao);
 }
+
+/**
+ * Permite remover a delegacao de um utilizador
+ * @param codUser   codigo utilizador
+ * @param codTarefa codigo tarefa
+ */
 void BDados::removerDelegacao(int codUser, int codTarefa)
 {
 	string operacao;
@@ -1432,6 +1542,7 @@ void BDados::removerDelegacao(int codUser, int codTarefa)
     cout << "Delegacao removida com sucesso!!!" << endl;
 	ligacao->terminateStatement(instrucao);
 }
+
 Lista<Contexto> BDados::listaContextos()
 {
 	Lista<Contexto> ret;
@@ -1452,6 +1563,10 @@ Lista<Contexto> BDados::listaContextos()
 	return ret;
 }
 
+/**
+ * Permite criar um contexto
+ * @param descricao descricao de um contexto
+ */
 void BDados::criarContexto(string descricao)
 {
 	stringstream out;
@@ -1463,6 +1578,11 @@ void BDados::criarContexto(string descricao)
 	ligacao->terminateStatement(instrucao);
 }
 
+/**
+ * Permite alterar a descricao de um contexto
+ * @param codContexto codigo contexto
+ * @param descricao   descricao do contexto
+ */
 void BDados::alterarContexto(int codContexto, string descricao)
 {
 	string operacao;
@@ -1476,6 +1596,10 @@ void BDados::alterarContexto(int codContexto, string descricao)
 	ligacao->terminateStatement(instrucao);
 }
 
+/**
+ * Permite eliminar um contexto da base de dados
+ * @param codContexto codigo contexto
+ */
 void BDados::eliminarContexto(int codContexto)
 {
 	string operacao;
@@ -1499,6 +1623,11 @@ void BDados::eliminarContexto(int codContexto)
 	ligacao->terminateStatement(instrucao);
 }
 
+/**
+ * Permite associar uma tarefa a um contexto
+ * @param codContexto codigo contexto
+ * @param codTarefa   codigo tarefa
+ */
 void BDados::associarTarefaContexto(int codContexto, int codTarefa)
 {
 	stringstream out;
@@ -1509,6 +1638,7 @@ void BDados::associarTarefaContexto(int codContexto, int codTarefa)
 	ligacao->commit();
 	ligacao->terminateStatement(instrucao);
 }
+
 Lista<HistoricoInformacao> BDados::listarHistoricoInformacao(int codUser)
 {
 	Lista<HistoricoInformacao> ret;
@@ -1613,8 +1743,6 @@ Lista<HistoricoTarefa> BDados::listarHistoricoTarefa(int codUser)
 
 	return ret;
 }
-
-
 
 Lista<HistoricoProjecto> BDados::listarHistoricoProjecto(int codUser)
 {
