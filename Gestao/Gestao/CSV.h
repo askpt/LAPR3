@@ -1104,7 +1104,6 @@ int CSV::exportarProjectos(string nomeFicheiro, int codUser)
 				cerr << "Erro: " << erro.getMessage() << endl;
 			}
 
-			cout << projectos.comprimento();
 		for(int i = 1; i< projectos.comprimento()+1; i++)
 		{
 			

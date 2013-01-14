@@ -418,14 +418,14 @@ void BDados::inserirUtilizador(string nome, int telefone, string login, string p
 	ligacao->terminateStatement(instrucao);
 }
 
-void BDados::inserirProjetoCompleto(int codProjecto,int codEstado,int codUtilizador,int nivelImportancia, string dataCriacao, string dataFim, string informacao, string nome)
+void BDados::inserirProjetoCompleto(int codProjecto,int codEstado,int codUtilizador,int nivelImportancia, string dataInicio, string dataFim, string informacao, string nome)
 {
 	stringstream out;
 
 	if(dataFim == "NULL")
-		out << "INSERT INTO Projecto(cod_projecto, nivel_importancia, data_criacao, data_fim, informacao, nome, cod_estado, cod_utilizador) VALUES(seq_projecto.NEXTVAL," << nivelImportancia << ", '" << dataCriacao <<"', null, '" << informacao << "', '" << nome << "', " << codEstado << ", " << codUtilizador << ")";
+		out << "INSERT INTO Projecto(cod_projecto, nivel_importancia, data_inicio, data_fim, informacao, nome, cod_estado, cod_utilizador) VALUES(seq_projecto.NEXTVAL," << nivelImportancia << ", '" << dataInicio <<"', null, '" << informacao << "', '" << nome << "', " << codEstado << ", " << codUtilizador << ")";
 	else	
-		out << "INSERT INTO Projecto(cod_projecto, nivel_importancia, data_criacao, data_fim, informacao, nome, cod_estado, cod_utilizador) VALUES(seq_projecto.NEXTVAL," << nivelImportancia << ", '" << dataCriacao <<"', '"<< dataFim << "', '" << informacao << "', '" << nome << "', " << codEstado << ", " << codUtilizador << ")";
+		out << "INSERT INTO Projecto(cod_projecto, nivel_importancia, data_inicio, data_fim, informacao, nome, cod_estado, cod_utilizador) VALUES(seq_projecto.NEXTVAL," << nivelImportancia << ", '" << dataInicio <<"', '"<< dataFim << "', '" << informacao << "', '" << nome << "', " << codEstado << ", " << codUtilizador << ")";
 
 	string comando = out.str();
 	instrucao = ligacao->createStatement(comando);
@@ -470,7 +470,7 @@ void BDados::inserirEstado(string descricao)
 void BDados::inserirNivel(int nivelImportancia, string desc)
 {
 	stringstream out;
-	out << "INSERT INTO Nivel(nivel_importancia, descricao) VALUES(" << nivelImportancia << ",'" << desc << "')";
+	out << "BEGIN\niNivel('" << desc << "');\nEND;";
 	string comando = out.str();
 	instrucao = ligacao->createStatement(comando);
 	instrucao->executeUpdate();
@@ -568,17 +568,17 @@ void BDados::inserirTarefa(int nivelImportancia, string dataInicio, string infor
  * @param 	nContexto 			contexto ao qual esta associada a tarefa
  * @param 	delegado 			codigo do utilizador a quem a tarefa foi delegada
  */
-void BDados::inserirTarefaCompleta(int codTarefa, int codProjecto, int codEstado, int nivelImportancia, string dataCriacao, string dataFim, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int dependente, int codUtilizador, int nContexto, int delegado)
+void BDados::inserirTarefaCompleta(int codTarefa, int codProjecto, int codEstado, int nivelImportancia, string dataInicio, string dataFim, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int dependente, int codUtilizador, int nContexto, int delegado)
 {
 	stringstream out;
 	if(dataFim == "NULL" && dataEstimada == "NULL")
-		out << "INSERT INTO TAREFA(cod_tarefa, cod_projecto, cod_estado, nivel_importancia,	data_criacao, data_fim, informacao, estimativa, duracao, tipo, titulo, dependente, cod_utilizador, ncontexto, delegado) VALUES( seq_tarefa.NEXTVAL, null, " << codEstado << ", " << nivelImportancia <<", '" << dataCriacao << "', null, '" << informacao << "', null, " << duracao <<	", '" << tipo << "', '" << titulo << "', " << dependente << ", " << codUtilizador <<", " << 0 << ", NULL)";
+		out << "INSERT INTO TAREFA(cod_tarefa, cod_projecto, cod_estado, nivel_importancia,	data_inicio, data_fim, informacao, estimativa, duracao, tipo, titulo, dependente, cod_utilizador, ncontexto, delegado) VALUES( seq_tarefa.NEXTVAL, null, " << codEstado << ", " << nivelImportancia <<", '" << dataInicio << "', null, '" << informacao << "', null, " << duracao <<	", '" << tipo << "', '" << titulo << "', " << dependente << ", " << codUtilizador <<", " << 0 << ", NULL)";
 	else if (dataFim == "NULL" && dataEstimada != "NULL")
-		out << "INSERT INTO TAREFA(cod_tarefa, cod_projecto, cod_estado, nivel_importancia,	data_criacao, data_fim, informacao, estimativa, duracao, tipo, titulo, dependente, cod_utilizador, ncontexto, delegado) VALUES( seq_tarefa.NEXTVAL, null, " << codEstado << ", " << nivelImportancia <<", '" << dataCriacao << "', null, '" << informacao << "', '" << dataEstimada << "', " << duracao <<	", '" << tipo << "', '" << titulo << "', " << dependente << ", " << codUtilizador <<", " << 0 << ", NULL)";
+		out << "INSERT INTO TAREFA(cod_tarefa, cod_projecto, cod_estado, nivel_importancia,	data_inicio, data_fim, informacao, estimativa, duracao, tipo, titulo, dependente, cod_utilizador, ncontexto, delegado) VALUES( seq_tarefa.NEXTVAL, null, " << codEstado << ", " << nivelImportancia <<", '" << dataInicio << "', null, '" << informacao << "', '" << dataEstimada << "', " << duracao <<	", '" << tipo << "', '" << titulo << "', " << dependente << ", " << codUtilizador <<", " << 0 << ", NULL)";
 	else if (dataFim != "NULL" && dataEstimada == "NULL")
-		out << "INSERT INTO TAREFA(cod_tarefa, cod_projecto, cod_estado, nivel_importancia,	data_criacao, data_fim, informacao, estimativa, duracao, tipo, titulo, dependente, cod_utilizador, ncontexto, delegado) VALUES( seq_tarefa.NEXTVAL, null, " << codEstado << ", " << nivelImportancia <<", '" << dataCriacao << "', '"<<dataFim << "', '"<< informacao << "', '" << dataEstimada << "', " << duracao <<	", '" << tipo << "', '" << titulo << "', " << dependente << ", " << codUtilizador <<", " << 0 << ", NULL)";
+		out << "INSERT INTO TAREFA(cod_tarefa, cod_projecto, cod_estado, nivel_importancia,	data_inicio, data_fim, informacao, estimativa, duracao, tipo, titulo, dependente, cod_utilizador, ncontexto, delegado) VALUES( seq_tarefa.NEXTVAL, null, " << codEstado << ", " << nivelImportancia <<", '" << dataInicio << "', '"<<dataFim << "', '"<< informacao << "', '" << dataEstimada << "', " << duracao <<	", '" << tipo << "', '" << titulo << "', " << dependente << ", " << codUtilizador <<", " << 0 << ", NULL)";
 	else
-		out << "INSERT INTO TAREFA(cod_tarefa, cod_projecto, cod_estado, nivel_importancia,	data_criacao, data_fim, informacao, estimativa, duracao, tipo, titulo, dependente, cod_utilizador, ncontexto, delegado) VALUES( seq_tarefa.NEXTVAL, null, " << codEstado << ", " << nivelImportancia <<", '" << dataCriacao << "', '"<<dataFim << "', '"<< informacao << "', null, " << duracao <<	", '" << tipo << "', '" << titulo << "', " << dependente << ", " << codUtilizador <<", " << 0 << ", NULL)";
+		out << "INSERT INTO TAREFA(cod_tarefa, cod_projecto, cod_estado, nivel_importancia,	data_inicio, data_fim, informacao, estimativa, duracao, tipo, titulo, dependente, cod_utilizador, ncontexto, delegado) VALUES( seq_tarefa.NEXTVAL, null, " << codEstado << ", " << nivelImportancia <<", '" << dataInicio << "', '"<<dataFim << "', '"<< informacao << "', null, " << duracao <<	", '" << tipo << "', '" << titulo << "', " << dependente << ", " << codUtilizador <<", " << 0 << ", NULL)";
 
 	string comando = out.str();
 	instrucao = ligacao->createStatement(comando);
@@ -1451,7 +1451,7 @@ Lista<Contexto> BDados::listaContextos()
 void BDados::criarContexto(string descricao)
 {
 	stringstream out;
-	out << "BEGIN\nICONTEXTO('" << descricao << "');\nEND;";
+	out << "BEGIN\niContexto('" << descricao << "');\nEND;";
 	string comando = out.str();
 	instrucao = ligacao->createStatement(comando);
 	instrucao->executeUpdate();
