@@ -3,7 +3,8 @@
  * @author Vitor Hugo
  * @date 21/12/2012 
  * @file Informacao.h 
- * Classe responsavel por guardar toda a informacao que o utilizador desejar colocar no programa, que pode ser ou nao uma tarefa.*/ 
+ * Classe responsavel por guardar toda a informacao que o utilizador desejar colocar no programa, que pode ser ou nao uma tarefa
+ */ 
 
 #ifndef INFORMACAO_H
 #define INFORMACAO_H
@@ -177,6 +178,7 @@ void Informacao::setDataInsercao(const Data& data)
 {
 	dataInsercao=data;
 }
+
 
 /**
  * Metodo para retornar a data de insercao	
