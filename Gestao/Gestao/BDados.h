@@ -94,6 +94,7 @@ public:
 	string getEstado(int codEstado);
 	string getUser(int codUser);
 	void alterarTarefa(int codTare, int codestado, int nivelimportancia, string dataInicio, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo);
+	Lista<Tarefa> listarLembrete(int codUser);
 };
 
 /**
@@ -1504,6 +1505,44 @@ void BDados::associarTarefaContexto(int codContexto, int codTarefa)
 	instrucao->executeUpdate();
 	ligacao->commit();
 	ligacao->terminateStatement(instrucao);
+}
+
+Lista<Tarefa> BDados::listarLembrete(int codUser)
+{
+	Lista<Tarefa> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM TAREFA WHERE DATA_INICIO = to_date(sysdate, 'YY.MM.DD') AND COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		Data dataCria = convertData(rset->getString(5));
+		Data dataFim;
+		if(!rset->isNull(6))
+			dataFim=convertData(rset->getString(6));
+		else
+		{
+			Data tmp(1900,1,1);
+			dataFim = tmp;
+		}
+		Data estimativa;
+		if(!rset->isNull(8))
+			estimativa=convertData(rset->getString(8));
+		else
+		{
+			Data tmp(1900,1,1);
+			estimativa = tmp;
+		}
+		Tarefa taref(rset->getInt(1), rset->getInt(2), rset->getInt(3), rset->getInt(4), dataCria, dataFim, rset->getString(7), estimativa, rset->getInt(9), rset->getString(10), rset->getString(11), rset->getInt(12),rset->getInt(13), rset->getInt(14), rset->getInt(15));
+		
+		ret.insere(ret.comprimento() + 1, taref);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
 }
 
 #endif

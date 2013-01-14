@@ -42,6 +42,25 @@ Meter no menu:
 		
 		
 */
+void lembrete()
+{
+	try
+	{
+		BDados *conexao = new BDados("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Tarefa> list = conexao->listarLembrete(codUser);
+		if(list.comprimento() > 0)
+		{
+			cout << "Tarefas de hoje:" << endl;
+			cout << list;
+		}
+		delete (conexao);
+	}
+	catch(SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+
+}
 
 void eliminaProjeto()
 {
@@ -1960,7 +1979,7 @@ int main ()
 		login();
 	if(codUser > 0)
 	{
-	
+		lembrete();
 		menu();
 		
 	}
