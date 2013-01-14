@@ -29,6 +29,7 @@ public:
 	void escreve(ostream &out) const;
 };
 
+
 /**
  * Construtor vazio.
  */
@@ -130,6 +131,11 @@ ostream & operator << (ostream &out, const Nivel &n)
 	return out;
 }
 
+
+/**
+ * metodo clone
+ * @return 	devolve apontador para objecto Nivel
+ */
 Nivel* Nivel::clone() const
 {
 	return new Nivel(*this);
