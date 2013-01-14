@@ -41,6 +41,7 @@ public:
 	bool podeAssociarTare(int codTarefa);
 	Lista<int> listarCodContextos(int codTarefa);
 	Lista<Projecto> listarProjetosTodos(int codUser);
+	void eliminarProjeto(int codUser, int codProjeto);
 };
 BDados::BDados(string user, string passwd, string db)
 {
@@ -507,7 +508,26 @@ Lista<Projecto> BDados::listarProjetosTodos(int codUser)
 	instrucao->closeResultSet (rset);
 
 	return ret;
+}
 
+void BDados:: eliminarProjeto(int codUser, int codProjeto)
+{
+	string operacao;
+	stringstream out, out2;
+
+	out << "UPDATE TAREFA SET COD_PROJECTO = NULL WHERE COD_PROJECTO = " << codProjeto << " AND COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+
+	out2 << "DELETE FROM PROJECTO WHERE COD_PROJECTO = " << codProjeto << " AND COD_UTILIZADOR = " << codUser;
+	operacao = out2.str();
+	instrucao = ligacao->createStatement(operacao);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
 }
 
 #endif
