@@ -3,6 +3,9 @@
 #include <iostream>
 #include <iomanip>
 #include <occi.h>
+#include "HistoricoProjecto.h"
+#include "HistoricoTarefa.h"
+#include "HistoricoInformacao.h"
 #include "Lista.h"
 using namespace oracle::occi;
 #include "Informacao.h"
@@ -23,6 +26,9 @@ public:
 	BDados(string user, string passwd, string db);
 	~ BDados();
 	Lista<Informacao> listaInformacao(int user);
+	Lista<HistoricoProjecto> listaHistoricoProjecto(int user);
+	Lista<HistoricoTarefa> listaHistoricoTarefa(int user);
+	Lista<HistoricoInformacao> listaHistoricoInformacao(int user);
 	Lista<Tarefa> listarTarefasTodas(int codUser);
 	Lista<Contexto> listarContextos();
 	Lista<Nivel> listarNiveis();
@@ -42,7 +48,7 @@ public:
 	void inserirEstado(string desc);
 	void inserirTipo(string descricao);
 	void inserirNivel(int nivelImportancia, string desc);
-	void inserirTarefa(int nivelImportancia, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador);
+	void inserirTarefa(int nivelImportancia, string dataInicio, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador);
 	void inserirTarefaCompleta(int codTarefa, int codProjecto, int codEstado, int nivelImportancia, string dataCriacao, string dataFim, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int dependente, int codUtilizador, int nContexto, int delegado);
 	bool associarInformacao(int codTarefa, int codInformacao);
 	bool podeAssociarInfo(int codInformacao);
@@ -52,7 +58,7 @@ public:
 	int ultimaInfo(int codUser);
 	string getEstado(int codEstado);
 	string getUser(int codUser);
-	void alterarTarefa(int codTare, int codestado, int nivelimportancia, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo);
+	void alterarTarefa(int codTare, int codestado, int nivelimportancia, string dataInicio, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo);
 };
 
 BDados::BDados(string user, string passwd, string db)
@@ -437,10 +443,13 @@ void BDados::inserirInfoCompleta(int codUser, string info, int codTarefa)
 	ligacao->terminateStatement(instrucao);
 }
 
-void BDados::inserirTarefa(int nivelImportancia, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador)
+void BDados::inserirTarefa(int nivelImportancia, string dataInicio, string informacao, string dataEstimada, int duracao, string tipo, string titulo, int tarefaDependente, int codUtilizador)
 {
 	stringstream out;
-	out << "BEGIN\nITAREFA(" << nivelImportancia << ",'" << informacao << "', '" << dataEstimada << "'," << duracao << ",'" << tipo << "', '" << titulo << "', " << tarefaDependente << ", " << codUtilizador << ");\nEND;";
+	if(dataInicio != "")
+		out << "BEGIN\nITAREFA(" << nivelImportancia << ",'" << dataInicio << "', '" << informacao << "', '" << dataEstimada << "'," << duracao << ",'" << tipo << "', '" << titulo << "', " << tarefaDependente << ", " << codUtilizador << ");\nEND;";
+	else
+		out << "BEGIN\nITAREFA(" << nivelImportancia << ", null, '" << informacao << "', '" << dataEstimada << "'," << duracao << ",'" << tipo << "', '" << titulo << "', " << tarefaDependente << ", " << codUtilizador << ");\nEND;";
 	string comando = out.str();
 	instrucao = ligacao->createStatement(comando);
 	instrucao->executeUpdate();
@@ -560,7 +569,7 @@ Lista<Informacao> BDados::listaInfoSemTarefa(int codUser)
 	return ret;
 
 }
-void BDados::alterarTarefa(int codTarefa, int codestado, int nivelimportancia, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo)
+void BDados::alterarTarefa(int codTarefa, int codestado, int nivelimportancia, string dataInicio, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo)
 {
 	
 	string operacao;
@@ -578,6 +587,16 @@ void BDados::alterarTarefa(int codTarefa, int codestado, int nivelimportancia, i
 	{
 		stringstream out;
 		out << "UPDATE TAREFA SET NIVEL_IMPORTANCIA = " << nivelimportancia << "WHERE COD_TAREFA = " << codTarefa;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		out.flush();
+	}
+	if(dataInicio!="")
+	{
+		stringstream out;
+		out << "UPDATE TAREFA SET DATA_INICIO = " << dataInicio << "WHERE COD_TAREFA = " << codTarefa;
 		operacao=out.str();
 		instrucao = ligacao->createStatement(operacao);
 		instrucao->executeUpdate();
