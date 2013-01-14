@@ -31,7 +31,7 @@ private:
  string info;
 
 public:
- HistoricoProjecto(int codhistorico, int codprojecto, int nivelimportancia, Data dataInicio, Data dataFim, string informacao, string nome, int codEstado, int codUtilizador, Data dataInsercao, int codTipo, string info);
+ HistoricoProjecto(int codhistorico, int codprojecto, int nivelimportancia, Data dataInsercao, Data dataFim, string informacao, string nome, int codEstado, int codUtilizador, Data datainicio, int codTipo, string info);
  HistoricoProjecto();
  HistoricoProjecto(const HistoricoProjecto& hp);
  ~HistoricoProjecto();
@@ -77,21 +77,20 @@ HistoricoProjecto::HistoricoProjecto()
 
 /**
  *Construtor completo
- *@param codhistorico 		codigo de historico
- *@param codprojecto 		codigo de projeco
- *@param nivelimportnacia	nivel de importancia
- *@param datainsercao 		data de insercao
- *@param datafim 			data fim
- *@param informacao 		informacao
- *@param nome 				nome 
- *@param codestado 			codigo de estado
- *@param codigoutilizador	codigo do utilizador
- *@param dataInsercao 		data de insercao
- *@param codtipo 			codigo do tipo
- *@param info 				informacao
- *
+ * @param 	codHistorico	    codigo do historico
+ * @param 	codProjecto 		codigo do projecto
+ * @param 	codEstado 			codigo de estado da tarefa
+ * @param 	nivelImportancia 	nivel de importancia da tarefa
+ * @param 	dataInicio		    data de inicio de projeto
+ * @param 	dataFim 			data de conclusao da tarefa
+ * @param 	informacao 			informacao sobre a tarefa
+ * @param 	nome 		        nome do projecto
+ * @param   codestado           codigo de estado
+ * @param   codutilizador       codigo de utilizador
+ * @param   codtipo             codigo do tipo
+ * @param   info                info
  */
-HistoricoProjecto::HistoricoProjecto(int codhistorico, int codprojecto, int nivelimportancia, Data datainsercao, Data datafim, string informacao, string nome, int codestado, int codutilizador, Data dataInsercao, int codtipo, string info)
+HistoricoProjecto::HistoricoProjecto(int codhistorico, int codprojecto, int nivelimportancia, Data datainsercao, Data datafim, string informacao, string nome, int codestado, int codutilizador, Data datainicio, int codtipo, string info)
 {
 	setCodHistorico( codhistorico);
 	setCodProjecto( codprojecto) ;
@@ -141,109 +140,197 @@ int HistoricoProjecto::getCodHistorico()const
  return codHistorico;
 }
 
+/**
+ *@return codigo do projecto
+ */
+
 int HistoricoProjecto::getCodProjecto() const
 {
  return codProjecto;
 }
-
+/**
+ *@return codigo do estado
+ */
 int HistoricoProjecto::getCodEstado() const
 {
  return codEstado;
 }
 
+/**
+ *@return nivel de importancia
+ */
 int HistoricoProjecto::getNivelImportancia() const
 {
  return nivelImportancia;
 }
+
+/**
+ *@return data de inicio de projecto
+ */
 Data HistoricoProjecto::getDataInicio()
 {
  return dataInicio;
 }
 
+/**
+ *@return data de fim projecto
+ */
 Data HistoricoProjecto::getDataFim()
 {
  return dataFim;
 }
 
+/**
+ *@return data de insercao
+ */
 Data HistoricoProjecto::getDataInsercao()
 {
  return dataInsercao;
 }
 
+/**
+ *@return informacao
+ */
 string HistoricoProjecto::getInformacao() const
 {
  return informacao;
 }
 
+/**
+ *@return info
+ */
 string HistoricoProjecto::getInfo() const
 {
  return info;
 }
 
+/**
+ *@return nome do projeto
+ */
 string HistoricoProjecto::getNome() const 
 {
 	return nome;
 }
 
+/**
+ *@return codigo de utilizador
+ */
 int HistoricoProjecto::getCodUtilizador() const 
 {
 	return codUtilizador;
 }
 
+/**
+ *@return codigo do tipo
+ */
 int HistoricoProjecto::getCodTipo() const 
 {
 	return codTipo;
 }
 
-
+/**
+ *@return codigo do estado
+ */
  void HistoricoProjecto::setCodHistorico(const int codhistorico)
  {
  	codHistorico = codhistorico;
  }
 
+ /**
+ * Metodo de atribuicao do codigo do projecto
+ * @param 	codprojecto 	codigo do projecto
+ */
  void HistoricoProjecto::setCodProjecto(const int codprojecto) 
  {
  	codProjecto = codprojecto;
  }
+
+ /**
+ * Metodo de atribuicao do codigo do estado
+ * @param 	codestado 	codigo do estado
+ */
  void HistoricoProjecto::setCodEstado(const int codestado) 
  {
  	codEstado = codestado;
  }
+ /**
+ * Metodo de atribuicao do codigo do utilizador
+ * @param 	codutilizador 	codigo do utilizador
+ */
  void HistoricoProjecto::setCodUtilizador(const int codutilizador) 
  {
  	codUtilizador = codutilizador;
  }
+
+ /**
+ * Metodo de atribuicao do nivel de importancia
+ * @param 	nivelimportancia 	nivelimportancia
+ */
  void HistoricoProjecto::setNivelImportancia(const int nivelimportancia) 
  {
  	nivelImportancia = nivelimportancia;
  }
  
+ /**
+ * Metodo de atribuicao do codigo do tipo
+ * @param 	codtipo 	codigo do tipo
+ */
  void HistoricoProjecto::setCodTipo(const int codtipo)
  {
  	codTipo = codtipo;
  }
+
+ /**
+ * Metodo de atribuicao da data de inicio
+ * @param 	datainicio 	data de inicio
+ */
  void HistoricoProjecto::setDataInicio(const Data dataInicio)
  {
  	this->dataInicio = dataInicio;
  }
+
+ /**
+ * Metodo de atribuicao da data de fim
+ * @param 	datafim 	data de fim
+ */
  void HistoricoProjecto::setDataFim(const Data datafim)
  {
  	dataFim = datafim;
  }
 
+
+ /**
+ * Metodo de atribuicao da data de insercao
+ * @param 	datainsercao 	data de insercao do projecto
+ */
  void HistoricoProjecto::setDataInsercao(const Data datainsercao)
  {
  	dataInsercao = datainsercao;
  }
+
+ /**
+ * Metodo de atribuicao da informacao do projeto
+ * @param 	informacao	informacao do projeto
+ */
  void HistoricoProjecto::setInformacao(const string informacao) 
  {
  	this->informacao = informacao;
  }
+
+ /**
+ * Metodo de atribuicao do codigo da info
+ * @param 	info 	info
+ */
  void HistoricoProjecto::setInfo(const string info) 
  {
  	this->info = info;
  }
 
+
+ /**
+ * Metodo de atribuicao do nome
+ * @param 	nome 	nome do projeto
+ */
  void HistoricoProjecto::setNome(const string nome)
  {
  	this->nome = nome;
@@ -281,6 +368,9 @@ ostream & operator << (ostream &out, const HistoricoProjecto &hp)
 	return out;
 }
 
+/**
+ * Clone
+ */
 HistoricoProjecto* HistoricoProjecto::clone() const
 {
 	return new HistoricoProjecto(*this);
