@@ -1824,9 +1824,12 @@ void menuProjetos()
 				cout << "**********************************************************" << endl;
 				cout << "*     Menu:                                              *\n" ;
 				cout << "*        1 - Criar Projecto                              *\n";
-				cout << "*        2 - Converter para tarefa                       *\n" ;
-				cout << "*        3 - Prioridades de tarefas                      *\n" ;
-				cout << "*        4 - Dependencias                                *\n" ;
+				cout << "*        2 - Editar projecto                             *\n" ;
+				cout << "*        3 - Eliminar Projecto                           *\n" ;
+				cout << "*        4 - Listar Projectos                            *\n" ;
+				cout << "*        5 - Converter para tarefa                       *\n" ;
+				cout << "*        6 - Prioridades de tarefas                      *\n" ;
+				cout << "*        7 - Dependencias                                *\n" ;
 				cout << "*        0 - Menu anterior                               *\n" ;
 				cout << "*--------------------------------------------------------*" << endl;
 				cout << "*     Escolha a opcao:                                   *\n";
@@ -1840,17 +1843,30 @@ void menuProjetos()
 					sair=true;
 					break;
 				case 2:
-					cout << "Funcao indisponivel!!!" << endl;
+					alteraProjeto();
 					sair=true;
 					break;
 				case 3:
-					menuPrioridadeTarefa();
+					eliminaProjeto();
 					sair=true;
 					break;
 				case 4:
+					listarProjetos();
+					sair=true;
+					break;
+				case 5:
+					cout << "Funcao indisponivel!!!" << endl;
+					sair=true;
+					break;
+				case 6:
+					menuPrioridadeTarefa();
+					sair=true;
+					break;
+				case 7:
 					menuDependenciasProjecto();
 					sair=true;
 					break;
+
 				case 0:
 					cout << "A sair..." << endl;
 					sair=true;
