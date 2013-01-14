@@ -43,6 +43,32 @@ Meter no menu:
 		
 */
 
+void listarHistorico()
+{
+		try
+	{
+		BDados *conexao = new BDados("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<HistoricoInformacao> list = conexao->listarHistoricoInformacao(codUser);
+		cout << "----------------Historico de informacoes-------------------" << endl;
+		cout << list;
+		cin.get();
+		Lista<HistoricoTarefa> list2 = conexao->listarHistoricoTarefa(codUser);
+		cout << "----------------Historico de Tarefas-----------------------" << endl;
+		cout << list2;
+		cin.get();
+		cout << "----------------Historico de Projectos---------------------" << endl;
+		Lista<HistoricoProjecto> list3 = conexao->listarHistoricoProjecto(codUser);
+		cout << list3;
+		cin.get();
+
+		delete (conexao);
+	}
+	catch(SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+
+}
 void eliminaProjeto()
 {
 	try
@@ -143,34 +169,34 @@ void alteraProjeto()
 
 
 /**
- * associa informação a uma tarefa, com base nos código de informção e tarefa
+ * associa informaÃ§Ã£o a uma tarefa, com base nos cÃ³digo de informÃ§Ã£o e tarefa
  * pedidos ao utilizador
  */
 void associarInfo(){
-    // variáveis para guardar código de tarefa e código de informação
+    // variÃ¡veis para guardar cÃ³digo de tarefa e cÃ³digo de informaÃ§Ã£o
     int codTar = 0;
     int codInf = 0;
-    // início de try-catch para verificar conexão à base de dados
+    // inÃ­cio de try-catch para verificar conexÃ£o Ã  base de dados
     try
 	{
-        // conexão à base de dados
+        // conexÃ£o Ã  base de dados
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
         // pede ao utilizador qual a tarefa que pretende associar
         cout << "Indique qual a tarefa que pretende associar:" << endl;
-        // lista as tarefas (com base na variável global)
+        // lista as tarefas (com base na variÃ¡vel global)
         Lista<Tarefa> list = conexao ->listarTarefasTodas(codUser);
 		cout << list;
-        // guarda código tarefa na variável respectiva
+        // guarda cÃ³digo tarefa na variÃ¡vel respectiva
         cin >> codTar;
-        // pede ao utilizador qual a informação que pretende associar
-        cout << "Indique qual a informação que prentende associar" << endl;
-        // lista informação com base na variável global
+        // pede ao utilizador qual a informaÃ§Ã£o que pretende associar
+        cout << "Indique qual a informaÃ§Ã£o que prentende associar" << endl;
+        // lista informaÃ§Ã£o com base na variÃ¡vel global
         Lista<Informacao> listInf = conexao ->listaInformacao(codUser);
         cout << listInf;
         cin >> codInf;
-        // associa informação
+        // associa informaÃ§Ã£o
         conexao->associarInformacao(codInf, codTar);
-        // termina ligação
+        // termina ligaÃ§Ã£o
         delete(conexao);
 	} // end try
 	catch (SQLException erro)
@@ -1034,7 +1060,6 @@ void menuHistoricoTarefas()
 				cout << "**********************************************************" << endl;
 				cout << "*     Menu:                                              *\n" ;
 				cout << "*        1 - Visualizar historico                        *\n";
-				cout << "*        2 - Alterar nivel de visualizacao               *\n";
 				cout << "*        0 - Menu anterior                               *\n" ;
 				cout << "*--------------------------------------------------------*" << endl;
 				cout << "*     Escolha a opcao:                                   *\n";
@@ -1047,9 +1072,7 @@ void menuHistoricoTarefas()
 					
 					sair=true;
 					break;
-				case 2:
-					sair=true;
-					break;
+		
 				case 3:
 					sair=true;
 					break;
@@ -1253,8 +1276,11 @@ void menuDeferirTarefa()
 					sair=true;
 					break;
 				case 3:
+						Calendario *calendario;
+					calendario->exportar("calendario",codUser);
 					sair=true;
 					break;
+				
 
 				case 0:
 					
@@ -1508,6 +1534,7 @@ void menuInformacao()
 					alteraInformacao();
 					sair=true;
 					break;
+			
 				case 0:
 					cout << "A sair..." << endl;
 					sair=true;
@@ -1594,7 +1621,6 @@ void menuListarTarefas()
 				cout << "*        4 - Marcar tarefa como realizada                *\n" ;
 				cout << "*        5 - Associar duracao                            *\n" ;
 				cout << "*        6 - Alterar criterio ordenacao                  *\n" ;
-				cout << "*        7 - Alterar nivel de informacao                *\n" ;
 				cout << "*        0 - Menu anterior                               *\n" ;
 				cout << "*--------------------------------------------------------*" << endl;
 				cout << "*     Escolha a opcao:                                   *\n";
@@ -1615,6 +1641,15 @@ void menuListarTarefas()
 					listarTarefasPorRealizar();
 					sair=true;
 					break;
+				case 4:
+					realizaTarefa();
+					sair =true;
+					break;
+				case 5:
+					associaDuracao();
+					sair=true;
+					break;
+			
 				case 6: 
 					menuCriterioOrdenacao();
 					sair=true;
@@ -1681,7 +1716,7 @@ void menuTarefas()
 					sair=true;
 					break;
 				case 3:
-					associaDuracao();
+					
 					sair=true;
 					break;
 
@@ -1730,9 +1765,12 @@ void menuTarefas()
 					sair=true;
 					break;
 				case 15:
+					CSV csv;
+					csv.importarTarefas("tarefas", codUser);
 					sair=true;
 					break;
 				case 16:
+					csv.exportarTarefas("tarefas", codUser);
 					sair=true;
 					break;
 				case 17:
@@ -1782,6 +1820,8 @@ void menuDependenciasProjecto()
 					sair=true;
 					break;
 				case 3:
+					Calendario *calendario;
+					calendario->exportar("calendario",codUser);
 					sair=true;
 					break;
 
@@ -1940,6 +1980,7 @@ void menu()
 			
 			break;
 		case 4:
+			listarHistorico();
 			break;
 		case 5:
 			menuSincronizar();
