@@ -63,6 +63,14 @@ HistoricoInformacao::HistoricoInformacao()
 
 /**
  *Construtor completo
+ *@param codhistorico 	codigo de historico
+ *@param codinformacao 	codigo da informacao
+ *@param codtarefa 		codigo da tarefa
+ *@param descricao 		descricao
+ *@param codutilizador 	codigo do utilizador
+ *@param datainsercao 	data de insercao
+ *@param codtipo 		codigo do tipo
+ *@param info 			informacao
  */
 HistoricoInformacao::HistoricoInformacao(int codhistorico, int codinformacao, int codtarefa, string descricao, int codutilizador, Data datainsercao, int codtipo, string info)
 {
@@ -98,85 +106,150 @@ HistoricoInformacao::HistoricoInformacao(const HistoricoInformacao& hi)
 HistoricoInformacao::~HistoricoInformacao()
 {
 }
+
 /**
- * @return codigo do historico
+ * Metodo para retornar o codigo do historico.
+ * @return devolve o codigo do historico.
  */
 int HistoricoInformacao::getCodHistorico()const
 {
  return codHistorico;
 }
+
+/**
+ * Metodo para retornar o codigo da informacao.
+ * @return devolve o codigo da informacao.
+ */
 int HistoricoInformacao::getCodInformacao() const
 {
  return codInformacao;
 }
+
+/**
+ * Metodo para retornar o codigo da tarefa.
+ * @return devolve o codigo da tarefa.
+ */
 int HistoricoInformacao::getCodTarefa() const
 {
  return codTarefa;
 }
 
+/**
+ * Metodo para retornar a descricao.
+ * @return devolve a descricao.
+ */
 string HistoricoInformacao::getDescricao() const
 {
  return descricao;
 }
 
+/**
+ * Metodo para retornar o codigo do utilizador.
+ * @return devolve o codigo de utilizador.
+ */
 int HistoricoInformacao::getCodUtilizador() const
 {
  return codUtilizador;
 }
+
+/**
+ * Metodo para retornar a data de insercao.
+ * @return devolve a data de insercao.
+ */
 Data HistoricoInformacao::getDataInsercao()
 {
  return dataInsercao;
 }
 
+/**
+ * Metodo para retornar o codigo do tipo.
+ * @return devolve o codigo do tipo.
+ */
 int HistoricoInformacao::getCodTipo() const
 {
  return codTipo;
 }
 
+/**
+ * Metodo para retornar a info.
+ * @return devolve a info.
+ */
 string HistoricoInformacao::getInfo() const
 {
  return info;
 }
 
- void HistoricoInformacao::setCodHistorico(const int codhistorico)
- {
- 	codHistorico = codhistorico;
- }
+/**
+ * Metodo de atribuicao do codigo de historico.
+ * @param codhistorico codigo do historico.
+ */
+void HistoricoInformacao::setCodHistorico(const int codhistorico)
+{
+	codHistorico = codhistorico;
+}
 
- void HistoricoInformacao::setCodInformacao(const int codinformacao)
- {
- 	codInformacao = codinformacao;
- }
+/**
+ * Metodo de atribuicao do codigo de informacao.
+ * @param codinformacao codigo de informacao.
+ */
+void HistoricoInformacao::setCodInformacao(const int codinformacao)
+{
+	codInformacao = codinformacao;
+}
 
- void HistoricoInformacao::setCodTarefa(const int codtarefa)
- {
- 	codTarefa = codtarefa;
- }
+/**
+ * Metodo de atribuicao do codigo de tarefa.
+ * @param codtarefa codigo de tarefa.
+ */
+void HistoricoInformacao::setCodTarefa(const int codtarefa)
+{
+	codTarefa = codtarefa;
+}
 
- void HistoricoInformacao::setDescricao(const string descricao)
- {
- 	this->descricao = descricao;
- }
+/**
+ * Metodo de atribuicao da descricao.
+ * @param descricao descricao.
+ */
+void HistoricoInformacao::setDescricao(const string descricao)
+{
+	this->descricao = descricao;
+}
 
- void HistoricoInformacao::setCodUtilizador(const int codutilizador)
- {
- 	codUtilizador = codutilizador;
- }
+/**
+ * Metodo de atribuicao do codigo de utilizador.
+ * @param codutilizador codigo de utilizador.
+ */
+void HistoricoInformacao::setCodUtilizador(const int codutilizador)
+{
+	codUtilizador = codutilizador;
+}
 
- void HistoricoInformacao::setDataInsercao(const Data datainsercao)
- {
- 	dataInsercao = datainsercao;
- }
+/**
+ * Metodo de atribuicao da data de insercao.
+ * @param datainsercao data de insercao.
+ */
+void HistoricoInformacao::setDataInsercao(const Data datainsercao)
+{
+	dataInsercao = datainsercao;
+}
 
- void HistoricoInformacao::setCodTipo(const int codtipo)
- {
- 	codTipo = codtipo;
- }
+/**
+ * Metodo de atribuicao do codigo de tipo.
+ * @param codtipo codigo de tipo
+ */
+void HistoricoInformacao::setCodTipo(const int codtipo)
+{
+	codTipo = codtipo;
+}
 
- void HistoricoInformacao::setInfo(const string info)
- {
- 	this->info = info;
- }
+/**
+ * Metodo de atribuicao da info.
+ * @param info info.
+ */
+void HistoricoInformacao::setInfo(const string info)
+{
+	this->info = info;
+}
 
 
 /**
@@ -206,6 +279,10 @@ ostream & operator << (ostream &out, const HistoricoInformacao &hi)
 	return out;
 }
 
+/**
+ * Clone
+ * @return devolve um clone.
+ */
 HistoricoInformacao* HistoricoInformacao::clone() const
 {
 	return new HistoricoInformacao(*this);
