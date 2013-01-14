@@ -10,11 +10,33 @@ int codUser = -1;
 #include "Data.h"
 #include "csvassembly.h"
 
+void eliminaProjeto()
+{
+	try
+	{
+		BDados *conexao = new BDados("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Projecto> list = conexao->listarProjetosTodos(codUser);
+		cout << list;
+		cout << "Projeto a eliminar?" << endl;
+		int codProjeto;
+		cin >> codProjeto;
+		conexao->eliminarProjeto(codUser, codProjeto);
+		cout << "Projeto eliminado com sucesso" << endl;
+		delete (conexao);
+	}
+	catch(SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+
+
+}
 
 /*
 Meter no menu:
 -> 	exportAssemb(); exportacao para Assembly
 -> listarProjetos(); listar todos os projectos
+-> eliminaProjeto(); eliminar um projeto
 */
 
 /**
@@ -1410,7 +1432,7 @@ int main ()
 	{
 	
 		//menu();
-		exportAssemb();
+		
 	}
 
 
