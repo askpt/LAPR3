@@ -1914,6 +1914,8 @@ void menu()
 		cout << "*        3 - Projectos                                       *\n" ;
 		cout << "*        4 - Historico                                       *\n" ;
 		cout << "*        5 - Sincronizar                                     *\n";
+		cout << "*        6 - Importar CSV                                    *\n";
+		cout << "*        7 - Exportar CSV                                    *\n";
 		cout << "*        0 - Sair                                            *\n" ;
 		cout << "*------------------------------------------------------------*" << endl;
 		cout << "*     Escolha a opcao:                                       *\n";
@@ -1943,6 +1945,30 @@ void menu()
 			break;
 		case 5:
 			menuSincronizar();
+			break;
+		case 6:
+			CSV csv2;
+			csv2.importarInformacoes("informacoes",codUser);
+			csv2.importarTarefas("tarefas", codUser);
+			csv2.importarTipos("tipos", codUser);
+			csv2.importarNiveis("niveis", codUser);
+			csv2.importarEstados("estados", codUser);
+			csv2.importarContextos("contextos", codUser);
+			csv2.importarTarefaContexto("tarefa_contexto", codUser);
+			csv2.importarProjectos("projectos", codUser);
+			csv2.importarUtilizadores("utilizadores", codUser);
+			break;
+		case 7:
+			CSV csv;
+			csv.exportarInformacoes("informacoes", codUser);
+			csv.exportarContextos("contextos", codUser);
+			csv.exportarTarefas("tarefas",codUser);
+			csv.exportarNiveis("niveis",codUser);
+			csv.exportarUtilizador("utilizadores",codUser);
+			csv.exportarProjectos("projectos", codUser);
+			csv.exportarTipos("tipos",codUser);
+			csv.exportarEstados("estados", codUser);
+			csv.exportarTarefaContexto("tarefa_contexto", codUser);
 			break;
 		case 0:
 			sair=true;
