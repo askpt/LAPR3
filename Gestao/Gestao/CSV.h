@@ -26,25 +26,25 @@ class CSV
 
 private:
 public:
-	int  importarInformacoes(string nomeFicheiro, int codUser); // done
-	int  importarContextos(string nomeFicheiro, int codUser); // done
-	int  importarEstados(string nomeFicheiro, int codUser); // done
-	int  importarNiveis(string nomeFicheiro, int codUser); // done
-	int  importarProjectos(string nomeFicheiro, int codUser); // done
-	int  importarTarefas(string nomeFicheiro, int codUser); // done
-	int  importarTarefaContexto(string nomeFicheiro, int codUser); // done
-	int  importarTipos(string nomeFicheiro, int codUser); // done
-	int  importarUtilizadores(string nomeFicheiro, int codUser); // done
+	int  importarInformacoes(string nomeFicheiro, int codUser);
+	int  importarContextos(string nomeFicheiro, int codUser);
+	int  importarEstados(string nomeFicheiro, int codUser);
+	int  importarNiveis(string nomeFicheiro, int codUser);
+	int  importarProjectos(string nomeFicheiro, int codUser);
+	int  importarTarefas(string nomeFicheiro, int codUser);
+	int  importarTarefaContexto(string nomeFicheiro, int codUser);
+	int  importarTipos(string nomeFicheiro, int codUser);
+	int  importarUtilizadores(string nomeFicheiro, int codUser);
 
-	int  exportarInformacoes(string nomeFicheiro, int codUser); // done
-	int  exportarContextos(string nomeFicheiro, int codUser); // done
-	int  exportarEstados(string nomeFicheiro, int codUser); // done
-	int  exportarNiveis(string nomeFicheiro, int codUser); // done
-	int  exportarProjectos(string nomeFicheiro, int codUser); // done
-	int  exportarTarefas(string nomeFicheiro, int codUser); // done
-	int  exportarTarefaContexto(string nomeFicheiro, int codUser); // done
-	int  exportarTipos(string nomeFicheiro, int codUser); // done
-	int  exportarUtilizador(string nomeFicheiro, int codUser); // done
+	int  exportarInformacoes(string nomeFicheiro, int codUser);
+	int  exportarContextos(string nomeFicheiro, int codUser);
+	int  exportarEstados(string nomeFicheiro, int codUser);
+	int  exportarNiveis(string nomeFicheiro, int codUser);
+	int  exportarProjectos(string nomeFicheiro, int codUser);
+	int  exportarTarefas(string nomeFicheiro, int codUser);
+	int  exportarTarefaContexto(string nomeFicheiro, int codUser);
+	int  exportarTipos(string nomeFicheiro, int codUser);
+	int  exportarUtilizador(string nomeFicheiro, int codUser);
 	string contToString(Lista<int> cont);
 	void exportAssemb(int codUser);
 };
@@ -121,6 +121,12 @@ void CSV::exportAssemb(int codUser)
 
 }
 
+/**
+ * Metodo responsavel pela importacao de informacoes atraves de ficheiro em formato csv.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilizador.
+ * @return              retorna 0 se importar com sucesso, caso contrario retorna -1.
+ */
 int CSV::importarInformacoes(string nomeFicheiro, int codUser)
 {
 	int codInformacao;
@@ -201,6 +207,12 @@ int CSV::importarInformacoes(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela importacao de tarefas atraves de ficheiro em formato csv.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilizador.
+ * @return              retorna 0 se importar com sucesso, caso contrario retorna -1.
+ */
 int CSV::importarTarefas(string nomeFicheiro, int codUser)
 {
 	int codTarefa;
@@ -376,6 +388,12 @@ int CSV::importarTarefas(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela importacao de projectos atraves de ficheiro em formato csv.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilizador.
+ * @return              retorna 0 se importar com sucesso, caso contrario retorna -1.
+ */
 int CSV::importarProjectos(string nomeFicheiro, int codUser)
 {
 	int codProjecto;
@@ -486,6 +504,12 @@ int CSV::importarProjectos(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela importacao de tipos atraves de ficheiro em formato csv.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilizador.
+ * @return              retorna 0 se importar com sucesso, caso contrario retorna -1.
+ */
 int CSV::importarTipos(string nomeFicheiro, int codUser)
 {
 	int codTipo;
@@ -543,6 +567,12 @@ int CSV::importarTipos(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela importacao de niveis atraves de ficheiro em formato csv.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilizador.
+ * @return              retorna 0 se importar com sucesso, caso contrario retorna -1.
+ */
 int CSV::importarNiveis(string nomeFicheiro, int codUser)
 {
 	int nivelImportancia;
@@ -600,6 +630,12 @@ int CSV::importarNiveis(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela importacao de estados atraves de ficheiro em formato csv.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilizador.
+ * @return              retorna 0 se importar com sucesso, caso contrario retorna -1.
+ */
 int CSV::importarEstados(string nomeFicheiro, int codUser)
 {
 	int codEstado;
@@ -657,6 +693,12 @@ int CSV::importarEstados(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela importacao de contextos atraves de ficheiro em formato csv.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilizador.
+ * @return              retorna 0 se importar com sucesso, caso contrario retorna -1.
+ */
 int CSV::importarContextos(string nomeFicheiro, int codUser)
 {
 	int codContexto;
@@ -714,6 +756,12 @@ int CSV::importarContextos(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela importacao de tarefa contexto atraves de ficheiro em formato csv.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilizador.
+ * @return              retorna 0 se importar com sucesso, caso contrario retorna -1.
+ */
 int CSV::importarTarefaContexto(string nomeFicheiro, int codUser)
 {
 	int codTarefa;
@@ -772,6 +820,12 @@ int CSV::importarTarefaContexto(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela importacao de utilizadores atraves de ficheiro em formato csv.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilizador.
+ * @return              retorna 0 se importar com sucesso, caso contrario retorna -1.
+ */
 int CSV::importarUtilizadores(string nomeFicheiro, int codUser)
 {
 	int codUtilizador;
@@ -853,6 +907,12 @@ int CSV::importarUtilizadores(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela exportacao de tarefas da base de dados para sql.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilziador.
+ * @return              retorna 0 se exportar com sucesso, caso contrario retorna -1.
+ */
 int CSV::exportarTarefas(string nomeFicheiro, int codUser)
 {
 	
@@ -906,6 +966,12 @@ int CSV::exportarTarefas(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela exportacao de informacoes da base de dados para sql.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilziador.
+ * @return              retorna 0 se exportar com sucesso, caso contrario retorna -1.
+ */
 int CSV::exportarInformacoes(string nomeFicheiro, int codUser)
 {
 	
@@ -948,6 +1014,12 @@ int CSV::exportarInformacoes(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela exportacao de contextos da base de dados para sql.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilziador.
+ * @return              retorna 0 se exportar com sucesso, caso contrario retorna -1.
+ */
 int CSV::exportarContextos(string nomeFicheiro, int codUser)
 {
 	
@@ -990,6 +1062,12 @@ int CSV::exportarContextos(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela exportacao de niveis da base de dados para sql.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilziador.
+ * @return              retorna 0 se exportar com sucesso, caso contrario retorna -1.
+ */
 int CSV::exportarNiveis(string nomeFicheiro, int codUser)
 {
 	
@@ -1032,6 +1110,12 @@ int CSV::exportarNiveis(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela exportacao de utilizadores da base de dados para sql.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilziador.
+ * @return              retorna 0 se exportar com sucesso, caso contrario retorna -1.
+ */
 int CSV::exportarUtilizador(string nomeFicheiro, int codUser)
 {
 
@@ -1074,6 +1158,12 @@ int CSV::exportarUtilizador(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela exportacao de projectos da base de dados para sql.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilziador.
+ * @return              retorna 0 se exportar com sucesso, caso contrario retorna -1.
+ */
 int CSV::exportarProjectos(string nomeFicheiro, int codUser)
 {
 	
@@ -1122,6 +1212,12 @@ int CSV::exportarProjectos(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela exportacao de tipos da base de dados para sql.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilziador.
+ * @return              retorna 0 se exportar com sucesso, caso contrario retorna -1.
+ */
 int CSV::exportarTipos(string nomeFicheiro, int codUser)
 {
 
@@ -1167,6 +1263,12 @@ int CSV::exportarTipos(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela exportacao de estados da base de dados para sql.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilziador.
+ * @return              retorna 0 se exportar com sucesso, caso contrario retorna -1.
+ */
 int CSV::exportarEstados(string nomeFicheiro, int codUser)
 {
 
@@ -1212,6 +1314,12 @@ int CSV::exportarEstados(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+/**
+ * Metodo responsavel pela exportacao de tarefa contexto da base de dados para sql.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilziador.
+ * @return              retorna 0 se exportar com sucesso, caso contrario retorna -1.
+ */
 int CSV::exportarTarefaContexto(string nomeFicheiro, int codUser)
 {
 
