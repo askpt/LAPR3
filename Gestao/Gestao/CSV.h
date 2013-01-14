@@ -17,7 +17,7 @@ using namespace std;
 #include "Utilizador.h"
 #include "Informacao.h"
 #include "Contexto.h"
-//#include "Nivel.h"
+#include "Nivel.h"
 #include "Bdados.h"
 #include "Lista.h"
 
@@ -26,25 +26,25 @@ class CSV
 
 private:
 public:
-	int  importarInformacoes(string nomeFicheiro, int codUser);
-	int  importarContextos(string nomeFicheiro, int codUser);
-	int  importarEstados(string nomeFicheiro, int codUser);
-	int  importarNiveis(string nomeFicheiro, int codUser);
-	int  importarProjectos(string nomeFicheiro, int codUser);
-	int  importarTarefas(string nomeFicheiro, int codUser);
-	int  importarTarefaContexto(string nomeFicheiro, int codUser);
-	int  importarTipo(string nomeFicheiro, int codUser);
-	int  importarUtilizador(string nomeFicheiro, int codUser);
+	int  importarInformacoes(string nomeFicheiro, int codUser); // done
+	int  importarContextos(string nomeFicheiro, int codUser); // done
+	int  importarEstados(string nomeFicheiro, int codUser); // done
+	int  importarNiveis(string nomeFicheiro, int codUser); // done
+	int  importarProjectos(string nomeFicheiro, int codUser); // done
+	int  importarTarefas(string nomeFicheiro, int codUser); // done
+	int  importarTarefaContexto(string nomeFicheiro, int codUser); // done
+	int  importarTipos(string nomeFicheiro, int codUser); // done
+	int  importarUtilizadores(string nomeFicheiro, int codUser); // done
 
-	int  exportarInformacoes(string nomeFicheiro, int codUser);
-	int  exportarContextos(string nomeFicheiro, int codUser);
-	int  exportarEstados(string nomeFicheiro, int codUser);
-	int  exportarNiveis(string nomeFicheiro, int codUser);
-	int  exportarProjectos(string nomeFicheiro, int codUser);
-	int  exportarTarefas(string nomeFicheiro, int codUser);
-	int  exportarTarefaContexto(string nomeFicheiro, int codUser);
-	int  exportarTipo(string nomeFicheiro, int codUser);
-	int  exportarUtilizador(string nomeFicheiro, int codUser);
+	int  exportarInformacoes(string nomeFicheiro, int codUser); // done
+	int  exportarContextos(string nomeFicheiro, int codUser); // done
+	int  exportarEstados(string nomeFicheiro, int codUser); // done
+	int  exportarNiveis(string nomeFicheiro, int codUser); // done
+	int  exportarProjectos(string nomeFicheiro, int codUser); // done
+	int  exportarTarefas(string nomeFicheiro, int codUser); // done
+	int  exportarTarefaContexto(string nomeFicheiro, int codUser); // done
+	int  exportarTipos(string nomeFicheiro, int codUser); // done
+	int  exportarUtilizador(string nomeFicheiro, int codUser); // done
 };
 
 int CSV::importarInformacoes(string nomeFicheiro, int codUser)
@@ -248,14 +248,20 @@ int CSV::importarTarefas(string nomeFicheiro, int codUser)
 			pos = linha.find(',',comeca);
 
 			string cFim(linha.substr(comeca,pos-comeca));
-			dataFim = cFim; // guarda dataFim
+			if (cFim == "---")
+				dataFim = "NULL";
+			else
+				dataFim = cFim; // guarda dataFim
 
 			pos++;
 			comeca = pos;
 			pos = linha.find(',',comeca);
 
 			string cEsti(linha.substr(comeca,pos-comeca));
-			dataEstimada = cEsti; // guarda dataEstimada
+			if (cEsti == "---")
+				dataEstimada = "NULL";
+			else
+				dataEstimada = cEsti; // guarda dataEstimada
 
 			pos++;
 			comeca = pos;
@@ -296,17 +302,496 @@ int CSV::importarTarefas(string nomeFicheiro, int codUser)
 	return 0;
 }
 
+int CSV::importarProjectos(string nomeFicheiro, int codUser)
+{
+	int codProjecto;
+	int codEstado;
+	int codUtilizador;
+	int nivelImportancia;
+	string dataCriacao;
+	string dataFim;
+	string informacao;
+	string nome;
+	string linha;
+	string _nomeFicheiro;
+	stringstream out;
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+
+	ifstream ficheiro(_nomeFicheiro); // abre o ficheiro
+
+	if(!ficheiro)
+	{
+		cout << _nomeFicheiro << "nao existe!" << endl;
+		return -1;
+	}
+
+	while(!ficheiro.eof()) // enquanto nao chega ao final do ficheiro
+	{
+		getline(ficheiro,linha,'\n'); // grava o conteudo da linha
+		if(linha.size() > 0)
+		{
+			int  comeca = 0;
+			int pos = linha.find(',',comeca);
+
+			string cPro(linha.substr(comeca,pos-comeca));
+			char* aux = &cPro[0];
+			codProjecto = atoi(aux); // guarda codProjecto
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string cEs(linha.substr(comeca,pos-comeca));
+			aux = &cEs[0];
+			codEstado = atoi(aux); // guarda codEstado
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string cUt(linha.substr(comeca,pos-comeca));
+			aux = &cUt[0];
+			codUtilizador = atoi(aux); // guarda codUtilizador
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string Niv(linha.substr(comeca,pos-comeca));
+			aux = &Niv[0];
+			nivelImportancia = atoi(aux); // guarda nivelImportancia
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string cCriacao(linha.substr(comeca,pos-comeca));
+			dataCriacao = cCriacao; // guarda dataCriacao
+
+			pos++;                                                                                                                                                                                                                                                                                                                                                                                                  
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string cFim(linha.substr(comeca,pos-comeca));
+			if (cFim == "---")
+				dataFim = "NULL";
+			else
+			dataFim = cFim; // guarda dataFim
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string cInf(linha.substr(comeca,pos-comeca));
+			informacao = cInf; // guarda informacao
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string cNome(linha.substr(comeca,pos-comeca));
+			nome = cNome; // guarda nome
+
+			pos++;
+
+			try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				conexao -> inserirProjetoCompleto(codProjecto, codEstado, codUtilizador, nivelImportancia, dataCriacao, dataFim, informacao, nome);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+		}
+	}
+	
+	return 0;
+}
+
+int CSV::importarTipos(string nomeFicheiro, int codUser)
+{
+	int codTipo;
+	string linha;
+	string _nomeFicheiro;
+	stringstream out;
+	string desc;
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+
+	ifstream ficheiro(_nomeFicheiro); // abre o ficheiro
+
+	if(!ficheiro)
+	{
+		cout << _nomeFicheiro << "nao existe!" << endl;
+		return -1;
+	}
+
+	while(!ficheiro.eof()) // enquanto nao chega ao final do ficheiro
+	{
+		getline(ficheiro,linha,'\n'); // grava o conteudo da linha
+		if(linha.size() > 0)
+		{
+			int  comeca = 0;
+			int pos = linha.find(',',comeca);
+
+			string cTip(linha.substr(comeca,pos-comeca));
+			char* aux = &cTip[0];
+			codTipo = atoi(aux); // guarda codTipo
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string descricao(linha.substr(comeca,pos-comeca)); // guarda descricao
+			desc = descricao;
+
+			pos++;
+
+			try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				conexao ->inserirTipo(desc);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+		}
+	}
+
+	
+	return 0;
+}
+
+int CSV::importarNiveis(string nomeFicheiro, int codUser)
+{
+	int nivelImportancia;
+	string linha;
+	string _nomeFicheiro;
+	stringstream out;
+	string desc;
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+
+	ifstream ficheiro(_nomeFicheiro); // abre o ficheiro
+
+	if(!ficheiro)
+	{
+		cout << _nomeFicheiro << "nao existe!" << endl;
+		return -1;
+	}
+
+	while(!ficheiro.eof()) // enquanto nao chega ao final do ficheiro
+	{
+		getline(ficheiro,linha,'\n'); // grava o conteudo da linha
+		if(linha.size() > 0)
+		{
+			int  comeca = 0;
+			int pos = linha.find(',',comeca);
+
+			string cImp(linha.substr(comeca,pos-comeca));
+			char* aux = &cImp[0];
+			nivelImportancia = atoi(aux); // guarda nivelImportancia
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string descricao(linha.substr(comeca,pos-comeca)); // guarda descricao
+			desc = descricao;
+
+			pos++;
+
+			try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				conexao ->inserirNivel(nivelImportancia,desc);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+		}
+	}
+
+	
+	return 0;
+}
+
+int CSV::importarEstados(string nomeFicheiro, int codUser)
+{
+	int codEstado;
+	string linha;
+	string _nomeFicheiro;
+	stringstream out;
+	string desc;
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+
+	ifstream ficheiro(_nomeFicheiro); // abre o ficheiro
+
+	if(!ficheiro)
+	{
+		cout << _nomeFicheiro << "nao existe!" << endl;
+		return -1;
+	}
+
+	while(!ficheiro.eof()) // enquanto nao chega ao final do ficheiro
+	{
+		getline(ficheiro,linha,'\n'); // grava o conteudo da linha
+		if(linha.size() > 0)
+		{
+			int  comeca = 0;
+			int pos = linha.find(',',comeca);
+
+			string cEs(linha.substr(comeca,pos-comeca));
+			char* aux = &cEs[0];
+			codEstado = atoi(aux); // guarda codEstado
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string descricao(linha.substr(comeca,pos-comeca)); // guarda descricao
+			desc = descricao;
+
+			pos++;
+
+			try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				conexao ->inserirEstado(desc);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+		}
+	}
+
+	
+	return 0;
+}
+
+int CSV::importarContextos(string nomeFicheiro, int codUser)
+{
+	int codContexto;
+	string linha;
+	string _nomeFicheiro;
+	stringstream out;
+	string desc;
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+
+	ifstream ficheiro(_nomeFicheiro); // abre o ficheiro
+
+	if(!ficheiro)
+	{
+		cout << _nomeFicheiro << "nao existe!" << endl;
+		return -1;
+	}
+
+	while(!ficheiro.eof()) // enquanto nao chega ao final do ficheiro
+	{
+		getline(ficheiro,linha,'\n'); // grava o conteudo da linha
+		if(linha.size() > 0)
+		{
+			int  comeca = 0;
+			int pos = linha.find(',',comeca);
+
+			string cCon(linha.substr(comeca,pos-comeca));
+			char* aux = &cCon[0];
+			codContexto = atoi(aux); // guarda codContexto
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string descricao(linha.substr(comeca,pos-comeca)); // guarda descricao
+			desc = descricao;
+
+			pos++;
+
+			try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				conexao ->inserirContexto(desc);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+		}
+	}
+
+	
+	return 0;
+}
+
+int CSV::importarTarefaContexto(string nomeFicheiro, int codUser)
+{
+	int codTarefa;
+	int codContexto;
+	string linha;
+	string _nomeFicheiro;
+	stringstream out;
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+
+	ifstream ficheiro(_nomeFicheiro); // abre o ficheiro
+
+	if(!ficheiro)
+	{
+		cout << _nomeFicheiro << "nao existe!" << endl;
+		return -1;
+	}
+
+	while(!ficheiro.eof()) // enquanto nao chega ao final do ficheiro
+	{
+		getline(ficheiro,linha,'\n'); // grava o conteudo da linha
+		if(linha.size() > 0)
+		{
+			int  comeca = 0;
+			int pos = linha.find(',',comeca);
+
+			string cTar(linha.substr(comeca,pos-comeca));
+			char* aux = &cTar[0];
+			codTarefa = atoi(aux); // guarda codTarefa
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string cCon(linha.substr(comeca,pos-comeca));
+			aux = &cCon[0];
+			codContexto = atoi(aux); // guarda codContexto
+
+			pos++;
+
+			try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				conexao ->inserirTarefaContexto(codTarefa, codContexto);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+		}
+	}
+
+	
+	return 0;
+}
+
+int CSV::importarUtilizadores(string nomeFicheiro, int codUser)
+{
+	int codUtilizador;
+	int telefone;
+	string nome;
+	string login;
+	string pass;
+	string linha;
+	string _nomeFicheiro;
+	stringstream out;
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+
+	ifstream ficheiro(_nomeFicheiro); // abre o ficheiro
+
+	if(!ficheiro)
+	{
+		cout << _nomeFicheiro << "nao existe!" << endl;
+		return -1;
+	}
+
+	while(!ficheiro.eof()) // enquanto nao chega ao final do ficheiro
+	{
+		getline(ficheiro,linha,'\n'); // grava o conteudo da linha
+		if(linha.size() > 0)
+		{
+			int  comeca = 0;
+			int pos = linha.find(',',comeca);
+
+			string cUti(linha.substr(comeca,pos-comeca));
+			char* aux = &cUti[0];
+			codUtilizador = atoi(aux); // guarda codUtilizador
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string n(linha.substr(comeca,pos-comeca)); // guarda nome
+			nome = n;
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string cTel(linha.substr(comeca,pos-comeca));
+			aux = &cTel[0];
+			telefone = atoi(aux); // guarda telefone
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string lo(linha.substr(comeca,pos-comeca)); // guarda login
+			login = lo;
+
+			pos++;
+			comeca = pos;
+			pos = linha.find(',',comeca);
+
+			string pa(linha.substr(comeca,pos-comeca)); // guarda pass
+			pass = pa;
+
+			pos++;
+
+			try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				conexao -> inserirUtilizador(nome,telefone,login,pass);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+		}
+	}
+
+	return 0;
+}
+
 int CSV::exportarTarefas(string nomeFicheiro, int codUser)
 {
 	
 	string linha;
 	string desc;
-	Lista<Tarefa> tarefas;
-	Tarefa auxTarefa;
-	Tarefa *apTarefa = &auxTarefa;
 	string _nomeFicheiro;
 	stringstream out;
-	cout << "ola" << endl;
+	Tarefa auxTarefa;
+	Tarefa *apTarefa = &auxTarefa;
+	Lista<Tarefa> tarefas;
+	string dataEstimada;
+	string dataFim;
+
 
 	out << nomeFicheiro << ".csv";
 	_nomeFicheiro = out.str();
@@ -314,10 +799,384 @@ int CSV::exportarTarefas(string nomeFicheiro, int codUser)
 
 	if(ficheiro.is_open())
 	{
-		for(int i = 1; i< tarefas.comprimento(); i++)
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				tarefas = conexao ->listarTarefasTodas(codUser);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+		for(int i = 1; i< tarefas.comprimento()+1; i++)
 		{
-			tarefas.encontra(i, auxTarefa);
-			cout << apTarefa->getCodTarefa() << "," << apTarefa->getCodProjecto() << "," << apTarefa->getCodEstado() << "," << apTarefa->getCodUtilizador() << "," << apTarefa->getNivelImportancia() << "," << apTarefa->getDuracao() << "," << apTarefa->getCodDependente() << "," << apTarefa->getNContextos() << "," << apTarefa->getDelegado() << "," << apTarefa->getDataCriacao().toSQL() << "," << apTarefa->getDataFim().toSQL() << "," << apTarefa->getDataEstimada().toSQL()	<< "," << apTarefa->getInformacao() << "," << apTarefa->getTitulo()<< "," << apTarefa->getTitulo() << "\n";
+			
+			tarefas.encontra(i, auxTarefa);	
+
+			if(apTarefa->getDataFim().getAno() != 1900)
+				dataFim = apTarefa->getDataFim().toSQL();
+			else
+				dataFim = "---";
+			if(apTarefa->getDataEstimada().getAno() != 1900)
+				dataEstimada = apTarefa->getDataEstimada().toSQL();
+			else
+				dataEstimada = "---";
+
+			ficheiro << apTarefa->getCodTarefa() << "," << apTarefa->getCodProjecto() << "," << apTarefa->getCodEstado() << "," << apTarefa->getCodUtilizador() << "," << apTarefa->getNivelImportancia() << "," << apTarefa->getDuracao() << "," << apTarefa->getCodDependente() << "," << apTarefa->getNContextos() << "," << apTarefa->getDelegado() << "," << apTarefa->getDataCriacao().toSQL() << "," << dataFim << "," << dataEstimada << "," << apTarefa->getInformacao() << "," << apTarefa->getTitulo()<< "," << apTarefa->getTipo() << "\n";	
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
+
+int CSV::exportarInformacoes(string nomeFicheiro, int codUser)
+{
+	
+	string linha;
+	string desc;
+	string _nomeFicheiro;
+	stringstream out;
+	Informacao auxInfo;
+	Informacao *apInfo = &auxInfo;
+	Lista<Informacao> informacoes;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				informacoes = conexao ->listaInformacao(codUser);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+		for(int i = 1; i< informacoes.comprimento()+1; i++)
+		{
+			
+			informacoes.encontra(i, auxInfo);	
+
+			ficheiro << apInfo->getCodInformacao() << "," << apInfo->getCodTarefa() << "," << apInfo->getCodUtilizador() << "," << apInfo->getDescricao() << "," << apInfo->getDataInsercao().toSQL() << "\n";
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
+
+int CSV::exportarContextos(string nomeFicheiro, int codUser)
+{
+	
+	string linha;
+	string desc;
+	string _nomeFicheiro;
+	stringstream out;
+	Contexto auxCon;
+	Contexto *apCon = &auxCon;
+	Lista<Contexto> contextos;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				contextos = conexao ->listarContextos();
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+		for(int i = 1; i< contextos.comprimento()+1; i++)
+		{
+			
+			contextos.encontra(i, auxCon);	
+
+			ficheiro << apCon->getCodContexto() << "," << apCon->getDescricao() << "\n";
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
+
+int CSV::exportarNiveis(string nomeFicheiro, int codUser)
+{
+	
+	string linha;
+	string desc;
+	string _nomeFicheiro;
+	stringstream out;
+	Nivel auxNiv;
+	Nivel *apNiv = &auxNiv;
+	Lista<Nivel> niveis;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				niveis = conexao ->listarNiveis();
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+		for(int i = 1; i< niveis.comprimento()+1; i++)
+		{
+			
+			niveis.encontra(i, auxNiv);	
+
+			ficheiro << apNiv->getNivelImportancia() << "," << apNiv->getDescricao() << "\n";
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
+
+int CSV::exportarUtilizador(string nomeFicheiro, int codUser)
+{
+
+	string linha;
+	string desc;
+	string _nomeFicheiro;
+	stringstream out;
+	Utilizador auxUti;
+	Utilizador *apUti = &auxUti;
+	Lista<Utilizador> utilizadores;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				utilizadores = conexao ->listarUtilizadores();
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+		for(int i = 1; i< utilizadores.comprimento()+1; i++)
+		{
+			
+			utilizadores.encontra(i, auxUti);	
+
+			ficheiro << apUti->getCodUtilizador() << "," << apUti->getNome()  << "," << apUti->getTelefone()  << "," << apUti->getLogin()  << "," << apUti->getPass() << "\n";
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
+
+int CSV::exportarProjectos(string nomeFicheiro, int codUser)
+{
+	
+	string linha;
+	string desc;
+	string _nomeFicheiro;
+	stringstream out;
+	Projecto auxProjecto;
+	Projecto *apProjecto = &auxProjecto;
+	Lista<Projecto> projectos;
+	string dataFim;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				projectos = conexao ->listarProjectos(codUser);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+			cout << projectos.comprimento();
+		for(int i = 1; i< projectos.comprimento()+1; i++)
+		{
+			
+			projectos.encontra(i, auxProjecto);	
+
+			if(apProjecto->getDataFim().getAno() != 1900)
+				dataFim = apProjecto->getDataFim().toSQL();
+			else
+				dataFim = "---";
+
+			ficheiro << apProjecto->getCodProjecto() << "," << apProjecto->getCodEstado() << "," << apProjecto->getCodUtilizador() << "," << apProjecto->getNivelImportancia() << "," << apProjecto->getDataCriacao().toSQL() << "," << dataFim << "," << apProjecto->getInformacao() << "," << apProjecto->getNome() << "\n";	
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
+
+int CSV::exportarTipos(string nomeFicheiro, int codUser)
+{
+
+	string linha;
+	string desc;
+	string _nomeFicheiro;
+	stringstream out;
+	int codigo;
+	Lista<int> codigos;
+	Lista<string> descricoes;
+	Lista<int> *apCodigos = &codigos;
+	Lista<string> *apDescricoes = &descricoes;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				conexao ->listaTipos(apCodigos, apDescricoes);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+		for(int i = 1; i< codigos.comprimento()+1; i++)
+		{
+			
+			codigos.encontra(i, codigo);	
+			descricoes.encontra(i, desc);
+
+			ficheiro << codigo << "," << desc << "\n";
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
+
+int CSV::exportarEstados(string nomeFicheiro, int codUser)
+{
+
+	string linha;
+	string desc;
+	string _nomeFicheiro;
+	stringstream out;
+	int codigo;
+	Lista<int> codigos;
+	Lista<string> descricoes;
+	Lista<int> *apCodigos = &codigos;
+	Lista<string> *apDescricoes = &descricoes;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				conexao ->listaEstados(apCodigos, apDescricoes);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+		for(int i = 1; i< codigos.comprimento()+1; i++)
+		{
+			
+			codigos.encontra(i, codigo);	
+			descricoes.encontra(i, desc);
+
+			ficheiro << codigo << "," << desc << "\n";
+		}
+		ficheiro.close();
+	}
+
+	return 0;
+}
+
+int CSV::exportarTarefaContexto(string nomeFicheiro, int codUser)
+{
+
+	string linha;
+	string _nomeFicheiro;
+	stringstream out;
+	int codigoTarefa;
+	int codigoContexto;
+	Lista<int> codigosTarefa;
+	Lista<int> codigosContexto;
+	Lista<int> *apCTarefa = &codigosTarefa;
+	Lista<int> *apCContexto = &codigosContexto;
+
+
+	out << nomeFicheiro << ".csv";
+	_nomeFicheiro = out.str();
+	ofstream  ficheiro(_nomeFicheiro);
+
+	if(ficheiro.is_open())
+	{
+		try
+			{
+				BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+				conexao ->listaTarefaContexto(apCTarefa, apCContexto);
+				delete(conexao);
+			} 
+			catch(SQLException erro)
+			{
+				cerr << "Erro: " << erro.getMessage() << endl;
+			}
+
+		for(int i = 1; i< codigosTarefa.comprimento()+1; i++)
+		{
+			
+			codigosTarefa.encontra(i, codigoTarefa);	
+			codigosContexto.encontra(i, codigoContexto);
+
+			ficheiro << codigoTarefa << "," << codigoContexto << "\n";
 		}
 		ficheiro.close();
 	}

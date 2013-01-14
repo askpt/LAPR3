@@ -9,6 +9,8 @@ int codUser = -1;
 #include "Projecto.h"
 #include "Data.h"
 #include "csvassembly.h"
+#include "CSV.h"
+#include "Calendario.h"
 
 /*
 Meter no menu:
@@ -16,6 +18,30 @@ Meter no menu:
 -> listarProjetos(); listar todos os projectos
 -> eliminaProjeto(); eliminar um projeto
 -> alteraProjeto(); alterar um projeto
+		CSV csv;
+		Calendario *calendario;
+		calendario->exportar("calendario",codUser);
+		csv.exportarInformacoes("informacoes", codUser);
+		csv.exportarContextos("contextos", codUser);
+		csv.exportarTarefas("tarefas",codUser);
+		csv.exportarNiveis("niveis",codUser);
+		csv.exportarUtilizador("utilizadores",codUser);
+		csv.exportarProjectos("projectos", codUser);
+		csv.exportarTipos("tipos",codUser);
+		csv.exportarEstados("estados", codUser);
+		csv.exportarTarefaContexto("tarefa_contexto", codUser);
+		//csv.importarInformacoes("informacoes",codUser);
+		//csv.importarTarefas("tarefas", codUser);
+		//csv.importarTipos("tipos", codUser);
+		//csv.importarNiveis("niveis", codUser);
+		//csv.importarEstados("estados", codUser);
+		//csv.importarContextos("contextos", codUser);
+		//csv.importarTarefaContexto("tarefa_contexto", codUser);
+		//csv.importarProjectos("projectos", codUser);
+		//csv.importarUtilizadores("utilizadores", codUser);
+
+		
+		
 */
 
 void eliminaProjeto()
@@ -548,7 +574,7 @@ void alteraTarefa()
 {
 	int codTar;
 	int codestado=0, nivelimportancia=0, duracao=0, coddependente=0, delegado=0;
-	string datafim="", dataestimada="",informacao="",titulo="",tipo="";
+	string datafim="", dataestimada="",informacao="",titulo="",tipo="", dataInicio="";
 
 	char resposta='n';
 	try
@@ -575,6 +601,14 @@ void alteraTarefa()
 		{
 			cout << "Nivel de importancia?" << endl;
 			cin >> nivelimportancia;
+		}
+		cout << "Pretende alterar a data de inicio? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S' || resposta == 's')
+		{
+			cout << "Data Inicio?" << endl;
+			fflush(stdin);
+			getline(cin, dataInicio);
 		}
 		cout << "Pretende alterar a duracao? (S/N) " << endl;
 		cin >> resposta;
@@ -640,7 +674,7 @@ void alteraTarefa()
 				fflush(stdin);
 			getline(cin, tipo);
 		}
-		conexao->alterarTarefa(codTar, codestado, nivelimportancia,duracao,coddependente,delegado,datafim,dataestimada,informacao,titulo,tipo);
+		conexao->alterarTarefa(codTar, codestado, nivelimportancia, dataInicio, duracao,coddependente,delegado,datafim,dataestimada,informacao,titulo,tipo);
 		
 		
 		delete(conexao);
@@ -684,10 +718,12 @@ void inserirTarefa()
 {
 	int nivelImportancia;
 	int duracao;
+	string dataInicio;
 	string informacao;
 	string titulo;
 	string tipo;
 	string dataEstimada;
+	char opc;
 
 	try
 	{
@@ -698,6 +734,14 @@ void inserirTarefa()
 		
 		cout << "Inserir nivel de importancia da tarefa" << endl;
 		cin >> nivelImportancia;
+		cout << "Deseja inserir uma data de inicio?(s/n)" << endl;
+		cin >> opc;
+		if(opc == 's' || opc == 'S')
+		{
+			cout << "Insira a data de inicio" << endl;
+			cin >> dataInicio;
+		}else
+			dataInicio = "";
 		cout << "Inserir informacao" << endl;
 		fflush(stdin);
 		getline(cin, informacao);
@@ -712,7 +756,7 @@ void inserirTarefa()
 		cout << "Insira o titulo" << endl;
 		fflush(stdin);
 		getline(cin, titulo);
-		conexao -> inserirTarefa(nivelImportancia, informacao, dataEstimada, duracao, tipo, titulo, NULL, codUser);
+		conexao -> inserirTarefa(nivelImportancia, dataInicio, informacao, dataEstimada, duracao, tipo, titulo, NULL, codUser);
 		codTarefa = conexao->ultimaTarefa(codUser);
 		while(opcao == 's' || opcao == 'S')
 		{
@@ -1886,7 +1930,6 @@ void menu()
 		case 1:
 			
 		menuInformacao();
-		
 		break;
 		case 2:
 			

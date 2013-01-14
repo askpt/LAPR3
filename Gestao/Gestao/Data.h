@@ -200,7 +200,7 @@ ostream & operator << (ostream &out, const Data &d)
 string Data::toSQL() const
 {
 	stringstream out;
-	out << 2000-ano << "." << mes << "." << dia;
+	out << ano -2000 << "." << mes << "." << dia;
 	string data = out.str();
 	return data;
 }
