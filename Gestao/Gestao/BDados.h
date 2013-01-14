@@ -15,6 +15,7 @@ using namespace oracle::occi;
 #include "Informacao.h"
 #include "Tarefa.h"
 #include "Utilizador.h"
+#include "Projecto.h"
 #include <sstream>
 #include <string>
 
@@ -42,6 +43,15 @@ public:
 	Lista<Informacao> listaInfoSemTarefa(int codUser);
 	int ultimaInfo(int codUser);
 	void alterarTarefa(int codTare, int codestado, int nivelimportancia, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo);
+	void inserirProjeto(int codUser, int nivelImportancia, string dataInicio, string dataFim, string informacao, string nome, int codEstado);
+	int ultimoProjeto(int codUser);
+	Lista<Tarefa> listaTarefaSemProjecto(int codUser);
+	bool associarTarefa(int codTarefa, int codProjeto);
+	bool podeAssociarTare(int codTarefa);
+	Lista<int> listarCodContextos(int codTarefa);
+	Lista<Projecto> listarProjetosTodos(int codUser);
+	void eliminarProjeto(int codUser, int codProjeto);
+	void alterarProjeto(int codPro, int codestado, int nivelimportancia, string dataInicio,string datafim,string informacao,string titulo);
 };
 
 
@@ -240,7 +250,6 @@ void BDados::inserirTarefa(int nivelImportancia, string informacao, string dataE
 	ligacao->terminateStatement(instrucao);
 }
 
-
 /**
  * insere dados para todos os campos da tabela tarefa
  * @param 	codTarefa 			codigo da tarefa
@@ -269,7 +278,6 @@ void BDados::inserirTarefaCompleta(int codTarefa, int codProjecto, int codEstado
 	ligacao->commit();
 	ligacao->terminateStatement(instrucao);
 }
-
 
 /**
  * associa informacao presente no sistema a uma dada tarefa
@@ -302,7 +310,6 @@ bool BDados::associarInformacao(int codTarefa, int codInformacao)
 bool BDados::podeAssociarInfo(int codInformacao)
 {
 	stringstream out;
-	int aux = NULL;
 	bool ret;
 
 	out << "select * from informacao where cod_informacao=" << codInformacao;
@@ -392,9 +399,7 @@ Lista<Informacao> BDados::listaInfoSemTarefa(int codUser)
 	instrucao->closeResultSet (rset);
 
 	return ret;
-
 }
-
 
 /**
  * altera os varios campos de um registo da tabela Tarefa
@@ -517,6 +522,245 @@ void BDados::alterarTarefa(int codTarefa, int codestado, int nivelimportancia, i
 	    ligacao->commit();
 		out.flush();
 	}
+	ligacao->terminateStatement(instrucao);
+}
+
+void BDados::inserirProjeto(int codUser, int nivelImportancia, string dataInicio,string dataFim, string informacao, string nome, int codEstado)
+{
+	stringstream out;
+	if(dataInicio != "")
+		out << "BEGIN\nIPROJECTO("<< nivelImportancia <<",'" << dataInicio << "', '" << informacao << "', '" << nome << "'," <<codUser << ");\nEND;";
+	else
+		out << "BEGIN\nIPROJECTO("<< nivelImportancia <<", null, '" << informacao << "', '" << nome << "'," <<codUser << ");\nEND;";
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+}
+
+int BDados::ultimoProjeto(int codUser)
+{
+	int ret = -1;
+	stringstream out;
+	string comando;
+
+	out << "SELECT COD_PROJECTO FROM PROJECTO WHERE COD_UTILIZADOR =" << codUser << "ORDER BY COD_PROJECTO DESC";
+	comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	ResultSet *rset = instrucao -> executeQuery();
+	rset->next();
+	ret = rset->getInt(1);
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+
+Lista<Tarefa> BDados::listaTarefaSemProjecto(int codUser)
+{
+	Lista<Tarefa> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM TAREFA WHERE COD_PROJECTO IS NULL AND COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery ();
+	while (rset->next ())
+	{
+		Data tmpCria = convertData(rset->getString(5));
+		Data tmpFim;
+		if(!rset->isNull(6))
+			tmpFim = convertData(rset->getString(6));
+		else{
+			Data tmp(1900, 1, 1);
+			tmpFim = tmp;
+		}
+		Data tmpEst;
+		if(!rset->isNull(8))
+			tmpEst = convertData(rset->getString(8));
+		else
+		{
+			Data tmp(1900, 1, 1);
+			tmpEst = tmp;
+		}		
+		Tarefa tar(rset->getInt(1), rset->getInt(2), rset->getInt(3), rset->getInt(4), tmpCria, tmpFim, rset->getString(7), tmpEst, rset->getInt(9), rset->getString(10), rset->getString(11), rset->getInt(12), rset->getInt(13), rset->getInt(14), rset->getInt(15));
+		if(rset->isNull(2))
+			ret.insere(ret.comprimento() + 1, tar);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+
+bool BDados::associarTarefa(int codTarefa, int codProjeto)
+{
+	stringstream out;
+	if(podeAssociarTare(codTarefa))
+	{
+		out << "UPDATE TAREFA SET COD_PROJECTO=" << codProjeto << " WHERE COD_TAREFA=" << codTarefa;
+		string comando = out.str();
+		instrucao = ligacao->createStatement(comando);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		ligacao->terminateStatement(instrucao);
+
+		return true;
+	}else
+		return false;
+}
+
+bool BDados::podeAssociarTare(int codTarefa)
+{
+	stringstream out;
+	bool ret;
+
+	out << "select * from tarefa where cod_tarefa=" << codTarefa;
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	ResultSet *rset = instrucao->executeQuery ();
+	rset->next();
+	if(rset->isNull(2))
+		ret = true;
+	else
+		ret = false;
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+
+Lista<int> BDados::listarCodContextos(int codTarefa)
+{
+	Lista<int> ret;
+	stringstream out;
+	out << "select * from tarefa_contexto where cod_tarefa=" << codTarefa;
+	string comando = out.str();
+	instrucao = ligacao->createStatement(comando);
+	ResultSet *rset = instrucao->executeQuery ();
+	while(rset->next())
+	{
+		ret.insere(ret.comprimento() + 1, rset->getInt(2));
+	}
+
+	return ret;
+}
+
+Lista<Projecto> BDados::listarProjetosTodos(int codUser)
+{
+
+	Lista<Projecto> ret;
+	stringstream out;
+	string operacao;
+
+	out << "SELECT * FROM PROJECTO WHERE COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	ResultSet *rset = instrucao->executeQuery();
+	while (rset->next ())
+	{
+		Data dcria, dfim;
+		if(!rset->isNull(3))
+			dcria = convertData(rset->getString(3));
+		if(!rset->isNull(4))
+			dfim = convertData(rset->getString(4));
+		cout << rset->getInt(7);
+		Projecto pro(rset->getInt(1),rset->getInt(7),rset->getInt(8), rset->getInt(2), dcria, dfim, rset->getString(5), rset->getString(6));
+		ret.insere(ret.comprimento() + 1, pro);
+	}
+	instrucao->closeResultSet (rset);
+
+	return ret;
+}
+
+void BDados:: eliminarProjeto(int codUser, int codProjeto)
+{
+	string operacao;
+	stringstream out, out2;
+
+	out << "UPDATE TAREFA SET COD_PROJECTO = NULL WHERE COD_PROJECTO = " << codProjeto << " AND COD_UTILIZADOR = " << codUser;
+	operacao = out.str();
+	instrucao = ligacao->createStatement(operacao);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+
+	out2 << "DELETE FROM PROJECTO WHERE COD_PROJECTO = " << codProjeto << " AND COD_UTILIZADOR = " << codUser;
+	operacao = out2.str();
+	instrucao = ligacao->createStatement(operacao);
+	instrucao->executeUpdate();
+	ligacao->commit();
+	ligacao->terminateStatement(instrucao);
+}
+
+void BDados::alterarProjeto(int codPro, int codestado, int nivelimportancia,string dataInicio, string datafim,string informacao,string titulo)
+{
+		string operacao;
+	if(codestado!=0)
+	{
+		stringstream out;
+		out << "UPDATE PROJECTO SET COD_ESTADO = " << codestado << "WHERE COD_PROJECTO = " << codPro;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+
+
+	}
+	if(nivelimportancia!=0)
+	{
+		stringstream out;
+		out << "UPDATE PROJECTO SET NIVEL_IMPORTANCIA = " << nivelimportancia << "WHERE COD_PROJECTO = " << codPro;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		out.flush();
+	}
+	if(dataInicio!="")
+	{
+		stringstream out;
+		out << "UPDATE PROJECTO SET DATA_INICIO = " << dataInicio << "WHERE COD_PROJECTO = " << codPro;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		out.flush();
+	}
+	if(datafim!="")
+	{
+		stringstream out;
+
+
+		out << "UPDATE PROJECTO SET DATA_FIM ='" << datafim << "'WHERE COD_PROJECTO = " << codPro;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+		instrucao->executeUpdate();
+		ligacao->commit();
+		out.flush();
+	}
+	if(informacao!="")
+	{
+		stringstream out;
+
+
+		out << "UPDATE PROJECTO SET INFORMACAO ='" << informacao << "'WHERE COD_PROJECTO = " << codPro;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+	    instrucao->executeUpdate();
+	    ligacao->commit();
+		out.flush();
+	}
+	if(titulo!="")
+	{
+		stringstream out;
+		out << "UPDATE PROJECTO SET NOME ='" << titulo << "'WHERE COD_PROJECTO = " << codPro;
+		operacao=out.str();
+		instrucao = ligacao->createStatement(operacao);
+	    instrucao->executeUpdate();
+	    ligacao->commit();
+		out.flush();
+	}
+	
 	ligacao->terminateStatement(instrucao);
 }
 
