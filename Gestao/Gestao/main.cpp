@@ -991,13 +991,10 @@ void menuDependencias()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					cout << "Funcao indisponivel!!!" << endl;
 					sair=true;
 					break;
 				case 2:
-					sair=true;
-					break;
-				case 3:
 					sair=true;
 					break;
 
@@ -1041,10 +1038,7 @@ void menuDuracaoTarefa()
 				cin >> op;
 				switch(op){
 				case 1:
-					
-					sair=true;
-					break;
-				case 2:
+					cout << "Funcao indisponivel!!!" << endl;
 					sair=true;
 					break;
 
@@ -1088,14 +1082,9 @@ void menuHistoricoTarefas()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					listarHistorico();
 					sair=true;
 					break;
-		
-				case 3:
-					sair=true;
-					break;
-
 				case 0:
 					
 					cout << "A sair..." << endl;
@@ -1239,10 +1228,11 @@ void menuReferencias()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					cout << "Funcao indisponivel!!!" << endl;
 					sair=true;
 					break;
 				case 2:
+					cout << "Funcao indisponivel!!!" << endl;
 					sair=true;
 					break;
 
@@ -1288,10 +1278,11 @@ void menuDeferirTarefa()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					cout << "Funcao indisponivel!!!" << endl;
 					sair=true;
 					break;
 				case 2:
+					cout << "Funcao indisponivel!!!" << endl;
 					sair=true;
 					break;
 				case 3:
@@ -1426,49 +1417,7 @@ void menuTarefasDelegadas()
 			}
 }
 
-void menuMarcarTarefa()
-{
-	
-	int op;
-	bool sair=false;
-	
 
-	while (!sair){
-				cout << "**********************************************************" << endl;
-				cout << "******                                             *******" << endl;
-				cout << "******     Marcar tarefas para 'algum dia'         *******" << endl;
-				cout << "******                                             *******" << endl;
-				cout << "**********************************************************" << endl;
-				cout << "*     Menu:                                              *\n" ;
-				cout << "*        1 - Adicionar data para relembrar               *\n";
-				cout << "*        0 - Menu anterior                               *\n" ;
-				cout << "*--------------------------------------------------------*" << endl;
-				cout << "*     Escolha a opcao:                                   *\n";
-				cout << "*                                                        *" << endl;
-				cout << "*                                                        *" << endl;
-				cout << "**********************************************************" << endl;
-				cin >> op;
-				switch(op){
-				case 1:
-					
-					sair=true;
-					break;
-			
-				case 0:
-					
-					cout << "A sair..." << endl;
-					sair=true;
-					break;
-				default:
-						
-					cout << "A sair..." << endl;
-					sair=true;
-					break;
-				}
-				
-		break;
-			}
-		}
 void menuPrioridadeTarefa()
 {
 	
@@ -1735,7 +1684,7 @@ void menuTarefas()
 					sair=true;
 					break;
 				case 3:
-					
+					cout << "Funcao indisponivel!!!" << endl;
 					sair=true;
 					break;
 
@@ -1748,7 +1697,7 @@ void menuTarefas()
 					sair=true;
 					break;
 				case 6:
-					menuMarcarTarefa();
+					cout << "Funcao indisponivel!!!" << endl;
 					sair=true;
 					break;
 				case 7:
@@ -1832,10 +1781,11 @@ void menuDependenciasProjecto()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					cout << "Funcao indisponivel!!!" << endl;
 					sair=true;
 					break;
 				case 2:
+					cout << "Funcao indisponivel!!!" << endl;
 					sair=true;
 					break;
 				case 3:
@@ -1890,6 +1840,7 @@ void menuProjetos()
 					sair=true;
 					break;
 				case 2:
+					cout << "Funcao indisponivel!!!" << endl;
 					sair=true;
 					break;
 				case 3:
@@ -1936,9 +1887,11 @@ void menuSincronizar()
 				cin >> op;
 				switch(op){
 				case 1:
+					cout << "Funcao indisponivel!!!" << endl;
 					sair=true;
 					break;
 				case 2:
+					cout << "Funcao indisponivel!!!" << endl;
 					sair=true;
 					break;
 				case 0:
