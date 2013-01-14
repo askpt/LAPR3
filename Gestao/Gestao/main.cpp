@@ -2,12 +2,119 @@
 #include <string>
 //#include <conio.h>
 using namespace std;
+
+int codUser = -1;
+
 #include "bdados.h"
 #include "Projecto.h"
 #include "Data.h"
+#include "csvassembly.h"
+
+/*
+Meter no menu:
+-> 	exportAssemb(); exportacao para Assembly
+-> listarProjetos(); listar todos os projectos
+-> eliminaProjeto(); eliminar um projeto
+-> alteraProjeto(); alterar um projeto
+*/
+
+void eliminaProjeto()
+{
+	try
+	{
+		BDados *conexao = new BDados("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Projecto> list = conexao->listarProjetosTodos(codUser);
+		cout << list;
+		cout << "Projeto a eliminar?" << endl;
+		int codProjeto;
+		cin >> codProjeto;
+		conexao->eliminarProjeto(codUser, codProjeto);
+		cout << "Projeto eliminado com sucesso" << endl;
+		delete (conexao);
+	}
+	catch(SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
 
 
-int codUser = -1;
+}
+
+void alteraProjeto()
+{
+	int codPro;
+	int codestado=0, nivelimportancia=0;
+	string datafim="", informacao="",titulo="",dataInicio="";
+
+
+	char resposta='n';
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Projecto> list = conexao ->listarProjetosTodos(codUser);
+
+		cout << list;
+		cout << "**********************************************************************" << endl;
+		cout << "Codigo do Projeto a alterar?" << endl;
+
+
+		cin >> codPro;
+		cout << "Pretende alterar o estado do Projeto? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Estado?" << endl;
+			cin >> codestado;
+		}
+		cout << "Pretende alterar o nivel de importancia? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Nivel de importancia?" << endl;
+			cin >> nivelimportancia;
+		} 
+		cout << "Pretende alterar a data de inicio? (S/N)" << endl;
+		cin >> resposta;
+		if(resposta =='S' || resposta == 's')
+		{
+			cout << "Data de Inicio?" << endl;
+			cin >> dataInicio;
+		}
+		cout << "Pretende alterar a data de fim de Projeto? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Data de fim de tarefa?" << endl;
+			fflush(stdin);
+			getline(cin, datafim);
+		}
+		cout << "Pretende alterar a informacao? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Informacao?" << endl;
+			fflush(stdin);
+			getline(cin, informacao);
+		}
+		cout << "Pretende alterar o titulo? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta=='S'|| resposta=='s')
+		{
+			cout << "Titulo?" << endl;
+			fflush(stdin);
+			getline(cin, titulo);
+		}
+		conexao->alterarProjeto(codPro, codestado, nivelimportancia, dataInicio, datafim, informacao, titulo);
+
+		cout << "Alteracoes efetuadas com sucesso!" << endl;
+		delete(conexao);
+	} 
+	catch(SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+
+}
 
 
 /**
@@ -186,6 +293,21 @@ void listarTarefas()
 	}
 }
 
+void listarProjetos()
+{
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Projecto> list = conexao ->listarProjetosTodos(codUser);
+		cout << list;
+		delete(conexao);
+	} 
+	catch(SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
 void inserirTarefa()
 {
 	int nivelImportancia;
@@ -318,6 +440,72 @@ void listarInfo()
 	}
 }
 
+void inserirProjeto()
+{
+	int nivelImportancia;
+	string dataInicio;
+	string dataFim;
+	string informacao;
+	string nome;
+	int codEstado;
+	char resposta = 'n';
+
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		
+		int codProjeto, codTarefa;
+		char opcao = 's';
+		
+
+		cout << "Inserir nivel de importancia do projeto" << endl;
+		cin >> nivelImportancia;
+		cout << "Deseja inserir uma data de inicio? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta == 's' || resposta == 'S')
+		{
+			cout << "Inserir Data de Inicio(AA.MM.DD)" << endl;
+			cin >> dataInicio;
+		}else
+			dataInicio="";
+		cout << "Inserir informacao" << endl;
+		fflush(stdin);
+		getline(cin, informacao);
+		cout << "Insira a data de fim (AA.MM.DD)" << endl;
+		fflush(stdin);
+		getline(cin, dataFim);
+		cout << "Insira o estado" << endl;
+		cin >> codEstado;
+		cout << "Insira o nome" << endl;
+		fflush(stdin);
+		getline(cin, nome);
+		conexao -> inserirProjeto(codUser, nivelImportancia, dataInicio, dataFim, informacao, nome, codEstado);
+		codProjeto = conexao->ultimoProjeto(codUser);
+		
+		while(opcao == 's' || opcao == 'S')
+		{
+			Lista<Tarefa> list = conexao->listaTarefaSemProjecto(codUser);
+			cout << list;
+			cout << "Quer associar alguma tarefa listada?" << endl;
+			cout << "Para criar nova tarefa insira -1" << endl;
+			cin >> codTarefa;
+			
+			if(codTarefa == -1)
+			{
+				inserirTarefa();
+				codTarefa = conexao->ultimaTarefa(codUser);
+			}
+			conexao->associarTarefa(codTarefa, codProjeto);
+			cout << "Deseja inserir mais tarefas? (S/N)" << endl;
+			cin >> opcao;
+		}
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
 
 void menuDependencias()
 {
@@ -1200,6 +1388,7 @@ void menuProjetos()
 				cin >> op;
 				switch(op){
 				case 1:
+					inserirProjeto();
 					sair=true;
 					break;
 				case 2:
@@ -1332,7 +1521,7 @@ int main ()
 	{
 	
 		menu();
-
+		
 	}
 
 

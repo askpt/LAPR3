@@ -29,7 +29,7 @@ private:
 
 public:
 	Projecto();
-	Projecto(int codprojecto, int codestado, int codutilizador, int nivelimportancia, Data datacriacao, Data datafim, string informacao, string nome, Lista<Tarefa> listaTarefas);  
+	Projecto(int codprojecto, int codestado, int codutilizador, int nivelimportancia, Data datacriacao, Data datafim, string informacao, string nome);  
 	Projecto(const Projecto& p);
 	~Projecto();
 
@@ -69,17 +69,16 @@ public:
 * @param 	n 					nome do projecto
 * @param 	listatarefa 		objecto lista do tipo Tarefa (contem as tarefas que fazem parte do projecto)
 */
-Projecto::Projecto(int codprojecto, int codestado, int codutilizador, int nivelimportancia, Data datacriacao, Data datafim, string info, string n, Lista<Tarefa> listatarefa)
+Projecto::Projecto(int codprojecto, int codestado, int codutilizador, int nivelimportancia, Data datacriacao, Data datafim, string info, string n)
 {
 	codProjecto=codprojecto;
 	codUtilizador=codutilizador;
+	codEstado = codestado;
 	nivelImportancia=nivelimportancia;
 	dataCriacao=datacriacao;
 	dataFim=datafim;
 	informacao=info;
 	nome=n;
-	listaTarefas=listatarefa;
-
 }
 
 
@@ -89,7 +88,7 @@ Projecto::Projecto(int codprojecto, int codestado, int codutilizador, int niveli
 Projecto::Projecto()
 {
 	
-	Projecto(0,0,0,0, Data(), Data(), "","",Lista<Tarefa>());
+	Projecto(0,0,0,0, Data(), Data(), "","");
 }
 
 
