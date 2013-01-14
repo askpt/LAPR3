@@ -8,13 +8,12 @@ int codUser = -1;
 #include "bdados.h"
 #include "Projecto.h"
 #include "Data.h"
-#include "csvassembly.h"
 #include "CSV.h"
 #include "Calendario.h"
 
 /*
 Meter no menu:
--> 	exportAssemb(); exportacao para Assembly
+-> 	exportAssemb(int codUser); exportacao para Assembly
 -> listarProjetos(); listar todos os projectos
 -> eliminaProjeto(); eliminar um projeto
 -> alteraProjeto(); alterar um projeto
