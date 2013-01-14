@@ -3,7 +3,8 @@
 *@author Vitor Hugo
 *@date 14/01/2013 
 *@file HistoricoProjecto.h 
-*Classe responsavel por guardar todo o historico dos projectos.*/ 
+*Classe responsavel por guardar todo o historico dos projectos
+*/ 
 
 #ifndef HistoricoProjecto_H
 #define HistoricoProjecto_H
@@ -76,6 +77,19 @@ HistoricoProjecto::HistoricoProjecto()
 
 /**
  *Construtor completo
+ *@param codhistorico 		codigo de historico
+ *@param codprojecto 		codigo de projeco
+ *@param nivelimportnacia	nivel de importancia
+ *@param datainsercao 		data de insercao
+ *@param datafim 			data fim
+ *@param informacao 		informacao
+ *@param nome 				nome 
+ *@param codestado 			codigo de estado
+ *@param codigoutilizador	codigo do utilizador
+ *@param dataInsercao 		data de insercao
+ *@param codtipo 			codigo do tipo
+ *@param info 				informacao
+ *
  */
 HistoricoProjecto::HistoricoProjecto(int codhistorico, int codprojecto, int nivelimportancia, Data datainsercao, Data datafim, string informacao, string nome, int codestado, int codutilizador, Data dataInsercao, int codtipo, string info)
 {

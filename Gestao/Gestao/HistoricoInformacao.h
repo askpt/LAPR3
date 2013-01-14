@@ -2,7 +2,8 @@
 *@author Tiago Pacheco
 *@date 14/01/2013 
 *@file HistoricoInformacao.h 
-*Classe responsavel por guardar todo o historico das informacoes.*/ 
+*Classe responsavel por guardar todo o historico das informacoes
+*/ 
 
 #ifndef HistoricoInformacao_H
 #define HistoricoInformacao_H
