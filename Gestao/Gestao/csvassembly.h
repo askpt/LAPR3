@@ -11,7 +11,7 @@ string contToString(Lista<int> cont)
 	cont.encontra(1, contexto);
 	if(cont.comprimento() == 1)
 	{
-		for(int i=0;i<contexto;i++)
+		for(int i=0;i<contexto-1;i++)
 			out << 0;
 		out << 1;
 	}
