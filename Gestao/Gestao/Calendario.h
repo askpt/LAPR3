@@ -31,6 +31,12 @@ public:
 	int exportar(string nomeFicheiro, int codUser);
 };
 
+/**
+ * Metodo responsavel pela exportacao das tarefas da base de dados para o calendario.
+ * @param  nomeFicheiro nome do ficheiro.
+ * @param  codUser      codigo do utilizador
+ * @return              retorna 0 se exportar com sucesso, -1 caso contrario.
+ */
 int Calendario::exportar(string nomeFicheiro, int codUser)
 {
 
