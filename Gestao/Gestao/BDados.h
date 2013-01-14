@@ -100,6 +100,7 @@ public:
 	Lista<HistoricoProjecto> listarHistoricoProjecto(int codUser);
 };
 
+
 /**
  * construtor de um objecto do tipo BDados que permite a ligacao a base de dados
  * @param	user 	string correspondente ao nome de utilizador
@@ -111,6 +112,7 @@ BDados::BDados(string user, string passwd, string db)
 	env = Environment::createEnvironment (Environment::DEFAULT);
 	ligacao = env->createConnection (user, passwd, db);
 }
+
 
 /**
  * destrutor do objecto BDados
@@ -146,6 +148,12 @@ Data BDados::convertData(string date)
 	return temp;
 }
 
+
+/**
+ * metodo que retorna descricao do estado, para um dado codigo de estado
+ * @param 	codEstado 	codigo de estado
+ * @return 	descricao do estado
+ */
 string BDados::getEstado(int codEstado)
 {
 	stringstream out;
@@ -165,6 +173,12 @@ string BDados::getEstado(int codEstado)
 	return estado;
 }
 
+
+/**
+ * retorna nome do utilizador, para um dado codigo de utilzador
+ * @param 	codUser 	codigo de utilizador
+ * @return 	nome do utilizador
+ */
 string BDados::getUser(int codUser)
 {
 	stringstream out;
@@ -184,6 +198,12 @@ string BDados::getUser(int codUser)
 	return estado;
 }
 
+
+/**
+ * preenche listas de Tarefa_Contexto e lista de Codigo_Contexto
+ * @param 	*codigoTarefa 	apontador para Lista de codigos de tarefas
+ * @param 	*codigoContxto 	apontador para lista de codigo de contextos
+ */
 void BDados::listaTarefaContexto(Lista<int> *codigoTarefa, Lista<int> *codigoContexto)
 {
 	stringstream out;
@@ -202,6 +222,12 @@ void BDados::listaTarefaContexto(Lista<int> *codigoTarefa, Lista<int> *codigoCon
 
 }
 
+
+/**
+ * preenche lista de codigos de estados e lista de descricoes de estados
+ * @param 	*codigos 		apontador para lista de codigos de estados
+ * @param 	*descricoes 	apontador para lista de descricoes de estados
+ */
 void BDados::listaEstados(Lista<int> *codigos, Lista<string> *descricoes)
 {
 	stringstream out;
@@ -220,6 +246,13 @@ void BDados::listaEstados(Lista<int> *codigos, Lista<string> *descricoes)
 
 }
 
+
+/**
+ * preenche listas de codigos de tipo e lista de descricoes de tipo
+ * @param 	*codigos 		apontador para lista de codigos de tipo
+ * @param 	*descricoes 	apontador para lista de descricoes de tipo
+ * @return
+ */
 void BDados::listaTipos(Lista<int> *codigos, Lista<string> *descricoes)
 {
 	stringstream out;
@@ -237,6 +270,7 @@ void BDados::listaTipos(Lista<int> *codigos, Lista<string> *descricoes)
 	instrucao->closeResultSet (rset);
 
 }
+
 
 /**
  * lista todos os projectos do utilizador
@@ -269,6 +303,11 @@ Lista<Projecto> BDados::listarProjectos(int codUser)
 	return ret;
 }
 
+
+/**
+ * guarda numa lista todos os utlizadores da tabela Utilizador da base de dados
+ * @return 	devolve lista com todos os utilizadors
+ */
 Lista<Utilizador> BDados::listarUtilizadores()
 {
 	Lista<Utilizador> ret;
@@ -289,6 +328,11 @@ Lista<Utilizador> BDados::listarUtilizadores()
 	return ret;
 }
 
+
+/**
+ * guarda numa lista todos os nives de importancia da tabela Nivel da base de dados
+ * @return 	devolve lista com todos os niveis de importancia
+ */
 Lista<Nivel> BDados::listarNiveis()
 {
 	Lista<Nivel> ret;
@@ -308,6 +352,12 @@ Lista<Nivel> BDados::listarNiveis()
 
 	return ret;
 }
+
+
+/**
+ * guarda numa lista todos os contextos da tabela Contexto da base de dados
+ * @return 	devolve lista com todos os contextos
+ */
 Lista<Contexto> BDados::listarContextos()
 {
 	Lista<Contexto> ret;
@@ -327,6 +377,7 @@ Lista<Contexto> BDados::listarContextos()
 
 	return ret;
 }
+
 
 /**
  * lista toda a informação de um dado utilizador
@@ -416,6 +467,14 @@ int BDados::login(string user, string pass)
 	}
 }
 
+
+/**
+ * inicia procedimento PL-SQL para insercao de novo utilizador na base de dados
+ * @param 	nome 		nome do utilizador
+ * @param 	telefone 	telefone do utilizador
+ * @param 	login 		nome de login
+ * @param 	pass 		password do utilizador
+ */
 void BDados::inserirUtilizador(string nome, int telefone, string login, string pass)
 {
 	stringstream out;
@@ -427,6 +486,18 @@ void BDados::inserirUtilizador(string nome, int telefone, string login, string p
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * insere novo registo na tabela Projecto da base de dados
+ * @param 	codProjecto 		codigo do projecto
+ * @param 	codEstado 			codigo do estado do projecto
+ * @param 	codUtilizador 		codigo do utilizador a que diz respeito o projecto
+ * @param 	nivelImportancia 	nivel de importancia do projecto
+ * @param 	dataInicio 			data de inicio do projecto
+ * @param 	dataFim 			data de fim do projecto
+ * @param 	informacao 			informacao associada ao projecto
+ * @param 	nome 				nome do projecto
+ */
 void BDados::inserirProjetoCompleto(int codProjecto,int codEstado,int codUtilizador,int nivelImportancia, string dataInicio, string dataFim, string informacao, string nome)
 {
 	stringstream out;
@@ -443,6 +514,12 @@ void BDados::inserirProjetoCompleto(int codProjecto,int codEstado,int codUtiliza
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * inicia procedimento PL-SQL para inserir registo na tabela Tarefa_Contexto
+ * @param 	codTarefa 		codigo da tarefa
+ * @param 	codContexto 	codigo do contexto
+ */
 void BDados::inserirTarefaContexto(int codTarefa, int codContexto)
 {
 	stringstream out;
@@ -454,6 +531,11 @@ void BDados::inserirTarefaContexto(int codTarefa, int codContexto)
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * inicia procedimento PL-SQL para inserir registo na tabela Contexto
+ * @param 	descricao 	descricao do contexto
+ */
 void BDados::inserirContexto(string descricao)
 {
 	stringstream out;
@@ -465,6 +547,11 @@ void BDados::inserirContexto(string descricao)
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * inicia procedimento PL-SQL para inserir estado na tabela Estado
+ * @param 	descricao 	descricao do estado
+ */
 void BDados::inserirEstado(string descricao)
 {
 	stringstream out;
@@ -476,6 +563,12 @@ void BDados::inserirEstado(string descricao)
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * inicia procedimento PL-SQL para inserir registo na tabela Nivel
+ * @param 	nivelImportancia 	nivel de importancia
+ * @param 	desc 				descricao do nivel de importancia
+ */
 void BDados::inserirNivel(int nivelImportancia, string desc)
 {
 	stringstream out;
@@ -487,6 +580,12 @@ void BDados::inserirNivel(int nivelImportancia, string desc)
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * inicia procedimento PL-SQL para inserir registo na tabela tipo
+ * @param 	descricao 	descricao do tipo
+ * @return
+ */
 void BDados::inserirTipo(string descricao)
 {
 	stringstream out;
@@ -497,6 +596,7 @@ void BDados::inserirTipo(string descricao)
 	ligacao->commit();
 	ligacao->terminateStatement(instrucao);
 }
+
 
 /**
  * insere informacao na base de dados
@@ -532,6 +632,7 @@ void BDados::inserirInfoCompleta(int codUser, string info, int codTarefa)
 	ligacao->terminateStatement(instrucao);
 }
 
+
 /**
  * insere tarefa na base de dados
  * @param 	nivelImportancia	inteiro que corresponde ao nivel de importancia da tarefa
@@ -558,6 +659,7 @@ void BDados::inserirTarefa(int nivelImportancia, string dataInicio, string infor
 	ligacao->commit();
 	ligacao->terminateStatement(instrucao);
 }
+
 
 /**
  * insere dados para todos os campos da tabela tarefa
@@ -595,6 +697,7 @@ void BDados::inserirTarefaCompleta(int codTarefa, int codProjecto, int codEstado
 	ligacao->commit();
 	ligacao->terminateStatement(instrucao);
 }
+
 
 /**
  * associa informacao presente no sistema a uma dada tarefa
@@ -718,6 +821,7 @@ Lista<Informacao> BDados::listaInfoSemTarefa(int codUser)
 	return ret;
 }
 
+
 /**
  * altera os varios campos de um registo da tabela Tarefa
  * @param 	codTarefa 			codigo da tarefa
@@ -745,6 +849,7 @@ void BDados::alterarInformacao(int codinformacao, string descricao)
 		ligacao->terminateStatement(instrucao);
 		
 }
+
 
 /**
  * Permite modificar os valores de uma tarefa
@@ -881,6 +986,7 @@ void BDados::alterarTarefa(int codTarefa, int codestado, int nivelimportancia, s
 	ligacao->terminateStatement(instrucao);
 }
 
+
 /**
  * Permite inserir um projeto na base de dados
  * @param codUser          codigo utilizador
@@ -905,6 +1011,7 @@ void BDados::inserirProjeto(int codUser, int nivelImportancia, string dataInicio
 	ligacao->terminateStatement(instrucao);
 }
 
+
 /**
  * Permite obter o codigo do ultimo projeto inserido
  * @param  codUser codigo utilizador
@@ -926,6 +1033,7 @@ int BDados::ultimoProjeto(int codUser)
 
 	return ret;
 }
+
 
 Lista<Tarefa> BDados::listaTarefaSemProjecto(int codUser)
 {
@@ -964,6 +1072,7 @@ Lista<Tarefa> BDados::listaTarefaSemProjecto(int codUser)
 	return ret;
 }
 
+
 /**
  * Permite associar uma tarefa a um projeto
  * @param  codTarefa  codigo da tarefa
@@ -986,6 +1095,7 @@ bool BDados::associarTarefa(int codTarefa, int codProjeto)
 	}else
 		return false;
 }
+
 
 /**
  * Verifica se pode associar uma tarefa a um determinado projeto
@@ -1011,6 +1121,11 @@ bool BDados::podeAssociarTare(int codTarefa)
 	return ret;
 }
 
+
+/**
+ * adiciona a lista o registo da tabela tarefa_contexto com um dado codigo de tarefa
+ * @param 	codTarefa 	codigo da tarefa
+ */
 Lista<int> BDados::listarCodContextos(int codTarefa)
 {
 	Lista<int> ret;
@@ -1027,6 +1142,12 @@ Lista<int> BDados::listarCodContextos(int codTarefa)
 	return ret;
 }
 
+
+/**
+ * insere numa lista todos os projecto de um dado utilizador
+ * @param 	codUser 	codigo de utilizador
+ * @return 	devolve lista do tipo Projecto 	
+ */
 Lista<Projecto> BDados::listarProjetosTodos(int codUser)
 {
 
@@ -1054,6 +1175,7 @@ Lista<Projecto> BDados::listarProjetosTodos(int codUser)
 	return ret;
 }
 
+
 /**
  * Permite eliminar um projeto da base de dados
  * @param codUser    codigo utilizador
@@ -1078,6 +1200,7 @@ void BDados::eliminarProjeto(int codUser, int codProjeto)
 	ligacao->commit();
 	ligacao->terminateStatement(instrucao);
 }
+
 
 /**
  * Permite alterar os atributos de um projeto na base de dados
@@ -1162,6 +1285,11 @@ void BDados::alterarProjeto(int codPro, int codestado, int nivelimportancia,stri
 }
 
 
+/**
+ * lista todas as tarefas realizadas de um utilizador
+ * @param 	codUser 	codigo de utilizador
+ * @return 	devolve lista do tipo Tarefa
+ */
 Lista<Tarefa> BDados::listarTarefasRealizadas(int codUser)
 {
 	Lista<Tarefa> ret;
@@ -1200,6 +1328,12 @@ Lista<Tarefa> BDados::listarTarefasRealizadas(int codUser)
 	return ret;
 }
 
+
+/**
+ * lista todas as tarefas por realizar de um dado utilizador
+ * @param 	codUser 	codigo de utilizador
+ * @return 	devolve lista do tipo Tarefa
+ */
 Lista<Tarefa> BDados::listarTarefasPorRealizar(int codUser)
 {
 	Lista<Tarefa> ret;
@@ -1238,6 +1372,7 @@ Lista<Tarefa> BDados::listarTarefasPorRealizar(int codUser)
 	return ret;
 }
 
+
 /**
  * Altera o estado de uma tarefa para realizada
  * @param codUser   codigo utilizador
@@ -1258,6 +1393,7 @@ void BDados::realizarTarefa(int codUser, int codTarefa)
 	ligacao->terminateStatement(instrucao);
 }
 
+
 /**
  * Associa uma duracao a uma tarefa
  * @param codUser   codigo utilizador
@@ -1276,6 +1412,7 @@ void BDados::associarDuracao(int codUser, int codTarefa, int duracao)
     cout << "Processo realizado com sucesso!!!" << endl;
 	ligacao->terminateStatement(instrucao);
 }
+
 
 /**
  * Permite eliminar uma tarefa da base de dados
@@ -1313,6 +1450,12 @@ void BDados::eliminarTarefa(int codUser, int codTarefa)
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * ordena tarefas por prioridade para um dado utilizador
+ * @param 	codUser 	codigo de utilizador
+ * @return 	devolve lista do tipo Tarefa
+ */
 Lista<Tarefa> BDados::ordenarPrioridade(int codUser)
 {
 	Lista<Tarefa> ret;
@@ -1351,6 +1494,12 @@ Lista<Tarefa> BDados::ordenarPrioridade(int codUser)
 	return ret;
 }
 
+
+/**
+ * ordena tarefa por estimativa de tempo para um dado utilizador
+ * @param 	codUser	codigo de utilizador
+ * @return	devolve lista do tipo Tarefa
+ */
 Lista<Tarefa> BDados::ordenarTarefasEstimativa(int codUser)
 {
 	Lista<Tarefa> ret;
@@ -1392,6 +1541,12 @@ Lista<Tarefa> BDados::ordenarTarefasEstimativa(int codUser)
 	return ret;
 }
 
+
+/**
+ * ordena tarefas pelo seu contexto
+ * @param 	codUser 	codigo do utilizador
+ * @return 	devolve lista do tipo Tarefa
+ */
 Lista<Tarefa> BDados::ordenarTarefasContexto(int codUser)
 {
 	Lista<Tarefa> ret;
@@ -1430,6 +1585,7 @@ Lista<Tarefa> BDados::ordenarTarefasContexto(int codUser)
 	return ret;
 }
 
+
 /**
  * Permite associar uma tarefa com um nivel
  * @param codUser   codigo utilizador
@@ -1449,6 +1605,12 @@ void BDados::associarTarefaNivel(int codUser, int codTarefa, int nivel)
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * permite ver todas as tarefas delegadas por um dado utilizador
+ * @param 	codUser 	codigo de utilizador
+ * @return 	lista do tipo Tarefa
+ */
 Lista<Tarefa> BDados::verTarefasDelegadas(int codUser)
 {
 	Lista<Tarefa> ret;
@@ -1487,6 +1649,7 @@ Lista<Tarefa> BDados::verTarefasDelegadas(int codUser)
 	return ret;
 }
 
+
 /**
  * Permite delegar uma tarefa a um utilizador
  * @param codUser   codigo utilizador
@@ -1505,6 +1668,7 @@ void BDados::delegarTarefa(int codUser, int codTarefa, int codUtil)
     cout << "Tarefa delegada com sucesso!!!" << endl;
 	ligacao->terminateStatement(instrucao);
 }
+
 
 /**
  * Permite alterar a delegacao de um utilizador
@@ -1525,6 +1689,7 @@ void BDados::alterarDelegacao(int codUser, int codTarefa, int codUtil)
 	ligacao->terminateStatement(instrucao);
 }
 
+
 /**
  * Permite remover a delegacao de um utilizador
  * @param codUser   codigo utilizador
@@ -1543,6 +1708,11 @@ void BDados::removerDelegacao(int codUser, int codTarefa)
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * lista todos os contextos
+ * @return 	lista do tipo Contexto
+ */
 Lista<Contexto> BDados::listaContextos()
 {
 	Lista<Contexto> ret;
@@ -1563,6 +1733,7 @@ Lista<Contexto> BDados::listaContextos()
 	return ret;
 }
 
+
 /**
  * Permite criar um contexto
  * @param descricao descricao de um contexto
@@ -1577,6 +1748,7 @@ void BDados::criarContexto(string descricao)
 	ligacao->commit();
 	ligacao->terminateStatement(instrucao);
 }
+
 
 /**
  * Permite alterar a descricao de um contexto
@@ -1595,6 +1767,7 @@ void BDados::alterarContexto(int codContexto, string descricao)
     cout << "Contexto alterado com sucesso!!!" << endl;
 	ligacao->terminateStatement(instrucao);
 }
+
 
 /**
  * Permite eliminar um contexto da base de dados
@@ -1623,6 +1796,7 @@ void BDados::eliminarContexto(int codContexto)
 	ligacao->terminateStatement(instrucao);
 }
 
+
 /**
  * Permite associar uma tarefa a um contexto
  * @param codContexto codigo contexto
@@ -1639,6 +1813,12 @@ void BDados::associarTarefaContexto(int codContexto, int codTarefa)
 	ligacao->terminateStatement(instrucao);
 }
 
+
+/**
+ * lista todo o historico de informacao de um dado utilizador
+ * @param 	codUser 	codigo de utilizador
+ * @return 	lista do tipo HistoricoInformacao
+ */
 Lista<HistoricoInformacao> BDados::listarHistoricoInformacao(int codUser)
 {
 	Lista<HistoricoInformacao> ret;
@@ -1660,6 +1840,12 @@ Lista<HistoricoInformacao> BDados::listarHistoricoInformacao(int codUser)
 	return ret;
 }
 
+
+/**
+ * lista todos os lembretes de um dado utilizador
+ * @param 	codUser 	codigo de utilizador
+ * @return 	lista do tipo tarefa
+ */
 Lista<Tarefa> BDados::listarLembrete(int codUser)
 {
 	Lista<Tarefa> ret;
@@ -1701,6 +1887,12 @@ Lista<Tarefa> BDados::listarLembrete(int codUser)
 	return ret;
 }
 
+
+/**
+ * lista o historico de tarefas de um dado utilizador
+ * @param 	codUser 	codigo de utilizador
+ * @return 	devolve lista do tipo HistoricoTarefa
+ */
 Lista<HistoricoTarefa> BDados::listarHistoricoTarefa(int codUser)
 {
 	Lista<HistoricoTarefa> ret;
@@ -1744,6 +1936,12 @@ Lista<HistoricoTarefa> BDados::listarHistoricoTarefa(int codUser)
 	return ret;
 }
 
+
+/**
+ * lista o historico de projectos
+ * @param 	codUser 	codigo de utilizador
+ * @return 	devolve lista do tipo HistoricoProjecto
+ */
 Lista<HistoricoProjecto> BDados::listarHistoricoProjecto(int codUser)
 {
 	Lista<HistoricoProjecto> ret;
