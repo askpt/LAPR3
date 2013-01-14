@@ -14,40 +14,38 @@ class Nivel
 private:
 	int nivelImportancia;
 	string descricao;
-	void setNivelImportancia();
 
 public:
 	Nivel();
-	Nivel(string descricao);
+	Nivel(int nivelImportancia, string descricao);
 	Nivel(const Nivel &n);
 	~Nivel();
 
 	int getNivelImportancia() const;
 	string getDescricao() const;
 	void setDescricao(const string desc);
+	void setNivelImportancia(const int imp);
 	virtual Nivel *clone() const;
 	void escreve(ostream &out) const;
 };
-
-
-Nivel::ID=0;
-
 
 /**
  * Construtor vazio.
  */
 Nivel::Nivel()
 {
+	Nivel(0,"");
 }
 
 
 /**
- * Construtor completo
- * @param 	descricao 	descricao do nivel de importancia
+ * Construtor completo.
+ * @param nivelImportancia nivel de importancia.
+ * @param descricao descricao do nivel de importancia.
  */
-Nivel::Nivel(string descricao)
+Nivel::Nivel(int nivelImportancia, string descricao)
 {
-	setNivelImportancia();
+	setNivelImportancia(nivelImportancia);
 	setDescricao(descricao);
 }
 
@@ -94,9 +92,9 @@ string Nivel::getDescricao() const
 /**
  * Metodo de atribuicao do nivel de importancia
  */
-void Nivel::setNivelImportancia()
+void Nivel::setNivelImportancia(const int imp)
 {
-	nivelImportancia = ID++;
+	nivelImportancia = imp;
 }
 
 
@@ -114,7 +112,7 @@ void Nivel::setDescricao(const string desc)
  * Apresenta os dados do nivel de importancia.
  * @param 	out 	objecto de stream out
  */
-void Informacao::escreve(ostream &out)
+void Nivel::escreve(ostream &out) const
 {
 	out << "Nivel de importancia: " << nivelImportancia << endl;
 	out << "Descricao: " << descricao << endl;
@@ -130,6 +128,12 @@ ostream & operator << (ostream &out, const Nivel &n)
 {
 	n.escreve(out);
 	return out;
+}
+
+Nivel* Nivel::clone() const
+{
+	return new Nivel(*this);
+
 }
 
 #endif
