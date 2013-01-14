@@ -15,7 +15,8 @@ class Contexto
 {
 private:
 	int codContexto;
-	string descricao;	
+	string descricao;
+
 public:
 	Contexto();
 	Contexto(int cod, string descricao);
@@ -24,8 +25,6 @@ public:
 
 	int getCodContexto() const;
 	string getDescricao() const;
-
-
 
 	void setCodContexto(const int cod);
 	void setDescricao(const string desc);
@@ -122,6 +121,7 @@ void Contexto::escreve(ostream &out) const
 {
 	cout << "Contexto: " << codContexto << endl;
 	cout << "Descricao: " << descricao << endl;
+	
 } 
 
 
