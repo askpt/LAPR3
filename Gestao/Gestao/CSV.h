@@ -48,7 +48,11 @@ public:
 	string contToString(Lista<int> cont);
 	void exportAssemb(int codUser);
 };
-
+/**
+ * Converte uma lista de numero de contextos numa string a ser exportada para csv
+ * @param  cont lista de contextos a ser tratada
+ * @return      retorna a lista de bits a ser exportada
+ */
 string CSV::contToString(Lista<int> cont)
 {
 	string ret;
@@ -85,8 +89,11 @@ string CSV::contToString(Lista<int> cont)
 	return ret;
 }
 
-
-
+/**
+ * Exporta uma lista de tarefas de um determinado utilizador para ser lida pela aplicacao movel. 
+ * Formato: codigoTarefa, nomeTarefa, prioridade, contexto
+ * @param codUser codigo do utilizador que pede a exportacao
+ */
 void CSV::exportAssemb(int codUser)
 {
 	try
