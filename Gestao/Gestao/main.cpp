@@ -14,7 +14,7 @@ int codUser = -1;
 /*
 Meter no menu:
 -> 	exportAssemb(); exportacao para Assembly
-
+-> listarProjetos(); listar todos os projectos
 */
 
 /**
@@ -1410,7 +1410,7 @@ int main ()
 	{
 	
 		//menu();
-		listarProjetos();
+		exportAssemb();
 	}
 
 
