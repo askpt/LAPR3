@@ -155,6 +155,349 @@ void associarInfo(){
 } // end associarInfo
 
 
+void eliminaContexto()
+{
+	int contexto;
+					try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		cout << "Codigo do contexto a eliminar?" << endl;
+		cin >> contexto;
+		conexao -> eliminarContexto(contexto);
+		
+		
+		
+		
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
+void alterarContexto()
+{
+		string descricao;
+		int contexto;
+				try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		cout << "Codigo do contexto?" << endl;
+		cin >> contexto;
+		cout << "Descricao do contexto?" << endl;
+		fflush(stdin);
+		getline(cin, descricao);
+		conexao -> alterarContexto(contexto, descricao);
+		
+		
+		
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
+void criarContexto()
+{
+	string descricao;
+				try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		cout << "Descricao do contexto?" << endl;
+		fflush(stdin);
+		getline(cin, descricao);
+		conexao -> criarContexto(descricao);
+		cout << "Contexto criado com sucesso!!!" << endl;
+		
+		
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+void listaContextos()
+{
+			try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Contexto> contextos= conexao -> listaContextos();
+		cout << "Lista de Contextos:" << endl;
+		cout << contextos;
+		
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+void removerDelegacao()
+{
+	try
+	{
+		int tarefa;
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		
+		cout << "Tarefa a remover delegacao?" << endl;
+		cin >> tarefa;
+		conexao->removerDelegacao(codUser, tarefa);
+		delete(conexao);
+		
+		
+		
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+void alterarDelegacao()
+{
+				try
+	{
+		int cod, tarefa;
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		
+		cout << "Tarefa a alterar delegacao?" << endl;
+		cin >> tarefa;
+		
+		cout << "Utilizador a delegar? " << endl;
+		cin >> cod;
+		conexao->delegarTarefa(codUser, tarefa, cod);
+		delete(conexao);
+		
+		
+		
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
+void delegarTarefa()
+{
+			try
+	{
+		int cod, tarefa;
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		
+		cout << "Tarefa para delegar?" << endl;
+		cin >> tarefa;
+		
+		cout << "Utilizador a delegar? " << endl;
+		cin >> cod;
+		conexao->delegarTarefa(codUser, tarefa, cod);
+		delete(conexao);
+		
+		
+		
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+void listarTarefasDelegadas()
+{
+			try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Tarefa> tarefas= conexao -> verTarefasDelegadas(codUser);
+		cout << "Tarefas delegadas:" << endl;
+		cout << tarefas;
+		
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+void associaTarefaNivel()
+{
+			try
+	{
+		int nivel, tarefa;
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		
+		cout << "Tarefa para associar nivel?" << endl;
+		cin >> tarefa;
+		do{
+		cout << "Nivel a associar? Introduza um numero entre 1 e 5!!! " << endl;
+		cin >> nivel;
+		if(nivel <1 || nivel > 5)
+			cout << "Nivel invalido!!!" << endl;
+		else
+			conexao->associarTarefaNivel(codUser, tarefa, nivel);
+		delete(conexao);
+		}while(nivel <1 || nivel >5);
+		
+		
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
+void ordenaTarefaContexto()
+{
+	
+		try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Tarefa> tarefas= conexao -> ordenarTarefasContexto(codUser);
+		cout << "Tarefas ordenadas por contexto:" << endl;
+		cout << tarefas;
+		
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+void ordenarTarefaEstimativa()
+{
+	
+		try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Tarefa> taref= conexao -> ordenarTarefasEstimativa(codUser);
+		cout << "Tarefas ordenadas por estimativa de tempo:" << endl;
+		cout << taref;
+		
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+void ordenarTarefasPrioridade()
+{
+	
+		try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Tarefa> tarefas= conexao -> ordenarPrioridade(codUser);
+		cout << "Tarefas ordenadas por prioridade:" << endl;
+		cout << tarefas;
+		
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
+void eliminaTarefa()
+{
+	
+		try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Tarefa> tarefas= conexao -> listarTarefasTodas(codUser);
+		cout << tarefas;
+		cout << "Tarefa a eliminar? " << endl;
+		int codtarefa;
+		cin >> codtarefa;
+		conexao->eliminarTarefa(codUser, codtarefa);
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+void associaDuracao()
+{
+	
+		try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Tarefa> tarefas= conexao -> listarTarefasPorRealizar(codUser);
+		cout << tarefas;
+		cout << "Tarefa para associar duracao? " << endl;
+		int resposta, duracao;
+		cin >> resposta;
+		cout << "Duracao?" << endl;
+		cin >> duracao;
+		conexao->associarDuracao(codUser, resposta, duracao);
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+void realizaTarefa()
+{
+		try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Tarefa> tarefas= conexao -> listarTarefasPorRealizar(codUser);
+		cout << tarefas;
+		cout << "Tarefa a marcar como realizada? " << endl;
+		int resposta;
+		cin >> resposta;
+		conexao->realizarTarefa(codUser, resposta);
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+void listarTarefasRealizadas()
+{
+	
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Tarefa> tarefasrealizadas= conexao -> listarTarefasRealizadas(codUser);
+		cout << tarefasrealizadas;
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
+void listarTarefasPorRealizar()
+{
+	
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Tarefa> tarefasporrealizar= conexao -> listarTarefasPorRealizar(codUser);
+		cout << tarefasporrealizar;
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
 void inserirInfo()
 {
 	string info;
@@ -172,6 +515,35 @@ void inserirInfo()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+void alteraInformacao()
+{
+	int codinfo;
+	string descricao;
+	
+	char resposta='n';
+	try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Informacao> list=conexao->listaInformacao(codUser);	
+		cout << list;
+		cout << "Codigo da informacao?" << endl;
+		cin >> codinfo;
+		cout << "Nova descricao?" << endl;
+		fflush(stdin);
+		getline(cin, descricao);
+		conexao->alterarInformacao(codinfo,descricao);
+		
+	
+		delete(conexao);
+	} 
+
+	catch(SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
 void alteraTarefa()
 {
 	int codTar;
@@ -681,13 +1053,15 @@ void menuEditarContextos()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					criarContexto();
 					sair=true;
 					break;
 				case 2:
+					alterarContexto();
 					sair=true;
 					break;
 				case 3:
+					eliminaContexto();
 					sair=true;
 					break;
 
@@ -721,7 +1095,7 @@ void menuContextoTarefas()
 				cout << "******                                             *******" << endl;
 				cout << "**********************************************************" << endl;
 				cout << "*     Menu:                                              *\n" ;
-				cout << "*        1 - Consultar lista de tarefas                  *\n";
+				cout << "*        1 - Consultar lista de Contextos                *\n";
 				cout << "*        2 - Editar contextos                            *\n";
 				cout << "*        0 - Menu anterior                               *\n" ;
 				cout << "*--------------------------------------------------------*" << endl;
@@ -732,7 +1106,7 @@ void menuContextoTarefas()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					listaContextos();
 					sair=true;
 					break;
 				case 2:
@@ -928,16 +1302,19 @@ void menuTarefasDelegadas()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					listarTarefasDelegadas();
 					sair=true;
 					break;
 				case 2:
+					delegarTarefa();
 					sair=true;
 					break;
 				case 3:
+					alterarDelegacao();
 					sair=true;
 					break;
 				case 4:
+					removerDelegacao();
 					sair=true;
 					break;
 				case 5:
@@ -1028,7 +1405,7 @@ void menuPrioridadeTarefa()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					associaTarefaNivel();
 					sair=true;
 					break;
 			
@@ -1062,7 +1439,8 @@ void menuInformacao()
 				cout << "*     Menu:                                                  *\n" ;
 				cout << "*        1 - Inserir Informacao                              *\n";
 				cout << "*        2 - Listar Informacao                               *\n" ;
-                cout << "*        3 - Associar Informacao                             *\n" ;
+				cout << "*        3 - Alterar Informacao                              *\n";
+				cout << "*        4 - Associar Informacao                              *\n";
 				cout << "*        0 - Menu Anterior                                   *\n" ;
 				cout << "*------------------------------------------------------------*" << endl;
 				cout << "*     Escolha a opcao:                                       *\n";
@@ -1079,10 +1457,14 @@ void menuInformacao()
 					listarInfo();
 					sair=true;
 					break;
-                case 3:
+                case 4:
                     associarInfo();
                     sair = true;
                     break;
+				case 3:
+					alteraInformacao();
+					sair=true;
+					break;
 				case 0:
 					cout << "A sair..." << endl;
 					sair=true;
@@ -1112,7 +1494,7 @@ void menuCriterioOrdenacao()
 				cout << "*     Menu:                                              *\n" ;
 				cout << "*        1 - Ordenar por prioridade                      *\n";
 				cout << "*        2 - Ordenar por estimativa de tempo             *\n";
-				cout << "*        1 - Ordenar por contexto                        *\n";
+				cout << "*        3 - Ordenar por contexto                        *\n";
 				cout << "*        0 - Menu anterior                               *\n" ;
 				cout << "*--------------------------------------------------------*" << endl;
 				cout << "*     Escolha a opcao:                                   *\n";
@@ -1122,11 +1504,19 @@ void menuCriterioOrdenacao()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					ordenarTarefasPrioridade();
 					sair=true;
 					break;
-			
+				case 2:
+					ordenarTarefaEstimativa();
+					sair=true;
+					break;
+				case 3:
+					ordenaTarefaContexto();
+					sair=true;
+					break;
 				case 0:
+				
 					
 					cout << "A sair..." << endl;
 					sair=true;
@@ -1175,7 +1565,11 @@ void menuListarTarefas()
 					sair=true;
 					break;
 				case 2:
-					
+					listarTarefasRealizadas();
+					sair=true;
+					break;
+				case 3:
+					listarTarefasPorRealizar();
 					sair=true;
 					break;
 				case 6: 
@@ -1244,6 +1638,7 @@ void menuTarefas()
 					sair=true;
 					break;
 				case 3:
+					associaDuracao();
 					sair=true;
 					break;
 
@@ -1252,6 +1647,7 @@ void menuTarefas()
 					sair=true;
 					break;
 				case 5:
+					eliminaTarefa();
 					sair=true;
 					break;
 				case 6:
@@ -1473,7 +1869,8 @@ void menu()
 		cout << "*        1 - Informacao                                      *\n";
 		cout << "*        2 - Tarefas                                         *\n" ;
 		cout << "*        3 - Projectos                                       *\n" ;
-		cout << "*        4 - Sincronizar                                     *\n";
+		cout << "*        4 - Historico                                       *\n" ;
+		cout << "*        5 - Sincronizar                                     *\n";
 		cout << "*        0 - Sair                                            *\n" ;
 		cout << "*------------------------------------------------------------*" << endl;
 		cout << "*     Escolha a opcao:                                       *\n";
@@ -1501,6 +1898,8 @@ void menu()
 			
 			break;
 		case 4:
+			break;
+		case 5:
 			menuSincronizar();
 			break;
 		case 0:
