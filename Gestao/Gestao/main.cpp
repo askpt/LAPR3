@@ -44,7 +44,7 @@ void alteraProjeto()
 {
 	int codPro;
 	int codestado=0, nivelimportancia=0;
-	string datafim="", informacao="",titulo="";
+	string datafim="", informacao="",titulo="",dataInicio="";
 
 
 	char resposta='n';
@@ -72,6 +72,13 @@ void alteraProjeto()
 		{
 			cout << "Nivel de importancia?" << endl;
 			cin >> nivelimportancia;
+		} 
+		cout << "Pretende alterar a data de inicio? (S/N)" << endl;
+		cin >> resposta;
+		if(resposta =='S' || resposta == 's')
+		{
+			cout << "Data de Inicio?" << endl;
+			cin >> dataInicio;
 		}
 		cout << "Pretende alterar a data de fim de Projeto? (S/N) " << endl;
 		cin >> resposta;
@@ -97,7 +104,7 @@ void alteraProjeto()
 			fflush(stdin);
 			getline(cin, titulo);
 		}
-		conexao->alterarProjeto(codPro, codestado, nivelimportancia,datafim,informacao,titulo);
+		conexao->alterarProjeto(codPro, codestado, nivelimportancia, dataInicio, datafim, informacao, titulo);
 
 		cout << "Alteracoes efetuadas com sucesso!" << endl;
 		delete(conexao);
@@ -436,10 +443,12 @@ void listarInfo()
 void inserirProjeto()
 {
 	int nivelImportancia;
+	string dataInicio;
 	string dataFim;
 	string informacao;
 	string nome;
 	int codEstado;
+	char resposta = 'n';
 
 	try
 	{
@@ -448,8 +457,17 @@ void inserirProjeto()
 		int codProjeto, codTarefa;
 		char opcao = 's';
 		
+
 		cout << "Inserir nivel de importancia do projeto" << endl;
 		cin >> nivelImportancia;
+		cout << "Deseja inserir uma data de inicio? (S/N) " << endl;
+		cin >> resposta;
+		if(resposta == 's' || resposta == 'S')
+		{
+			cout << "Inserir Data de Inicio(AA.MM.DD)" << endl;
+			cin >> dataInicio;
+		}else
+			dataInicio="";
 		cout << "Inserir informacao" << endl;
 		fflush(stdin);
 		getline(cin, informacao);
@@ -461,7 +479,7 @@ void inserirProjeto()
 		cout << "Insira o nome" << endl;
 		fflush(stdin);
 		getline(cin, nome);
-		conexao -> inserirProjeto(codUser, nivelImportancia, dataFim, informacao, nome, codEstado);
+		conexao -> inserirProjeto(codUser, nivelImportancia, dataInicio, dataFim, informacao, nome, codEstado);
 		codProjeto = conexao->ultimoProjeto(codUser);
 		
 		while(opcao == 's' || opcao == 'S')
