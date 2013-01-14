@@ -80,8 +80,7 @@ public:
  void setDataEstimada(const Data dataestimada);
  void setDataInsercao(const Data datainsercao);
  void setInformacao(const string informacao) ;
- void setInfo(const string info) ;
- void setDescricao(const string descricao) ;
+ void setInfo(const string info);
  void setTipo(const string tipo);
  void setTitulo(const string titulo);
 
@@ -186,19 +185,21 @@ int HistoricoTarefa::getCodHistorico()const
 {
  return codHistorico;
 }
-i
+
 /**
  * Metodo para retornar o codigo de tarefa.
  * @return devolve o codigo de tarefa.
- */nt HistoricoTarefa::getCodTarefa() const
+ */
+int HistoricoTarefa::getCodTarefa() const
 {
  return codTarefa;
 }
-i
+
 /**
  * Metodo para retornar o codigo de projecto.
  * @return devolve o codigo de projecto.
- */nt HistoricoTarefa::getCodProjecto() const
+ */
+int HistoricoTarefa::getCodProjecto() const
 {
  return codProjecto;
 }
@@ -220,11 +221,12 @@ int HistoricoTarefa::getNivelImportancia() const
 {
  return nivelImportancia;
 }
-D
+
 /**
  * Metodo para retornar a data de inicio.
  * @return devolve a data de inicio.
- */ata HistoricoTarefa::getDataInicio()
+ */
+Data HistoricoTarefa::getDataInicio()
 {
  return dataInicio;
 }
@@ -497,15 +499,6 @@ void HistoricoTarefa::setInformacao(const string informacao)
 void HistoricoTarefa::setInfo(const string info) 
 {
 	this->info = info;
-}
-
-/**
- * Metodo de atribuicao da descricao.
- * @param descricao descricao.
- */
-void HistoricoTarefa::setDescricao(const string descricao) 
-{
-	this->descricao = descricao;
 }
 
 /**
