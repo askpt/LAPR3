@@ -9,6 +9,91 @@ using namespace std;
 
 int codUser = -1;
 
+void eliminaContexto()
+{
+	int contexto;
+					try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		cout << "Codigo do contexto a eliminar?" << endl;
+		cin >> contexto;
+		conexao -> eliminarContexto(contexto);
+		
+		
+		
+		
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
+void alterarContexto()
+{
+		string descricao;
+		int contexto;
+				try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		cout << "Codigo do contexto?" << endl;
+		cin >> contexto;
+		cout << "Descricao do contexto?" << endl;
+		fflush(stdin);
+		getline(cin, descricao);
+		conexao -> alterarContexto(contexto, descricao);
+		
+		
+		
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+
+void criarContexto()
+{
+	string descricao;
+				try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		cout << "Descricao do contexto?" << endl;
+		fflush(stdin);
+		getline(cin, descricao);
+		conexao -> criarContexto(descricao);
+		cout << "Contexto criado com sucesso!!!" << endl;
+		
+		
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
+void listaContextos()
+{
+			try
+	{
+		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
+		Lista<Contexto> contextos= conexao -> listaContextos();
+		cout << "Lista de Contextos:" << endl;
+		cout << contextos;
+		
+		
+		delete(conexao);
+	}
+	catch (SQLException erro)
+	{
+		cerr << "Erro: " << erro.getMessage() << endl;
+	}
+}
 void removerDelegacao()
 {
 	try
@@ -742,13 +827,15 @@ void menuEditarContextos()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					criarContexto();
 					sair=true;
 					break;
 				case 2:
+					alterarContexto();
 					sair=true;
 					break;
 				case 3:
+					eliminaContexto();
 					sair=true;
 					break;
 
@@ -793,7 +880,7 @@ void menuContextoTarefas()
 				cin >> op;
 				switch(op){
 				case 1:
-					
+					listaContextos();
 					sair=true;
 					break;
 				case 2:
@@ -1550,7 +1637,8 @@ void menu()
 		cout << "*        1 - Informacao                                      *\n";
 		cout << "*        2 - Tarefas                                         *\n" ;
 		cout << "*        3 - Projectos                                       *\n" ;
-		cout << "*        4 - Sincronizar                                     *\n";
+		cout << "*        4 - Historico                                       *\n" ;
+		cout << "*        5 - Sincronizar                                     *\n";
 		cout << "*        0 - Sair                                            *\n" ;
 		cout << "*------------------------------------------------------------*" << endl;
 		cout << "*     Escolha a opcao:                                       *\n";
@@ -1578,6 +1666,8 @@ void menu()
 			
 			break;
 		case 4:
+			break;
+		case 5:
 			menuSincronizar();
 			break;
 		case 0:
