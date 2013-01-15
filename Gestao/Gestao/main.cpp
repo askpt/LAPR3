@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-//#include <conio.h>
+#include <conio.h>
 using namespace std;
 
 int codUser = -1;
@@ -885,7 +885,11 @@ void inserirTarefa()
 	}
 }
 
-/*void getPassword(string &get)
+/**
+ * Metodo para nao mostrar a password
+ * @param get password nao-encriptada
+ */
+void getPassword(string &get)
 {
 	get.erase();
 	char key;
@@ -896,11 +900,11 @@ void inserirTarefa()
 
 		switch (key)
 		{
-		case '\b': //backspace pressed
+		case '\b': //backspace pressionado
 			if(get.length() > 0)
 			{
 				get.erase(get.length() - 1, 1);
-				//erase the last character in password
+				//apaga o ultimo carater na password
 				cout << '\b' << " " << '\b';
 			}
 
@@ -913,9 +917,9 @@ void inserirTarefa()
 				cout << "*";
 			}
 		}
-	} while(key != '\r'); //quit if enter is pressed
+	} while(key != '\r'); //sai se o enter e pressionado
 	cout << endl;
-}*/
+}
 
 /**
  * Metodo para verificar o login de um utilizador
@@ -931,8 +935,7 @@ void login()
 		if(user != "sair"){
 			cout << "Pass?" << endl;
 			string pass;
-			getline(cin, pass);
-			//getPassword(pass);
+			getPassword(pass);
 			codUser = conexao -> login(user, pass);
 			delete(conexao);
 		}
