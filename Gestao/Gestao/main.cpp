@@ -11,37 +11,9 @@ int codUser = -1;
 #include "CSV.h"
 #include "Calendario.h"
 
-/*
-Meter no menu:
--> 	exportAssemb(int codUser); exportacao para Assembly
--> listarProjetos(); listar todos os projectos
--> eliminaProjeto(); eliminar um projeto
--> alteraProjeto(); alterar um projeto
-		CSV csv;
-		Calendario *calendario;
-		calendario->exportar("calendario",codUser);
-		csv.exportarInformacoes("informacoes", codUser);
-		csv.exportarContextos("contextos", codUser);
-		csv.exportarTarefas("tarefas",codUser);
-		csv.exportarNiveis("niveis",codUser);
-		csv.exportarUtilizador("utilizadores",codUser);
-		csv.exportarProjectos("projectos", codUser);
-		csv.exportarTipos("tipos",codUser);
-		csv.exportarEstados("estados", codUser);
-		csv.exportarTarefaContexto("tarefa_contexto", codUser);
-		//csv.importarInformacoes("informacoes",codUser);
-		//csv.importarTarefas("tarefas", codUser);
-		//csv.importarTipos("tipos", codUser);
-		//csv.importarNiveis("niveis", codUser);
-		//csv.importarEstados("estados", codUser);
-		//csv.importarContextos("contextos", codUser);
-		//csv.importarTarefaContexto("tarefa_contexto", codUser);
-		//csv.importarProjectos("projectos", codUser);
-		//csv.importarUtilizadores("utilizadores", codUser);
-
-		
-		
-*/
+/**
+ * Metodo para efectuar a listagem das tarefas do dia
+ */
 void lembrete()
 {
 	try
@@ -62,6 +34,9 @@ void lembrete()
 
 }
 
+/**
+ * Metodo para listar o historico das informacoes, tarefas e projectos
+ */
 void listarHistorico()
 {
 		try
@@ -86,8 +61,11 @@ void listarHistorico()
 	{
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
-
 }
+
+/**
+ * Metodo para eliminar o projecto
+ */
 void eliminaProjeto()
 {
 	try
@@ -106,10 +84,11 @@ void eliminaProjeto()
 	{
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
-
-
 }
 
+/**
+ * Metodo para alterar o projecto
+ */
 void alteraProjeto()
 {
 	int codPro;
@@ -188,47 +167,49 @@ void alteraProjeto()
 
 
 /**
- * associa informaÃ§Ã£o a uma tarefa, com base nos cÃ³digo de informÃ§Ã£o e tarefa
+ * associa informacao a uma tarefa, com base nos codigo de informacao e tarefa
  * pedidos ao utilizador
  */
 void associarInfo(){
-    // variÃ¡veis para guardar cÃ³digo de tarefa e cÃ³digo de informaÃ§Ã£o
+    // variaveis para guardar codigo de tarefa e codigo de informacao
     int codTar = 0;
     int codInf = 0;
-    // inÃ­cio de try-catch para verificar conexÃ£o Ã  base de dados
+    // inicio de try-catch para verificar conexao a  base de dados
     try
 	{
-        // conexÃ£o Ã  base de dados
+        // conexao a base de dados
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
         // pede ao utilizador qual a tarefa que pretende associar
         cout << "Indique qual a tarefa que pretende associar:" << endl;
-        // lista as tarefas (com base na variÃ¡vel global)
+        // lista as tarefas (com base na variavel global)
         Lista<Tarefa> list = conexao ->listarTarefasTodas(codUser);
 		cout << list;
-        // guarda cÃ³digo tarefa na variÃ¡vel respectiva
+        // guarda codigo tarefa na variavel respectiva
         cin >> codTar;
-        // pede ao utilizador qual a informaÃ§Ã£o que pretende associar
+        // pede ao utilizador qual a informacao que pretende associar
         cout << "Indique qual a informaÃ§Ã£o que prentende associar" << endl;
-        // lista informaÃ§Ã£o com base na variÃ¡vel global
+        // lista informacao com base na variavel global
         Lista<Informacao> listInf = conexao ->listaInformacao(codUser);
         cout << listInf;
         cin >> codInf;
-        // associa informaÃ§Ã£o
+        // associa informacao
         conexao->associarInformacao(codInf, codTar);
-        // termina ligaÃ§Ã£o
+        // termina ligacao
         delete(conexao);
 	} // end try
 	catch (SQLException erro)
 	{
 		cerr << "Erro: " << erro.getMessage() << endl;
 	} // end catch
-} // end associarInfo
+}
 
-
+/**
+ * eliminar um contexto
+ */
 void eliminaContexto()
 {
 	int contexto;
-					try
+	try
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 		cout << "Codigo do contexto a eliminar?" << endl;
@@ -247,11 +228,14 @@ void eliminaContexto()
 	}
 }
 
+/**
+ * alterar um contexto
+ */
 void alterarContexto()
 {
-		string descricao;
-		int contexto;
-				try
+	string descricao;
+	int contexto;
+	try
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 		cout << "Codigo do contexto?" << endl;
@@ -272,6 +256,9 @@ void alterarContexto()
 	}
 }
 
+/**
+ * criar um contexto
+ */
 void criarContexto()
 {
 	string descricao;
@@ -293,9 +280,13 @@ void criarContexto()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+/**
+ * listar os contextos
+ */
 void listaContextos()
 {
-			try
+	try
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 		Lista<Contexto> contextos= conexao -> listaContextos();
@@ -310,6 +301,10 @@ void listaContextos()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+/**
+ * remover uma delegacao
+ */
 void removerDelegacao()
 {
 	try
@@ -330,9 +325,13 @@ void removerDelegacao()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+/**
+ * alterar uma delegacao
+ */
 void alterarDelegacao()
 {
-				try
+	try
 	{
 		int cod, tarefa;
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
@@ -354,9 +353,12 @@ void alterarDelegacao()
 	}
 }
 
+/**
+ * delegar uma tarefa
+ */
 void delegarTarefa()
 {
-			try
+	try
 	{
 		int cod, tarefa;
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
@@ -377,9 +379,13 @@ void delegarTarefa()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+/**
+ * listar as tarefas delegadas
+ */
 void listarTarefasDelegadas()
 {
-			try
+	try
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 		Lista<Tarefa> tarefas= conexao -> verTarefasDelegadas(codUser);
@@ -394,9 +400,13 @@ void listarTarefasDelegadas()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+/**
+ * associar um nivel a uma tarefa
+ */
 void associaTarefaNivel()
 {
-			try
+	try
 	{
 		int nivel, tarefa;
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
@@ -421,10 +431,13 @@ void associaTarefaNivel()
 	}
 }
 
+/**
+ * ordenar uma tarefa por contexto
+ */
 void ordenaTarefaContexto()
 {
 	
-		try
+	try
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 		Lista<Tarefa> tarefas= conexao -> ordenarTarefasContexto(codUser);
@@ -439,10 +452,14 @@ void ordenaTarefaContexto()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+/**
+ * ordenar uma tarefa pela estimativa
+ */
 void ordenarTarefaEstimativa()
 {
 	
-		try
+	try
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 		Lista<Tarefa> taref= conexao -> ordenarTarefasEstimativa(codUser);
@@ -457,10 +474,14 @@ void ordenarTarefaEstimativa()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+/**
+ * ordenar tarefas por prioridade
+ */
 void ordenarTarefasPrioridade()
 {
 	
-		try
+	try
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 		Lista<Tarefa> tarefas= conexao -> ordenarPrioridade(codUser);
@@ -476,10 +497,13 @@ void ordenarTarefasPrioridade()
 	}
 }
 
+/**
+ * eliminar uma tarefa
+ */
 void eliminaTarefa()
 {
 	
-		try
+	try
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 		Lista<Tarefa> tarefas= conexao -> listarTarefasTodas(codUser);
@@ -496,10 +520,14 @@ void eliminaTarefa()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+/**
+ * associar uma duracao a uma tarefa
+ */
 void associaDuracao()
 {
 	
-		try
+	try
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 		Lista<Tarefa> tarefas= conexao -> listarTarefasPorRealizar(codUser);
@@ -518,9 +546,13 @@ void associaDuracao()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+/**
+ * marcar tarefa como realizada
+ */
 void realizaTarefa()
 {
-		try
+	try
 	{
 		BDados *conexao = new BDados ("B2-7", "queroarroz", "193.136.62.27:1521/isepdb");
 		Lista<Tarefa> tarefas= conexao -> listarTarefasPorRealizar(codUser);
@@ -537,6 +569,10 @@ void realizaTarefa()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+/**
+ * listar as tarefas realizadas
+ */
 void listarTarefasRealizadas()
 {
 	
@@ -553,6 +589,9 @@ void listarTarefasRealizadas()
 	}
 }
 
+/**
+ * listar as tarefas por realizar
+ */
 void listarTarefasPorRealizar()
 {
 	
@@ -568,6 +607,10 @@ void listarTarefasPorRealizar()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+/**
+ * inserir informacao
+ */
 void inserirInfo()
 {
 	string info;
@@ -586,6 +629,9 @@ void inserirInfo()
 	}
 }
 
+/**
+ * alterar informacao
+ */
 void alteraInformacao()
 {
 	int codinfo;
@@ -614,6 +660,9 @@ void alteraInformacao()
 	}
 }
 
+/**
+ * alterar tarefa
+ */
 void alteraTarefa()
 {
 	int codTar;
@@ -728,6 +777,10 @@ void alteraTarefa()
 		cerr << "Erro: " << erro.getMessage() << endl;
 	}
 }
+
+/**
+ * listar tarefas
+ */
 void listarTarefas()
 {
 	try
@@ -743,6 +796,9 @@ void listarTarefas()
 	}
 }
 
+/**
+ * listar os projectos
+ */
 void listarProjetos()
 {
 	try
@@ -758,6 +814,9 @@ void listarProjetos()
 	}
 }
 
+/**
+ * inserir uma tarefa
+ */
 void inserirTarefa()
 {
 	int nivelImportancia;
@@ -858,6 +917,9 @@ void inserirTarefa()
 	cout << endl;
 }*/
 
+/**
+ * Metodo para verificar o login de um utilizador
+ */
 void login()
 {
 	try 
@@ -885,6 +947,9 @@ void login()
 	}
 }
 
+/**
+ * listar informacao
+ */
 void listarInfo()
 {
 	try
@@ -900,6 +965,9 @@ void listarInfo()
 	}
 }
 
+/**
+ * inserir um projecto
+ */
 void inserirProjeto()
 {
 	int nivelImportancia;
@@ -967,6 +1035,9 @@ void inserirProjeto()
 	}
 }
 
+/**
+ * Submenu de dependencias
+ */
 void menuDependencias()
 {
 				
@@ -1014,6 +1085,9 @@ void menuDependencias()
 			}
 }
 
+/**
+ * Submenu de duracao de tarefa
+ */
 void menuDuracaoTarefa()
 {
 				
@@ -1058,6 +1132,9 @@ void menuDuracaoTarefa()
 			}
 }
 
+/**
+ * submenu do historico de tarefas
+ */
 void menuHistoricoTarefas()
 {
 				
@@ -1101,6 +1178,9 @@ void menuHistoricoTarefas()
 			}
 }
 
+/**
+ * submenu para editar contextos
+ */
 void menuEditarContextos()
 {
 				
@@ -1155,6 +1235,9 @@ void menuEditarContextos()
 			}
 }
 
+/**
+ * submenu de contextos
+ */
 void menuContextoTarefas()
 {
 				
@@ -1203,6 +1286,9 @@ void menuContextoTarefas()
 			}
 }
 
+/**
+ * submenu de referencias
+ */
 void menuReferencias()
 {
 				
@@ -1252,6 +1338,9 @@ void menuReferencias()
 			}
 }
 
+/**
+ * submenu para deferir tarefas
+ */
 void menuDeferirTarefa()
 {
 			
@@ -1262,7 +1351,7 @@ void menuDeferirTarefa()
 	while (!sair){
 				cout << "**********************************************************" << endl;
 				cout << "******                                             *******" << endl;
-				cout << "******     Definir tarefa                          *******" << endl;
+				cout << "******     Deferir tarefa                          *******" << endl;
 				cout << "******                                             *******" << endl;
 				cout << "**********************************************************" << endl;
 				cout << "*     Menu:                                              *\n" ;
@@ -1308,6 +1397,9 @@ void menuDeferirTarefa()
 			}
 }
 
+/**
+ * submenu para partilha em cloud
+ */
 void menuPartilhar()
 {
 		
@@ -1354,6 +1446,10 @@ void menuPartilhar()
 		break;
 			}
 }
+
+/**
+ * submenu para tarefas delegadas
+ */
 void menuTarefasDelegadas()
 {
 	int op;
@@ -1417,7 +1513,9 @@ void menuTarefasDelegadas()
 			}
 }
 
-
+/**
+ * submenu para as prioridades de tarefas
+ */
 void menuPrioridadeTarefa()
 {
 	
@@ -1459,8 +1557,12 @@ void menuPrioridadeTarefa()
 				}
 				
 		break;
-			}
-		}
+	}
+}
+
+/**
+ * submenu para a informacao
+ */
 void menuInformacao()
 {
 	int op;
@@ -1514,8 +1616,12 @@ void menuInformacao()
 				}
 				
 		
-			}
-		}
+	}
+}
+
+/**
+* submenu para a listagem ordenada
+*/
 void menuCriterioOrdenacao()
 {
 		
@@ -1567,8 +1673,12 @@ void menuCriterioOrdenacao()
 				}
 				
 		break;
-			}
+	}
 }
+
+/**
+ * submenu para a listagem de tarefas
+ */
 void menuListarTarefas()
 {
 	
@@ -1635,8 +1745,12 @@ void menuListarTarefas()
 				}
 				
 		break;
-			}
-		}
+	}
+}
+
+/**
+ * submenu para as tarefas
+ */
 void menuTarefas()
 {
 	bool sair=false;
@@ -1755,6 +1869,10 @@ void menuTarefas()
 				}
 			break;}
 }
+
+/**
+ * submenu para as dependencias do projecto
+ */
 void menuDependenciasProjecto()
 {
 				
@@ -1809,6 +1927,10 @@ void menuDependenciasProjecto()
 		break;
 			}
 }
+
+/**
+ * submenu para os projectos
+ */
 void menuProjetos()
 {
 
@@ -1877,7 +1999,12 @@ void menuProjetos()
 					break;
 				}
 			break;
-}}
+	}
+}
+
+/**
+ * submenu para a sincronizacao
+ */
 void menuSincronizar()
 {
 	
@@ -1920,9 +2047,12 @@ void menuSincronizar()
 					break;
 				}
 				break;
-			}
-		}
+	}
+}
 
+/**
+ * Menu principal do programa
+ */
 void menu()
 {   
 	bool sair=false;
@@ -2009,6 +2139,10 @@ void menu()
 	}
 }
 
+/**
+ * Metodo principal do programa
+ * @return 0 caso o programa corra sem qualquer erro
+ */
 int main ()
 {
 	while(codUser == -1)
