@@ -1,0 +1,318 @@
+\hypertarget{class_historico_informacao}{\section{Historico\-Informacao Class Reference}
+\label{class_historico_informacao}\index{Historico\-Informacao@{Historico\-Informacao}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_historico_informacao_ae1817600f1080a9eccade7dca6067a1b}{Historico\-Informacao} (int codhistorico, int codinformacao, int codtarefa, string desc, int codutilizador, \hyperlink{class_data}{Data} datainsercao, int codtipo, string info)
+\item 
+\hyperlink{class_historico_informacao_a3efeca40a4ea955a164929699e302e63}{Historico\-Informacao} ()
+\item 
+\hyperlink{class_historico_informacao_a1442dd2a0d34c470cebaabdf64cc5c94}{Historico\-Informacao} (const \hyperlink{class_historico_informacao}{Historico\-Informacao} \&hi)
+\item 
+\hyperlink{class_historico_informacao_a741b009f6182b63e0962d37e5b69336d}{$\sim$\-Historico\-Informacao} ()
+\item 
+int \hyperlink{class_historico_informacao_ac55b484ae616996f033028336625e3c9}{get\-Cod\-Historico} () const 
+\item 
+int \hyperlink{class_historico_informacao_a3f46d044ca8e92abaa31e92ca8ac2d8c}{get\-Cod\-Informacao} () const 
+\item 
+int \hyperlink{class_historico_informacao_ad8699917ce0d59771502092da1fe49d7}{get\-Cod\-Tarefa} () const 
+\item 
+int \hyperlink{class_historico_informacao_ad6ea3a0fd0bdac6dfa83f369c7942dcd}{get\-Cod\-Tipo} () const 
+\item 
+int \hyperlink{class_historico_informacao_a25e36a6becc59820e1196e9230ff3fd0}{get\-Cod\-Utilizador} () const 
+\item 
+\hyperlink{class_data}{Data} \hyperlink{class_historico_informacao_a439cde1cd1401648f7be7a6937594294}{get\-Data\-Insercao} ()
+\item 
+string \hyperlink{class_historico_informacao_a2f9888a9e20793f78ff2aaae4205137b}{get\-Info} () const 
+\item 
+string \hyperlink{class_historico_informacao_a4acbc48280710cc5269b42043382152f}{get\-Descricao} () const 
+\item 
+void \hyperlink{class_historico_informacao_a5f66c2777c96b7b3a137dad00c7fd6cc}{set\-Cod\-Historico} (const int codhistorico)
+\item 
+void \hyperlink{class_historico_informacao_ab340c5857a479803306377d52ed4f99e}{set\-Cod\-Informacao} (const int codinformacao)
+\item 
+void \hyperlink{class_historico_informacao_a3e946803ee33c2cb633a7e1c2122c5af}{set\-Cod\-Tarefa} (const int codtarefa)
+\item 
+void \hyperlink{class_historico_informacao_ad33f81c4fa8605dadf217f921a4fcacf}{set\-Descricao} (const string descricao)
+\item 
+void \hyperlink{class_historico_informacao_aeda6de3c11d18c67098b475b1c7d3569}{set\-Cod\-Utilizador} (const int codutilizador)
+\item 
+void \hyperlink{class_historico_informacao_a74d06fe28b13061381923f7da8c0a6ac}{set\-Data\-Insercao} (const \hyperlink{class_data}{Data} datainsercao)
+\item 
+void \hyperlink{class_historico_informacao_a68f2ea7a9808d72252873620c25a157e}{set\-Cod\-Tipo} (const int codtipo)
+\item 
+void \hyperlink{class_historico_informacao_a48d2edfe4f50092d1fc66ef24fd361d8}{set\-Info} (const string info)
+\item 
+virtual \hyperlink{class_historico_informacao}{Historico\-Informacao} $\ast$ \hyperlink{class_historico_informacao_afad9f99455453aaf4676302b0254cdec}{clone} () const 
+\item 
+void \hyperlink{class_historico_informacao_a68d9c661f3db1c862cdcbde6fff68dcf}{escreve} (ostream \&out) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_historico_informacao_ae1817600f1080a9eccade7dca6067a1b}{\index{Historico\-Informacao@{Historico\-Informacao}!Historico\-Informacao@{Historico\-Informacao}}
+\index{Historico\-Informacao@{Historico\-Informacao}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{Historico\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}Historico\-Informacao\-::\-Historico\-Informacao (
+\begin{DoxyParamCaption}
+\item[{int}]{codhistorico, }
+\item[{int}]{codinformacao, }
+\item[{int}]{codtarefa, }
+\item[{string}]{descricao, }
+\item[{int}]{codutilizador, }
+\item[{{\bf Data}}]{datainsercao, }
+\item[{int}]{codtipo, }
+\item[{string}]{info}
+\end{DoxyParamCaption}
+)}}\label{class_historico_informacao_ae1817600f1080a9eccade7dca6067a1b}
+$\ast$\-Construtor completo 
+\begin{DoxyParams}{Parameters}
+{\em codhistorico} & codigo de historico \\
+\hline
+{\em codinformacao} & codigo da informacao \\
+\hline
+{\em codtarefa} & codigo da tarefa \\
+\hline
+{\em descricao} & descricao \\
+\hline
+{\em codutilizador} & codigo do utilizador \\
+\hline
+{\em datainsercao} & data de insercao \\
+\hline
+{\em codtipo} & codigo do tipo \\
+\hline
+{\em info} & informacao \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_informacao_a3efeca40a4ea955a164929699e302e63}{\index{Historico\-Informacao@{Historico\-Informacao}!Historico\-Informacao@{Historico\-Informacao}}
+\index{Historico\-Informacao@{Historico\-Informacao}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{Historico\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}Historico\-Informacao\-::\-Historico\-Informacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_historico_informacao_a3efeca40a4ea955a164929699e302e63}
+$\ast$\-Construtor vazio \hypertarget{class_historico_informacao_a1442dd2a0d34c470cebaabdf64cc5c94}{\index{Historico\-Informacao@{Historico\-Informacao}!Historico\-Informacao@{Historico\-Informacao}}
+\index{Historico\-Informacao@{Historico\-Informacao}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{Historico\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}Historico\-Informacao\-::\-Historico\-Informacao (
+\begin{DoxyParamCaption}
+\item[{const {\bf Historico\-Informacao} \&}]{hi}
+\end{DoxyParamCaption}
+)}}\label{class_historico_informacao_a1442dd2a0d34c470cebaabdf64cc5c94}
+$\ast$\-Construtor copia 
+\begin{DoxyParams}{Parameters}
+{\em objeto} & hi do tipo \hyperlink{class_historico_informacao}{Historico\-Informacao} a ser copiado \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_informacao_a741b009f6182b63e0962d37e5b69336d}{\index{Historico\-Informacao@{Historico\-Informacao}!$\sim$\-Historico\-Informacao@{$\sim$\-Historico\-Informacao}}
+\index{$\sim$\-Historico\-Informacao@{$\sim$\-Historico\-Informacao}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{$\sim$\-Historico\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}Historico\-Informacao\-::$\sim$\-Historico\-Informacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_historico_informacao_a741b009f6182b63e0962d37e5b69336d}
+Destrutor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_historico_informacao_afad9f99455453aaf4676302b0254cdec}{\index{Historico\-Informacao@{Historico\-Informacao}!clone@{clone}}
+\index{clone@{clone}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Historico\-Informacao} $\ast$ Historico\-Informacao\-::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_historico_informacao_afad9f99455453aaf4676302b0254cdec}
+Clone \begin{DoxyReturn}{Returns}
+devolve um clone. 
+\end{DoxyReturn}
+\hypertarget{class_historico_informacao_a68d9c661f3db1c862cdcbde6fff68dcf}{\index{Historico\-Informacao@{Historico\-Informacao}!escreve@{escreve}}
+\index{escreve@{escreve}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{escreve}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Informacao\-::escreve (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_informacao_a68d9c661f3db1c862cdcbde6fff68dcf}
+Apresenta os dados do historico informacao. 
+\begin{DoxyParams}{Parameters}
+{\em out} & objecto stream out. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_informacao_ac55b484ae616996f033028336625e3c9}{\index{Historico\-Informacao@{Historico\-Informacao}!get\-Cod\-Historico@{get\-Cod\-Historico}}
+\index{get\-Cod\-Historico@{get\-Cod\-Historico}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{get\-Cod\-Historico}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Informacao\-::get\-Cod\-Historico (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_informacao_ac55b484ae616996f033028336625e3c9}
+Metodo para retornar o codigo do historico. \begin{DoxyReturn}{Returns}
+devolve o codigo do historico. 
+\end{DoxyReturn}
+\hypertarget{class_historico_informacao_a3f46d044ca8e92abaa31e92ca8ac2d8c}{\index{Historico\-Informacao@{Historico\-Informacao}!get\-Cod\-Informacao@{get\-Cod\-Informacao}}
+\index{get\-Cod\-Informacao@{get\-Cod\-Informacao}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{get\-Cod\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Informacao\-::get\-Cod\-Informacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_informacao_a3f46d044ca8e92abaa31e92ca8ac2d8c}
+Metodo para retornar o codigo da informacao. \begin{DoxyReturn}{Returns}
+devolve o codigo da informacao. 
+\end{DoxyReturn}
+\hypertarget{class_historico_informacao_ad8699917ce0d59771502092da1fe49d7}{\index{Historico\-Informacao@{Historico\-Informacao}!get\-Cod\-Tarefa@{get\-Cod\-Tarefa}}
+\index{get\-Cod\-Tarefa@{get\-Cod\-Tarefa}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{get\-Cod\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Informacao\-::get\-Cod\-Tarefa (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_informacao_ad8699917ce0d59771502092da1fe49d7}
+Metodo para retornar o codigo da tarefa. \begin{DoxyReturn}{Returns}
+devolve o codigo da tarefa. 
+\end{DoxyReturn}
+\hypertarget{class_historico_informacao_ad6ea3a0fd0bdac6dfa83f369c7942dcd}{\index{Historico\-Informacao@{Historico\-Informacao}!get\-Cod\-Tipo@{get\-Cod\-Tipo}}
+\index{get\-Cod\-Tipo@{get\-Cod\-Tipo}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{get\-Cod\-Tipo}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Informacao\-::get\-Cod\-Tipo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_informacao_ad6ea3a0fd0bdac6dfa83f369c7942dcd}
+Metodo para retornar o codigo do tipo. \begin{DoxyReturn}{Returns}
+devolve o codigo do tipo. 
+\end{DoxyReturn}
+\hypertarget{class_historico_informacao_a25e36a6becc59820e1196e9230ff3fd0}{\index{Historico\-Informacao@{Historico\-Informacao}!get\-Cod\-Utilizador@{get\-Cod\-Utilizador}}
+\index{get\-Cod\-Utilizador@{get\-Cod\-Utilizador}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{get\-Cod\-Utilizador}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Informacao\-::get\-Cod\-Utilizador (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_informacao_a25e36a6becc59820e1196e9230ff3fd0}
+Metodo para retornar o codigo do utilizador. \begin{DoxyReturn}{Returns}
+devolve o codigo de utilizador. 
+\end{DoxyReturn}
+\hypertarget{class_historico_informacao_a439cde1cd1401648f7be7a6937594294}{\index{Historico\-Informacao@{Historico\-Informacao}!get\-Data\-Insercao@{get\-Data\-Insercao}}
+\index{get\-Data\-Insercao@{get\-Data\-Insercao}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{get\-Data\-Insercao}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} Historico\-Informacao\-::get\-Data\-Insercao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_historico_informacao_a439cde1cd1401648f7be7a6937594294}
+Metodo para retornar a data de insercao. \begin{DoxyReturn}{Returns}
+devolve a data de insercao. 
+\end{DoxyReturn}
+\hypertarget{class_historico_informacao_a4acbc48280710cc5269b42043382152f}{\index{Historico\-Informacao@{Historico\-Informacao}!get\-Descricao@{get\-Descricao}}
+\index{get\-Descricao@{get\-Descricao}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{get\-Descricao}]{\setlength{\rightskip}{0pt plus 5cm}string Historico\-Informacao\-::get\-Descricao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_informacao_a4acbc48280710cc5269b42043382152f}
+Metodo para retornar a descricao. \begin{DoxyReturn}{Returns}
+devolve a descricao. 
+\end{DoxyReturn}
+\hypertarget{class_historico_informacao_a2f9888a9e20793f78ff2aaae4205137b}{\index{Historico\-Informacao@{Historico\-Informacao}!get\-Info@{get\-Info}}
+\index{get\-Info@{get\-Info}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{get\-Info}]{\setlength{\rightskip}{0pt plus 5cm}string Historico\-Informacao\-::get\-Info (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_informacao_a2f9888a9e20793f78ff2aaae4205137b}
+Metodo para retornar a info. \begin{DoxyReturn}{Returns}
+devolve a info. 
+\end{DoxyReturn}
+\hypertarget{class_historico_informacao_a5f66c2777c96b7b3a137dad00c7fd6cc}{\index{Historico\-Informacao@{Historico\-Informacao}!set\-Cod\-Historico@{set\-Cod\-Historico}}
+\index{set\-Cod\-Historico@{set\-Cod\-Historico}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{set\-Cod\-Historico}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Informacao\-::set\-Cod\-Historico (
+\begin{DoxyParamCaption}
+\item[{const int}]{codhistorico}
+\end{DoxyParamCaption}
+)}}\label{class_historico_informacao_a5f66c2777c96b7b3a137dad00c7fd6cc}
+Metodo de atribuicao do codigo de historico. 
+\begin{DoxyParams}{Parameters}
+{\em codhistorico} & codigo do historico. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_informacao_ab340c5857a479803306377d52ed4f99e}{\index{Historico\-Informacao@{Historico\-Informacao}!set\-Cod\-Informacao@{set\-Cod\-Informacao}}
+\index{set\-Cod\-Informacao@{set\-Cod\-Informacao}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{set\-Cod\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Informacao\-::set\-Cod\-Informacao (
+\begin{DoxyParamCaption}
+\item[{const int}]{codinformacao}
+\end{DoxyParamCaption}
+)}}\label{class_historico_informacao_ab340c5857a479803306377d52ed4f99e}
+Metodo de atribuicao do codigo de informacao. 
+\begin{DoxyParams}{Parameters}
+{\em codinformacao} & codigo de informacao. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_informacao_a3e946803ee33c2cb633a7e1c2122c5af}{\index{Historico\-Informacao@{Historico\-Informacao}!set\-Cod\-Tarefa@{set\-Cod\-Tarefa}}
+\index{set\-Cod\-Tarefa@{set\-Cod\-Tarefa}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{set\-Cod\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Informacao\-::set\-Cod\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{const int}]{codtarefa}
+\end{DoxyParamCaption}
+)}}\label{class_historico_informacao_a3e946803ee33c2cb633a7e1c2122c5af}
+Metodo de atribuicao do codigo de tarefa. 
+\begin{DoxyParams}{Parameters}
+{\em codtarefa} & codigo de tarefa. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_informacao_a68f2ea7a9808d72252873620c25a157e}{\index{Historico\-Informacao@{Historico\-Informacao}!set\-Cod\-Tipo@{set\-Cod\-Tipo}}
+\index{set\-Cod\-Tipo@{set\-Cod\-Tipo}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{set\-Cod\-Tipo}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Informacao\-::set\-Cod\-Tipo (
+\begin{DoxyParamCaption}
+\item[{const int}]{codtipo}
+\end{DoxyParamCaption}
+)}}\label{class_historico_informacao_a68f2ea7a9808d72252873620c25a157e}
+Metodo de atribuicao do codigo de tipo. 
+\begin{DoxyParams}{Parameters}
+{\em codtipo} & codigo de tipo \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_informacao_aeda6de3c11d18c67098b475b1c7d3569}{\index{Historico\-Informacao@{Historico\-Informacao}!set\-Cod\-Utilizador@{set\-Cod\-Utilizador}}
+\index{set\-Cod\-Utilizador@{set\-Cod\-Utilizador}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{set\-Cod\-Utilizador}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Informacao\-::set\-Cod\-Utilizador (
+\begin{DoxyParamCaption}
+\item[{const int}]{codutilizador}
+\end{DoxyParamCaption}
+)}}\label{class_historico_informacao_aeda6de3c11d18c67098b475b1c7d3569}
+Metodo de atribuicao do codigo de utilizador. 
+\begin{DoxyParams}{Parameters}
+{\em codutilizador} & codigo de utilizador. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_informacao_a74d06fe28b13061381923f7da8c0a6ac}{\index{Historico\-Informacao@{Historico\-Informacao}!set\-Data\-Insercao@{set\-Data\-Insercao}}
+\index{set\-Data\-Insercao@{set\-Data\-Insercao}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{set\-Data\-Insercao}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Informacao\-::set\-Data\-Insercao (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data}}]{datainsercao}
+\end{DoxyParamCaption}
+)}}\label{class_historico_informacao_a74d06fe28b13061381923f7da8c0a6ac}
+Metodo de atribuicao da data de insercao. 
+\begin{DoxyParams}{Parameters}
+{\em datainsercao} & data de insercao. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_informacao_ad33f81c4fa8605dadf217f921a4fcacf}{\index{Historico\-Informacao@{Historico\-Informacao}!set\-Descricao@{set\-Descricao}}
+\index{set\-Descricao@{set\-Descricao}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{set\-Descricao}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Informacao\-::set\-Descricao (
+\begin{DoxyParamCaption}
+\item[{const string}]{descricao}
+\end{DoxyParamCaption}
+)}}\label{class_historico_informacao_ad33f81c4fa8605dadf217f921a4fcacf}
+Metodo de atribuicao da descricao. 
+\begin{DoxyParams}{Parameters}
+{\em descricao} & descricao. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_informacao_a48d2edfe4f50092d1fc66ef24fd361d8}{\index{Historico\-Informacao@{Historico\-Informacao}!set\-Info@{set\-Info}}
+\index{set\-Info@{set\-Info}!HistoricoInformacao@{Historico\-Informacao}}
+\subsubsection[{set\-Info}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Informacao\-::set\-Info (
+\begin{DoxyParamCaption}
+\item[{const string}]{info}
+\end{DoxyParamCaption}
+)}}\label{class_historico_informacao_a48d2edfe4f50092d1fc66ef24fd361d8}
+Metodo de atribuicao da info. 
+\begin{DoxyParams}{Parameters}
+{\em info} & info. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_historico_informacao_8h}{Historico\-Informacao.\-h}\end{DoxyCompactItemize}

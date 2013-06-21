@@ -1,0 +1,1250 @@
+\hypertarget{class_b_dados}{\section{B\-Dados Class Reference}
+\label{class_b_dados}\index{B\-Dados@{B\-Dados}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_b_dados_adc2d1a121f591fba3baadda2af50547a}{B\-Dados} (string user, string passwd, string db)
+\item 
+\hyperlink{class_b_dados_afea271b4cf5011f15e1949f3d107d781}{$\sim$\-B\-Dados} ()
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_informacao}{Informacao} $>$ \hyperlink{class_b_dados_a74d0d709f5af118dad104fa6f7312182}{lista\-Informacao} (int user)
+\item 
+\hypertarget{class_b_dados_a15b379c2030086eedc2d1b319c57dcb6}{\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_historico_projecto}{Historico\-Projecto} $>$ {\bfseries lista\-Historico\-Projecto} (int user)}\label{class_b_dados_a15b379c2030086eedc2d1b319c57dcb6}
+
+\item 
+\hypertarget{class_b_dados_a90487b856ea0f1cb2096a2de24eda700}{\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_historico_tarefa}{Historico\-Tarefa} $>$ {\bfseries lista\-Historico\-Tarefa} (int user)}\label{class_b_dados_a90487b856ea0f1cb2096a2de24eda700}
+
+\item 
+\hypertarget{class_b_dados_acfa9c7caec5717f20d49e6b05852cdec}{\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_historico_informacao}{Historico\-Informacao} $>$ {\bfseries lista\-Historico\-Informacao} (int user)}\label{class_b_dados_acfa9c7caec5717f20d49e6b05852cdec}
+
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_tarefa}{Tarefa} $>$ \hyperlink{class_b_dados_a7f1211669241e9ce78c1485b78332899}{listar\-Tarefas\-Todas} (int cod\-User)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_contexto}{Contexto} $>$ \hyperlink{class_b_dados_a4e67a87c2641c33ef51fc9276d6f9ff4}{listar\-Contextos} ()
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_nivel}{Nivel} $>$ \hyperlink{class_b_dados_a4b2f6dd0685eacd37d53d3911160c97e}{listar\-Niveis} ()
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_utilizador}{Utilizador} $>$ \hyperlink{class_b_dados_a61520728507dc710630a1be06a5c191b}{listar\-Utilizadores} ()
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_projecto}{Projecto} $>$ \hyperlink{class_b_dados_ad77e58ac122d5c9ae6f59a1ae95f385a}{listar\-Projectos} (int cod\-User)
+\item 
+void \hyperlink{class_b_dados_aabffd3f78855917f3a6274105ce03a64}{lista\-Tipos} (\hyperlink{class_lista}{Lista}$<$ int $>$ $\ast$codigos, \hyperlink{class_lista}{Lista}$<$ string $>$ $\ast$descricoes)
+\item 
+void \hyperlink{class_b_dados_a8b866421bc8ea7206d1f8937ed91fc47}{lista\-Estados} (\hyperlink{class_lista}{Lista}$<$ int $>$ $\ast$codigos, \hyperlink{class_lista}{Lista}$<$ string $>$ $\ast$descricoes)
+\item 
+void \hyperlink{class_b_dados_af4fb66ba48dcaacbb67d045e99b53dca}{lista\-Tarefa\-Contexto} (\hyperlink{class_lista}{Lista}$<$ int $>$ $\ast$codigo\-Tarefa, \hyperlink{class_lista}{Lista}$<$ int $>$ $\ast$codigo\-Contexto)
+\item 
+int \hyperlink{class_b_dados_a5ef50f30845495e35a4bda2a56caa8a4}{login} (string user, string pass)
+\item 
+void \hyperlink{class_b_dados_ad9444cf93d26ed6ffb733e65f2136c6b}{inserir\-Info} (int cod\-User, string info)
+\item 
+void \hyperlink{class_b_dados_abbb79e0809277078ed9908c00077236c}{inserir\-Info\-Completa} (int cod\-User, string info, int cod\-Tarefa)
+\item 
+\hyperlink{class_data}{Data} \hyperlink{class_b_dados_ad61fd68a066a26e97d8fe2fd7cf66270}{convert\-Data} (string date)
+\item 
+void \hyperlink{class_b_dados_aa476f0bd76a0b0d187d0e50e34979bdd}{inserir\-Utilizador} (string nome, int telefone, string \hyperlink{class_b_dados_a5ef50f30845495e35a4bda2a56caa8a4}{login}, string pass)
+\item 
+void \hyperlink{class_b_dados_ad4d9cf1b7a66137635fe0b4b206437fe}{inserir\-Projeto\-Completo} (int cod\-Projecto, int cod\-Estado, int cod\-Utilizador, int nivel\-Importancia, string data\-Criacao, string data\-Fim, string informacao, string nome)
+\item 
+void \hyperlink{class_b_dados_a0773f95213edc45aff09f12e0aac5d51}{inserir\-Tarefa\-Contexto} (int cod\-Tarefa, int cod\-Contexto)
+\item 
+void \hyperlink{class_b_dados_a6cf31d662e823a3af666feac9d0b547e}{inserir\-Contexto} (string desc)
+\item 
+void \hyperlink{class_b_dados_a4773e15427a3d89c36e8dfbccb68b962}{inserir\-Estado} (string desc)
+\item 
+void \hyperlink{class_b_dados_a24dafc04c43e61c8ad601cf3e8965f1c}{inserir\-Tipo} (string descricao)
+\item 
+void \hyperlink{class_b_dados_ad720996192c985f34a933f12fb8024f9}{inserir\-Nivel} (int nivel\-Importancia, string desc)
+\item 
+void \hyperlink{class_b_dados_a10638c7beb779c93a3ad588c36d9ba36}{inserir\-Tarefa} (int nivel\-Importancia, string data\-Inicio, string informacao, string data\-Estimada, int duracao, string tipo, string titulo, int tarefa\-Dependente, int cod\-Utilizador)
+\item 
+void \hyperlink{class_b_dados_aeedec6e5cfc470b2dfcf93b2cf5d06e0}{inserir\-Tarefa\-Completa} (int cod\-Tarefa, int cod\-Projecto, int cod\-Estado, int nivel\-Importancia, string data\-Criacao, string data\-Fim, string informacao, string data\-Estimada, int duracao, string tipo, string titulo, int dependente, int cod\-Utilizador, int n\-Contexto, int delegado)
+\item 
+bool \hyperlink{class_b_dados_a9300d771200d124da4c862e430e87988}{associar\-Informacao} (int cod\-Tarefa, int cod\-Informacao)
+\item 
+bool \hyperlink{class_b_dados_aa803085cb66d76477151ec0c01079943}{pode\-Associar\-Info} (int cod\-Informacao)
+\item 
+\hypertarget{class_b_dados_a25a839976a0d80a289d4a9248ff37fd0}{void {\bfseries inserir\-Data} (string data, string tabela, string campo)}\label{class_b_dados_a25a839976a0d80a289d4a9248ff37fd0}
+
+\item 
+int \hyperlink{class_b_dados_a0a0a16a40a9c6fb68936107a768ea05a}{ultima\-Tarefa} (int cod\-User)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_informacao}{Informacao} $>$ \hyperlink{class_b_dados_af581b477709070c65d8845404b7cfad1}{lista\-Info\-Sem\-Tarefa} (int cod\-User)
+\item 
+int \hyperlink{class_b_dados_a455d0a1f851f729e0c4ddfa9f8741302}{ultima\-Info} (int cod\-User)
+\item 
+void \hyperlink{class_b_dados_a4173f53d1db4868632b798ebb5240227}{alterar\-Informacao} (int codinformacao, string descricao)
+\item 
+void \hyperlink{class_b_dados_afacf52783af230ebfad53941f733de68}{inserir\-Projeto} (int cod\-User, int nivel\-Importancia, string data\-Inicio, string data\-Fim, string informacao, string nome, int cod\-Estado)
+\item 
+int \hyperlink{class_b_dados_a693c18c19073b594749048b89a0e5f20}{ultimo\-Projeto} (int cod\-User)
+\item 
+\hypertarget{class_b_dados_a5d09342d7f32656c7816811d0deee4e7}{\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_tarefa}{Tarefa} $>$ {\bfseries lista\-Tarefa\-Sem\-Projecto} (int cod\-User)}\label{class_b_dados_a5d09342d7f32656c7816811d0deee4e7}
+
+\item 
+bool \hyperlink{class_b_dados_a1128fd4d73586d83022b82e96415840f}{associar\-Tarefa} (int cod\-Tarefa, int cod\-Projeto)
+\item 
+bool \hyperlink{class_b_dados_a8c4d12d51845e32ec09b1df737c35b8a}{pode\-Associar\-Tare} (int cod\-Tarefa)
+\item 
+\hyperlink{class_lista}{Lista}$<$ int $>$ \hyperlink{class_b_dados_a30b07ef16886417fce5aee48e702ced5}{listar\-Cod\-Contextos} (int cod\-Tarefa)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_projecto}{Projecto} $>$ \hyperlink{class_b_dados_ac68b96751def3a8ef11e8df3aafb21dc}{listar\-Projetos\-Todos} (int cod\-User)
+\item 
+void \hyperlink{class_b_dados_ad39cd045bce3925493aa756f28f5a947}{eliminar\-Projeto} (int cod\-User, int cod\-Projeto)
+\item 
+void \hyperlink{class_b_dados_abde421721062365126ab62d057e3d259}{alterar\-Projeto} (int cod\-Pro, int codestado, int nivelimportancia, string data\-Inicio, string datafim, string informacao, string titulo)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_tarefa}{Tarefa} $>$ \hyperlink{class_b_dados_a6857fb5fe205fe9d5ec098c6ac9a45ca}{listar\-Tarefas\-Realizadas} (int cod\-User)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_tarefa}{Tarefa} $>$ \hyperlink{class_b_dados_a2010e43758723749b02084010512974e}{listar\-Tarefas\-Por\-Realizar} (int cod\-User)
+\item 
+void \hyperlink{class_b_dados_aafb7b3d72a99928eec7ac1e54ba6e8f3}{realizar\-Tarefa} (int cod\-User, int codtarefa)
+\item 
+void \hyperlink{class_b_dados_a10278a2424c4814eff2ee546aac76e82}{associar\-Duracao} (int cod\-User, int cod\-Tarefa, int duracao)
+\item 
+void \hyperlink{class_b_dados_a327c6e4b41f2612ff7451b32b405a37b}{eliminar\-Tarefa} (int cod\-User, int cod\-Tarefa)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_tarefa}{Tarefa} $>$ \hyperlink{class_b_dados_a94d9f0dcf3d888f90c54ae5821a8a9b1}{ordenar\-Prioridade} (int cod\-User)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_tarefa}{Tarefa} $>$ \hyperlink{class_b_dados_ac8b924f399b297f3ec742c9b71d0c546}{ordenar\-Tarefas\-Estimativa} (int cod\-User)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_tarefa}{Tarefa} $>$ \hyperlink{class_b_dados_a107c634dd2407846c3425f1b89da5d02}{ordenar\-Tarefas\-Contexto} (int cod\-User)
+\item 
+void \hyperlink{class_b_dados_a5e98953aca7656eb6dfff56bdd0ac3f5}{associar\-Tarefa\-Nivel} (int cod\-User, int cod\-Tarefa, int nivel)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_tarefa}{Tarefa} $>$ \hyperlink{class_b_dados_a1a1983a52b1d0aee1a786e3d2297fd2b}{ver\-Tarefas\-Delegadas} (int cod\-User)
+\item 
+void \hyperlink{class_b_dados_a1f328f854e55375ba11c35bdba713b9d}{delegar\-Tarefa} (int cod\-User, int cod\-Tarefa, int cod\-Util)
+\item 
+void \hyperlink{class_b_dados_ab6b3eb3191c70887fa0ad2d47b0ef1db}{alterar\-Delegacao} (int cod\-User, int cod\-Tarefa, int cod\-Util)
+\item 
+void \hyperlink{class_b_dados_a436ea9d9faf6c87ce9a333450de17489}{remover\-Delegacao} (int cod\-User, int cod\-Tarefa)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_contexto}{Contexto} $>$ \hyperlink{class_b_dados_adf75e2b436691359a54accd76fc64572}{lista\-Contextos} ()
+\item 
+void \hyperlink{class_b_dados_a11d1bb24bda2f99a8c19e003716615d9}{criar\-Contexto} (string descricao)
+\item 
+void \hyperlink{class_b_dados_a7a96c0045ef58bdd4908571fd39d60b4}{alterar\-Contexto} (int cod\-Contexto, string descricao)
+\item 
+void \hyperlink{class_b_dados_ad4b08c40697c9e59382b885c059dca0d}{eliminar\-Contexto} (int cod\-Contexto)
+\item 
+void \hyperlink{class_b_dados_a8512f98b95d54b46ea18ed2e18566e48}{associar\-Tarefa\-Contexto} (int cod\-Contexto, int cod\-Tarefa)
+\item 
+string \hyperlink{class_b_dados_a6667289022bc6f206b627d32b5f2056e}{get\-Estado} (int cod\-Estado)
+\item 
+string \hyperlink{class_b_dados_a88d695c4eb090b5a7b92ff0111dfb595}{get\-User} (int cod\-User)
+\item 
+void \hyperlink{class_b_dados_a72d5d77314f543e34ba2ed8e2331802e}{alterar\-Tarefa} (int cod\-Tare, int codestado, int nivelimportancia, string data\-Inicio, int duracao, int coddependente, int delegado, string datafim, string dataestimada, string info, string titulo, string tipo)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_tarefa}{Tarefa} $>$ \hyperlink{class_b_dados_ae4702b62a0ffea33c81e61bb2f473ce1}{listar\-Lembrete} (int cod\-User)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_historico_informacao}{Historico\-Informacao} $>$ \hyperlink{class_b_dados_a429c49da7769d5445e527eb5b86227d1}{listar\-Historico\-Informacao} (int cod\-User)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_historico_tarefa}{Historico\-Tarefa} $>$ \hyperlink{class_b_dados_a4a80d378f496587643fa5551f3679534}{listar\-Historico\-Tarefa} (int cod\-User)
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_historico_projecto}{Historico\-Projecto} $>$ \hyperlink{class_b_dados_aed8b924bcc5a058d223578daf9c36e3d}{listar\-Historico\-Projecto} (int cod\-User)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_b_dados_adc2d1a121f591fba3baadda2af50547a}{\index{B\-Dados@{B\-Dados}!B\-Dados@{B\-Dados}}
+\index{B\-Dados@{B\-Dados}!BDados@{B\-Dados}}
+\subsubsection[{B\-Dados}]{\setlength{\rightskip}{0pt plus 5cm}B\-Dados\-::\-B\-Dados (
+\begin{DoxyParamCaption}
+\item[{string}]{user, }
+\item[{string}]{passwd, }
+\item[{string}]{db}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_adc2d1a121f591fba3baadda2af50547a}
+construtor de um objecto do tipo \hyperlink{class_b_dados}{B\-Dados} que permite a ligacao a base de dados 
+\begin{DoxyParams}{Parameters}
+{\em user} & string correspondente ao nome de utilizador \\
+\hline
+{\em passwd} & string correspondente à palavra-\/passe do utilizador \\
+\hline
+{\em db} & endereço da base de dados \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_afea271b4cf5011f15e1949f3d107d781}{\index{B\-Dados@{B\-Dados}!$\sim$\-B\-Dados@{$\sim$\-B\-Dados}}
+\index{$\sim$\-B\-Dados@{$\sim$\-B\-Dados}!BDados@{B\-Dados}}
+\subsubsection[{$\sim$\-B\-Dados}]{\setlength{\rightskip}{0pt plus 5cm}B\-Dados\-::$\sim$\-B\-Dados (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_afea271b4cf5011f15e1949f3d107d781}
+destrutor do objecto \hyperlink{class_b_dados}{B\-Dados} 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_b_dados_a7a96c0045ef58bdd4908571fd39d60b4}{\index{B\-Dados@{B\-Dados}!alterar\-Contexto@{alterar\-Contexto}}
+\index{alterar\-Contexto@{alterar\-Contexto}!BDados@{B\-Dados}}
+\subsubsection[{alterar\-Contexto}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::alterar\-Contexto (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Contexto, }
+\item[{string}]{descricao}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a7a96c0045ef58bdd4908571fd39d60b4}
+Permite alterar a descricao de um contexto 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Contexto} & codigo contexto \\
+\hline
+{\em descricao} & descricao do contexto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_ab6b3eb3191c70887fa0ad2d47b0ef1db}{\index{B\-Dados@{B\-Dados}!alterar\-Delegacao@{alterar\-Delegacao}}
+\index{alterar\-Delegacao@{alterar\-Delegacao}!BDados@{B\-Dados}}
+\subsubsection[{alterar\-Delegacao}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::alterar\-Delegacao (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User, }
+\item[{int}]{cod\-Tarefa, }
+\item[{int}]{cod\-Util}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_ab6b3eb3191c70887fa0ad2d47b0ef1db}
+Permite alterar a delegacao de um utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo utilizador \\
+\hline
+{\em cod\-Tarefa} & codigo tarefa \\
+\hline
+{\em cod\-Util} & codigo utilizador a sofrer a delegacao \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a4173f53d1db4868632b798ebb5240227}{\index{B\-Dados@{B\-Dados}!alterar\-Informacao@{alterar\-Informacao}}
+\index{alterar\-Informacao@{alterar\-Informacao}!BDados@{B\-Dados}}
+\subsubsection[{alterar\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::alterar\-Informacao (
+\begin{DoxyParamCaption}
+\item[{int}]{codinformacao, }
+\item[{string}]{descricao}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a4173f53d1db4868632b798ebb5240227}
+altera os varios campos de um registo da tabela \hyperlink{class_tarefa}{Tarefa} 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Tarefa} & codigo da tarefa \\
+\hline
+{\em codestado} & codigo do estado da tarefa \\
+\hline
+{\em nivelimportancia} & nivel de importancia da tarefa \\
+\hline
+{\em durancao} & duracao da tarefa, em minutos \\
+\hline
+{\em coddependente} & codigo da tarefa da qual a presente tarefa esta dependente \\
+\hline
+{\em delegado} & codigo de utilizador ao qual foi delegada a tarefa \\
+\hline
+{\em datafim} & data de fim da tarefa \\
+\hline
+{\em dataestimada} & data estimada de fim da tarefa \\
+\hline
+{\em info} & informacao sobre a tarefa \\
+\hline
+{\em titulo} & titulo da tarefa \\
+\hline
+{\em tipo} & tipo de tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_abde421721062365126ab62d057e3d259}{\index{B\-Dados@{B\-Dados}!alterar\-Projeto@{alterar\-Projeto}}
+\index{alterar\-Projeto@{alterar\-Projeto}!BDados@{B\-Dados}}
+\subsubsection[{alterar\-Projeto}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::alterar\-Projeto (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Pro, }
+\item[{int}]{codestado, }
+\item[{int}]{nivelimportancia, }
+\item[{string}]{data\-Inicio, }
+\item[{string}]{datafim, }
+\item[{string}]{informacao, }
+\item[{string}]{titulo}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_abde421721062365126ab62d057e3d259}
+Permite alterar os atributos de um projeto na base de dados 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Pro} & codigo projeto \\
+\hline
+{\em codestado} & codigo estado \\
+\hline
+{\em nivelimportancia} & nivel importancia \\
+\hline
+{\em data\-Inicio} & data de inicio do projecto \\
+\hline
+{\em datafim} & data de fim do projecto \\
+\hline
+{\em informacao} & informacao do projecto \\
+\hline
+{\em titulo} & titulo do projecto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a72d5d77314f543e34ba2ed8e2331802e}{\index{B\-Dados@{B\-Dados}!alterar\-Tarefa@{alterar\-Tarefa}}
+\index{alterar\-Tarefa@{alterar\-Tarefa}!BDados@{B\-Dados}}
+\subsubsection[{alterar\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::alterar\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Tarefa, }
+\item[{int}]{codestado, }
+\item[{int}]{nivelimportancia, }
+\item[{string}]{data\-Inicio, }
+\item[{int}]{duracao, }
+\item[{int}]{coddependente, }
+\item[{int}]{delegado, }
+\item[{string}]{datafim, }
+\item[{string}]{dataestimada, }
+\item[{string}]{info, }
+\item[{string}]{titulo, }
+\item[{string}]{tipo}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a72d5d77314f543e34ba2ed8e2331802e}
+Permite modificar os valores de uma tarefa 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Tarefa} & codigo da tarefa \\
+\hline
+{\em codestado} & codigo de estado \\
+\hline
+{\em nivelimportancia} & nivel de importancia da tarefa \\
+\hline
+{\em data\-Inicio} & data de inicio da tarefa \\
+\hline
+{\em duracao} & duracao da tarefa \\
+\hline
+{\em coddependente} & codigo da tarefa dependente \\
+\hline
+{\em delegado} & codigo do utilizador delegado \\
+\hline
+{\em datafim} & data de fim da tarefa \\
+\hline
+{\em dataestimada} & data estimada \\
+\hline
+{\em info} & informacao da tarefa \\
+\hline
+{\em titulo} & titulo da tarefa \\
+\hline
+{\em tipo} & tipo da tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a10278a2424c4814eff2ee546aac76e82}{\index{B\-Dados@{B\-Dados}!associar\-Duracao@{associar\-Duracao}}
+\index{associar\-Duracao@{associar\-Duracao}!BDados@{B\-Dados}}
+\subsubsection[{associar\-Duracao}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::associar\-Duracao (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User, }
+\item[{int}]{cod\-Tarefa, }
+\item[{int}]{duracao}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a10278a2424c4814eff2ee546aac76e82}
+Associa uma duracao a uma tarefa 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo utilizador \\
+\hline
+{\em cod\-Tarefa} & codigo tarefa \\
+\hline
+{\em duracao} & duracao \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a9300d771200d124da4c862e430e87988}{\index{B\-Dados@{B\-Dados}!associar\-Informacao@{associar\-Informacao}}
+\index{associar\-Informacao@{associar\-Informacao}!BDados@{B\-Dados}}
+\subsubsection[{associar\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}bool B\-Dados\-::associar\-Informacao (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Tarefa, }
+\item[{int}]{cod\-Informacao}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a9300d771200d124da4c862e430e87988}
+associa informacao presente no sistema a uma dada tarefa 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Tarefa} & codigo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a1128fd4d73586d83022b82e96415840f}{\index{B\-Dados@{B\-Dados}!associar\-Tarefa@{associar\-Tarefa}}
+\index{associar\-Tarefa@{associar\-Tarefa}!BDados@{B\-Dados}}
+\subsubsection[{associar\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}bool B\-Dados\-::associar\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Tarefa, }
+\item[{int}]{cod\-Projeto}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a1128fd4d73586d83022b82e96415840f}
+Permite associar uma tarefa a um projeto 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Tarefa} & codigo da tarefa \\
+\hline
+{\em cod\-Projeto} & codigo do projeto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+verdadeiro caso consiga associar uma tarefa 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a8512f98b95d54b46ea18ed2e18566e48}{\index{B\-Dados@{B\-Dados}!associar\-Tarefa\-Contexto@{associar\-Tarefa\-Contexto}}
+\index{associar\-Tarefa\-Contexto@{associar\-Tarefa\-Contexto}!BDados@{B\-Dados}}
+\subsubsection[{associar\-Tarefa\-Contexto}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::associar\-Tarefa\-Contexto (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Contexto, }
+\item[{int}]{cod\-Tarefa}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a8512f98b95d54b46ea18ed2e18566e48}
+Permite associar uma tarefa a um contexto 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Contexto} & codigo contexto \\
+\hline
+{\em cod\-Tarefa} & codigo tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a5e98953aca7656eb6dfff56bdd0ac3f5}{\index{B\-Dados@{B\-Dados}!associar\-Tarefa\-Nivel@{associar\-Tarefa\-Nivel}}
+\index{associar\-Tarefa\-Nivel@{associar\-Tarefa\-Nivel}!BDados@{B\-Dados}}
+\subsubsection[{associar\-Tarefa\-Nivel}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::associar\-Tarefa\-Nivel (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User, }
+\item[{int}]{cod\-Tarefa, }
+\item[{int}]{nivel}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a5e98953aca7656eb6dfff56bdd0ac3f5}
+Permite associar uma tarefa com um nivel 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo utilizador \\
+\hline
+{\em cod\-Tarefa} & codigo tarefa \\
+\hline
+{\em nivel} & codigo nivel \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_ad61fd68a066a26e97d8fe2fd7cf66270}{\index{B\-Dados@{B\-Dados}!convert\-Data@{convert\-Data}}
+\index{convert\-Data@{convert\-Data}!BDados@{B\-Dados}}
+\subsubsection[{convert\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} B\-Dados\-::convert\-Data (
+\begin{DoxyParamCaption}
+\item[{string}]{date}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_ad61fd68a066a26e97d8fe2fd7cf66270}
+converte uma data presente numa string (no formato A\-A.\-M\-M.\-D\-D) para um objecto do tipo \hyperlink{class_data}{Data} 
+\begin{DoxyParams}{Parameters}
+{\em data} & string com data no formato A\-A.\-M\-M.\-D\-D \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+temp objecto do tipo \hyperlink{class_data}{Data} 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a11d1bb24bda2f99a8c19e003716615d9}{\index{B\-Dados@{B\-Dados}!criar\-Contexto@{criar\-Contexto}}
+\index{criar\-Contexto@{criar\-Contexto}!BDados@{B\-Dados}}
+\subsubsection[{criar\-Contexto}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::criar\-Contexto (
+\begin{DoxyParamCaption}
+\item[{string}]{descricao}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a11d1bb24bda2f99a8c19e003716615d9}
+Permite criar um contexto 
+\begin{DoxyParams}{Parameters}
+{\em descricao} & descricao de um contexto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a1f328f854e55375ba11c35bdba713b9d}{\index{B\-Dados@{B\-Dados}!delegar\-Tarefa@{delegar\-Tarefa}}
+\index{delegar\-Tarefa@{delegar\-Tarefa}!BDados@{B\-Dados}}
+\subsubsection[{delegar\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::delegar\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User, }
+\item[{int}]{cod\-Tarefa, }
+\item[{int}]{cod\-Util}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a1f328f854e55375ba11c35bdba713b9d}
+Permite delegar uma tarefa a um utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo utilizador \\
+\hline
+{\em cod\-Tarefa} & codigo tarefa \\
+\hline
+{\em cod\-Util} & codigo utilizador a sofrer a delegacao \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_ad4b08c40697c9e59382b885c059dca0d}{\index{B\-Dados@{B\-Dados}!eliminar\-Contexto@{eliminar\-Contexto}}
+\index{eliminar\-Contexto@{eliminar\-Contexto}!BDados@{B\-Dados}}
+\subsubsection[{eliminar\-Contexto}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::eliminar\-Contexto (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Contexto}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_ad4b08c40697c9e59382b885c059dca0d}
+Permite eliminar um contexto da base de dados 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Contexto} & codigo contexto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_ad39cd045bce3925493aa756f28f5a947}{\index{B\-Dados@{B\-Dados}!eliminar\-Projeto@{eliminar\-Projeto}}
+\index{eliminar\-Projeto@{eliminar\-Projeto}!BDados@{B\-Dados}}
+\subsubsection[{eliminar\-Projeto}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::eliminar\-Projeto (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User, }
+\item[{int}]{cod\-Projeto}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_ad39cd045bce3925493aa756f28f5a947}
+Permite eliminar um projeto da base de dados 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo utilizador \\
+\hline
+{\em cod\-Projeto} & codigo projecto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a327c6e4b41f2612ff7451b32b405a37b}{\index{B\-Dados@{B\-Dados}!eliminar\-Tarefa@{eliminar\-Tarefa}}
+\index{eliminar\-Tarefa@{eliminar\-Tarefa}!BDados@{B\-Dados}}
+\subsubsection[{eliminar\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::eliminar\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User, }
+\item[{int}]{cod\-Tarefa}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a327c6e4b41f2612ff7451b32b405a37b}
+Permite eliminar uma tarefa da base de dados 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo utilizador \\
+\hline
+{\em cod\-Tarefa} & codigo tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a6667289022bc6f206b627d32b5f2056e}{\index{B\-Dados@{B\-Dados}!get\-Estado@{get\-Estado}}
+\index{get\-Estado@{get\-Estado}!BDados@{B\-Dados}}
+\subsubsection[{get\-Estado}]{\setlength{\rightskip}{0pt plus 5cm}string B\-Dados\-::get\-Estado (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Estado}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a6667289022bc6f206b627d32b5f2056e}
+metodo que retorna descricao do estado, para um dado codigo de estado 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Estado} & codigo de estado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+descricao do estado 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a88d695c4eb090b5a7b92ff0111dfb595}{\index{B\-Dados@{B\-Dados}!get\-User@{get\-User}}
+\index{get\-User@{get\-User}!BDados@{B\-Dados}}
+\subsubsection[{get\-User}]{\setlength{\rightskip}{0pt plus 5cm}string B\-Dados\-::get\-User (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a88d695c4eb090b5a7b92ff0111dfb595}
+retorna nome do utilizador, para um dado codigo de utilzador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo de utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nome do utilizador 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a6cf31d662e823a3af666feac9d0b547e}{\index{B\-Dados@{B\-Dados}!inserir\-Contexto@{inserir\-Contexto}}
+\index{inserir\-Contexto@{inserir\-Contexto}!BDados@{B\-Dados}}
+\subsubsection[{inserir\-Contexto}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::inserir\-Contexto (
+\begin{DoxyParamCaption}
+\item[{string}]{descricao}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a6cf31d662e823a3af666feac9d0b547e}
+inicia procedimento P\-L-\/\-S\-Q\-L para inserir registo na tabela \hyperlink{class_contexto}{Contexto} 
+\begin{DoxyParams}{Parameters}
+{\em descricao} & descricao do contexto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a4773e15427a3d89c36e8dfbccb68b962}{\index{B\-Dados@{B\-Dados}!inserir\-Estado@{inserir\-Estado}}
+\index{inserir\-Estado@{inserir\-Estado}!BDados@{B\-Dados}}
+\subsubsection[{inserir\-Estado}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::inserir\-Estado (
+\begin{DoxyParamCaption}
+\item[{string}]{descricao}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a4773e15427a3d89c36e8dfbccb68b962}
+inicia procedimento P\-L-\/\-S\-Q\-L para inserir estado na tabela Estado 
+\begin{DoxyParams}{Parameters}
+{\em descricao} & descricao do estado \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_ad9444cf93d26ed6ffb733e65f2136c6b}{\index{B\-Dados@{B\-Dados}!inserir\-Info@{inserir\-Info}}
+\index{inserir\-Info@{inserir\-Info}!BDados@{B\-Dados}}
+\subsubsection[{inserir\-Info}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::inserir\-Info (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User, }
+\item[{string}]{info}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_ad9444cf93d26ed6ffb733e65f2136c6b}
+insere informacao na base de dados 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo do utilizador \\
+\hline
+{\em info} & informacao na forma de texto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_abbb79e0809277078ed9908c00077236c}{\index{B\-Dados@{B\-Dados}!inserir\-Info\-Completa@{inserir\-Info\-Completa}}
+\index{inserir\-Info\-Completa@{inserir\-Info\-Completa}!BDados@{B\-Dados}}
+\subsubsection[{inserir\-Info\-Completa}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::inserir\-Info\-Completa (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User, }
+\item[{string}]{info, }
+\item[{int}]{cod\-Tarefa}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_abbb79e0809277078ed9908c00077236c}
+insere dados na tabela \hyperlink{class_informacao}{Informacao} 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo de utilizador \\
+\hline
+{\em info} & descricao, em texto, da informacao \\
+\hline
+{\em cod\-Tarefa} & codigo da tarefa associada a esta informacao \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_ad720996192c985f34a933f12fb8024f9}{\index{B\-Dados@{B\-Dados}!inserir\-Nivel@{inserir\-Nivel}}
+\index{inserir\-Nivel@{inserir\-Nivel}!BDados@{B\-Dados}}
+\subsubsection[{inserir\-Nivel}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::inserir\-Nivel (
+\begin{DoxyParamCaption}
+\item[{int}]{nivel\-Importancia, }
+\item[{string}]{desc}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_ad720996192c985f34a933f12fb8024f9}
+inicia procedimento P\-L-\/\-S\-Q\-L para inserir registo na tabela \hyperlink{class_nivel}{Nivel} 
+\begin{DoxyParams}{Parameters}
+{\em nivel\-Importancia} & nivel de importancia \\
+\hline
+{\em desc} & descricao do nivel de importancia \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_afacf52783af230ebfad53941f733de68}{\index{B\-Dados@{B\-Dados}!inserir\-Projeto@{inserir\-Projeto}}
+\index{inserir\-Projeto@{inserir\-Projeto}!BDados@{B\-Dados}}
+\subsubsection[{inserir\-Projeto}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::inserir\-Projeto (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User, }
+\item[{int}]{nivel\-Importancia, }
+\item[{string}]{data\-Inicio, }
+\item[{string}]{data\-Fim, }
+\item[{string}]{informacao, }
+\item[{string}]{nome, }
+\item[{int}]{cod\-Estado}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_afacf52783af230ebfad53941f733de68}
+Permite inserir um projeto na base de dados 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo utilizador \\
+\hline
+{\em nivel\-Importancia} & nivel de importacia do projeto \\
+\hline
+{\em data\-Inicio} & data de inicio do projeto \\
+\hline
+{\em data\-Fim} & data de fim do projeto \\
+\hline
+{\em informacao} & informacao do projeto \\
+\hline
+{\em nome} & nome do projeto \\
+\hline
+{\em cod\-Estado} & codigo estado \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_ad4d9cf1b7a66137635fe0b4b206437fe}{\index{B\-Dados@{B\-Dados}!inserir\-Projeto\-Completo@{inserir\-Projeto\-Completo}}
+\index{inserir\-Projeto\-Completo@{inserir\-Projeto\-Completo}!BDados@{B\-Dados}}
+\subsubsection[{inserir\-Projeto\-Completo}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::inserir\-Projeto\-Completo (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Projecto, }
+\item[{int}]{cod\-Estado, }
+\item[{int}]{cod\-Utilizador, }
+\item[{int}]{nivel\-Importancia, }
+\item[{string}]{data\-Inicio, }
+\item[{string}]{data\-Fim, }
+\item[{string}]{informacao, }
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_ad4d9cf1b7a66137635fe0b4b206437fe}
+insere novo registo na tabela \hyperlink{class_projecto}{Projecto} da base de dados 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Projecto} & codigo do projecto \\
+\hline
+{\em cod\-Estado} & codigo do estado do projecto \\
+\hline
+{\em cod\-Utilizador} & codigo do utilizador a que diz respeito o projecto \\
+\hline
+{\em nivel\-Importancia} & nivel de importancia do projecto \\
+\hline
+{\em data\-Inicio} & data de inicio do projecto \\
+\hline
+{\em data\-Fim} & data de fim do projecto \\
+\hline
+{\em informacao} & informacao associada ao projecto \\
+\hline
+{\em nome} & nome do projecto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a10638c7beb779c93a3ad588c36d9ba36}{\index{B\-Dados@{B\-Dados}!inserir\-Tarefa@{inserir\-Tarefa}}
+\index{inserir\-Tarefa@{inserir\-Tarefa}!BDados@{B\-Dados}}
+\subsubsection[{inserir\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::inserir\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{int}]{nivel\-Importancia, }
+\item[{string}]{data\-Inicio, }
+\item[{string}]{informacao, }
+\item[{string}]{data\-Estimada, }
+\item[{int}]{duracao, }
+\item[{string}]{tipo, }
+\item[{string}]{titulo, }
+\item[{int}]{tarefa\-Dependente, }
+\item[{int}]{cod\-Utilizador}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a10638c7beb779c93a3ad588c36d9ba36}
+insere tarefa na base de dados 
+\begin{DoxyParams}{Parameters}
+{\em nivel\-Importancia} & inteiro que corresponde ao nivel de importancia da tarefa (0\-: mais importante; 9\-: menos importante) \\
+\hline
+{\em \hyperlink{class_informacao}{Informacao}} & texto com informacao que vai ser usada para criar tarefa \\
+\hline
+{\em data\-Estimada} & texto com data estimada de duracao da tarefa \\
+\hline
+{\em data\-Inicio} & texto com a data de inicio da tarefa \\
+\hline
+{\em duracao} & inteiro com duracao da terefa (em minutos) \\
+\hline
+{\em tipo} & texto que indica qual o tipo da tarefa \\
+\hline
+{\em titulo} & texto com titulo a atribuir a tarefa \\
+\hline
+{\em tarefa\-Dependente} & inteiro que indica se existe dependencia na tarefa a ser criada \\
+\hline
+{\em cod\-Utilizador} & codigo do utilizador assoicado a tarefa a ser criada \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_aeedec6e5cfc470b2dfcf93b2cf5d06e0}{\index{B\-Dados@{B\-Dados}!inserir\-Tarefa\-Completa@{inserir\-Tarefa\-Completa}}
+\index{inserir\-Tarefa\-Completa@{inserir\-Tarefa\-Completa}!BDados@{B\-Dados}}
+\subsubsection[{inserir\-Tarefa\-Completa}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::inserir\-Tarefa\-Completa (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Tarefa, }
+\item[{int}]{cod\-Projecto, }
+\item[{int}]{cod\-Estado, }
+\item[{int}]{nivel\-Importancia, }
+\item[{string}]{data\-Inicio, }
+\item[{string}]{data\-Fim, }
+\item[{string}]{informacao, }
+\item[{string}]{data\-Estimada, }
+\item[{int}]{duracao, }
+\item[{string}]{tipo, }
+\item[{string}]{titulo, }
+\item[{int}]{dependente, }
+\item[{int}]{cod\-Utilizador, }
+\item[{int}]{n\-Contexto, }
+\item[{int}]{delegado}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_aeedec6e5cfc470b2dfcf93b2cf5d06e0}
+insere dados para todos os campos da tabela tarefa 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Tarefa} & codigo da tarefa \\
+\hline
+{\em cod\-Projecto} & codigo do projecto ao qual pertence a tarefa \\
+\hline
+{\em cod\-Estado} & codigo de estado da tarefa \\
+\hline
+{\em nivel\-Importancia} & nivel de importancia da tarefa \\
+\hline
+{\em data\-Criacao} & data de criacao da tarefa \\
+\hline
+{\em data\-Fim} & data de fim da tarefa \\
+\hline
+{\em informacao} & informacao sobre a tarefa \\
+\hline
+{\em data\-Estimada} & data estimada de fim da tarefa \\
+\hline
+{\em duracao} & duracao da tarefa, em minutos \\
+\hline
+{\em tipo} & tipo da tarefa \\
+\hline
+{\em titulo} & titulo da tarefa \\
+\hline
+{\em dependente} & codigo da tarefa da qual depende \\
+\hline
+{\em cod\-Utilizador} & codigo do utilizador ao qual corresponde a tarefa \\
+\hline
+{\em n\-Contexto} & contexto ao qual esta associada a tarefa \\
+\hline
+{\em delegado} & codigo do utilizador a quem a tarefa foi delegada \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a0773f95213edc45aff09f12e0aac5d51}{\index{B\-Dados@{B\-Dados}!inserir\-Tarefa\-Contexto@{inserir\-Tarefa\-Contexto}}
+\index{inserir\-Tarefa\-Contexto@{inserir\-Tarefa\-Contexto}!BDados@{B\-Dados}}
+\subsubsection[{inserir\-Tarefa\-Contexto}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::inserir\-Tarefa\-Contexto (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Tarefa, }
+\item[{int}]{cod\-Contexto}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a0773f95213edc45aff09f12e0aac5d51}
+inicia procedimento P\-L-\/\-S\-Q\-L para inserir registo na tabela Tarefa\-\_\-\-Contexto 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Tarefa} & codigo da tarefa \\
+\hline
+{\em cod\-Contexto} & codigo do contexto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a24dafc04c43e61c8ad601cf3e8965f1c}{\index{B\-Dados@{B\-Dados}!inserir\-Tipo@{inserir\-Tipo}}
+\index{inserir\-Tipo@{inserir\-Tipo}!BDados@{B\-Dados}}
+\subsubsection[{inserir\-Tipo}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::inserir\-Tipo (
+\begin{DoxyParamCaption}
+\item[{string}]{descricao}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a24dafc04c43e61c8ad601cf3e8965f1c}
+inicia procedimento P\-L-\/\-S\-Q\-L para inserir registo na tabela tipo 
+\begin{DoxyParams}{Parameters}
+{\em descricao} & descricao do tipo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_b_dados_aa476f0bd76a0b0d187d0e50e34979bdd}{\index{B\-Dados@{B\-Dados}!inserir\-Utilizador@{inserir\-Utilizador}}
+\index{inserir\-Utilizador@{inserir\-Utilizador}!BDados@{B\-Dados}}
+\subsubsection[{inserir\-Utilizador}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::inserir\-Utilizador (
+\begin{DoxyParamCaption}
+\item[{string}]{nome, }
+\item[{int}]{telefone, }
+\item[{string}]{login, }
+\item[{string}]{pass}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_aa476f0bd76a0b0d187d0e50e34979bdd}
+inicia procedimento P\-L-\/\-S\-Q\-L para insercao de novo utilizador na base de dados 
+\begin{DoxyParams}{Parameters}
+{\em nome} & nome do utilizador \\
+\hline
+{\em telefone} & telefone do utilizador \\
+\hline
+{\em login} & nome de login \\
+\hline
+{\em pass} & password do utilizador \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_adf75e2b436691359a54accd76fc64572}{\index{B\-Dados@{B\-Dados}!lista\-Contextos@{lista\-Contextos}}
+\index{lista\-Contextos@{lista\-Contextos}!BDados@{B\-Dados}}
+\subsubsection[{lista\-Contextos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Contexto} $>$ B\-Dados\-::lista\-Contextos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_adf75e2b436691359a54accd76fc64572}
+lista todos os contextos \begin{DoxyReturn}{Returns}
+lista do tipo \hyperlink{class_contexto}{Contexto} 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a8b866421bc8ea7206d1f8937ed91fc47}{\index{B\-Dados@{B\-Dados}!lista\-Estados@{lista\-Estados}}
+\index{lista\-Estados@{lista\-Estados}!BDados@{B\-Dados}}
+\subsubsection[{lista\-Estados}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::lista\-Estados (
+\begin{DoxyParamCaption}
+\item[{{\bf Lista}$<$ int $>$ $\ast$}]{codigos, }
+\item[{{\bf Lista}$<$ string $>$ $\ast$}]{descricoes}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a8b866421bc8ea7206d1f8937ed91fc47}
+preenche lista de codigos de estados e lista de descricoes de estados 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$codigos} & apontador para lista de codigos de estados \\
+\hline
+{\em $\ast$descricoes} & apontador para lista de descricoes de estados \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a74d0d709f5af118dad104fa6f7312182}{\index{B\-Dados@{B\-Dados}!lista\-Informacao@{lista\-Informacao}}
+\index{lista\-Informacao@{lista\-Informacao}!BDados@{B\-Dados}}
+\subsubsection[{lista\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Informacao} $>$ B\-Dados\-::lista\-Informacao (
+\begin{DoxyParamCaption}
+\item[{int}]{user}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a74d0d709f5af118dad104fa6f7312182}
+lista toda a informação de um dado utilizador 
+\begin{DoxyParams}{Parameters}
+{\em user} & codigo do utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_lista}{Lista$<$\-Informacao$>$} objecto do tipo \hyperlink{class_lista}{Lista} com todos os registos da tabela \hyperlink{class_informacao}{Informacao} 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_af581b477709070c65d8845404b7cfad1}{\index{B\-Dados@{B\-Dados}!lista\-Info\-Sem\-Tarefa@{lista\-Info\-Sem\-Tarefa}}
+\index{lista\-Info\-Sem\-Tarefa@{lista\-Info\-Sem\-Tarefa}!BDados@{B\-Dados}}
+\subsubsection[{lista\-Info\-Sem\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Informacao} $>$ B\-Dados\-::lista\-Info\-Sem\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_af581b477709070c65d8845404b7cfad1}
+lista todos os registos de informacao que nao estejam associados a uma tarefa para um dado utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo do utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+objecto do tipo lista com as informacoes sem tarefas associadas 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a30b07ef16886417fce5aee48e702ced5}{\index{B\-Dados@{B\-Dados}!listar\-Cod\-Contextos@{listar\-Cod\-Contextos}}
+\index{listar\-Cod\-Contextos@{listar\-Cod\-Contextos}!BDados@{B\-Dados}}
+\subsubsection[{listar\-Cod\-Contextos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ int $>$ B\-Dados\-::listar\-Cod\-Contextos (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Tarefa}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a30b07ef16886417fce5aee48e702ced5}
+adiciona a lista o registo da tabela tarefa\-\_\-contexto com um dado codigo de tarefa 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Tarefa} & codigo da tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a4e67a87c2641c33ef51fc9276d6f9ff4}{\index{B\-Dados@{B\-Dados}!listar\-Contextos@{listar\-Contextos}}
+\index{listar\-Contextos@{listar\-Contextos}!BDados@{B\-Dados}}
+\subsubsection[{listar\-Contextos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Contexto} $>$ B\-Dados\-::listar\-Contextos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a4e67a87c2641c33ef51fc9276d6f9ff4}
+guarda numa lista todos os contextos da tabela \hyperlink{class_contexto}{Contexto} da base de dados \begin{DoxyReturn}{Returns}
+devolve lista com todos os contextos 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a429c49da7769d5445e527eb5b86227d1}{\index{B\-Dados@{B\-Dados}!listar\-Historico\-Informacao@{listar\-Historico\-Informacao}}
+\index{listar\-Historico\-Informacao@{listar\-Historico\-Informacao}!BDados@{B\-Dados}}
+\subsubsection[{listar\-Historico\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Historico\-Informacao} $>$ B\-Dados\-::listar\-Historico\-Informacao (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a429c49da7769d5445e527eb5b86227d1}
+lista todo o historico de informacao de um dado utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo de utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+lista do tipo \hyperlink{class_historico_informacao}{Historico\-Informacao} 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_aed8b924bcc5a058d223578daf9c36e3d}{\index{B\-Dados@{B\-Dados}!listar\-Historico\-Projecto@{listar\-Historico\-Projecto}}
+\index{listar\-Historico\-Projecto@{listar\-Historico\-Projecto}!BDados@{B\-Dados}}
+\subsubsection[{listar\-Historico\-Projecto}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Historico\-Projecto} $>$ B\-Dados\-::listar\-Historico\-Projecto (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_aed8b924bcc5a058d223578daf9c36e3d}
+lista o historico de projectos 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo de utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devolve lista do tipo \hyperlink{class_historico_projecto}{Historico\-Projecto} 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a4a80d378f496587643fa5551f3679534}{\index{B\-Dados@{B\-Dados}!listar\-Historico\-Tarefa@{listar\-Historico\-Tarefa}}
+\index{listar\-Historico\-Tarefa@{listar\-Historico\-Tarefa}!BDados@{B\-Dados}}
+\subsubsection[{listar\-Historico\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Historico\-Tarefa} $>$ B\-Dados\-::listar\-Historico\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a4a80d378f496587643fa5551f3679534}
+lista o historico de tarefas de um dado utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo de utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devolve lista do tipo \hyperlink{class_historico_tarefa}{Historico\-Tarefa} 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_ae4702b62a0ffea33c81e61bb2f473ce1}{\index{B\-Dados@{B\-Dados}!listar\-Lembrete@{listar\-Lembrete}}
+\index{listar\-Lembrete@{listar\-Lembrete}!BDados@{B\-Dados}}
+\subsubsection[{listar\-Lembrete}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Tarefa} $>$ B\-Dados\-::listar\-Lembrete (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_ae4702b62a0ffea33c81e61bb2f473ce1}
+lista todos os lembretes de um dado utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo de utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+lista do tipo tarefa 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a4b2f6dd0685eacd37d53d3911160c97e}{\index{B\-Dados@{B\-Dados}!listar\-Niveis@{listar\-Niveis}}
+\index{listar\-Niveis@{listar\-Niveis}!BDados@{B\-Dados}}
+\subsubsection[{listar\-Niveis}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Nivel} $>$ B\-Dados\-::listar\-Niveis (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a4b2f6dd0685eacd37d53d3911160c97e}
+guarda numa lista todos os nives de importancia da tabela \hyperlink{class_nivel}{Nivel} da base de dados \begin{DoxyReturn}{Returns}
+devolve lista com todos os niveis de importancia 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_ad77e58ac122d5c9ae6f59a1ae95f385a}{\index{B\-Dados@{B\-Dados}!listar\-Projectos@{listar\-Projectos}}
+\index{listar\-Projectos@{listar\-Projectos}!BDados@{B\-Dados}}
+\subsubsection[{listar\-Projectos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Projecto} $>$ B\-Dados\-::listar\-Projectos (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_ad77e58ac122d5c9ae6f59a1ae95f385a}
+lista todos os projectos do utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo do utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lista$<$\-Projecto$>$ objecto do tipo \hyperlink{class_lista}{Lista} com todos os registos da tabela projecto 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_ac68b96751def3a8ef11e8df3aafb21dc}{\index{B\-Dados@{B\-Dados}!listar\-Projetos\-Todos@{listar\-Projetos\-Todos}}
+\index{listar\-Projetos\-Todos@{listar\-Projetos\-Todos}!BDados@{B\-Dados}}
+\subsubsection[{listar\-Projetos\-Todos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Projecto} $>$ B\-Dados\-::listar\-Projetos\-Todos (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_ac68b96751def3a8ef11e8df3aafb21dc}
+insere numa lista todos os projecto de um dado utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo de utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devolve lista do tipo \hyperlink{class_projecto}{Projecto} 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a2010e43758723749b02084010512974e}{\index{B\-Dados@{B\-Dados}!listar\-Tarefas\-Por\-Realizar@{listar\-Tarefas\-Por\-Realizar}}
+\index{listar\-Tarefas\-Por\-Realizar@{listar\-Tarefas\-Por\-Realizar}!BDados@{B\-Dados}}
+\subsubsection[{listar\-Tarefas\-Por\-Realizar}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Tarefa} $>$ B\-Dados\-::listar\-Tarefas\-Por\-Realizar (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a2010e43758723749b02084010512974e}
+lista todas as tarefas por realizar de um dado utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo de utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devolve lista do tipo \hyperlink{class_tarefa}{Tarefa} 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a6857fb5fe205fe9d5ec098c6ac9a45ca}{\index{B\-Dados@{B\-Dados}!listar\-Tarefas\-Realizadas@{listar\-Tarefas\-Realizadas}}
+\index{listar\-Tarefas\-Realizadas@{listar\-Tarefas\-Realizadas}!BDados@{B\-Dados}}
+\subsubsection[{listar\-Tarefas\-Realizadas}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Tarefa} $>$ B\-Dados\-::listar\-Tarefas\-Realizadas (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a6857fb5fe205fe9d5ec098c6ac9a45ca}
+lista todas as tarefas realizadas de um utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo de utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devolve lista do tipo \hyperlink{class_tarefa}{Tarefa} 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a7f1211669241e9ce78c1485b78332899}{\index{B\-Dados@{B\-Dados}!listar\-Tarefas\-Todas@{listar\-Tarefas\-Todas}}
+\index{listar\-Tarefas\-Todas@{listar\-Tarefas\-Todas}!BDados@{B\-Dados}}
+\subsubsection[{listar\-Tarefas\-Todas}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Tarefa} $>$ B\-Dados\-::listar\-Tarefas\-Todas (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a7f1211669241e9ce78c1485b78332899}
+lista todas as tarefas do utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo do utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_lista}{Lista$<$\-Tarefa$>$} objecto do tipo \hyperlink{class_lista}{Lista} com todos os registos da tabela tarefa 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a61520728507dc710630a1be06a5c191b}{\index{B\-Dados@{B\-Dados}!listar\-Utilizadores@{listar\-Utilizadores}}
+\index{listar\-Utilizadores@{listar\-Utilizadores}!BDados@{B\-Dados}}
+\subsubsection[{listar\-Utilizadores}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Utilizador} $>$ B\-Dados\-::listar\-Utilizadores (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a61520728507dc710630a1be06a5c191b}
+guarda numa lista todos os utlizadores da tabela \hyperlink{class_utilizador}{Utilizador} da base de dados \begin{DoxyReturn}{Returns}
+devolve lista com todos os utilizadors 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_af4fb66ba48dcaacbb67d045e99b53dca}{\index{B\-Dados@{B\-Dados}!lista\-Tarefa\-Contexto@{lista\-Tarefa\-Contexto}}
+\index{lista\-Tarefa\-Contexto@{lista\-Tarefa\-Contexto}!BDados@{B\-Dados}}
+\subsubsection[{lista\-Tarefa\-Contexto}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::lista\-Tarefa\-Contexto (
+\begin{DoxyParamCaption}
+\item[{{\bf Lista}$<$ int $>$ $\ast$}]{codigo\-Tarefa, }
+\item[{{\bf Lista}$<$ int $>$ $\ast$}]{codigo\-Contexto}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_af4fb66ba48dcaacbb67d045e99b53dca}
+preenche listas de Tarefa\-\_\-\-Contexto e lista de Codigo\-\_\-\-Contexto 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$codigo\-Tarefa} & apontador para \hyperlink{class_lista}{Lista} de codigos de tarefas \\
+\hline
+{\em $\ast$codigo\-Contxto} & apontador para lista de codigo de contextos \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_aabffd3f78855917f3a6274105ce03a64}{\index{B\-Dados@{B\-Dados}!lista\-Tipos@{lista\-Tipos}}
+\index{lista\-Tipos@{lista\-Tipos}!BDados@{B\-Dados}}
+\subsubsection[{lista\-Tipos}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::lista\-Tipos (
+\begin{DoxyParamCaption}
+\item[{{\bf Lista}$<$ int $>$ $\ast$}]{codigos, }
+\item[{{\bf Lista}$<$ string $>$ $\ast$}]{descricoes}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_aabffd3f78855917f3a6274105ce03a64}
+preenche listas de codigos de tipo e lista de descricoes de tipo 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$codigos} & apontador para lista de codigos de tipo \\
+\hline
+{\em $\ast$descricoes} & apontador para lista de descricoes de tipo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a5ef50f30845495e35a4bda2a56caa8a4}{\index{B\-Dados@{B\-Dados}!login@{login}}
+\index{login@{login}!BDados@{B\-Dados}}
+\subsubsection[{login}]{\setlength{\rightskip}{0pt plus 5cm}int B\-Dados\-::login (
+\begin{DoxyParamCaption}
+\item[{string}]{user, }
+\item[{string}]{pass}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a5ef50f30845495e35a4bda2a56caa8a4}
+metodo que faz a autenticacao do utilizador na aplicacao 
+\begin{DoxyParams}{Parameters}
+{\em user} & nome da conta do utilizador na aplicacao \\
+\hline
+{\em pass} & palavra-\/passe do utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+codigo do utilizador caso acesso seja autenticado, ou -\/1 caso caso a autenticao falhe 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a94d9f0dcf3d888f90c54ae5821a8a9b1}{\index{B\-Dados@{B\-Dados}!ordenar\-Prioridade@{ordenar\-Prioridade}}
+\index{ordenar\-Prioridade@{ordenar\-Prioridade}!BDados@{B\-Dados}}
+\subsubsection[{ordenar\-Prioridade}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Tarefa} $>$ B\-Dados\-::ordenar\-Prioridade (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a94d9f0dcf3d888f90c54ae5821a8a9b1}
+ordena tarefas por prioridade para um dado utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo de utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devolve lista do tipo \hyperlink{class_tarefa}{Tarefa} 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a107c634dd2407846c3425f1b89da5d02}{\index{B\-Dados@{B\-Dados}!ordenar\-Tarefas\-Contexto@{ordenar\-Tarefas\-Contexto}}
+\index{ordenar\-Tarefas\-Contexto@{ordenar\-Tarefas\-Contexto}!BDados@{B\-Dados}}
+\subsubsection[{ordenar\-Tarefas\-Contexto}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Tarefa} $>$ B\-Dados\-::ordenar\-Tarefas\-Contexto (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a107c634dd2407846c3425f1b89da5d02}
+ordena tarefas pelo seu contexto 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo do utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devolve lista do tipo \hyperlink{class_tarefa}{Tarefa} 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_ac8b924f399b297f3ec742c9b71d0c546}{\index{B\-Dados@{B\-Dados}!ordenar\-Tarefas\-Estimativa@{ordenar\-Tarefas\-Estimativa}}
+\index{ordenar\-Tarefas\-Estimativa@{ordenar\-Tarefas\-Estimativa}!BDados@{B\-Dados}}
+\subsubsection[{ordenar\-Tarefas\-Estimativa}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Tarefa} $>$ B\-Dados\-::ordenar\-Tarefas\-Estimativa (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_ac8b924f399b297f3ec742c9b71d0c546}
+ordena tarefa por estimativa de tempo para um dado utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo de utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devolve lista do tipo \hyperlink{class_tarefa}{Tarefa} 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_aa803085cb66d76477151ec0c01079943}{\index{B\-Dados@{B\-Dados}!pode\-Associar\-Info@{pode\-Associar\-Info}}
+\index{pode\-Associar\-Info@{pode\-Associar\-Info}!BDados@{B\-Dados}}
+\subsubsection[{pode\-Associar\-Info}]{\setlength{\rightskip}{0pt plus 5cm}bool B\-Dados\-::pode\-Associar\-Info (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Informacao}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_aa803085cb66d76477151ec0c01079943}
+verifica se e possivel associar informacao a uma tarefa 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Informacao} & codigo da informacao \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se for possivel associar informacao, false no caso oposto 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a8c4d12d51845e32ec09b1df737c35b8a}{\index{B\-Dados@{B\-Dados}!pode\-Associar\-Tare@{pode\-Associar\-Tare}}
+\index{pode\-Associar\-Tare@{pode\-Associar\-Tare}!BDados@{B\-Dados}}
+\subsubsection[{pode\-Associar\-Tare}]{\setlength{\rightskip}{0pt plus 5cm}bool B\-Dados\-::pode\-Associar\-Tare (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Tarefa}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a8c4d12d51845e32ec09b1df737c35b8a}
+Verifica se pode associar uma tarefa a um determinado projeto 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Tarefa} & codigo da tarefa \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+verdadeiro a associacao seja possivel 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_aafb7b3d72a99928eec7ac1e54ba6e8f3}{\index{B\-Dados@{B\-Dados}!realizar\-Tarefa@{realizar\-Tarefa}}
+\index{realizar\-Tarefa@{realizar\-Tarefa}!BDados@{B\-Dados}}
+\subsubsection[{realizar\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::realizar\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User, }
+\item[{int}]{cod\-Tarefa}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_aafb7b3d72a99928eec7ac1e54ba6e8f3}
+Altera o estado de uma tarefa para realizada 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo utilizador \\
+\hline
+{\em cod\-Tarefa} & codigo tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a436ea9d9faf6c87ce9a333450de17489}{\index{B\-Dados@{B\-Dados}!remover\-Delegacao@{remover\-Delegacao}}
+\index{remover\-Delegacao@{remover\-Delegacao}!BDados@{B\-Dados}}
+\subsubsection[{remover\-Delegacao}]{\setlength{\rightskip}{0pt plus 5cm}void B\-Dados\-::remover\-Delegacao (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User, }
+\item[{int}]{cod\-Tarefa}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a436ea9d9faf6c87ce9a333450de17489}
+Permite remover a delegacao de um utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo utilizador \\
+\hline
+{\em cod\-Tarefa} & codigo tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_dados_a455d0a1f851f729e0c4ddfa9f8741302}{\index{B\-Dados@{B\-Dados}!ultima\-Info@{ultima\-Info}}
+\index{ultima\-Info@{ultima\-Info}!BDados@{B\-Dados}}
+\subsubsection[{ultima\-Info}]{\setlength{\rightskip}{0pt plus 5cm}int B\-Dados\-::ultima\-Info (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a455d0a1f851f729e0c4ddfa9f8741302}
+devolve o codigo da ultima informacao da tabela de informacao de um dado utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo do utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devolve o codigo da ultima informacao, caso nao exista devolve -\/1 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a0a0a16a40a9c6fb68936107a768ea05a}{\index{B\-Dados@{B\-Dados}!ultima\-Tarefa@{ultima\-Tarefa}}
+\index{ultima\-Tarefa@{ultima\-Tarefa}!BDados@{B\-Dados}}
+\subsubsection[{ultima\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}int B\-Dados\-::ultima\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a0a0a16a40a9c6fb68936107a768ea05a}
+devolve o codigo da ultima tarefa da tabela de tarefas de um dado utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo do utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devolve o codigo da ultima tarefa, caso nao exista nenhuma devolve -\/1 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a693c18c19073b594749048b89a0e5f20}{\index{B\-Dados@{B\-Dados}!ultimo\-Projeto@{ultimo\-Projeto}}
+\index{ultimo\-Projeto@{ultimo\-Projeto}!BDados@{B\-Dados}}
+\subsubsection[{ultimo\-Projeto}]{\setlength{\rightskip}{0pt plus 5cm}int B\-Dados\-::ultimo\-Projeto (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a693c18c19073b594749048b89a0e5f20}
+Permite obter o codigo do ultimo projeto inserido 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+codigo do ultimo projeto inserido 
+\end{DoxyReturn}
+\hypertarget{class_b_dados_a1a1983a52b1d0aee1a786e3d2297fd2b}{\index{B\-Dados@{B\-Dados}!ver\-Tarefas\-Delegadas@{ver\-Tarefas\-Delegadas}}
+\index{ver\-Tarefas\-Delegadas@{ver\-Tarefas\-Delegadas}!BDados@{B\-Dados}}
+\subsubsection[{ver\-Tarefas\-Delegadas}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Tarefa} $>$ B\-Dados\-::ver\-Tarefas\-Delegadas (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_b_dados_a1a1983a52b1d0aee1a786e3d2297fd2b}
+permite ver todas as tarefas delegadas por um dado utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo de utilizador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+lista do tipo \hyperlink{class_tarefa}{Tarefa} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_b_dados_8h}{B\-Dados.\-h}\end{DoxyCompactItemize}

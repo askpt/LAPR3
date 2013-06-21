@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['importarcontextos',['importarContextos',['../class_c_s_v.html#ade9ea5c4cc8ee38acdfa9cb6825c5330',1,'CSV']]],
+  ['importarestados',['importarEstados',['../class_c_s_v.html#a7d62fe1893dc495105cd50bce845d267',1,'CSV']]],
+  ['importarinformacoes',['importarInformacoes',['../class_c_s_v.html#a2b7fef3b1612dbf24022badee92f3528',1,'CSV']]],
+  ['importarniveis',['importarNiveis',['../class_c_s_v.html#a2d3974450c44af397e7e5ebd5c3c2b89',1,'CSV']]],
+  ['importarprojectos',['importarProjectos',['../class_c_s_v.html#a1044aed2eaffb8c39a3ab1783e95295a',1,'CSV']]],
+  ['importartarefacontexto',['importarTarefaContexto',['../class_c_s_v.html#ab978faff3552bb342a9cb96dc2c9e203',1,'CSV']]],
+  ['importartarefas',['importarTarefas',['../class_c_s_v.html#aa39336057cdfecd826c60d8c87dc1cb9',1,'CSV']]],
+  ['importartipos',['importarTipos',['../class_c_s_v.html#ad08ae95a50c6f744874e1def484c0b36',1,'CSV']]],
+  ['importarutilizadores',['importarUtilizadores',['../class_c_s_v.html#a8c8ca16b94b4dc52fe0210d16950b884',1,'CSV']]],
+  ['informacao',['Informacao',['../class_informacao.html',1,'Informacao'],['../class_informacao.html#a5149ad8e568096a238ef19642c4d0a0f',1,'Informacao::Informacao()'],['../class_informacao.html#ad5f6f2921f5390382c6d4137846a7a1b',1,'Informacao::Informacao(int codInformacao, int codTarefa, string descricao, Data dataInsercao, int codUtilizador)'],['../class_informacao.html#aab79e77f14d843ec13b23cc9079fd575',1,'Informacao::Informacao(const Informacao &amp;i)']]],
+  ['informacao_2eh',['Informacao.h',['../_informacao_8h.html',1,'']]],
+  ['inserircontexto',['inserirContexto',['../class_b_dados.html#a6cf31d662e823a3af666feac9d0b547e',1,'BDados']]],
+  ['inserirestado',['inserirEstado',['../class_b_dados.html#a4773e15427a3d89c36e8dfbccb68b962',1,'BDados']]],
+  ['inseririnfo',['inserirInfo',['../class_b_dados.html#ad9444cf93d26ed6ffb733e65f2136c6b',1,'BDados::inserirInfo()'],['../main_8cpp.html#a11e2596f13e288e7fa5d193a01cf248e',1,'inserirInfo():&#160;main.cpp']]],
+  ['inseririnfocompleta',['inserirInfoCompleta',['../class_b_dados.html#abbb79e0809277078ed9908c00077236c',1,'BDados']]],
+  ['inserirnivel',['inserirNivel',['../class_b_dados.html#ad720996192c985f34a933f12fb8024f9',1,'BDados']]],
+  ['inserirprojeto',['inserirProjeto',['../class_b_dados.html#afacf52783af230ebfad53941f733de68',1,'BDados::inserirProjeto()'],['../main_8cpp.html#a80fde38dfe7dfd7e61a89180b2fcbaf0',1,'inserirProjeto():&#160;main.cpp']]],
+  ['inserirprojetocompleto',['inserirProjetoCompleto',['../class_b_dados.html#ad4d9cf1b7a66137635fe0b4b206437fe',1,'BDados']]],
+  ['inserirtarefa',['inserirTarefa',['../class_b_dados.html#a10638c7beb779c93a3ad588c36d9ba36',1,'BDados::inserirTarefa()'],['../main_8cpp.html#a23b83d00362937b9c0c4c212382ea708',1,'inserirTarefa():&#160;main.cpp']]],
+  ['inserirtarefacompleta',['inserirTarefaCompleta',['../class_b_dados.html#aeedec6e5cfc470b2dfcf93b2cf5d06e0',1,'BDados']]],
+  ['inserirtarefacontexto',['inserirTarefaContexto',['../class_b_dados.html#a0773f95213edc45aff09f12e0aac5d51',1,'BDados']]],
+  ['inserirtipo',['inserirTipo',['../class_b_dados.html#a24dafc04c43e61c8ad601cf3e8965f1c',1,'BDados']]],
+  ['inserirutilizador',['inserirUtilizador',['../class_b_dados.html#aa476f0bd76a0b0d187d0e50e34979bdd',1,'BDados']]]
+];

@@ -1,0 +1,573 @@
+\hypertarget{class_tarefa}{\section{Tarefa Class Reference}
+\label{class_tarefa}\index{Tarefa@{Tarefa}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_tarefa_a120eea6d4d78b034aec8da4ad4d773c0}{Tarefa} ()
+\item 
+\hyperlink{class_tarefa_aa8f23ede14310c61fa40ab16646a1cee}{Tarefa} (int cod\-Tarefa, int cod\-Projecto, int cod\-Estado, int nivel\-Importancia, \hyperlink{class_data}{Data} data\-Criacao, \hyperlink{class_data}{Data} data\-Fim, string informacao, \hyperlink{class_data}{Data} data\-Estimada, int duracao, string tipo, string titulo, int cod\-Dependente, int cod\-Utilizador, int n\-Contexto, int delegado)
+\item 
+\hyperlink{class_tarefa_a0c2f990dbb84beaadb950abecd104957}{Tarefa} (const \hyperlink{class_tarefa}{Tarefa} \&t)
+\item 
+\hyperlink{class_tarefa_ac0aded2b1a1333b92633e4f82d3d3ab7}{$\sim$\-Tarefa} ()
+\item 
+int \hyperlink{class_tarefa_a2cebb22d7a9e5993ce615c5e84b2c6e9}{get\-Cod\-Tarefa} () const 
+\item 
+int \hyperlink{class_tarefa_ac7d8c656e395261394dd5a4e21d05b47}{get\-Cod\-Projecto} () const 
+\item 
+int \hyperlink{class_tarefa_a77d2f0ee46d2ea9ba748ce9a93b6e8c7}{get\-Cod\-Estado} () const 
+\item 
+int \hyperlink{class_tarefa_a4664d01e62d6cd78b21179c5864c7966}{get\-Cod\-Utilizador} () const 
+\item 
+int \hyperlink{class_tarefa_a0447233a0d5d5c2a93f437684058d246}{get\-Nivel\-Importancia} () const 
+\item 
+int \hyperlink{class_tarefa_aae9980cb54f0d33f2eaa282d1bb95c35}{get\-Duracao} () const 
+\item 
+int \hyperlink{class_tarefa_a973b2fc5a7d329b3aa86b6cb450eaa50}{get\-Cod\-Dependente} () const 
+\item 
+int \hyperlink{class_tarefa_a5db3ff430e37ab92acef8d5b6876c625}{get\-N\-Contextos} () const 
+\item 
+int \hyperlink{class_tarefa_adb79135231d9790da3baa3a1db20599b}{get\-Delegado} () const 
+\item 
+\hyperlink{class_data}{Data} \hyperlink{class_tarefa_acceb78bd71db1b041b3199eec2db0b53}{get\-Data\-Criacao} ()
+\item 
+\hyperlink{class_data}{Data} \hyperlink{class_tarefa_abb6c005bec5e57d515f97aa8d7103f08}{get\-Data\-Fim} ()
+\item 
+\hyperlink{class_data}{Data} \hyperlink{class_tarefa_aac9cee9cff017af3d21c01b2038fbb70}{get\-Data\-Estimada} ()
+\item 
+string \hyperlink{class_tarefa_a9c6df2bb0c78c8702cd3b125225754ec}{get\-Informacao} () const 
+\item 
+string \hyperlink{class_tarefa_a5c4fca9fc2f08dc569460e01fd894799}{get\-Titulo} () const 
+\item 
+string \hyperlink{class_tarefa_a74ae175b0d90c4b2e2273173de6872ab}{get\-Tipo} () const 
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_contexto}{Contexto} $>$ \hyperlink{class_tarefa_a1098feb5c842c43b5d7376edc798936c}{get\-Lista\-Contextos} ()
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_informacao}{Informacao} $>$ \hyperlink{class_tarefa_a3409664169de2c5e2bc79f3dc6226847}{get\-Lista\-Informacoes} ()
+\item 
+void \hyperlink{class_tarefa_a460882d0d19d62a2dc11a5bedd0ac009}{set\-Nivel\-Importancia} (const int nivel\-Importancia)
+\item 
+void \hyperlink{class_tarefa_ac37a73882fd67ad9f02044bb772f7258}{set\-Informacao} (const string informacao)
+\item 
+void \hyperlink{class_tarefa_af925b390c42d3f8ccca656d0ddedb379}{set\-Data\-Estimada} (const \hyperlink{class_data}{Data} data\-Estimada)
+\item 
+void \hyperlink{class_tarefa_ad3d8f9f57b64bcbd750c1bb2ade1c258}{set\-Data\-Criacao} (const \hyperlink{class_data}{Data} data\-Criacao)
+\item 
+void \hyperlink{class_tarefa_aa0198d072b121a182debe593e7de584a}{set\-Data\-Fim} (const \hyperlink{class_data}{Data} data\-Fim)
+\item 
+void \hyperlink{class_tarefa_acb6d22840700c9dd5348aaab8b1ea638}{set\-Duracao} (const int duracao)
+\item 
+void \hyperlink{class_tarefa_af5f497e76c3ba01620a34bdd4645ba1e}{set\-Cod\-Dependente} (const int cod\-Dependente)
+\item 
+void \hyperlink{class_tarefa_af2ca42600e5746b52b9b69e091101088}{set\-Cod\-Utilizador} (const int cod\-Utilizador)
+\item 
+void \hyperlink{class_tarefa_a5ceaa94834a79f8351251957e787935d}{set\-Cod\-Projecto} (const int cod\-Projecto)
+\item 
+void \hyperlink{class_tarefa_a0790290eb8a761c1f04b8360f6738ab8}{set\-Cod\-Tarefa} (const int cod\-Tarefa)
+\item 
+void \hyperlink{class_tarefa_aea61452df9fe8527a06e4011b32900b6}{set\-Cod\-Estado} (const int cod\-Estado)
+\item 
+void \hyperlink{class_tarefa_a92053bb006b14ff49c750fc501f5f7ae}{set\-Tipo} (const string tipo)
+\item 
+void \hyperlink{class_tarefa_aaf5068c9185713d4ab04961f4e80c58d}{set\-Titulo} (const string titulo)
+\item 
+void \hyperlink{class_tarefa_a27ca7f4fa898681235a1cbd031c9a402}{set\-N\-Contextos} (const int n\-Contextos)
+\item 
+void \hyperlink{class_tarefa_a63dab5133df402c70eb3f513162a5c82}{set\-Delegado} (const int delegado)
+\item 
+void \hyperlink{class_tarefa_ab80857f9703d8d27fd1adcc36a84a601}{set\-Lista\-Contextos} (const \hyperlink{class_lista}{Lista}$<$ \hyperlink{class_contexto}{Contexto} $>$ lista\-Contextos)
+\item 
+void \hyperlink{class_tarefa_a620e4d48dfa6698aaccb74d40c8e6e96}{set\-Lista\-Informacoes} (const \hyperlink{class_lista}{Lista}$<$ \hyperlink{class_informacao}{Informacao} $>$ lista\-Informacoes)
+\item 
+virtual \hyperlink{class_tarefa}{Tarefa} $\ast$ \hyperlink{class_tarefa_a24ddead3a39186738160bde7f7f7dfe6}{clone} () const 
+\item 
+void \hyperlink{class_tarefa_a4c590b4c84b0cc12c57581c7f1912bfa}{escreve} (ostream \&out) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_tarefa_a120eea6d4d78b034aec8da4ad4d773c0}{\index{Tarefa@{Tarefa}!Tarefa@{Tarefa}}
+\index{Tarefa@{Tarefa}!Tarefa@{Tarefa}}
+\subsubsection[{Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}Tarefa\-::\-Tarefa (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_a120eea6d4d78b034aec8da4ad4d773c0}
+Construtor vazio. \hypertarget{class_tarefa_aa8f23ede14310c61fa40ab16646a1cee}{\index{Tarefa@{Tarefa}!Tarefa@{Tarefa}}
+\index{Tarefa@{Tarefa}!Tarefa@{Tarefa}}
+\subsubsection[{Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}Tarefa\-::\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Tarefa, }
+\item[{int}]{cod\-Projecto, }
+\item[{int}]{cod\-Estado, }
+\item[{int}]{nivel\-Importancia, }
+\item[{{\bf Data}}]{data\-Criacao, }
+\item[{{\bf Data}}]{data\-Fim, }
+\item[{string}]{informacao, }
+\item[{{\bf Data}}]{data\-Estimada, }
+\item[{int}]{duracao, }
+\item[{string}]{tipo, }
+\item[{string}]{titulo, }
+\item[{int}]{cod\-Dependente, }
+\item[{int}]{cod\-Utilizador, }
+\item[{int}]{n\-Contextos, }
+\item[{int}]{delegado}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_aa8f23ede14310c61fa40ab16646a1cee}
+Construtor completo 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Tarefa} & codigo da tarefa \\
+\hline
+{\em cod\-Projecto} & codigo do projecto \\
+\hline
+{\em cod\-Estado} & codigo de estado da tarefa \\
+\hline
+{\em nivel\-Importancia} & nivel de importancia da tarefa \\
+\hline
+{\em data\-Criacao} & data de criacao da tarefa \\
+\hline
+{\em data\-Fim} & data de conclusao da tarefa \\
+\hline
+{\em informacao} & informacao sobre a tarefa \\
+\hline
+{\em data\-Estimada} & data estimada de fim da tarefa \\
+\hline
+{\em duracao} & duracao da tarefa, em minutos \\
+\hline
+{\em tipo} & tipo de tarefa \\
+\hline
+{\em titulo} & titulo da tarefa \\
+\hline
+{\em cod\-Dependente} & codigo da tarefa dependente desta \\
+\hline
+{\em cod\-Utilizador} & codigo de utilizador a que diz respeito a tarefa \\
+\hline
+{\em n\-Contextos} & numero de contextos associados a tarefa \\
+\hline
+{\em delegado} & codigo do utilizador ao qual foi delegada a tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_a0c2f990dbb84beaadb950abecd104957}{\index{Tarefa@{Tarefa}!Tarefa@{Tarefa}}
+\index{Tarefa@{Tarefa}!Tarefa@{Tarefa}}
+\subsubsection[{Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}Tarefa\-::\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tarefa} \&}]{t}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_a0c2f990dbb84beaadb950abecd104957}
+Construtor copia. 
+\begin{DoxyParams}{Parameters}
+{\em t} & objecto tarefa a ser copiado \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_ac0aded2b1a1333b92633e4f82d3d3ab7}{\index{Tarefa@{Tarefa}!$\sim$\-Tarefa@{$\sim$\-Tarefa}}
+\index{$\sim$\-Tarefa@{$\sim$\-Tarefa}!Tarefa@{Tarefa}}
+\subsubsection[{$\sim$\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}Tarefa\-::$\sim$\-Tarefa (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_ac0aded2b1a1333b92633e4f82d3d3ab7}
+Destrutor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_tarefa_a24ddead3a39186738160bde7f7f7dfe6}{\index{Tarefa@{Tarefa}!clone@{clone}}
+\index{clone@{clone}!Tarefa@{Tarefa}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tarefa} $\ast$ Tarefa\-::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_tarefa_a24ddead3a39186738160bde7f7f7dfe6}
+método clone \begin{DoxyReturn}{Returns}
+devolve apontador para objecto \hyperlink{class_tarefa}{Tarefa} 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_a4c590b4c84b0cc12c57581c7f1912bfa}{\index{Tarefa@{Tarefa}!escreve@{escreve}}
+\index{escreve@{escreve}!Tarefa@{Tarefa}}
+\subsubsection[{escreve}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::escreve (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+) const}}\label{class_tarefa_a4c590b4c84b0cc12c57581c7f1912bfa}
+Apresenta os dados do projecto. 
+\begin{DoxyParams}{Parameters}
+{\em out} & objecto de stream out \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_a973b2fc5a7d329b3aa86b6cb450eaa50}{\index{Tarefa@{Tarefa}!get\-Cod\-Dependente@{get\-Cod\-Dependente}}
+\index{get\-Cod\-Dependente@{get\-Cod\-Dependente}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Cod\-Dependente}]{\setlength{\rightskip}{0pt plus 5cm}int Tarefa\-::get\-Cod\-Dependente (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_tarefa_a973b2fc5a7d329b3aa86b6cb450eaa50}
+Metodo para retornar o codigo da tarefa dependente \begin{DoxyReturn}{Returns}
+devolve o codigo da tarefa dependente 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_a77d2f0ee46d2ea9ba748ce9a93b6e8c7}{\index{Tarefa@{Tarefa}!get\-Cod\-Estado@{get\-Cod\-Estado}}
+\index{get\-Cod\-Estado@{get\-Cod\-Estado}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Cod\-Estado}]{\setlength{\rightskip}{0pt plus 5cm}int Tarefa\-::get\-Cod\-Estado (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_tarefa_a77d2f0ee46d2ea9ba748ce9a93b6e8c7}
+Metodo para retornar o codigo do estado \begin{DoxyReturn}{Returns}
+devolce o codigo do estado 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_ac7d8c656e395261394dd5a4e21d05b47}{\index{Tarefa@{Tarefa}!get\-Cod\-Projecto@{get\-Cod\-Projecto}}
+\index{get\-Cod\-Projecto@{get\-Cod\-Projecto}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Cod\-Projecto}]{\setlength{\rightskip}{0pt plus 5cm}int Tarefa\-::get\-Cod\-Projecto (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_tarefa_ac7d8c656e395261394dd5a4e21d05b47}
+Metodo para retornar o codigo do projecto \begin{DoxyReturn}{Returns}
+devolve o codigo do projecto 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_a2cebb22d7a9e5993ce615c5e84b2c6e9}{\index{Tarefa@{Tarefa}!get\-Cod\-Tarefa@{get\-Cod\-Tarefa}}
+\index{get\-Cod\-Tarefa@{get\-Cod\-Tarefa}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Cod\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}int Tarefa\-::get\-Cod\-Tarefa (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_tarefa_a2cebb22d7a9e5993ce615c5e84b2c6e9}
+Metodo para retornar o codigo da tarefa \begin{DoxyReturn}{Returns}
+devolve o codigo da tarefa 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_a4664d01e62d6cd78b21179c5864c7966}{\index{Tarefa@{Tarefa}!get\-Cod\-Utilizador@{get\-Cod\-Utilizador}}
+\index{get\-Cod\-Utilizador@{get\-Cod\-Utilizador}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Cod\-Utilizador}]{\setlength{\rightskip}{0pt plus 5cm}int Tarefa\-::get\-Cod\-Utilizador (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_tarefa_a4664d01e62d6cd78b21179c5864c7966}
+Metodo para retornar o codigo do utilizador. \begin{DoxyReturn}{Returns}
+devolve o codigo do utilizador 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_acceb78bd71db1b041b3199eec2db0b53}{\index{Tarefa@{Tarefa}!get\-Data\-Criacao@{get\-Data\-Criacao}}
+\index{get\-Data\-Criacao@{get\-Data\-Criacao}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Data\-Criacao}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} Tarefa\-::get\-Data\-Criacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_acceb78bd71db1b041b3199eec2db0b53}
+Metodo para retornar a data de criacao \begin{DoxyReturn}{Returns}
+devolve a data de criacao da tarefa 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_aac9cee9cff017af3d21c01b2038fbb70}{\index{Tarefa@{Tarefa}!get\-Data\-Estimada@{get\-Data\-Estimada}}
+\index{get\-Data\-Estimada@{get\-Data\-Estimada}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Data\-Estimada}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} Tarefa\-::get\-Data\-Estimada (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_aac9cee9cff017af3d21c01b2038fbb70}
+Metodo para retornar a data estimada \begin{DoxyReturn}{Returns}
+devolve a data estimada 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_abb6c005bec5e57d515f97aa8d7103f08}{\index{Tarefa@{Tarefa}!get\-Data\-Fim@{get\-Data\-Fim}}
+\index{get\-Data\-Fim@{get\-Data\-Fim}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Data\-Fim}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} Tarefa\-::get\-Data\-Fim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_abb6c005bec5e57d515f97aa8d7103f08}
+Metodo para retornar a data fim \begin{DoxyReturn}{Returns}
+devolce data de fim 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_adb79135231d9790da3baa3a1db20599b}{\index{Tarefa@{Tarefa}!get\-Delegado@{get\-Delegado}}
+\index{get\-Delegado@{get\-Delegado}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Delegado}]{\setlength{\rightskip}{0pt plus 5cm}int Tarefa\-::get\-Delegado (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_tarefa_adb79135231d9790da3baa3a1db20599b}
+Metodo para retornar o delegado. \begin{DoxyReturn}{Returns}
+devolve o codigo do utilizador a quem foi delegada a tarefa 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_aae9980cb54f0d33f2eaa282d1bb95c35}{\index{Tarefa@{Tarefa}!get\-Duracao@{get\-Duracao}}
+\index{get\-Duracao@{get\-Duracao}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Duracao}]{\setlength{\rightskip}{0pt plus 5cm}int Tarefa\-::get\-Duracao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_tarefa_aae9980cb54f0d33f2eaa282d1bb95c35}
+Metodo para retornar a duracao \begin{DoxyReturn}{Returns}
+devolve a duracao da tarefa 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_a9c6df2bb0c78c8702cd3b125225754ec}{\index{Tarefa@{Tarefa}!get\-Informacao@{get\-Informacao}}
+\index{get\-Informacao@{get\-Informacao}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}string Tarefa\-::get\-Informacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_tarefa_a9c6df2bb0c78c8702cd3b125225754ec}
+Metodo para retornar a informacao \begin{DoxyReturn}{Returns}
+devolve informacao sobre a tarefa 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_a1098feb5c842c43b5d7376edc798936c}{\index{Tarefa@{Tarefa}!get\-Lista\-Contextos@{get\-Lista\-Contextos}}
+\index{get\-Lista\-Contextos@{get\-Lista\-Contextos}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Lista\-Contextos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Contexto} $>$ Tarefa\-::get\-Lista\-Contextos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_a1098feb5c842c43b5d7376edc798936c}
+Metodo para retornar a lista de contextos referentes à tarefa \begin{DoxyReturn}{Returns}
+devolve lista de contextos referentes à tarefa 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_a3409664169de2c5e2bc79f3dc6226847}{\index{Tarefa@{Tarefa}!get\-Lista\-Informacoes@{get\-Lista\-Informacoes}}
+\index{get\-Lista\-Informacoes@{get\-Lista\-Informacoes}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Lista\-Informacoes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Informacao} $>$ Tarefa\-::get\-Lista\-Informacoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_a3409664169de2c5e2bc79f3dc6226847}
+Metodo para retornar a lista de informacoes referentes à tarefa \begin{DoxyReturn}{Returns}
+devolve lista de informacoes referentes à tarefa 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_a5db3ff430e37ab92acef8d5b6876c625}{\index{Tarefa@{Tarefa}!get\-N\-Contextos@{get\-N\-Contextos}}
+\index{get\-N\-Contextos@{get\-N\-Contextos}!Tarefa@{Tarefa}}
+\subsubsection[{get\-N\-Contextos}]{\setlength{\rightskip}{0pt plus 5cm}int Tarefa\-::get\-N\-Contextos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_tarefa_a5db3ff430e37ab92acef8d5b6876c625}
+Metodo para retornar o numero de contextos \begin{DoxyReturn}{Returns}
+devolve o numero de contextos 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_a0447233a0d5d5c2a93f437684058d246}{\index{Tarefa@{Tarefa}!get\-Nivel\-Importancia@{get\-Nivel\-Importancia}}
+\index{get\-Nivel\-Importancia@{get\-Nivel\-Importancia}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Nivel\-Importancia}]{\setlength{\rightskip}{0pt plus 5cm}int Tarefa\-::get\-Nivel\-Importancia (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_tarefa_a0447233a0d5d5c2a93f437684058d246}
+Metodo para retornar o nivel de importancia \begin{DoxyReturn}{Returns}
+devolce o nivel de importancia 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_a74ae175b0d90c4b2e2273173de6872ab}{\index{Tarefa@{Tarefa}!get\-Tipo@{get\-Tipo}}
+\index{get\-Tipo@{get\-Tipo}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Tipo}]{\setlength{\rightskip}{0pt plus 5cm}string Tarefa\-::get\-Tipo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_tarefa_a74ae175b0d90c4b2e2273173de6872ab}
+Metodo para retornar o tipo. \begin{DoxyReturn}{Returns}
+devolve o tipo da tarefa 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_a5c4fca9fc2f08dc569460e01fd894799}{\index{Tarefa@{Tarefa}!get\-Titulo@{get\-Titulo}}
+\index{get\-Titulo@{get\-Titulo}!Tarefa@{Tarefa}}
+\subsubsection[{get\-Titulo}]{\setlength{\rightskip}{0pt plus 5cm}string Tarefa\-::get\-Titulo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_tarefa_a5c4fca9fc2f08dc569460e01fd894799}
+Metodo para retornar o titulo \begin{DoxyReturn}{Returns}
+devolve o titulo da tarefa 
+\end{DoxyReturn}
+\hypertarget{class_tarefa_af5f497e76c3ba01620a34bdd4645ba1e}{\index{Tarefa@{Tarefa}!set\-Cod\-Dependente@{set\-Cod\-Dependente}}
+\index{set\-Cod\-Dependente@{set\-Cod\-Dependente}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Cod\-Dependente}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Cod\-Dependente (
+\begin{DoxyParamCaption}
+\item[{const int}]{cod\-Dependente}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_af5f497e76c3ba01620a34bdd4645ba1e}
+Metodo de atribuicao do codigo da tarefa dependente 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Dependente} & codigo da tarefa dependente \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_aea61452df9fe8527a06e4011b32900b6}{\index{Tarefa@{Tarefa}!set\-Cod\-Estado@{set\-Cod\-Estado}}
+\index{set\-Cod\-Estado@{set\-Cod\-Estado}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Cod\-Estado}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Cod\-Estado (
+\begin{DoxyParamCaption}
+\item[{const int}]{cod\-Estado}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_aea61452df9fe8527a06e4011b32900b6}
+Metodo de atribuicao do codigo de estado. 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Estado} & codigo do estado da tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_a5ceaa94834a79f8351251957e787935d}{\index{Tarefa@{Tarefa}!set\-Cod\-Projecto@{set\-Cod\-Projecto}}
+\index{set\-Cod\-Projecto@{set\-Cod\-Projecto}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Cod\-Projecto}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Cod\-Projecto (
+\begin{DoxyParamCaption}
+\item[{const int}]{cod\-Projecto}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_a5ceaa94834a79f8351251957e787935d}
+Metodo de atribuicao do codigo do projecto 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Projecto} & codigo do projecto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_a0790290eb8a761c1f04b8360f6738ab8}{\index{Tarefa@{Tarefa}!set\-Cod\-Tarefa@{set\-Cod\-Tarefa}}
+\index{set\-Cod\-Tarefa@{set\-Cod\-Tarefa}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Cod\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Cod\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{const int}]{cod\-Tarefa}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_a0790290eb8a761c1f04b8360f6738ab8}
+Metodo de atribuicao do codigo da tarefa 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Utilizador} & codigo da tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_af2ca42600e5746b52b9b69e091101088}{\index{Tarefa@{Tarefa}!set\-Cod\-Utilizador@{set\-Cod\-Utilizador}}
+\index{set\-Cod\-Utilizador@{set\-Cod\-Utilizador}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Cod\-Utilizador}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Cod\-Utilizador (
+\begin{DoxyParamCaption}
+\item[{const int}]{cod\-Utilizador}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_af2ca42600e5746b52b9b69e091101088}
+Metodo de atribuicao do codigo de utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Utilizador} & codigo do utilizador \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_ad3d8f9f57b64bcbd750c1bb2ade1c258}{\index{Tarefa@{Tarefa}!set\-Data\-Criacao@{set\-Data\-Criacao}}
+\index{set\-Data\-Criacao@{set\-Data\-Criacao}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Data\-Criacao}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Data\-Criacao (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data}}]{data\-Criacao}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_ad3d8f9f57b64bcbd750c1bb2ade1c258}
+Metodo de atribuicao da data de criacao 
+\begin{DoxyParams}{Parameters}
+{\em data\-Criaca} & data de criacao da tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_af925b390c42d3f8ccca656d0ddedb379}{\index{Tarefa@{Tarefa}!set\-Data\-Estimada@{set\-Data\-Estimada}}
+\index{set\-Data\-Estimada@{set\-Data\-Estimada}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Data\-Estimada}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Data\-Estimada (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data}}]{data\-Estimada}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_af925b390c42d3f8ccca656d0ddedb379}
+Metodo de atribuicao da data estimada. 
+\begin{DoxyParams}{Parameters}
+{\em estimada} & data estimada de fim da tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_aa0198d072b121a182debe593e7de584a}{\index{Tarefa@{Tarefa}!set\-Data\-Fim@{set\-Data\-Fim}}
+\index{set\-Data\-Fim@{set\-Data\-Fim}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Data\-Fim}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Data\-Fim (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data}}]{data\-Fim}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_aa0198d072b121a182debe593e7de584a}
+Metodo de atribuicao da data fim 
+\begin{DoxyParams}{Parameters}
+{\em estimada} & data de fim \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_a63dab5133df402c70eb3f513162a5c82}{\index{Tarefa@{Tarefa}!set\-Delegado@{set\-Delegado}}
+\index{set\-Delegado@{set\-Delegado}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Delegado}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Delegado (
+\begin{DoxyParamCaption}
+\item[{const int}]{delegado}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_a63dab5133df402c70eb3f513162a5c82}
+Metodo de atribuicao do delegado 
+\begin{DoxyParams}{Parameters}
+{\em delegado} & codigo do utilizador ao qual a tarefa é delegada \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_acb6d22840700c9dd5348aaab8b1ea638}{\index{Tarefa@{Tarefa}!set\-Duracao@{set\-Duracao}}
+\index{set\-Duracao@{set\-Duracao}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Duracao}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Duracao (
+\begin{DoxyParamCaption}
+\item[{const int}]{duracao}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_acb6d22840700c9dd5348aaab8b1ea638}
+Metodo de atribuicao da duracao 
+\begin{DoxyParams}{Parameters}
+{\em duracao} & duracao da tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_ac37a73882fd67ad9f02044bb772f7258}{\index{Tarefa@{Tarefa}!set\-Informacao@{set\-Informacao}}
+\index{set\-Informacao@{set\-Informacao}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Informacao (
+\begin{DoxyParamCaption}
+\item[{const string}]{informacao}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_ac37a73882fd67ad9f02044bb772f7258}
+Metodo de atribuicao da informacao 
+\begin{DoxyParams}{Parameters}
+{\em informacao} & informacao sobre a tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_ab80857f9703d8d27fd1adcc36a84a601}{\index{Tarefa@{Tarefa}!set\-Lista\-Contextos@{set\-Lista\-Contextos}}
+\index{set\-Lista\-Contextos@{set\-Lista\-Contextos}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Lista\-Contextos}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Lista\-Contextos (
+\begin{DoxyParamCaption}
+\item[{const {\bf Lista}$<$ {\bf Contexto} $>$}]{lista\-Contextos}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_ab80857f9703d8d27fd1adcc36a84a601}
+Metodo de atribuicao da lista de contextos 
+\begin{DoxyParams}{Parameters}
+{\em lista\-Contextos} & objecto lista do tipo \hyperlink{class_contexto}{Contexto} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_a620e4d48dfa6698aaccb74d40c8e6e96}{\index{Tarefa@{Tarefa}!set\-Lista\-Informacoes@{set\-Lista\-Informacoes}}
+\index{set\-Lista\-Informacoes@{set\-Lista\-Informacoes}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Lista\-Informacoes}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Lista\-Informacoes (
+\begin{DoxyParamCaption}
+\item[{const {\bf Lista}$<$ {\bf Informacao} $>$}]{lista\-Informacoes}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_a620e4d48dfa6698aaccb74d40c8e6e96}
+Metodo de atribuicao da lista de informacoes 
+\begin{DoxyParams}{Parameters}
+{\em lista\-Contextos} & objecto lista do tipo \hyperlink{class_informacao}{Informacao} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_a27ca7f4fa898681235a1cbd031c9a402}{\index{Tarefa@{Tarefa}!set\-N\-Contextos@{set\-N\-Contextos}}
+\index{set\-N\-Contextos@{set\-N\-Contextos}!Tarefa@{Tarefa}}
+\subsubsection[{set\-N\-Contextos}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-N\-Contextos (
+\begin{DoxyParamCaption}
+\item[{const int}]{n\-Contextos}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_a27ca7f4fa898681235a1cbd031c9a402}
+Metodo de atribuicao de numero de contextos 
+\begin{DoxyParams}{Parameters}
+{\em n\-Contextos} & numero de contextos \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_a460882d0d19d62a2dc11a5bedd0ac009}{\index{Tarefa@{Tarefa}!set\-Nivel\-Importancia@{set\-Nivel\-Importancia}}
+\index{set\-Nivel\-Importancia@{set\-Nivel\-Importancia}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Nivel\-Importancia}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Nivel\-Importancia (
+\begin{DoxyParamCaption}
+\item[{const int}]{nivel\-Importancia}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_a460882d0d19d62a2dc11a5bedd0ac009}
+Metodo de atribuicao do nivel de importancia 
+\begin{DoxyParams}{Parameters}
+{\em nivel\-Importancia} & nivel de importancia da tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_a92053bb006b14ff49c750fc501f5f7ae}{\index{Tarefa@{Tarefa}!set\-Tipo@{set\-Tipo}}
+\index{set\-Tipo@{set\-Tipo}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Tipo}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Tipo (
+\begin{DoxyParamCaption}
+\item[{const string}]{tipo}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_a92053bb006b14ff49c750fc501f5f7ae}
+Metodo de atribuicao do tipo 
+\begin{DoxyParams}{Parameters}
+{\em tipo} & tipo de tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tarefa_aaf5068c9185713d4ab04961f4e80c58d}{\index{Tarefa@{Tarefa}!set\-Titulo@{set\-Titulo}}
+\index{set\-Titulo@{set\-Titulo}!Tarefa@{Tarefa}}
+\subsubsection[{set\-Titulo}]{\setlength{\rightskip}{0pt plus 5cm}void Tarefa\-::set\-Titulo (
+\begin{DoxyParamCaption}
+\item[{const string}]{titulo}
+\end{DoxyParamCaption}
+)}}\label{class_tarefa_aaf5068c9185713d4ab04961f4e80c58d}
+Metodo de atribuicao do titulo 
+\begin{DoxyParams}{Parameters}
+{\em titulo} & titulo da tarefa \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_tarefa_8h}{Tarefa.\-h}\end{DoxyCompactItemize}

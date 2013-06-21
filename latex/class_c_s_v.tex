@@ -1,0 +1,405 @@
+\hypertarget{class_c_s_v}{\section{C\-S\-V Class Reference}
+\label{class_c_s_v}\index{C\-S\-V@{C\-S\-V}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_c_s_v_a2b7fef3b1612dbf24022badee92f3528}{importar\-Informacoes} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_ade9ea5c4cc8ee38acdfa9cb6825c5330}{importar\-Contextos} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_a7d62fe1893dc495105cd50bce845d267}{importar\-Estados} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_a2d3974450c44af397e7e5ebd5c3c2b89}{importar\-Niveis} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_a1044aed2eaffb8c39a3ab1783e95295a}{importar\-Projectos} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_aa39336057cdfecd826c60d8c87dc1cb9}{importar\-Tarefas} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_ab978faff3552bb342a9cb96dc2c9e203}{importar\-Tarefa\-Contexto} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_ad08ae95a50c6f744874e1def484c0b36}{importar\-Tipos} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_a8c8ca16b94b4dc52fe0210d16950b884}{importar\-Utilizadores} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_a101ff820d37954f6a9b8718d9a09036a}{exportar\-Informacoes} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_a2e8e3b25a280d8e3dd25e7c9443e38e1}{exportar\-Contextos} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_ae56997c939a7f09b3efc2d67a14ba51a}{exportar\-Estados} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_a48a6d79cc0df7d7b4ff1583ad1ec3b25}{exportar\-Niveis} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_a263fcbe17e1338baa8c2cd442a827807}{exportar\-Projectos} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_a2021cd698dc219abf11a67c014cd2643}{exportar\-Tarefas} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_a0ecb0d14f03323c653ca564549745c42}{exportar\-Tarefa\-Contexto} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_acfcbe9637bae0646756a321a82b0bea1}{exportar\-Tipos} (string nome\-Ficheiro, int cod\-User)
+\item 
+int \hyperlink{class_c_s_v_aa5600c13c2615829b765b80cb74f23bf}{exportar\-Utilizador} (string nome\-Ficheiro, int cod\-User)
+\item 
+string \hyperlink{class_c_s_v_a1bafac92cb2c567beebad7350822cf03}{cont\-To\-String} (\hyperlink{class_lista}{Lista}$<$ int $>$ cont)
+\item 
+void \hyperlink{class_c_s_v_a2ae60e98278829bb8967d35e90e5c9f8}{export\-Assemb} (int cod\-User)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_c_s_v_a1bafac92cb2c567beebad7350822cf03}{\index{C\-S\-V@{C\-S\-V}!cont\-To\-String@{cont\-To\-String}}
+\index{cont\-To\-String@{cont\-To\-String}!CSV@{C\-S\-V}}
+\subsubsection[{cont\-To\-String}]{\setlength{\rightskip}{0pt plus 5cm}string C\-S\-V\-::cont\-To\-String (
+\begin{DoxyParamCaption}
+\item[{{\bf Lista}$<$ int $>$}]{cont}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a1bafac92cb2c567beebad7350822cf03}
+Converte uma lista de numero de contextos numa string a ser exportada para csv 
+\begin{DoxyParams}{Parameters}
+{\em cont} & lista de contextos a ser tratada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna a lista de bits a ser exportada 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_a2e8e3b25a280d8e3dd25e7c9443e38e1}{\index{C\-S\-V@{C\-S\-V}!exportar\-Contextos@{exportar\-Contextos}}
+\index{exportar\-Contextos@{exportar\-Contextos}!CSV@{C\-S\-V}}
+\subsubsection[{exportar\-Contextos}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::exportar\-Contextos (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a2e8e3b25a280d8e3dd25e7c9443e38e1}
+Metodo responsavel pela exportacao de contextos da base de dados para sql. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilziador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se exportar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_ae56997c939a7f09b3efc2d67a14ba51a}{\index{C\-S\-V@{C\-S\-V}!exportar\-Estados@{exportar\-Estados}}
+\index{exportar\-Estados@{exportar\-Estados}!CSV@{C\-S\-V}}
+\subsubsection[{exportar\-Estados}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::exportar\-Estados (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_ae56997c939a7f09b3efc2d67a14ba51a}
+Metodo responsavel pela exportacao de estados da base de dados para sql. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilziador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se exportar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_a101ff820d37954f6a9b8718d9a09036a}{\index{C\-S\-V@{C\-S\-V}!exportar\-Informacoes@{exportar\-Informacoes}}
+\index{exportar\-Informacoes@{exportar\-Informacoes}!CSV@{C\-S\-V}}
+\subsubsection[{exportar\-Informacoes}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::exportar\-Informacoes (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a101ff820d37954f6a9b8718d9a09036a}
+Metodo responsavel pela exportacao de informacoes da base de dados para sql. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilziador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se exportar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_a48a6d79cc0df7d7b4ff1583ad1ec3b25}{\index{C\-S\-V@{C\-S\-V}!exportar\-Niveis@{exportar\-Niveis}}
+\index{exportar\-Niveis@{exportar\-Niveis}!CSV@{C\-S\-V}}
+\subsubsection[{exportar\-Niveis}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::exportar\-Niveis (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a48a6d79cc0df7d7b4ff1583ad1ec3b25}
+Metodo responsavel pela exportacao de niveis da base de dados para sql. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilziador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se exportar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_a263fcbe17e1338baa8c2cd442a827807}{\index{C\-S\-V@{C\-S\-V}!exportar\-Projectos@{exportar\-Projectos}}
+\index{exportar\-Projectos@{exportar\-Projectos}!CSV@{C\-S\-V}}
+\subsubsection[{exportar\-Projectos}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::exportar\-Projectos (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a263fcbe17e1338baa8c2cd442a827807}
+Metodo responsavel pela exportacao de projectos da base de dados para sql. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilziador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se exportar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_a0ecb0d14f03323c653ca564549745c42}{\index{C\-S\-V@{C\-S\-V}!exportar\-Tarefa\-Contexto@{exportar\-Tarefa\-Contexto}}
+\index{exportar\-Tarefa\-Contexto@{exportar\-Tarefa\-Contexto}!CSV@{C\-S\-V}}
+\subsubsection[{exportar\-Tarefa\-Contexto}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::exportar\-Tarefa\-Contexto (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a0ecb0d14f03323c653ca564549745c42}
+Metodo responsavel pela exportacao de tarefa contexto da base de dados para sql. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilziador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se exportar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_a2021cd698dc219abf11a67c014cd2643}{\index{C\-S\-V@{C\-S\-V}!exportar\-Tarefas@{exportar\-Tarefas}}
+\index{exportar\-Tarefas@{exportar\-Tarefas}!CSV@{C\-S\-V}}
+\subsubsection[{exportar\-Tarefas}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::exportar\-Tarefas (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a2021cd698dc219abf11a67c014cd2643}
+Metodo responsavel pela exportacao de tarefas da base de dados para sql. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilziador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se exportar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_acfcbe9637bae0646756a321a82b0bea1}{\index{C\-S\-V@{C\-S\-V}!exportar\-Tipos@{exportar\-Tipos}}
+\index{exportar\-Tipos@{exportar\-Tipos}!CSV@{C\-S\-V}}
+\subsubsection[{exportar\-Tipos}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::exportar\-Tipos (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_acfcbe9637bae0646756a321a82b0bea1}
+Metodo responsavel pela exportacao de tipos da base de dados para sql. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilziador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se exportar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_aa5600c13c2615829b765b80cb74f23bf}{\index{C\-S\-V@{C\-S\-V}!exportar\-Utilizador@{exportar\-Utilizador}}
+\index{exportar\-Utilizador@{exportar\-Utilizador}!CSV@{C\-S\-V}}
+\subsubsection[{exportar\-Utilizador}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::exportar\-Utilizador (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_aa5600c13c2615829b765b80cb74f23bf}
+Metodo responsavel pela exportacao de utilizadores da base de dados para sql. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilziador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se exportar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_a2ae60e98278829bb8967d35e90e5c9f8}{\index{C\-S\-V@{C\-S\-V}!export\-Assemb@{export\-Assemb}}
+\index{export\-Assemb@{export\-Assemb}!CSV@{C\-S\-V}}
+\subsubsection[{export\-Assemb}]{\setlength{\rightskip}{0pt plus 5cm}void C\-S\-V\-::export\-Assemb (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a2ae60e98278829bb8967d35e90e5c9f8}
+Exporta uma lista de tarefas de um determinado utilizador para ser lida pela aplicacao movel. Formato\-: codigo\-Tarefa, nome\-Tarefa, prioridade, contexto 
+\begin{DoxyParams}{Parameters}
+{\em cod\-User} & codigo do utilizador que pede a exportacao \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_c_s_v_ade9ea5c4cc8ee38acdfa9cb6825c5330}{\index{C\-S\-V@{C\-S\-V}!importar\-Contextos@{importar\-Contextos}}
+\index{importar\-Contextos@{importar\-Contextos}!CSV@{C\-S\-V}}
+\subsubsection[{importar\-Contextos}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::importar\-Contextos (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_ade9ea5c4cc8ee38acdfa9cb6825c5330}
+Metodo responsavel pela importacao de contextos atraves de ficheiro em formato csv. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilizador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se importar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_a7d62fe1893dc495105cd50bce845d267}{\index{C\-S\-V@{C\-S\-V}!importar\-Estados@{importar\-Estados}}
+\index{importar\-Estados@{importar\-Estados}!CSV@{C\-S\-V}}
+\subsubsection[{importar\-Estados}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::importar\-Estados (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a7d62fe1893dc495105cd50bce845d267}
+Metodo responsavel pela importacao de estados atraves de ficheiro em formato csv. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilizador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se importar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_a2b7fef3b1612dbf24022badee92f3528}{\index{C\-S\-V@{C\-S\-V}!importar\-Informacoes@{importar\-Informacoes}}
+\index{importar\-Informacoes@{importar\-Informacoes}!CSV@{C\-S\-V}}
+\subsubsection[{importar\-Informacoes}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::importar\-Informacoes (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a2b7fef3b1612dbf24022badee92f3528}
+Metodo responsavel pela importacao de informacoes atraves de ficheiro em formato csv. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilizador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se importar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_a2d3974450c44af397e7e5ebd5c3c2b89}{\index{C\-S\-V@{C\-S\-V}!importar\-Niveis@{importar\-Niveis}}
+\index{importar\-Niveis@{importar\-Niveis}!CSV@{C\-S\-V}}
+\subsubsection[{importar\-Niveis}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::importar\-Niveis (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a2d3974450c44af397e7e5ebd5c3c2b89}
+Metodo responsavel pela importacao de niveis atraves de ficheiro em formato csv. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilizador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se importar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_a1044aed2eaffb8c39a3ab1783e95295a}{\index{C\-S\-V@{C\-S\-V}!importar\-Projectos@{importar\-Projectos}}
+\index{importar\-Projectos@{importar\-Projectos}!CSV@{C\-S\-V}}
+\subsubsection[{importar\-Projectos}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::importar\-Projectos (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a1044aed2eaffb8c39a3ab1783e95295a}
+Metodo responsavel pela importacao de projectos atraves de ficheiro em formato csv. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilizador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se importar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_ab978faff3552bb342a9cb96dc2c9e203}{\index{C\-S\-V@{C\-S\-V}!importar\-Tarefa\-Contexto@{importar\-Tarefa\-Contexto}}
+\index{importar\-Tarefa\-Contexto@{importar\-Tarefa\-Contexto}!CSV@{C\-S\-V}}
+\subsubsection[{importar\-Tarefa\-Contexto}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::importar\-Tarefa\-Contexto (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_ab978faff3552bb342a9cb96dc2c9e203}
+Metodo responsavel pela importacao de tarefa contexto atraves de ficheiro em formato csv. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilizador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se importar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_aa39336057cdfecd826c60d8c87dc1cb9}{\index{C\-S\-V@{C\-S\-V}!importar\-Tarefas@{importar\-Tarefas}}
+\index{importar\-Tarefas@{importar\-Tarefas}!CSV@{C\-S\-V}}
+\subsubsection[{importar\-Tarefas}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::importar\-Tarefas (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_aa39336057cdfecd826c60d8c87dc1cb9}
+Metodo responsavel pela importacao de tarefas atraves de ficheiro em formato csv. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilizador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se importar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_ad08ae95a50c6f744874e1def484c0b36}{\index{C\-S\-V@{C\-S\-V}!importar\-Tipos@{importar\-Tipos}}
+\index{importar\-Tipos@{importar\-Tipos}!CSV@{C\-S\-V}}
+\subsubsection[{importar\-Tipos}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::importar\-Tipos (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_ad08ae95a50c6f744874e1def484c0b36}
+Metodo responsavel pela importacao de tipos atraves de ficheiro em formato csv. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilizador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se importar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+\hypertarget{class_c_s_v_a8c8ca16b94b4dc52fe0210d16950b884}{\index{C\-S\-V@{C\-S\-V}!importar\-Utilizadores@{importar\-Utilizadores}}
+\index{importar\-Utilizadores@{importar\-Utilizadores}!CSV@{C\-S\-V}}
+\subsubsection[{importar\-Utilizadores}]{\setlength{\rightskip}{0pt plus 5cm}int C\-S\-V\-::importar\-Utilizadores (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\-Ficheiro, }
+\item[{int}]{cod\-User}
+\end{DoxyParamCaption}
+)}}\label{class_c_s_v_a8c8ca16b94b4dc52fe0210d16950b884}
+Metodo responsavel pela importacao de utilizadores atraves de ficheiro em formato csv. 
+\begin{DoxyParams}{Parameters}
+{\em nome\-Ficheiro} & nome do ficheiro. \\
+\hline
+{\em cod\-User} & codigo do utilizador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 0 se importar com sucesso, caso contrario retorna -\/1. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_c_s_v_8h}{C\-S\-V.\-h}\end{DoxyCompactItemize}

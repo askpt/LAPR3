@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['operator_3c_3c',['operator&lt;&lt;',['../_contexto_8h.html#a49b224f479a5f1351a3d9735f7ee9eb6',1,'operator&lt;&lt;(ostream &amp;out, const Contexto &amp;c):&#160;Contexto.h'],['../_historico_informacao_8h.html#a182a48d3b01504c0e65ec87891b9396f',1,'operator&lt;&lt;(ostream &amp;out, const HistoricoInformacao &amp;hi):&#160;HistoricoInformacao.h'],['../_historico_projecto_8h.html#ae11514193b6a0e6820a17c7e4e7e764a',1,'operator&lt;&lt;(ostream &amp;out, const HistoricoProjecto &amp;hp):&#160;HistoricoProjecto.h'],['../_historico_tarefa_8h.html#a1ab83b1f14fa928170f19d18e9c57246',1,'operator&lt;&lt;(ostream &amp;out, const HistoricoTarefa &amp;ht):&#160;HistoricoTarefa.h'],['../_informacao_8h.html#a435d76a7ee3f8accb8da1aeddeab5a0d',1,'operator&lt;&lt;(ostream &amp;out, const Informacao &amp;i):&#160;Informacao.h'],['../_nivel_8h.html#a7d1fc394c1015176bc563af017dadf72',1,'operator&lt;&lt;(ostream &amp;out, const Nivel &amp;n):&#160;Nivel.h'],['../_projecto_8h.html#a436dababb54139342d1bd2e19f8f97ae',1,'operator&lt;&lt;(ostream &amp;out, const Projecto &amp;p):&#160;Projecto.h'],['../_tarefa_8h.html#a8a2b77bb5eef0bc6574299aecf20fb1f',1,'operator&lt;&lt;(ostream &amp;out, const Tarefa &amp;t):&#160;Tarefa.h'],['../_utilizador_8h.html#a9d5389aae92585eb3febf825c0f64a78',1,'operator&lt;&lt;(ostream &amp;out, const Utilizador &amp;c):&#160;Utilizador.h']]],
+  ['ordenarprioridade',['ordenarPrioridade',['../class_b_dados.html#a94d9f0dcf3d888f90c54ae5821a8a9b1',1,'BDados']]],
+  ['ordenartarefaestimativa',['ordenarTarefaEstimativa',['../main_8cpp.html#a5cf10d03db46c7f189cc1330fa580677',1,'main.cpp']]],
+  ['ordenartarefascontexto',['ordenarTarefasContexto',['../class_b_dados.html#a107c634dd2407846c3425f1b89da5d02',1,'BDados']]],
+  ['ordenartarefasestimativa',['ordenarTarefasEstimativa',['../class_b_dados.html#ac8b924f399b297f3ec742c9b71d0c546',1,'BDados']]],
+  ['ordenartarefasprioridade',['ordenarTarefasPrioridade',['../main_8cpp.html#a563706eaa0f3cdf4b4ecdc83188f07a0',1,'main.cpp']]],
+  ['ordenatarefacontexto',['ordenaTarefaContexto',['../main_8cpp.html#a777cfa3adab2665f3bb8ad30ed16411b',1,'main.cpp']]]
+];

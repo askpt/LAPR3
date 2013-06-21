@@ -1,0 +1,139 @@
+\hypertarget{class_nivel}{\section{Nivel Class Reference}
+\label{class_nivel}\index{Nivel@{Nivel}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_nivel_a11c4739f354de3ff653af241b837e328}{Nivel} ()
+\item 
+\hyperlink{class_nivel_a7eb10bf2acb2071d5f653dda01d9e8f4}{Nivel} (int nivel\-Importancia, string descricao)
+\item 
+\hyperlink{class_nivel_a44dfb5ab3af8bba58250b28dacc78d31}{Nivel} (const \hyperlink{class_nivel}{Nivel} \&n)
+\item 
+\hyperlink{class_nivel_a965c3ae8442da70021de778020808286}{$\sim$\-Nivel} ()
+\item 
+int \hyperlink{class_nivel_a4a5618c1651358178c673f30b10b3353}{get\-Nivel\-Importancia} () const 
+\item 
+string \hyperlink{class_nivel_a822adf3f2f11bbd3f2d5311d6d4a4fd7}{get\-Descricao} () const 
+\item 
+void \hyperlink{class_nivel_aa1f6dfd07c68ed4edbbce2da115e3b52}{set\-Descricao} (const string desc)
+\item 
+void \hyperlink{class_nivel_aedb81567d3e914c89d51f22fbb5f5c3a}{set\-Nivel\-Importancia} (const int imp)
+\item 
+virtual \hyperlink{class_nivel}{Nivel} $\ast$ \hyperlink{class_nivel_a8d3d606fd4b7ba338f4d2e62c5401640}{clone} () const 
+\item 
+void \hyperlink{class_nivel_a58117f80580ceb6df07f1558ab64e947}{escreve} (ostream \&out) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_nivel_a11c4739f354de3ff653af241b837e328}{\index{Nivel@{Nivel}!Nivel@{Nivel}}
+\index{Nivel@{Nivel}!Nivel@{Nivel}}
+\subsubsection[{Nivel}]{\setlength{\rightskip}{0pt plus 5cm}Nivel\-::\-Nivel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_nivel_a11c4739f354de3ff653af241b837e328}
+Construtor vazio. \hypertarget{class_nivel_a7eb10bf2acb2071d5f653dda01d9e8f4}{\index{Nivel@{Nivel}!Nivel@{Nivel}}
+\index{Nivel@{Nivel}!Nivel@{Nivel}}
+\subsubsection[{Nivel}]{\setlength{\rightskip}{0pt plus 5cm}Nivel\-::\-Nivel (
+\begin{DoxyParamCaption}
+\item[{int}]{nivel\-Importancia, }
+\item[{string}]{descricao}
+\end{DoxyParamCaption}
+)}}\label{class_nivel_a7eb10bf2acb2071d5f653dda01d9e8f4}
+Construtor completo. 
+\begin{DoxyParams}{Parameters}
+{\em nivel\-Importancia} & nivel de importancia. \\
+\hline
+{\em descricao} & descricao do nivel de importancia. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_nivel_a44dfb5ab3af8bba58250b28dacc78d31}{\index{Nivel@{Nivel}!Nivel@{Nivel}}
+\index{Nivel@{Nivel}!Nivel@{Nivel}}
+\subsubsection[{Nivel}]{\setlength{\rightskip}{0pt plus 5cm}Nivel\-::\-Nivel (
+\begin{DoxyParamCaption}
+\item[{const {\bf Nivel} \&}]{n}
+\end{DoxyParamCaption}
+)}}\label{class_nivel_a44dfb5ab3af8bba58250b28dacc78d31}
+Construtor copia. 
+\begin{DoxyParams}{Parameters}
+{\em n} & objecto \hyperlink{class_nivel}{Nivel} a ser copiado. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_nivel_a965c3ae8442da70021de778020808286}{\index{Nivel@{Nivel}!$\sim$\-Nivel@{$\sim$\-Nivel}}
+\index{$\sim$\-Nivel@{$\sim$\-Nivel}!Nivel@{Nivel}}
+\subsubsection[{$\sim$\-Nivel}]{\setlength{\rightskip}{0pt plus 5cm}Nivel\-::$\sim$\-Nivel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_nivel_a965c3ae8442da70021de778020808286}
+Destrutor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_nivel_a8d3d606fd4b7ba338f4d2e62c5401640}{\index{Nivel@{Nivel}!clone@{clone}}
+\index{clone@{clone}!Nivel@{Nivel}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nivel} $\ast$ Nivel\-::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_nivel_a8d3d606fd4b7ba338f4d2e62c5401640}
+metodo clone \begin{DoxyReturn}{Returns}
+devolve apontador para objecto \hyperlink{class_nivel}{Nivel} 
+\end{DoxyReturn}
+\hypertarget{class_nivel_a58117f80580ceb6df07f1558ab64e947}{\index{Nivel@{Nivel}!escreve@{escreve}}
+\index{escreve@{escreve}!Nivel@{Nivel}}
+\subsubsection[{escreve}]{\setlength{\rightskip}{0pt plus 5cm}void Nivel\-::escreve (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+) const}}\label{class_nivel_a58117f80580ceb6df07f1558ab64e947}
+Apresenta os dados do nivel de importancia. 
+\begin{DoxyParams}{Parameters}
+{\em out} & objecto de stream out \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_nivel_a822adf3f2f11bbd3f2d5311d6d4a4fd7}{\index{Nivel@{Nivel}!get\-Descricao@{get\-Descricao}}
+\index{get\-Descricao@{get\-Descricao}!Nivel@{Nivel}}
+\subsubsection[{get\-Descricao}]{\setlength{\rightskip}{0pt plus 5cm}string Nivel\-::get\-Descricao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_nivel_a822adf3f2f11bbd3f2d5311d6d4a4fd7}
+Metodo para retornar a descricao do nivel de importancia \begin{DoxyReturn}{Returns}
+devolve descricao do nivel de importancia 
+\end{DoxyReturn}
+\hypertarget{class_nivel_a4a5618c1651358178c673f30b10b3353}{\index{Nivel@{Nivel}!get\-Nivel\-Importancia@{get\-Nivel\-Importancia}}
+\index{get\-Nivel\-Importancia@{get\-Nivel\-Importancia}!Nivel@{Nivel}}
+\subsubsection[{get\-Nivel\-Importancia}]{\setlength{\rightskip}{0pt plus 5cm}int Nivel\-::get\-Nivel\-Importancia (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_nivel_a4a5618c1651358178c673f30b10b3353}
+Metodo para retornar o nivel de importancia \begin{DoxyReturn}{Returns}
+devolve o nivel de importancia 
+\end{DoxyReturn}
+\hypertarget{class_nivel_aa1f6dfd07c68ed4edbbce2da115e3b52}{\index{Nivel@{Nivel}!set\-Descricao@{set\-Descricao}}
+\index{set\-Descricao@{set\-Descricao}!Nivel@{Nivel}}
+\subsubsection[{set\-Descricao}]{\setlength{\rightskip}{0pt plus 5cm}void Nivel\-::set\-Descricao (
+\begin{DoxyParamCaption}
+\item[{const string}]{desc}
+\end{DoxyParamCaption}
+)}}\label{class_nivel_aa1f6dfd07c68ed4edbbce2da115e3b52}
+Metodo de atribuicao de uma descricao ao nivel de importancia 
+\begin{DoxyParams}{Parameters}
+{\em desc} & descricao do nivel de importancia \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_nivel_aedb81567d3e914c89d51f22fbb5f5c3a}{\index{Nivel@{Nivel}!set\-Nivel\-Importancia@{set\-Nivel\-Importancia}}
+\index{set\-Nivel\-Importancia@{set\-Nivel\-Importancia}!Nivel@{Nivel}}
+\subsubsection[{set\-Nivel\-Importancia}]{\setlength{\rightskip}{0pt plus 5cm}void Nivel\-::set\-Nivel\-Importancia (
+\begin{DoxyParamCaption}
+\item[{const int}]{imp}
+\end{DoxyParamCaption}
+)}}\label{class_nivel_aedb81567d3e914c89d51f22fbb5f5c3a}
+Metodo de atribuicao do nivel de importancia 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_nivel_8h}{Nivel.\-h}\end{DoxyCompactItemize}

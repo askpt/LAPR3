@@ -1,0 +1,231 @@
+\hypertarget{class_informacao}{\section{Informacao Class Reference}
+\label{class_informacao}\index{Informacao@{Informacao}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_informacao_a5149ad8e568096a238ef19642c4d0a0f}{Informacao} ()
+\item 
+\hyperlink{class_informacao_ad5f6f2921f5390382c6d4137846a7a1b}{Informacao} (int cod\-Informacao, int cod\-Tarefa, string descricao, \hyperlink{class_data}{Data} data\-Insercao, int cod\-Utilizador)
+\item 
+\hyperlink{class_informacao_aab79e77f14d843ec13b23cc9079fd575}{Informacao} (const \hyperlink{class_informacao}{Informacao} \&i)
+\item 
+\hyperlink{class_informacao_aaedc8b8b9eb880bb713308ed29a001b2}{$\sim$\-Informacao} ()
+\item 
+int \hyperlink{class_informacao_a72fbe20c40ef5b30e8e0037fee3b98fc}{get\-Cod\-Informacao} () const 
+\item 
+int \hyperlink{class_informacao_a2526d46f7ab37e8b2824ed37b38ae2de}{get\-Cod\-Tarefa} () const 
+\item 
+string \hyperlink{class_informacao_a7bc8378f81491e470219a163a801b912}{get\-Descricao} () const 
+\item 
+\hyperlink{class_data}{Data} \& \hyperlink{class_informacao_a235284db0031ae0e40b6ff33ac570d3a}{get\-Data\-Insercao} ()
+\item 
+int \hyperlink{class_informacao_af75de643cbf589201d89ca12a747c58a}{get\-Cod\-Utilizador} () const 
+\item 
+void \hyperlink{class_informacao_aa5dc462c6329b0382d2663fa2feb60fe}{set\-Cod\-Utilizador} (const int cod)
+\item 
+void \hyperlink{class_informacao_ae85d359e922a4515970a6193592c0e59}{set\-Cod\-Tarefa} (const int cod)
+\item 
+void \hyperlink{class_informacao_a4aa5326c258c9876fb2f22eaa21baad4}{set\-Descricao} (const string desc)
+\item 
+void \hyperlink{class_informacao_a2045093bc46e876d4e8892bff0a1c73b}{set\-Data\-Insercao} (const \hyperlink{class_data}{Data} \&data)
+\item 
+void \hyperlink{class_informacao_a4823ef0549bec71d547ff4d896054a20}{set\-Cod\-Informacao} (const int cod)
+\item 
+virtual \hyperlink{class_informacao}{Informacao} $\ast$ \hyperlink{class_informacao_a1d1a4fcd127b67a4cb70b19437afd869}{clone} () const 
+\item 
+void \hyperlink{class_informacao_acd78ce6161f6163077ab9e419b31fd39}{escreve} (ostream \&out) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_informacao_a5149ad8e568096a238ef19642c4d0a0f}{\index{Informacao@{Informacao}!Informacao@{Informacao}}
+\index{Informacao@{Informacao}!Informacao@{Informacao}}
+\subsubsection[{Informacao}]{\setlength{\rightskip}{0pt plus 5cm}Informacao\-::\-Informacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_informacao_a5149ad8e568096a238ef19642c4d0a0f}
+Construtor vazio. \hypertarget{class_informacao_ad5f6f2921f5390382c6d4137846a7a1b}{\index{Informacao@{Informacao}!Informacao@{Informacao}}
+\index{Informacao@{Informacao}!Informacao@{Informacao}}
+\subsubsection[{Informacao}]{\setlength{\rightskip}{0pt plus 5cm}Informacao\-::\-Informacao (
+\begin{DoxyParamCaption}
+\item[{int}]{cod\-Informacao, }
+\item[{int}]{cod\-Tarefa, }
+\item[{string}]{descricao, }
+\item[{{\bf Data}}]{data\-Ins, }
+\item[{int}]{cod\-Utilizador}
+\end{DoxyParamCaption}
+)}}\label{class_informacao_ad5f6f2921f5390382c6d4137846a7a1b}
+Construtor completo 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Informacao} & codigo da informacao \\
+\hline
+{\em cod\-Tarefa} & codigo da tarefa \\
+\hline
+{\em descricao} & descricao da informacao \\
+\hline
+{\em data\-Ins} & data em que a informacao foi inserida no sistema \\
+\hline
+{\em cod\-Utilizador} & codigo do utilizador \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_informacao_aab79e77f14d843ec13b23cc9079fd575}{\index{Informacao@{Informacao}!Informacao@{Informacao}}
+\index{Informacao@{Informacao}!Informacao@{Informacao}}
+\subsubsection[{Informacao}]{\setlength{\rightskip}{0pt plus 5cm}Informacao\-::\-Informacao (
+\begin{DoxyParamCaption}
+\item[{const {\bf Informacao} \&}]{i}
+\end{DoxyParamCaption}
+)}}\label{class_informacao_aab79e77f14d843ec13b23cc9079fd575}
+Construtor copia. 
+\begin{DoxyParams}{Parameters}
+{\em i} & objecto \hyperlink{class_informacao}{Informacao} a ser copiado \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_informacao_aaedc8b8b9eb880bb713308ed29a001b2}{\index{Informacao@{Informacao}!$\sim$\-Informacao@{$\sim$\-Informacao}}
+\index{$\sim$\-Informacao@{$\sim$\-Informacao}!Informacao@{Informacao}}
+\subsubsection[{$\sim$\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}Informacao\-::$\sim$\-Informacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_informacao_aaedc8b8b9eb880bb713308ed29a001b2}
+Destrutor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_informacao_a1d1a4fcd127b67a4cb70b19437afd869}{\index{Informacao@{Informacao}!clone@{clone}}
+\index{clone@{clone}!Informacao@{Informacao}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Informacao} $\ast$ Informacao\-::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_informacao_a1d1a4fcd127b67a4cb70b19437afd869}
+copia um objecto do tipo \hyperlink{class_informacao}{Informacao} \begin{DoxyReturn}{Returns}
+devolve apontador para novo objecto \hyperlink{class_informacao}{Informacao} 
+\end{DoxyReturn}
+\hypertarget{class_informacao_acd78ce6161f6163077ab9e419b31fd39}{\index{Informacao@{Informacao}!escreve@{escreve}}
+\index{escreve@{escreve}!Informacao@{Informacao}}
+\subsubsection[{escreve}]{\setlength{\rightskip}{0pt plus 5cm}void Informacao\-::escreve (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+) const}}\label{class_informacao_acd78ce6161f6163077ab9e419b31fd39}
+Apresenta os dados da informacao 
+\begin{DoxyParams}{Parameters}
+{\em out} & objecto stream out \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_informacao_a72fbe20c40ef5b30e8e0037fee3b98fc}{\index{Informacao@{Informacao}!get\-Cod\-Informacao@{get\-Cod\-Informacao}}
+\index{get\-Cod\-Informacao@{get\-Cod\-Informacao}!Informacao@{Informacao}}
+\subsubsection[{get\-Cod\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}int Informacao\-::get\-Cod\-Informacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_informacao_a72fbe20c40ef5b30e8e0037fee3b98fc}
+retorna o codigo da informacao \begin{DoxyReturn}{Returns}
+devolve o codigo da informacao 
+\end{DoxyReturn}
+\hypertarget{class_informacao_a2526d46f7ab37e8b2824ed37b38ae2de}{\index{Informacao@{Informacao}!get\-Cod\-Tarefa@{get\-Cod\-Tarefa}}
+\index{get\-Cod\-Tarefa@{get\-Cod\-Tarefa}!Informacao@{Informacao}}
+\subsubsection[{get\-Cod\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}int Informacao\-::get\-Cod\-Tarefa (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_informacao_a2526d46f7ab37e8b2824ed37b38ae2de}
+Metodo para retornar codigo de tarefa \begin{DoxyReturn}{Returns}
+devolve o codigo de tarefa 
+\end{DoxyReturn}
+\hypertarget{class_informacao_af75de643cbf589201d89ca12a747c58a}{\index{Informacao@{Informacao}!get\-Cod\-Utilizador@{get\-Cod\-Utilizador}}
+\index{get\-Cod\-Utilizador@{get\-Cod\-Utilizador}!Informacao@{Informacao}}
+\subsubsection[{get\-Cod\-Utilizador}]{\setlength{\rightskip}{0pt plus 5cm}int Informacao\-::get\-Cod\-Utilizador (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_informacao_af75de643cbf589201d89ca12a747c58a}
+retorna o codigo de utilizador \begin{DoxyReturn}{Returns}
+devolve o codigo do utilizador de uma dada informacao 
+\end{DoxyReturn}
+\hypertarget{class_informacao_a235284db0031ae0e40b6ff33ac570d3a}{\index{Informacao@{Informacao}!get\-Data\-Insercao@{get\-Data\-Insercao}}
+\index{get\-Data\-Insercao@{get\-Data\-Insercao}!Informacao@{Informacao}}
+\subsubsection[{get\-Data\-Insercao}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} \& Informacao\-::get\-Data\-Insercao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_informacao_a235284db0031ae0e40b6ff33ac570d3a}
+Metodo para retornar a data de insercao \begin{DoxyReturn}{Returns}
+retorna a data de insercao 
+\end{DoxyReturn}
+\hypertarget{class_informacao_a7bc8378f81491e470219a163a801b912}{\index{Informacao@{Informacao}!get\-Descricao@{get\-Descricao}}
+\index{get\-Descricao@{get\-Descricao}!Informacao@{Informacao}}
+\subsubsection[{get\-Descricao}]{\setlength{\rightskip}{0pt plus 5cm}string Informacao\-::get\-Descricao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_informacao_a7bc8378f81491e470219a163a801b912}
+Metodo para retornar a descricao da informacao. \begin{DoxyReturn}{Returns}
+retorna a descricao da informacao 
+\end{DoxyReturn}
+\hypertarget{class_informacao_a4823ef0549bec71d547ff4d896054a20}{\index{Informacao@{Informacao}!set\-Cod\-Informacao@{set\-Cod\-Informacao}}
+\index{set\-Cod\-Informacao@{set\-Cod\-Informacao}!Informacao@{Informacao}}
+\subsubsection[{set\-Cod\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}void Informacao\-::set\-Cod\-Informacao (
+\begin{DoxyParamCaption}
+\item[{const int}]{cod}
+\end{DoxyParamCaption}
+)}}\label{class_informacao_a4823ef0549bec71d547ff4d896054a20}
+Metodo de atribuicao do codigo da informacao 
+\begin{DoxyParams}{Parameters}
+{\em cod} & codigo da informacao \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_informacao_ae85d359e922a4515970a6193592c0e59}{\index{Informacao@{Informacao}!set\-Cod\-Tarefa@{set\-Cod\-Tarefa}}
+\index{set\-Cod\-Tarefa@{set\-Cod\-Tarefa}!Informacao@{Informacao}}
+\subsubsection[{set\-Cod\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}void Informacao\-::set\-Cod\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{const int}]{cod}
+\end{DoxyParamCaption}
+)}}\label{class_informacao_ae85d359e922a4515970a6193592c0e59}
+Metodo de atribuicao codigo de tarefa 
+\begin{DoxyParams}{Parameters}
+{\em cod} & codigo da tarefa \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_informacao_aa5dc462c6329b0382d2663fa2feb60fe}{\index{Informacao@{Informacao}!set\-Cod\-Utilizador@{set\-Cod\-Utilizador}}
+\index{set\-Cod\-Utilizador@{set\-Cod\-Utilizador}!Informacao@{Informacao}}
+\subsubsection[{set\-Cod\-Utilizador}]{\setlength{\rightskip}{0pt plus 5cm}void Informacao\-::set\-Cod\-Utilizador (
+\begin{DoxyParamCaption}
+\item[{const int}]{cod}
+\end{DoxyParamCaption}
+)}}\label{class_informacao_aa5dc462c6329b0382d2663fa2feb60fe}
+Metodo de atribuicao de um codigo de utilizador a informacao 
+\begin{DoxyParams}{Parameters}
+{\em cod} & codigo de utilizador \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_informacao_a2045093bc46e876d4e8892bff0a1c73b}{\index{Informacao@{Informacao}!set\-Data\-Insercao@{set\-Data\-Insercao}}
+\index{set\-Data\-Insercao@{set\-Data\-Insercao}!Informacao@{Informacao}}
+\subsubsection[{set\-Data\-Insercao}]{\setlength{\rightskip}{0pt plus 5cm}void Informacao\-::set\-Data\-Insercao (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data} \&}]{data}
+\end{DoxyParamCaption}
+)}}\label{class_informacao_a2045093bc46e876d4e8892bff0a1c73b}
+Metodo para alterar data de insercao 
+\begin{DoxyParams}{Parameters}
+{\em data} & data de insercao da informacao \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_informacao_a4aa5326c258c9876fb2f22eaa21baad4}{\index{Informacao@{Informacao}!set\-Descricao@{set\-Descricao}}
+\index{set\-Descricao@{set\-Descricao}!Informacao@{Informacao}}
+\subsubsection[{set\-Descricao}]{\setlength{\rightskip}{0pt plus 5cm}void Informacao\-::set\-Descricao (
+\begin{DoxyParamCaption}
+\item[{const string}]{desc}
+\end{DoxyParamCaption}
+)}}\label{class_informacao_a4aa5326c258c9876fb2f22eaa21baad4}
+Metodo de atribuicao de uma descricao a informacao 
+\begin{DoxyParams}{Parameters}
+{\em desc} & descricao da informacao \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_informacao_8h}{Informacao.\-h}\end{DoxyCompactItemize}

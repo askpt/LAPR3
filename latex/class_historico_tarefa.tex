@@ -1,0 +1,637 @@
+\hypertarget{class_historico_tarefa}{\section{Historico\-Tarefa Class Reference}
+\label{class_historico_tarefa}\index{Historico\-Tarefa@{Historico\-Tarefa}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_historico_tarefa_a1786e5b2678cdc9910c2b6a7f3e74330}{Historico\-Tarefa} (int codhistorico, int codtarefa, int codprojecto, int codestado, int nivelimportancia, \hyperlink{class_data}{Data} datacriacao, \hyperlink{class_data}{Data} datafim, string informacao, \hyperlink{class_data}{Data} dataestimada, int duracao, string tipo, string titulo, int dependente, int codutilizador, int ncontexto, int delegado, \hyperlink{class_data}{Data} datainsercao, int codtipo, string info)
+\item 
+\hyperlink{class_historico_tarefa_a52e29da81a693f83efaed78f9b0f1fb9}{Historico\-Tarefa} ()
+\item 
+\hyperlink{class_historico_tarefa_a071695f253833308b60d41e199e5dd61}{Historico\-Tarefa} (const \hyperlink{class_historico_tarefa}{Historico\-Tarefa} \&ht)
+\item 
+\hyperlink{class_historico_tarefa_a729b34daa45811d311a430427df8f326}{$\sim$\-Historico\-Tarefa} ()
+\item 
+int \hyperlink{class_historico_tarefa_ad3ceece1848a4dd29c1164fa3f08822c}{get\-Cod\-Historico} () const 
+\item 
+int \hyperlink{class_historico_tarefa_a6cd3c0353c8759cc439a8aa05afa3da6}{get\-Cod\-Tarefa} () const 
+\item 
+int \hyperlink{class_historico_tarefa_a9ea71bd580500e92bc381cdb537b22ff}{get\-Cod\-Projecto} () const 
+\item 
+int \hyperlink{class_historico_tarefa_ab46a060a3125e8ef02cf3260f689f90a}{get\-Cod\-Estado} () const 
+\item 
+int \hyperlink{class_historico_tarefa_a994cc7e2e6cb57cfa60fedb652339feb}{get\-Cod\-Utilizador} () const 
+\item 
+int \hyperlink{class_historico_tarefa_ab5ca8e12fd7f685733c5b8498fae02e4}{get\-Nivel\-Importancia} () const 
+\item 
+int \hyperlink{class_historico_tarefa_aba55cd9499fb7f6f87cc127ac39da81f}{get\-Duracao} () const 
+\item 
+int \hyperlink{class_historico_tarefa_a49eea9268424a2daf58223d25d3246c6}{get\-Dependente} () const 
+\item 
+int \hyperlink{class_historico_tarefa_a8a9aee3ca5861fec3676813b19dd28dc}{get\-N\-Contexto} () const 
+\item 
+int \hyperlink{class_historico_tarefa_a5317cac1c72ca73fcffdc38d750796e9}{get\-Delegado} () const 
+\item 
+int \hyperlink{class_historico_tarefa_a8907de68c20d1e0c530d910bc583379c}{get\-Cod\-Tipo} () const 
+\item 
+\hyperlink{class_data}{Data} \hyperlink{class_historico_tarefa_a5bd25abc6a99d812c2afdd503f1544a7}{get\-Data\-Inicio} ()
+\item 
+\hyperlink{class_data}{Data} \hyperlink{class_historico_tarefa_a916b0f460f014896a76607c7de367fc0}{get\-Data\-Fim} ()
+\item 
+\hyperlink{class_data}{Data} \hyperlink{class_historico_tarefa_abbf04fa2f96a4bae5de4b048dae315f8}{get\-Data\-Estimada} ()
+\item 
+\hyperlink{class_data}{Data} \hyperlink{class_historico_tarefa_a0d7cce52338508dc57fc163c780069f7}{get\-Data\-Insercao} ()
+\item 
+string \hyperlink{class_historico_tarefa_a52d86f160f3933af4f471630b91ee9f3}{get\-Informacao} () const 
+\item 
+string \hyperlink{class_historico_tarefa_a4bd081780056cc1eefb9afe68f6fc6ca}{get\-Info} () const 
+\item 
+string \hyperlink{class_historico_tarefa_a4d7f3fe2dbce7a1ea9bef7d811774217}{get\-Tipo} () const 
+\item 
+string \hyperlink{class_historico_tarefa_a7fa67730997a0e48fee327655ae0f43b}{get\-Titulo} () const 
+\item 
+void \hyperlink{class_historico_tarefa_a7099976e3b5d85d16369074eb9e557e9}{set\-Cod\-Historico} (const int codhistorico)
+\item 
+void \hyperlink{class_historico_tarefa_a84c7cd785784c9f9c83bd958a8f867ce}{set\-Cod\-Tarefa} (const int codtarefa)
+\item 
+void \hyperlink{class_historico_tarefa_a5c9b1577d9c0197e55f8c4b9db45e7e4}{set\-Cod\-Projecto} (const int codprojecto)
+\item 
+void \hyperlink{class_historico_tarefa_a2f9021aa2d8f1cfdcb60a45cf0a0b189}{set\-Cod\-Estado} (const int codestado)
+\item 
+void \hyperlink{class_historico_tarefa_a65fa596d7d122a8863cad03c7615d809}{set\-Cod\-Utilizador} (const int codutilizador)
+\item 
+void \hyperlink{class_historico_tarefa_a99499724e6263b5f8a3fb62e48adc754}{set\-Nivel\-Importancia} (const int nivelimportancia)
+\item 
+void \hyperlink{class_historico_tarefa_a9a7f4c965ef883e0938a8eb101dfda26}{set\-Duracao} (const int duracao)
+\item 
+void \hyperlink{class_historico_tarefa_a3a0fdc06b0e1bbd0c655e9a78e16260d}{set\-Dependente} (const int dependente)
+\item 
+void \hyperlink{class_historico_tarefa_af1310d62721d912db5781e33dc89a861}{set\-N\-Contexto} (const int ncontexto)
+\item 
+void \hyperlink{class_historico_tarefa_aae06155496505e0fbeadfed97e1f5966}{set\-Delegado} (const int delegado)
+\item 
+void \hyperlink{class_historico_tarefa_aca5a49945d01895dadc9bf5c36632453}{set\-Cod\-Tipo} (const int codtipo)
+\item 
+void \hyperlink{class_historico_tarefa_a9617a052b64c39d897bcca61cebd3b9d}{set\-Data\-Inicio} (const \hyperlink{class_data}{Data} data\-Inicio)
+\item 
+void \hyperlink{class_historico_tarefa_a3bbd9519565aafa08fcd9d908a692255}{set\-Data\-Fim} (const \hyperlink{class_data}{Data} datafim)
+\item 
+void \hyperlink{class_historico_tarefa_a2bc853efd0d75e60710e06707854134a}{set\-Data\-Estimada} (const \hyperlink{class_data}{Data} dataestimada)
+\item 
+void \hyperlink{class_historico_tarefa_a4629140940bfe7726c401d0a3cf41438}{set\-Data\-Insercao} (const \hyperlink{class_data}{Data} datainsercao)
+\item 
+void \hyperlink{class_historico_tarefa_a3768d68573b0375344de057cded7f50f}{set\-Informacao} (const string informacao)
+\item 
+void \hyperlink{class_historico_tarefa_abe5340fc9424ec2640645ce2063c7f1c}{set\-Info} (const string info)
+\item 
+void \hyperlink{class_historico_tarefa_a61240ab0ed7f31f2227ae2491f192cb7}{set\-Tipo} (const string tipo)
+\item 
+void \hyperlink{class_historico_tarefa_a55e39246c7817f1b8a6b06947be62438}{set\-Titulo} (const string titulo)
+\item 
+virtual \hyperlink{class_historico_tarefa}{Historico\-Tarefa} $\ast$ \hyperlink{class_historico_tarefa_aecc6f0f56ed88be90d997a435de93e2a}{clone} () const 
+\item 
+void \hyperlink{class_historico_tarefa_a69c0bf1b3a60ed3fdc787afc27bdd949}{escreve} (ostream \&out) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_historico_tarefa_a1786e5b2678cdc9910c2b6a7f3e74330}{\index{Historico\-Tarefa@{Historico\-Tarefa}!Historico\-Tarefa@{Historico\-Tarefa}}
+\index{Historico\-Tarefa@{Historico\-Tarefa}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{Historico\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}Historico\-Tarefa\-::\-Historico\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{int}]{codhistorico, }
+\item[{int}]{codtarefa, }
+\item[{int}]{codprojecto, }
+\item[{int}]{codestado, }
+\item[{int}]{nivelimportancia, }
+\item[{{\bf Data}}]{datacriacao, }
+\item[{{\bf Data}}]{datafim, }
+\item[{string}]{informacao, }
+\item[{{\bf Data}}]{dataestimada, }
+\item[{int}]{duracao, }
+\item[{string}]{tipo, }
+\item[{string}]{titulo, }
+\item[{int}]{dependente, }
+\item[{int}]{codutilizador, }
+\item[{int}]{ncontexto, }
+\item[{int}]{delegado, }
+\item[{{\bf Data}}]{datainsercao, }
+\item[{int}]{codtipo, }
+\item[{string}]{info}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a1786e5b2678cdc9910c2b6a7f3e74330}
+$\ast$\-Construtor completo 
+\begin{DoxyParams}{Parameters}
+{\em codhistorico} & codigo de historico \\
+\hline
+{\em codtarefa} & codigo de tarefa \\
+\hline
+{\em codprojecto} & codigo de projecto \\
+\hline
+{\em codestado} & codigo de estado \\
+\hline
+{\em nivelimportancia} & nivel de importancia \\
+\hline
+{\em datacriacao} & data de criacao \\
+\hline
+{\em datafim} & data de conclusao \\
+\hline
+{\em informacao} & informacao \\
+\hline
+{\em dataestimada} & data estimada \\
+\hline
+{\em duracao} & duracao \\
+\hline
+{\em tipo} & tipo \\
+\hline
+{\em titulo} & titulo \\
+\hline
+{\em dependente} & dependente \\
+\hline
+{\em codutilizador} & codigo de utilizador \\
+\hline
+{\em ncontexto} & numero de contexto \\
+\hline
+{\em delegado} & delegado \\
+\hline
+{\em datainsercao} & data de insercao \\
+\hline
+{\em codtipo} & codigo do tipo \\
+\hline
+{\em info} & informacao \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a52e29da81a693f83efaed78f9b0f1fb9}{\index{Historico\-Tarefa@{Historico\-Tarefa}!Historico\-Tarefa@{Historico\-Tarefa}}
+\index{Historico\-Tarefa@{Historico\-Tarefa}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{Historico\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}Historico\-Tarefa\-::\-Historico\-Tarefa (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a52e29da81a693f83efaed78f9b0f1fb9}
+$\ast$\-Construtor vazio \hypertarget{class_historico_tarefa_a071695f253833308b60d41e199e5dd61}{\index{Historico\-Tarefa@{Historico\-Tarefa}!Historico\-Tarefa@{Historico\-Tarefa}}
+\index{Historico\-Tarefa@{Historico\-Tarefa}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{Historico\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}Historico\-Tarefa\-::\-Historico\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{const {\bf Historico\-Tarefa} \&}]{ht}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a071695f253833308b60d41e199e5dd61}
+$\ast$\-Construtor copia 
+\begin{DoxyParams}{Parameters}
+{\em objeto} & ht do tipo \hyperlink{class_historico_tarefa}{Historico\-Tarefa} a ser copiado \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a729b34daa45811d311a430427df8f326}{\index{Historico\-Tarefa@{Historico\-Tarefa}!$\sim$\-Historico\-Tarefa@{$\sim$\-Historico\-Tarefa}}
+\index{$\sim$\-Historico\-Tarefa@{$\sim$\-Historico\-Tarefa}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{$\sim$\-Historico\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}Historico\-Tarefa\-::$\sim$\-Historico\-Tarefa (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a729b34daa45811d311a430427df8f326}
+Destrutor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_historico_tarefa_aecc6f0f56ed88be90d997a435de93e2a}{\index{Historico\-Tarefa@{Historico\-Tarefa}!clone@{clone}}
+\index{clone@{clone}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Historico\-Tarefa} $\ast$ Historico\-Tarefa\-::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_historico_tarefa_aecc6f0f56ed88be90d997a435de93e2a}
+Clone \begin{DoxyReturn}{Returns}
+devolve um clone. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a69c0bf1b3a60ed3fdc787afc27bdd949}{\index{Historico\-Tarefa@{Historico\-Tarefa}!escreve@{escreve}}
+\index{escreve@{escreve}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{escreve}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::escreve (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_a69c0bf1b3a60ed3fdc787afc27bdd949}
+Apresenta os dados do historico informacao. 
+\begin{DoxyParams}{Parameters}
+{\em out} & objecto stream out. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_ab46a060a3125e8ef02cf3260f689f90a}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Cod\-Estado@{get\-Cod\-Estado}}
+\index{get\-Cod\-Estado@{get\-Cod\-Estado}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Cod\-Estado}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Tarefa\-::get\-Cod\-Estado (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_ab46a060a3125e8ef02cf3260f689f90a}
+Metodo para retornar o codigo de estado. \begin{DoxyReturn}{Returns}
+devolve o codigo de estado. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_ad3ceece1848a4dd29c1164fa3f08822c}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Cod\-Historico@{get\-Cod\-Historico}}
+\index{get\-Cod\-Historico@{get\-Cod\-Historico}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Cod\-Historico}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Tarefa\-::get\-Cod\-Historico (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_ad3ceece1848a4dd29c1164fa3f08822c}
+Metodo para retornar o codigo de historico. \begin{DoxyReturn}{Returns}
+devolve o codigo de historico. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a9ea71bd580500e92bc381cdb537b22ff}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Cod\-Projecto@{get\-Cod\-Projecto}}
+\index{get\-Cod\-Projecto@{get\-Cod\-Projecto}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Cod\-Projecto}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Tarefa\-::get\-Cod\-Projecto (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_a9ea71bd580500e92bc381cdb537b22ff}
+Metodo para retornar o codigo de projecto. \begin{DoxyReturn}{Returns}
+devolve o codigo de projecto. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a6cd3c0353c8759cc439a8aa05afa3da6}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Cod\-Tarefa@{get\-Cod\-Tarefa}}
+\index{get\-Cod\-Tarefa@{get\-Cod\-Tarefa}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Cod\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Tarefa\-::get\-Cod\-Tarefa (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_a6cd3c0353c8759cc439a8aa05afa3da6}
+Metodo para retornar o codigo de tarefa. \begin{DoxyReturn}{Returns}
+devolve o codigo de tarefa. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a8907de68c20d1e0c530d910bc583379c}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Cod\-Tipo@{get\-Cod\-Tipo}}
+\index{get\-Cod\-Tipo@{get\-Cod\-Tipo}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Cod\-Tipo}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Tarefa\-::get\-Cod\-Tipo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_a8907de68c20d1e0c530d910bc583379c}
+Metodo para retornar o codigo de tipo. \begin{DoxyReturn}{Returns}
+devolve o codigo de tipo. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a994cc7e2e6cb57cfa60fedb652339feb}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Cod\-Utilizador@{get\-Cod\-Utilizador}}
+\index{get\-Cod\-Utilizador@{get\-Cod\-Utilizador}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Cod\-Utilizador}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Tarefa\-::get\-Cod\-Utilizador (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_a994cc7e2e6cb57cfa60fedb652339feb}
+Metodo para retornar o codigo de utilizador. \begin{DoxyReturn}{Returns}
+devolve o codigo de utilizador. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_abbf04fa2f96a4bae5de4b048dae315f8}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Data\-Estimada@{get\-Data\-Estimada}}
+\index{get\-Data\-Estimada@{get\-Data\-Estimada}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Data\-Estimada}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} Historico\-Tarefa\-::get\-Data\-Estimada (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_abbf04fa2f96a4bae5de4b048dae315f8}
+Metodo para retornar a data estimada. \begin{DoxyReturn}{Returns}
+devolve a data estimada. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a916b0f460f014896a76607c7de367fc0}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Data\-Fim@{get\-Data\-Fim}}
+\index{get\-Data\-Fim@{get\-Data\-Fim}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Data\-Fim}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} Historico\-Tarefa\-::get\-Data\-Fim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a916b0f460f014896a76607c7de367fc0}
+Metodo para retornar a data de conclusao. \begin{DoxyReturn}{Returns}
+devolve a data de conclusao. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a5bd25abc6a99d812c2afdd503f1544a7}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Data\-Inicio@{get\-Data\-Inicio}}
+\index{get\-Data\-Inicio@{get\-Data\-Inicio}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Data\-Inicio}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} Historico\-Tarefa\-::get\-Data\-Inicio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a5bd25abc6a99d812c2afdd503f1544a7}
+Metodo para retornar a data de inicio. \begin{DoxyReturn}{Returns}
+devolve a data de inicio. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a0d7cce52338508dc57fc163c780069f7}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Data\-Insercao@{get\-Data\-Insercao}}
+\index{get\-Data\-Insercao@{get\-Data\-Insercao}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Data\-Insercao}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} Historico\-Tarefa\-::get\-Data\-Insercao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a0d7cce52338508dc57fc163c780069f7}
+Metodo para retornar a data de insercao. \begin{DoxyReturn}{Returns}
+devolve a data de insercao. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a5317cac1c72ca73fcffdc38d750796e9}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Delegado@{get\-Delegado}}
+\index{get\-Delegado@{get\-Delegado}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Delegado}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Tarefa\-::get\-Delegado (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_a5317cac1c72ca73fcffdc38d750796e9}
+Metodo para retornar o delegado. \begin{DoxyReturn}{Returns}
+devolve o delegado. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a49eea9268424a2daf58223d25d3246c6}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Dependente@{get\-Dependente}}
+\index{get\-Dependente@{get\-Dependente}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Dependente}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Tarefa\-::get\-Dependente (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_a49eea9268424a2daf58223d25d3246c6}
+Metodo para retornar a tarefa dependente. \begin{DoxyReturn}{Returns}
+devolve a tarefa dependente. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_aba55cd9499fb7f6f87cc127ac39da81f}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Duracao@{get\-Duracao}}
+\index{get\-Duracao@{get\-Duracao}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Duracao}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Tarefa\-::get\-Duracao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_aba55cd9499fb7f6f87cc127ac39da81f}
+Metodo para retornar a duracao. \begin{DoxyReturn}{Returns}
+devolve a duracao. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a4bd081780056cc1eefb9afe68f6fc6ca}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Info@{get\-Info}}
+\index{get\-Info@{get\-Info}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Info}]{\setlength{\rightskip}{0pt plus 5cm}string Historico\-Tarefa\-::get\-Info (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_a4bd081780056cc1eefb9afe68f6fc6ca}
+Metodo para retornar a informacao. \begin{DoxyReturn}{Returns}
+devolve a informacao. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a52d86f160f3933af4f471630b91ee9f3}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Informacao@{get\-Informacao}}
+\index{get\-Informacao@{get\-Informacao}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}string Historico\-Tarefa\-::get\-Informacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_a52d86f160f3933af4f471630b91ee9f3}
+Metodo para retornar a informacao. \begin{DoxyReturn}{Returns}
+devolve a informacao. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a8a9aee3ca5861fec3676813b19dd28dc}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-N\-Contexto@{get\-N\-Contexto}}
+\index{get\-N\-Contexto@{get\-N\-Contexto}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-N\-Contexto}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Tarefa\-::get\-N\-Contexto (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_a8a9aee3ca5861fec3676813b19dd28dc}
+Metodo para retornar o numero de contexto. \begin{DoxyReturn}{Returns}
+devolve o numero de contexto. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_ab5ca8e12fd7f685733c5b8498fae02e4}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Nivel\-Importancia@{get\-Nivel\-Importancia}}
+\index{get\-Nivel\-Importancia@{get\-Nivel\-Importancia}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Nivel\-Importancia}]{\setlength{\rightskip}{0pt plus 5cm}int Historico\-Tarefa\-::get\-Nivel\-Importancia (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_ab5ca8e12fd7f685733c5b8498fae02e4}
+Metodo para retornar o nivel de importancia. \begin{DoxyReturn}{Returns}
+devolve o nivel de importancia. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a4d7f3fe2dbce7a1ea9bef7d811774217}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Tipo@{get\-Tipo}}
+\index{get\-Tipo@{get\-Tipo}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Tipo}]{\setlength{\rightskip}{0pt plus 5cm}string Historico\-Tarefa\-::get\-Tipo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_a4d7f3fe2dbce7a1ea9bef7d811774217}
+Metodo para retornar o tipo. \begin{DoxyReturn}{Returns}
+devolve o tipo. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a7fa67730997a0e48fee327655ae0f43b}{\index{Historico\-Tarefa@{Historico\-Tarefa}!get\-Titulo@{get\-Titulo}}
+\index{get\-Titulo@{get\-Titulo}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{get\-Titulo}]{\setlength{\rightskip}{0pt plus 5cm}string Historico\-Tarefa\-::get\-Titulo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_historico_tarefa_a7fa67730997a0e48fee327655ae0f43b}
+Metodo para retornar o titulo. \begin{DoxyReturn}{Returns}
+devolve o titulo. 
+\end{DoxyReturn}
+\hypertarget{class_historico_tarefa_a2f9021aa2d8f1cfdcb60a45cf0a0b189}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Cod\-Estado@{set\-Cod\-Estado}}
+\index{set\-Cod\-Estado@{set\-Cod\-Estado}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Cod\-Estado}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Cod\-Estado (
+\begin{DoxyParamCaption}
+\item[{const int}]{codestado}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a2f9021aa2d8f1cfdcb60a45cf0a0b189}
+Metodo de atribuicao do codigo de estado. 
+\begin{DoxyParams}{Parameters}
+{\em codestado} & codigo de estado. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a7099976e3b5d85d16369074eb9e557e9}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Cod\-Historico@{set\-Cod\-Historico}}
+\index{set\-Cod\-Historico@{set\-Cod\-Historico}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Cod\-Historico}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Cod\-Historico (
+\begin{DoxyParamCaption}
+\item[{const int}]{codhistorico}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a7099976e3b5d85d16369074eb9e557e9}
+Metodo de atribuicao do codigo de historico. 
+\begin{DoxyParams}{Parameters}
+{\em codhistorico} & codigo de historico. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a5c9b1577d9c0197e55f8c4b9db45e7e4}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Cod\-Projecto@{set\-Cod\-Projecto}}
+\index{set\-Cod\-Projecto@{set\-Cod\-Projecto}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Cod\-Projecto}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Cod\-Projecto (
+\begin{DoxyParamCaption}
+\item[{const int}]{codprojecto}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a5c9b1577d9c0197e55f8c4b9db45e7e4}
+Metodo de atribuicao do codigo de projecto. 
+\begin{DoxyParams}{Parameters}
+{\em codprojecto} & codigo de projecto. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a84c7cd785784c9f9c83bd958a8f867ce}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Cod\-Tarefa@{set\-Cod\-Tarefa}}
+\index{set\-Cod\-Tarefa@{set\-Cod\-Tarefa}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Cod\-Tarefa}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Cod\-Tarefa (
+\begin{DoxyParamCaption}
+\item[{const int}]{codtarefa}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a84c7cd785784c9f9c83bd958a8f867ce}
+Metodo de atribuicao do codigo de tarefa. 
+\begin{DoxyParams}{Parameters}
+{\em codtarefa} & codigo de tarefa. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_aca5a49945d01895dadc9bf5c36632453}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Cod\-Tipo@{set\-Cod\-Tipo}}
+\index{set\-Cod\-Tipo@{set\-Cod\-Tipo}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Cod\-Tipo}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Cod\-Tipo (
+\begin{DoxyParamCaption}
+\item[{const int}]{codtipo}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_aca5a49945d01895dadc9bf5c36632453}
+Metodo de atribuicao do codigo de tipo. 
+\begin{DoxyParams}{Parameters}
+{\em codtipo} & codigo de tipo. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a65fa596d7d122a8863cad03c7615d809}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Cod\-Utilizador@{set\-Cod\-Utilizador}}
+\index{set\-Cod\-Utilizador@{set\-Cod\-Utilizador}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Cod\-Utilizador}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Cod\-Utilizador (
+\begin{DoxyParamCaption}
+\item[{const int}]{codutilizador}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a65fa596d7d122a8863cad03c7615d809}
+Metodo de atribuicao do codigo de utilizador. 
+\begin{DoxyParams}{Parameters}
+{\em codutilizador} & codigo de utilizador. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a2bc853efd0d75e60710e06707854134a}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Data\-Estimada@{set\-Data\-Estimada}}
+\index{set\-Data\-Estimada@{set\-Data\-Estimada}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Data\-Estimada}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Data\-Estimada (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data}}]{dataestimada}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a2bc853efd0d75e60710e06707854134a}
+Metodo de atribuicao da data estimada. 
+\begin{DoxyParams}{Parameters}
+{\em dataestimada} & data estimada. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a3bbd9519565aafa08fcd9d908a692255}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Data\-Fim@{set\-Data\-Fim}}
+\index{set\-Data\-Fim@{set\-Data\-Fim}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Data\-Fim}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Data\-Fim (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data}}]{datafim}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a3bbd9519565aafa08fcd9d908a692255}
+Metodo de atribuicao da data de conclusao. 
+\begin{DoxyParams}{Parameters}
+{\em datafim} & data de conclusao. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a9617a052b64c39d897bcca61cebd3b9d}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Data\-Inicio@{set\-Data\-Inicio}}
+\index{set\-Data\-Inicio@{set\-Data\-Inicio}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Data\-Inicio}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Data\-Inicio (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data}}]{data\-Inicio}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a9617a052b64c39d897bcca61cebd3b9d}
+Metodo de atribuicao da data de inicio. 
+\begin{DoxyParams}{Parameters}
+{\em data\-Inicio} & data de inicio. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a4629140940bfe7726c401d0a3cf41438}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Data\-Insercao@{set\-Data\-Insercao}}
+\index{set\-Data\-Insercao@{set\-Data\-Insercao}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Data\-Insercao}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Data\-Insercao (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data}}]{datainsercao}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a4629140940bfe7726c401d0a3cf41438}
+Metodo de atribuicao da data de insercao. 
+\begin{DoxyParams}{Parameters}
+{\em datainsercao} & data de insercao. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_aae06155496505e0fbeadfed97e1f5966}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Delegado@{set\-Delegado}}
+\index{set\-Delegado@{set\-Delegado}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Delegado}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Delegado (
+\begin{DoxyParamCaption}
+\item[{const int}]{delegado}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_aae06155496505e0fbeadfed97e1f5966}
+Metodo de atribuicao do delegado. 
+\begin{DoxyParams}{Parameters}
+{\em delegado} & delegado. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a3a0fdc06b0e1bbd0c655e9a78e16260d}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Dependente@{set\-Dependente}}
+\index{set\-Dependente@{set\-Dependente}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Dependente}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Dependente (
+\begin{DoxyParamCaption}
+\item[{const int}]{dependente}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a3a0fdc06b0e1bbd0c655e9a78e16260d}
+Metodo de atribuicao da tarefa dependente. 
+\begin{DoxyParams}{Parameters}
+{\em dependente} & tarefa dependente. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a9a7f4c965ef883e0938a8eb101dfda26}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Duracao@{set\-Duracao}}
+\index{set\-Duracao@{set\-Duracao}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Duracao}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Duracao (
+\begin{DoxyParamCaption}
+\item[{const int}]{duracao}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a9a7f4c965ef883e0938a8eb101dfda26}
+Metodo de atribuicao da duracao. 
+\begin{DoxyParams}{Parameters}
+{\em duracao} & duracao. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_abe5340fc9424ec2640645ce2063c7f1c}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Info@{set\-Info}}
+\index{set\-Info@{set\-Info}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Info}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Info (
+\begin{DoxyParamCaption}
+\item[{const string}]{info}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_abe5340fc9424ec2640645ce2063c7f1c}
+Metodo de atribuicao da info. 
+\begin{DoxyParams}{Parameters}
+{\em codinformacao} & codigo de informacao. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a3768d68573b0375344de057cded7f50f}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Informacao@{set\-Informacao}}
+\index{set\-Informacao@{set\-Informacao}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Informacao (
+\begin{DoxyParamCaption}
+\item[{const string}]{informacao}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a3768d68573b0375344de057cded7f50f}
+Metodo de atribuicao da informacao. 
+\begin{DoxyParams}{Parameters}
+{\em informacao} & informacao. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_af1310d62721d912db5781e33dc89a861}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-N\-Contexto@{set\-N\-Contexto}}
+\index{set\-N\-Contexto@{set\-N\-Contexto}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-N\-Contexto}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-N\-Contexto (
+\begin{DoxyParamCaption}
+\item[{const int}]{ncontexto}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_af1310d62721d912db5781e33dc89a861}
+Metodo de atribuicao do numero de contexto. 
+\begin{DoxyParams}{Parameters}
+{\em ncontexto} & numero de contexto. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a99499724e6263b5f8a3fb62e48adc754}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Nivel\-Importancia@{set\-Nivel\-Importancia}}
+\index{set\-Nivel\-Importancia@{set\-Nivel\-Importancia}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Nivel\-Importancia}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Nivel\-Importancia (
+\begin{DoxyParamCaption}
+\item[{const int}]{nivelimportancia}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a99499724e6263b5f8a3fb62e48adc754}
+Metodo de atribuicao do nivel de importancia. 
+\begin{DoxyParams}{Parameters}
+{\em nivelimportancia} & nivel de importancia. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a61240ab0ed7f31f2227ae2491f192cb7}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Tipo@{set\-Tipo}}
+\index{set\-Tipo@{set\-Tipo}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Tipo}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Tipo (
+\begin{DoxyParamCaption}
+\item[{const string}]{tipo}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a61240ab0ed7f31f2227ae2491f192cb7}
+Metodo de atribuicao do tipo. 
+\begin{DoxyParams}{Parameters}
+{\em tipo} & tipo. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_historico_tarefa_a55e39246c7817f1b8a6b06947be62438}{\index{Historico\-Tarefa@{Historico\-Tarefa}!set\-Titulo@{set\-Titulo}}
+\index{set\-Titulo@{set\-Titulo}!HistoricoTarefa@{Historico\-Tarefa}}
+\subsubsection[{set\-Titulo}]{\setlength{\rightskip}{0pt plus 5cm}void Historico\-Tarefa\-::set\-Titulo (
+\begin{DoxyParamCaption}
+\item[{const string}]{titulo}
+\end{DoxyParamCaption}
+)}}\label{class_historico_tarefa_a55e39246c7817f1b8a6b06947be62438}
+Metodo de atribuicao do titulo. 
+\begin{DoxyParams}{Parameters}
+{\em titulo} & titulo. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_historico_tarefa_8h}{Historico\-Tarefa.\-h}\end{DoxyCompactItemize}

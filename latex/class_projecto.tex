@@ -1,0 +1,295 @@
+\hypertarget{class_projecto}{\section{Projecto Class Reference}
+\label{class_projecto}\index{Projecto@{Projecto}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_projecto_acd3fb7ded07dde2a33c2f536747b84fd}{Projecto} ()
+\item 
+\hyperlink{class_projecto_a32713d07acc126313a94451ba6cf8f8a}{Projecto} (int codprojecto, int codestado, int codutilizador, int nivelimportancia, \hyperlink{class_data}{Data} datacriacao, \hyperlink{class_data}{Data} datafim, string informacao, string nome)
+\item 
+\hyperlink{class_projecto_ac5c791a42ac9a2698e6a60c9893e9e82}{Projecto} (const \hyperlink{class_projecto}{Projecto} \&p)
+\item 
+int \hyperlink{class_projecto_a2cebbbd7c3da1d91442ec123bd21fcc8}{get\-Cod\-Projecto} () const 
+\item 
+int \hyperlink{class_projecto_a257ceba804401bd5ba11656bd3eb5056}{get\-Cod\-Estado} () const 
+\item 
+int \hyperlink{class_projecto_a46639e3eef60632ad755e813341ade3d}{get\-Cod\-Utilizador} () const 
+\item 
+int \hyperlink{class_projecto_abc7ad8692546240e8af222bd799b025b}{get\-Nivel\-Importancia} () const 
+\item 
+string \hyperlink{class_projecto_aa2311080a1ac32e5b0a9f405a5e1ce00}{get\-Informacao} () const 
+\item 
+string \hyperlink{class_projecto_ab550054e131eaa02c6886de83c3758a9}{get\-Nome} () const 
+\item 
+\hyperlink{class_data}{Data} \hyperlink{class_projecto_a622fa8ce7efce0043731d9ddbd4eaf77}{get\-Data\-Criacao} ()
+\item 
+\hyperlink{class_data}{Data} \hyperlink{class_projecto_a12fa61b110c99d70b993da661e9c1fb1}{get\-Data\-Fim} ()
+\item 
+\hyperlink{class_lista}{Lista}$<$ \hyperlink{class_tarefa}{Tarefa} $>$ \hyperlink{class_projecto_a4da8f6681c4741db0c9d4e04eb793516}{get\-Lista\-Tarefas} () const 
+\item 
+void \hyperlink{class_projecto_a6f5d0bcd5047e203aaf3a1bdd38f26ec}{set\-Informacao} (const string informacao)
+\item 
+void \hyperlink{class_projecto_abe3038d9b1faa7d8a687f666317fdc8a}{set\-Nivel\-Importancia} (const int nivel\-Importancia)
+\item 
+void \hyperlink{class_projecto_a5567cf58176b0b34d7346784f9607b97}{set\-Nome} (const string nome)
+\item 
+void \hyperlink{class_projecto_af6d630189707f68f88ad69f241e8c39c}{set\-Cod\-Utilizador} (const int cod\-Utilizador)
+\item 
+void \hyperlink{class_projecto_a4d25ff7102c97ab54712311b5edd5d9f}{set\-Data\-Criacao} (const \hyperlink{class_data}{Data} \&data\-Criacao)
+\item 
+void \hyperlink{class_projecto_ab77f3936f25818402316c14a2d106589}{set\-Data\-Fim} (const \hyperlink{class_data}{Data} \&data\-Fim)
+\item 
+virtual \hyperlink{class_projecto}{Projecto} $\ast$ \hyperlink{class_projecto_ad024a33b84dd921c924769857deb5d5d}{clone} () const 
+\item 
+void \hyperlink{class_projecto_ab389e6154cf76c46ac8a0cad436cb928}{escreve} (ostream \&out) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_projecto_acd3fb7ded07dde2a33c2f536747b84fd}{\index{Projecto@{Projecto}!Projecto@{Projecto}}
+\index{Projecto@{Projecto}!Projecto@{Projecto}}
+\subsubsection[{Projecto}]{\setlength{\rightskip}{0pt plus 5cm}Projecto\-::\-Projecto (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_projecto_acd3fb7ded07dde2a33c2f536747b84fd}
+Construtor vazio. \hypertarget{class_projecto_a32713d07acc126313a94451ba6cf8f8a}{\index{Projecto@{Projecto}!Projecto@{Projecto}}
+\index{Projecto@{Projecto}!Projecto@{Projecto}}
+\subsubsection[{Projecto}]{\setlength{\rightskip}{0pt plus 5cm}Projecto\-::\-Projecto (
+\begin{DoxyParamCaption}
+\item[{int}]{codprojecto, }
+\item[{int}]{codestado, }
+\item[{int}]{codutilizador, }
+\item[{int}]{nivelimportancia, }
+\item[{{\bf Data}}]{datacriacao, }
+\item[{{\bf Data}}]{datafim, }
+\item[{string}]{info, }
+\item[{string}]{n}
+\end{DoxyParamCaption}
+)}}\label{class_projecto_a32713d07acc126313a94451ba6cf8f8a}
+Construtor completo 
+\begin{DoxyParams}{Parameters}
+{\em codprojecto} & codigo do projecto \\
+\hline
+{\em codestado} & codigo do estado \\
+\hline
+{\em codutilizador} & codigo do utilizador \\
+\hline
+{\em nivelimportancia} & nivel de importancia \\
+\hline
+{\em datacriacao} & data de criacao do projecto \\
+\hline
+{\em datafim} & data de fim do projecto \\
+\hline
+{\em info} & informacao sobre o projecto \\
+\hline
+{\em n} & nome do projecto \\
+\hline
+{\em listatarefa} & objecto lista do tipo \hyperlink{class_tarefa}{Tarefa} (contem as tarefas que fazem parte do projecto) \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_projecto_ac5c791a42ac9a2698e6a60c9893e9e82}{\index{Projecto@{Projecto}!Projecto@{Projecto}}
+\index{Projecto@{Projecto}!Projecto@{Projecto}}
+\subsubsection[{Projecto}]{\setlength{\rightskip}{0pt plus 5cm}Projecto\-::\-Projecto (
+\begin{DoxyParamCaption}
+\item[{const {\bf Projecto} \&}]{p}
+\end{DoxyParamCaption}
+)}}\label{class_projecto_ac5c791a42ac9a2698e6a60c9893e9e82}
+Construtor copia 
+\begin{DoxyParams}{Parameters}
+{\em p} & objecto \hyperlink{class_projecto}{Projecto} a ser copiado \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_projecto_ad024a33b84dd921c924769857deb5d5d}{\index{Projecto@{Projecto}!clone@{clone}}
+\index{clone@{clone}!Projecto@{Projecto}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Projecto} $\ast$ Projecto\-::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_projecto_ad024a33b84dd921c924769857deb5d5d}
+método clone de \hyperlink{class_projecto}{Projecto} \begin{DoxyReturn}{Returns}
+devolve apontador para objecto \hyperlink{class_projecto}{Projecto} 
+\end{DoxyReturn}
+\hypertarget{class_projecto_ab389e6154cf76c46ac8a0cad436cb928}{\index{Projecto@{Projecto}!escreve@{escreve}}
+\index{escreve@{escreve}!Projecto@{Projecto}}
+\subsubsection[{escreve}]{\setlength{\rightskip}{0pt plus 5cm}void Projecto\-::escreve (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+) const}}\label{class_projecto_ab389e6154cf76c46ac8a0cad436cb928}
+Apresenta os dados do projecto 
+\begin{DoxyParams}{Parameters}
+{\em out} & objecto de stream out \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_projecto_a257ceba804401bd5ba11656bd3eb5056}{\index{Projecto@{Projecto}!get\-Cod\-Estado@{get\-Cod\-Estado}}
+\index{get\-Cod\-Estado@{get\-Cod\-Estado}!Projecto@{Projecto}}
+\subsubsection[{get\-Cod\-Estado}]{\setlength{\rightskip}{0pt plus 5cm}int Projecto\-::get\-Cod\-Estado (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_projecto_a257ceba804401bd5ba11656bd3eb5056}
+Metodo para retornar o codigo do estado \begin{DoxyReturn}{Returns}
+devolve codigo do estado do projecto 
+\end{DoxyReturn}
+\hypertarget{class_projecto_a2cebbbd7c3da1d91442ec123bd21fcc8}{\index{Projecto@{Projecto}!get\-Cod\-Projecto@{get\-Cod\-Projecto}}
+\index{get\-Cod\-Projecto@{get\-Cod\-Projecto}!Projecto@{Projecto}}
+\subsubsection[{get\-Cod\-Projecto}]{\setlength{\rightskip}{0pt plus 5cm}int Projecto\-::get\-Cod\-Projecto (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_projecto_a2cebbbd7c3da1d91442ec123bd21fcc8}
+Metodo para retornar o codigo do projecto \begin{DoxyReturn}{Returns}
+devolve codigo do projecto 
+\end{DoxyReturn}
+\hypertarget{class_projecto_a46639e3eef60632ad755e813341ade3d}{\index{Projecto@{Projecto}!get\-Cod\-Utilizador@{get\-Cod\-Utilizador}}
+\index{get\-Cod\-Utilizador@{get\-Cod\-Utilizador}!Projecto@{Projecto}}
+\subsubsection[{get\-Cod\-Utilizador}]{\setlength{\rightskip}{0pt plus 5cm}int Projecto\-::get\-Cod\-Utilizador (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_projecto_a46639e3eef60632ad755e813341ade3d}
+Metodo para retornar o codigo do utilizador \begin{DoxyReturn}{Returns}
+devolve o codigo do utilizador associado ao projecto 
+\end{DoxyReturn}
+\hypertarget{class_projecto_a622fa8ce7efce0043731d9ddbd4eaf77}{\index{Projecto@{Projecto}!get\-Data\-Criacao@{get\-Data\-Criacao}}
+\index{get\-Data\-Criacao@{get\-Data\-Criacao}!Projecto@{Projecto}}
+\subsubsection[{get\-Data\-Criacao}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} Projecto\-::get\-Data\-Criacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_projecto_a622fa8ce7efce0043731d9ddbd4eaf77}
+Metodo para retornar a data de criacao \begin{DoxyReturn}{Returns}
+devolve a data de criacao 
+\end{DoxyReturn}
+\hypertarget{class_projecto_a12fa61b110c99d70b993da661e9c1fb1}{\index{Projecto@{Projecto}!get\-Data\-Fim@{get\-Data\-Fim}}
+\index{get\-Data\-Fim@{get\-Data\-Fim}!Projecto@{Projecto}}
+\subsubsection[{get\-Data\-Fim}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} Projecto\-::get\-Data\-Fim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_projecto_a12fa61b110c99d70b993da661e9c1fb1}
+Metodo para retornar a data de fim \begin{DoxyReturn}{Returns}
+devolve data de fim do projecto 
+\end{DoxyReturn}
+\hypertarget{class_projecto_aa2311080a1ac32e5b0a9f405a5e1ce00}{\index{Projecto@{Projecto}!get\-Informacao@{get\-Informacao}}
+\index{get\-Informacao@{get\-Informacao}!Projecto@{Projecto}}
+\subsubsection[{get\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}string Projecto\-::get\-Informacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_projecto_aa2311080a1ac32e5b0a9f405a5e1ce00}
+Metodo para retornar a informacao \begin{DoxyReturn}{Returns}
+devolve informacao sobre o projecto 
+\end{DoxyReturn}
+\hypertarget{class_projecto_a4da8f6681c4741db0c9d4e04eb793516}{\index{Projecto@{Projecto}!get\-Lista\-Tarefas@{get\-Lista\-Tarefas}}
+\index{get\-Lista\-Tarefas@{get\-Lista\-Tarefas}!Projecto@{Projecto}}
+\subsubsection[{get\-Lista\-Tarefas}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Lista}$<$ {\bf Tarefa} $>$ Projecto\-::get\-Lista\-Tarefas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_projecto_a4da8f6681c4741db0c9d4e04eb793516}
+Metodo que retorna o endereco da lista de tarefas \begin{DoxyReturn}{Returns}
+devolve objecto lista com as tarefas associada ao projecto 
+\end{DoxyReturn}
+\hypertarget{class_projecto_abc7ad8692546240e8af222bd799b025b}{\index{Projecto@{Projecto}!get\-Nivel\-Importancia@{get\-Nivel\-Importancia}}
+\index{get\-Nivel\-Importancia@{get\-Nivel\-Importancia}!Projecto@{Projecto}}
+\subsubsection[{get\-Nivel\-Importancia}]{\setlength{\rightskip}{0pt plus 5cm}int Projecto\-::get\-Nivel\-Importancia (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_projecto_abc7ad8692546240e8af222bd799b025b}
+Metodo para retornar o nivel de importancia \begin{DoxyReturn}{Returns}
+devolve o nivel de importancia 
+\end{DoxyReturn}
+\hypertarget{class_projecto_ab550054e131eaa02c6886de83c3758a9}{\index{Projecto@{Projecto}!get\-Nome@{get\-Nome}}
+\index{get\-Nome@{get\-Nome}!Projecto@{Projecto}}
+\subsubsection[{get\-Nome}]{\setlength{\rightskip}{0pt plus 5cm}string Projecto\-::get\-Nome (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_projecto_ab550054e131eaa02c6886de83c3758a9}
+Metodo para retornar o nome \begin{DoxyReturn}{Returns}
+devolve o nome do projecto 
+\end{DoxyReturn}
+\hypertarget{class_projecto_af6d630189707f68f88ad69f241e8c39c}{\index{Projecto@{Projecto}!set\-Cod\-Utilizador@{set\-Cod\-Utilizador}}
+\index{set\-Cod\-Utilizador@{set\-Cod\-Utilizador}!Projecto@{Projecto}}
+\subsubsection[{set\-Cod\-Utilizador}]{\setlength{\rightskip}{0pt plus 5cm}void Projecto\-::set\-Cod\-Utilizador (
+\begin{DoxyParamCaption}
+\item[{const int}]{cod\-Utilizador}
+\end{DoxyParamCaption}
+)}}\label{class_projecto_af6d630189707f68f88ad69f241e8c39c}
+Metodo de atribuicao do codigo de utilizador 
+\begin{DoxyParams}{Parameters}
+{\em cod\-Utilizador} & codigo do utilizador \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_projecto_a4d25ff7102c97ab54712311b5edd5d9f}{\index{Projecto@{Projecto}!set\-Data\-Criacao@{set\-Data\-Criacao}}
+\index{set\-Data\-Criacao@{set\-Data\-Criacao}!Projecto@{Projecto}}
+\subsubsection[{set\-Data\-Criacao}]{\setlength{\rightskip}{0pt plus 5cm}void Projecto\-::set\-Data\-Criacao (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data} \&}]{data\-Criacao}
+\end{DoxyParamCaption}
+)}}\label{class_projecto_a4d25ff7102c97ab54712311b5edd5d9f}
+Metodo de atribuicao de data de criacao 
+\begin{DoxyParams}{Parameters}
+{\em data\-Criacao} & data de criacao do projecto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_projecto_ab77f3936f25818402316c14a2d106589}{\index{Projecto@{Projecto}!set\-Data\-Fim@{set\-Data\-Fim}}
+\index{set\-Data\-Fim@{set\-Data\-Fim}!Projecto@{Projecto}}
+\subsubsection[{set\-Data\-Fim}]{\setlength{\rightskip}{0pt plus 5cm}void Projecto\-::set\-Data\-Fim (
+\begin{DoxyParamCaption}
+\item[{const {\bf Data} \&}]{data\-Fim}
+\end{DoxyParamCaption}
+)}}\label{class_projecto_ab77f3936f25818402316c14a2d106589}
+Metodo de atribuicao de data fim 
+\begin{DoxyParams}{Parameters}
+{\em data\-Fim} & data de término do projecto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_projecto_a6f5d0bcd5047e203aaf3a1bdd38f26ec}{\index{Projecto@{Projecto}!set\-Informacao@{set\-Informacao}}
+\index{set\-Informacao@{set\-Informacao}!Projecto@{Projecto}}
+\subsubsection[{set\-Informacao}]{\setlength{\rightskip}{0pt plus 5cm}void Projecto\-::set\-Informacao (
+\begin{DoxyParamCaption}
+\item[{const string}]{informacao}
+\end{DoxyParamCaption}
+)}}\label{class_projecto_a6f5d0bcd5047e203aaf3a1bdd38f26ec}
+Metodo de atribuicao da informacao 
+\begin{DoxyParams}{Parameters}
+{\em informacao} & informacao sobre o projecto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_projecto_abe3038d9b1faa7d8a687f666317fdc8a}{\index{Projecto@{Projecto}!set\-Nivel\-Importancia@{set\-Nivel\-Importancia}}
+\index{set\-Nivel\-Importancia@{set\-Nivel\-Importancia}!Projecto@{Projecto}}
+\subsubsection[{set\-Nivel\-Importancia}]{\setlength{\rightskip}{0pt plus 5cm}void Projecto\-::set\-Nivel\-Importancia (
+\begin{DoxyParamCaption}
+\item[{const int}]{nivel\-Importancia}
+\end{DoxyParamCaption}
+)}}\label{class_projecto_abe3038d9b1faa7d8a687f666317fdc8a}
+Metodo de atribuicao do nivel de importancia 
+\begin{DoxyParams}{Parameters}
+{\em nivel\-Importancia} & nivel de importancia do projecto \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_projecto_a5567cf58176b0b34d7346784f9607b97}{\index{Projecto@{Projecto}!set\-Nome@{set\-Nome}}
+\index{set\-Nome@{set\-Nome}!Projecto@{Projecto}}
+\subsubsection[{set\-Nome}]{\setlength{\rightskip}{0pt plus 5cm}void Projecto\-::set\-Nome (
+\begin{DoxyParamCaption}
+\item[{const string}]{nome}
+\end{DoxyParamCaption}
+)}}\label{class_projecto_a5567cf58176b0b34d7346784f9607b97}
+Metodo de atribuicao do nome 
+\begin{DoxyParams}{Parameters}
+{\em nome} & nome do projecto \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_projecto_8h}{Projecto.\-h}\end{DoxyCompactItemize}
